@@ -1,5 +1,11 @@
-import React, { memo, ReactElement } from 'react';
-import { TDefaultRenderer, TNodeRendererProps } from './shared-types';
+import React, { ComponentType, memo, ReactElement } from 'react';
+import {
+  CustomRendererProps,
+  InternalRendererProps,
+  TDefaultRenderer,
+  TDefaultRendererProps,
+  TNodeRendererProps
+} from './shared-types';
 import { useSharedProps } from './context/SharedPropsProvider';
 import {
   TText,
@@ -54,18 +60,19 @@ const TNodeRenderer = memo(function MemoizedTNodeRenderer(
     TNodeChildrenRenderer,
     sharedProps
   };
-  const renderer =
+  const renderer = (
     tnode.type === 'block' || tnode.type === 'document'
       ? TDefaultBlockRenderer
       : tnode.type === 'text'
       ? TDefaultTextRenderer
       : tnode.type === 'phrasing'
       ? TDefaultPhrasingRenderer
-      : renderEmptyContent;
+      : renderEmptyContent
+  ) as TDefaultRenderer<TNode>;
 
-  const { assembledProps, Renderer } = useAssembledCommonProps(
+  const { assembledProps, Renderer } = useAssembledCommonProps<TNode>(
     tnodeProps,
-    renderer as any
+    renderer
   );
   switch (tnode.type) {
     case 'empty':
@@ -112,13 +119,20 @@ const TNodeRenderer = memo(function MemoizedTNodeRenderer(
       }
       break;
   }
-  const renderFn =
-    tnode.type === 'block' || tnode.type === 'document'
-      ? renderBlockContent
-      : renderTextualContent;
-  return Renderer === null
-    ? renderFn(assembledProps as any)
-    : React.createElement(Renderer as any, assembledProps);
+
+  if (Renderer !== null)
+    return React.createElement(
+      Renderer as ComponentType<
+        CustomRendererProps<TNode> | InternalRendererProps<TNode>
+      >,
+      assembledProps
+    );
+  if (tnode.type === 'block' || tnode.type === 'document') {
+    return renderBlockContent(assembledProps as TDefaultRendererProps<TBlock>);
+  }
+  return renderTextualContent(
+    assembledProps as TDefaultRendererProps<TPhrasing | TText>
+  );
 });
 
 export {
