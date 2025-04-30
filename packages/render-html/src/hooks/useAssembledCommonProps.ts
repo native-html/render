@@ -24,7 +24,7 @@ export default function useAssembledCommonProps<T extends TNode>(
     renderLength,
     TNodeChildrenRenderer
   }: TNodeSubRendererProps<T>,
-  TDefault: TDefaultRenderer<T> | null
+  TDefault: TDefaultRenderer<TNode> | null
 ): {
   Renderer: CustomRenderer<T> | InternalRenderer<T> | null;
   assembledProps: CustomRendererProps<T> &
@@ -33,7 +33,7 @@ export default function useAssembledCommonProps<T extends TNode>(
 } {
   const { Default, Custom } = useRendererConfig(tnode);
   const containerProps = useDefaultContainerProps();
-  const assembledProps: CustomRendererProps<T> & TDefaultRendererProps<T> = {
+  const assembledProps = {
     tnode,
     propsFromParent,
     sharedProps,
@@ -45,11 +45,12 @@ export default function useAssembledCommonProps<T extends TNode>(
     ) as any,
     type: tnode.type === 'text' || tnode.type === 'phrasing' ? 'text' : 'block',
     propsForChildren: tnode.tagName ? {} : propsFromParent,
-    InternalRenderer: Default || (TDefault as any),
     renderIndex,
     renderLength,
     ...containerProps
-  };
+  } as CustomRendererProps<T> &
+    TDefaultRendererProps<T> &
+    InternalRendererProps<T>;
   return {
     assembledProps,
     Renderer: Custom || Default || null

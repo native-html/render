@@ -42,19 +42,8 @@ const extraLongViewStyles: Record<ExtraNativeLongViewStyleKeys, 'block'> = {
   shadowRadius: 'block',
   tintColor: 'block',
   transformMatrix: 'block',
-  translateX: 'block',
-  translateY: 'block',
-  borderCurve: 'block',
-  gap: 'block',
-  inset: 'block',
-  insetBlock: 'block',
-  insetInline: 'block',
-  marginBlock: 'block',
-  marginInline: 'block',
-  paddingBlock: 'block',
-  paddingInline: 'block',
-  objectFit: 'block'
-};
+  translateX: 'block'
+} as never;
 
 const extraTextStyles: Record<keyof ExtraNativeTextStyle, 'text'> = {
   includeFontPadding: 'text',
