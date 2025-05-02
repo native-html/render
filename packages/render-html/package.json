@@ -89,7 +89,7 @@
   "dependencies": {
     "@jsamr/counter-style": "^2.0.2",
     "@jsamr/react-native-li": "^2.3.1",
-    "@native-html/transient-render-engine": "^11.2.3",
+    "@native-html/transient-render-engine": "workspace:*",
     "@types/ramda": "^0.27.66",
     "@types/urijs": "^1.19.25",
     "prop-types": "^15.8.1",

@@ -38,9 +38,9 @@ const RAW_RUNTIME_STATE =
   "enableTopLevelFallback": true,\
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "fallbackExclusionList": [\
-    ["@native-html/css-processor", ["workspace:packages/css-processor"]],\
+    ["@native-html/css-processor", ["virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#workspace:packages/css-processor", "workspace:packages/css-processor"]],\
     ["@native-html/render-html", ["workspace:packages/render-html"]],\
-    ["@native-html/transient-render-engine", ["virtual:36381c22eb5de01c3d981c8d960660c2b4277af6300e0899b737dedc516ae9724a99e7a443bbdef3fc64be8cb5f87dc16f98a23524464ba70d85dc38ab0ea121#workspace:packages/transient-render-engine", "workspace:packages/transient-render-engine"]],\
+    ["@native-html/transient-render-engine", ["virtual:36381c22eb5de01c3d981c8d960660c2b4277af6300e0899b737dedc516ae9724a99e7a443bbdef3fc64be8cb5f87dc16f98a23524464ba70d85dc38ab0ea121#workspace:packages/transient-render-engine", "virtual:e0f1c1ecae8c0a5ce98974dffa3f0e4a804a25c5290a9457289bf9f8a566c132c16dce23c3a89be991b817bd80444c95dad274c17b7a50bf4dcbf7279404fc60#workspace:packages/transient-render-engine", "workspace:packages/transient-render-engine"]],\
     ["core", ["workspace:."]],\
     ["performance-testing", ["workspace:packages/performance-testing"]],\
     ["release-config", ["workspace:packages/release-config"]]\
@@ -839,7 +839,7 @@ const RAW_RUNTIME_STATE =
     ],\
     [\
       "@native-html/css-processor",\
-      "virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#npm:1.11.0"\
+      "virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#workspace:packages/css-processor"\
     ],\
     [\
       "@native-html/render-html",\
@@ -13276,27 +13276,36 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@native-html/css-processor", [\
-      ["npm:1.11.0", {\
-        "packageLocation": "./.yarn/cache/@native-html-css-processor-npm-1.11.0-792d600071-2510cf5bc1.zip/node_modules/@native-html/css-processor/",\
+      ["virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#workspace:packages/css-processor", {\
+        "packageLocation": "./.yarn/__virtual__/@native-html-css-processor-virtual-98ef71086e/1/packages/css-processor/",\
         "packageDependencies": [\
-          ["@native-html/css-processor", "npm:1.11.0"]\
+          ["@native-html/css-processor", "virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#workspace:packages/css-processor"],\
+          ["@babel/cli", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#npm:7.25.9"],\
+          ["@babel/core", "npm:7.26.0"],\
+          ["@babel/plugin-transform-react-jsx", "virtual:7cc7fc7e39931b0f5fedec38525a1a6a4807e64c3f1e3487554c835cdbc9892968243d1b6627dc35ddeef8bcd428995494b624e95eb125fae3c03cfcc60a4d1c#npm:7.25.9"],\
+          ["@babel/preset-env", "virtual:7cc7fc7e39931b0f5fedec38525a1a6a4807e64c3f1e3487554c835cdbc9892968243d1b6627dc35ddeef8bcd428995494b624e95eb125fae3c03cfcc60a4d1c#npm:7.26.0"],\
+          ["@babel/preset-typescript", "virtual:7cc7fc7e39931b0f5fedec38525a1a6a4807e64c3f1e3487554c835cdbc9892968243d1b6627dc35ddeef8bcd428995494b624e95eb125fae3c03cfcc60a4d1c#npm:7.26.0"],\
+          ["@babel/runtime", "npm:7.26.0"],\
+          ["@react-native-community/bob", "npm:0.17.1"],\
+          ["@release-it/conventional-changelog", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#patch:@release-it/conventional-changelog@npm%3A2.0.0#patches/@release-it-conventional-changelog.patch::version=2.0.0&hash=a6918e&locator=core%40workspace%3A."],\
+          ["@types/jest", "npm:26.0.24"],\
+          ["@types/react", "npm:18.3.12"],\
+          ["@types/react-native", "npm:0.73.0"],\
+          ["babel-jest", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#npm:26.6.3"],\
+          ["css-to-react-native", "npm:3.2.0"],\
+          ["csstype", "npm:3.1.3"],\
+          ["eslint", "npm:7.32.0"],\
+          ["jest", "npm:26.6.3"],\
+          ["metro-react-native-babel-preset", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#npm:0.77.0"],\
+          ["param-case", "npm:3.0.4"],\
+          ["prettier", "npm:2.8.8"],\
+          ["react", "npm:18.3.1"],\
+          ["react-native", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#npm:0.76.1"],\
+          ["release-config", "workspace:packages/release-config"],\
+          ["release-it", "patch:release-it@npm%3A14.0.4#patches/release-it.patch::version=14.0.4&hash=993654&locator=core%40workspace%3A."],\
+          ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
         "linkType": "SOFT"\
-      }],\
-      ["virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#npm:1.11.0", {\
-        "packageLocation": "./.yarn/__virtual__/@native-html-css-processor-virtual-f9dabe30b9/0/cache/@native-html-css-processor-npm-1.11.0-792d600071-2510cf5bc1.zip/node_modules/@native-html/css-processor/",\
-        "packageDependencies": [\
-          ["@native-html/css-processor", "virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#npm:1.11.0"],\
-          ["@types/react", null],\
-          ["@types/react-native", null],\
-          ["css-to-react-native", "npm:3.0.0"],\
-          ["csstype", "npm:3.1.3"]\
-        ],\
-        "packagePeers": [\
-          "@types/react-native",\
-          "@types/react"\
-        ],\
-        "linkType": "HARD"\
       }],\
       ["workspace:packages/css-processor", {\
         "packageLocation": "./packages/css-processor/",\
@@ -13344,7 +13353,7 @@ const RAW_RUNTIME_STATE =
           ["@jsamr/counter-style", "npm:2.0.2"],\
           ["@jsamr/react-native-li", "virtual:e0f1c1ecae8c0a5ce98974dffa3f0e4a804a25c5290a9457289bf9f8a566c132c16dce23c3a89be991b817bd80444c95dad274c17b7a50bf4dcbf7279404fc60#npm:2.3.1"],\
           ["@microsoft/api-extractor", "npm:7.47.11"],\
-          ["@native-html/transient-render-engine", "virtual:e0f1c1ecae8c0a5ce98974dffa3f0e4a804a25c5290a9457289bf9f8a566c132c16dce23c3a89be991b817bd80444c95dad274c17b7a50bf4dcbf7279404fc60#npm:11.2.3"],\
+          ["@native-html/transient-render-engine", "virtual:e0f1c1ecae8c0a5ce98974dffa3f0e4a804a25c5290a9457289bf9f8a566c132c16dce23c3a89be991b817bd80444c95dad274c17b7a50bf4dcbf7279404fc60#workspace:packages/transient-render-engine"],\
           ["@release-it/conventional-changelog", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#patch:@release-it/conventional-changelog@npm%3A2.0.0#patches/@release-it-conventional-changelog.patch::version=2.0.0&hash=a6918e&locator=core%40workspace%3A."],\
           ["@testing-library/jest-native", "virtual:e0f1c1ecae8c0a5ce98974dffa3f0e4a804a25c5290a9457289bf9f8a566c132c16dce23c3a89be991b817bd80444c95dad274c17b7a50bf4dcbf7279404fc60#npm:4.0.13"],\
           ["@testing-library/react-hooks", "virtual:e0f1c1ecae8c0a5ce98974dffa3f0e4a804a25c5290a9457289bf9f8a566c132c16dce23c3a89be991b817bd80444c95dad274c17b7a50bf4dcbf7279404fc60#npm:7.0.2"],\
@@ -13377,13 +13386,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@native-html/transient-render-engine", [\
-      ["npm:11.2.3", {\
-        "packageLocation": "./.yarn/cache/@native-html-transient-render-engine-npm-11.2.3-0edb0a6f5c-b6dcaa2510.zip/node_modules/@native-html/transient-render-engine/",\
-        "packageDependencies": [\
-          ["@native-html/transient-render-engine", "npm:11.2.3"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
       ["virtual:36381c22eb5de01c3d981c8d960660c2b4277af6300e0899b737dedc516ae9724a99e7a443bbdef3fc64be8cb5f87dc16f98a23524464ba70d85dc38ab0ea121#workspace:packages/transient-render-engine", {\
         "packageLocation": "./.yarn/__virtual__/@native-html-transient-render-engine-virtual-bb97fc4855/1/packages/transient-render-engine/",\
         "packageDependencies": [\
@@ -13394,7 +13396,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/preset-env", "virtual:7cc7fc7e39931b0f5fedec38525a1a6a4807e64c3f1e3487554c835cdbc9892968243d1b6627dc35ddeef8bcd428995494b624e95eb125fae3c03cfcc60a4d1c#npm:7.26.0"],\
           ["@babel/preset-typescript", "virtual:7cc7fc7e39931b0f5fedec38525a1a6a4807e64c3f1e3487554c835cdbc9892968243d1b6627dc35ddeef8bcd428995494b624e95eb125fae3c03cfcc60a4d1c#npm:7.26.0"],\
           ["@babel/runtime", "npm:7.26.0"],\
-          ["@native-html/css-processor", "virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#npm:1.11.0"],\
+          ["@native-html/css-processor", "virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#workspace:packages/css-processor"],\
           ["@react-native-community/bob", "npm:0.17.1"],\
           ["@release-it/conventional-changelog", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#patch:@release-it/conventional-changelog@npm%3A2.0.0#patches/@release-it-conventional-changelog.patch::version=2.0.0&hash=a6918e&locator=core%40workspace%3A."],\
           ["@types/jest", "npm:26.0.24"],\
@@ -13424,26 +13426,45 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:e0f1c1ecae8c0a5ce98974dffa3f0e4a804a25c5290a9457289bf9f8a566c132c16dce23c3a89be991b817bd80444c95dad274c17b7a50bf4dcbf7279404fc60#npm:11.2.3", {\
-        "packageLocation": "./.yarn/__virtual__/@native-html-transient-render-engine-virtual-958c10a090/0/cache/@native-html-transient-render-engine-npm-11.2.3-0edb0a6f5c-b6dcaa2510.zip/node_modules/@native-html/transient-render-engine/",\
+      ["virtual:e0f1c1ecae8c0a5ce98974dffa3f0e4a804a25c5290a9457289bf9f8a566c132c16dce23c3a89be991b817bd80444c95dad274c17b7a50bf4dcbf7279404fc60#workspace:packages/transient-render-engine", {\
+        "packageLocation": "./.yarn/__virtual__/@native-html-transient-render-engine-virtual-cbf6334fba/1/packages/transient-render-engine/",\
         "packageDependencies": [\
-          ["@native-html/transient-render-engine", "virtual:e0f1c1ecae8c0a5ce98974dffa3f0e4a804a25c5290a9457289bf9f8a566c132c16dce23c3a89be991b817bd80444c95dad274c17b7a50bf4dcbf7279404fc60#npm:11.2.3"],\
-          ["@native-html/css-processor", "virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#npm:1.11.0"],\
+          ["@native-html/transient-render-engine", "virtual:e0f1c1ecae8c0a5ce98974dffa3f0e4a804a25c5290a9457289bf9f8a566c132c16dce23c3a89be991b817bd80444c95dad274c17b7a50bf4dcbf7279404fc60#workspace:packages/transient-render-engine"],\
+          ["@babel/cli", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#npm:7.25.9"],\
+          ["@babel/core", "npm:7.26.0"],\
+          ["@babel/plugin-transform-react-jsx", "virtual:7cc7fc7e39931b0f5fedec38525a1a6a4807e64c3f1e3487554c835cdbc9892968243d1b6627dc35ddeef8bcd428995494b624e95eb125fae3c03cfcc60a4d1c#npm:7.25.9"],\
+          ["@babel/preset-env", "virtual:7cc7fc7e39931b0f5fedec38525a1a6a4807e64c3f1e3487554c835cdbc9892968243d1b6627dc35ddeef8bcd428995494b624e95eb125fae3c03cfcc60a4d1c#npm:7.26.0"],\
+          ["@babel/preset-typescript", "virtual:7cc7fc7e39931b0f5fedec38525a1a6a4807e64c3f1e3487554c835cdbc9892968243d1b6627dc35ddeef8bcd428995494b624e95eb125fae3c03cfcc60a4d1c#npm:7.26.0"],\
+          ["@babel/runtime", "npm:7.26.0"],\
+          ["@native-html/css-processor", "virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#workspace:packages/css-processor"],\
+          ["@react-native-community/bob", "npm:0.17.1"],\
+          ["@release-it/conventional-changelog", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#patch:@release-it/conventional-changelog@npm%3A2.0.0#patches/@release-it-conventional-changelog.patch::version=2.0.0&hash=a6918e&locator=core%40workspace%3A."],\
+          ["@types/jest", "npm:26.0.24"],\
           ["@types/ramda", "npm:0.27.66"],\
           ["@types/react-native", null],\
+          ["babel-jest", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#npm:26.6.3"],\
           ["csstype", "npm:3.1.3"],\
-          ["domelementtype", "npm:2.2.0"],\
-          ["domhandler", "npm:4.2.2"],\
+          ["dom-serializer", "npm:1.4.1"],\
+          ["domelementtype", "npm:2.3.0"],\
+          ["domhandler", "npm:4.3.1"],\
           ["domutils", "npm:2.8.0"],\
+          ["eslint", "npm:7.32.0"],\
           ["htmlparser2", "npm:7.2.0"],\
+          ["jest", "npm:26.6.3"],\
+          ["metro-react-native-babel-preset", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#npm:0.77.0"],\
+          ["prettier", "npm:2.8.8"],\
           ["ramda", "npm:0.27.2"],\
-          ["react-native", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#npm:0.76.1"]\
+          ["react", "npm:18.3.1"],\
+          ["react-native", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#npm:0.76.1"],\
+          ["release-config", "workspace:packages/release-config"],\
+          ["release-it", "patch:release-it@npm%3A14.0.4#patches/release-it.patch::version=14.0.4&hash=993654&locator=core%40workspace%3A."],\
+          ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
         "packagePeers": [\
           "@types/react-native",\
           "react-native"\
         ],\
-        "linkType": "HARD"\
+        "linkType": "SOFT"\
       }],\
       ["workspace:packages/transient-render-engine", {\
         "packageLocation": "./packages/transient-render-engine/",\
@@ -13455,7 +13476,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/preset-env", "virtual:7cc7fc7e39931b0f5fedec38525a1a6a4807e64c3f1e3487554c835cdbc9892968243d1b6627dc35ddeef8bcd428995494b624e95eb125fae3c03cfcc60a4d1c#npm:7.26.0"],\
           ["@babel/preset-typescript", "virtual:7cc7fc7e39931b0f5fedec38525a1a6a4807e64c3f1e3487554c835cdbc9892968243d1b6627dc35ddeef8bcd428995494b624e95eb125fae3c03cfcc60a4d1c#npm:7.26.0"],\
           ["@babel/runtime", "npm:7.26.0"],\
-          ["@native-html/css-processor", "virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#npm:1.11.0"],\
+          ["@native-html/css-processor", "virtual:bb97fc4855d9b875b1c43feb0fb211ca78f1cd099c70cae9f96f5c4f741c8cff1396f0ba4a6a18f4a2b633207c3ec003a590694b8511c441a8325d47dc23365d#workspace:packages/css-processor"],\
           ["@react-native-community/bob", "npm:0.17.1"],\
           ["@release-it/conventional-changelog", "virtual:17fcf3e10ac8bd39c0d9fbfd6746294981268b395dfd85bce8d98da8da52c944c5f28eb8dfef7a699de6a22e8b6433c00645ce4ce7f24e391fb2903a4454c638#patch:@release-it/conventional-changelog@npm%3A2.0.0#patches/@release-it-conventional-changelog.patch::version=2.0.0&hash=a6918e&locator=core%40workspace%3A."],\
           ["@types/jest", "npm:26.0.24"],\

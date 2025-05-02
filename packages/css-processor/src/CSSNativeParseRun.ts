@@ -43,7 +43,7 @@ const extraLongViewStyles: Record<ExtraNativeLongViewStyleKeys, 'block'> = {
   tintColor: 'block',
   transformMatrix: 'block',
   translateX: 'block'
-} as never;
+};
 
 const extraTextStyles: Record<keyof ExtraNativeTextStyle, 'text'> = {
   includeFontPadding: 'text',
