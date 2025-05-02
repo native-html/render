@@ -4269,20 +4269,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@native-html/css-processor@npm:1.11.0, @native-html/css-processor@npm:^1.11.0":
-  version: 1.11.0
-  resolution: "@native-html/css-processor@npm:1.11.0"
-  dependencies:
-    css-to-react-native: "npm:^3.0.0"
-    csstype: "npm:^3.0.8"
-  peerDependencies:
-    "@types/react": "*"
-    "@types/react-native": "*"
-  checksum: 10/2510cf5bc175f064072b241fe7d112b979748c223c1dc902ab470d5d555803751c93792ebea42c484e309d6ad4f1600b577ce3e5879cf581e9273b55e9f10b52
-  languageName: node
-  linkType: hard
-
-"@native-html/css-processor@workspace:packages/css-processor":
+"@native-html/css-processor@workspace:*, @native-html/css-processor@workspace:packages/css-processor":
   version: 0.0.0-use.local
   resolution: "@native-html/css-processor@workspace:packages/css-processor"
   dependencies:
@@ -4328,7 +4315,7 @@ __metadata:
     "@jsamr/counter-style": "npm:^2.0.2"
     "@jsamr/react-native-li": "npm:^2.3.1"
     "@microsoft/api-extractor": "npm:^7.47.11"
-    "@native-html/transient-render-engine": "npm:^11.2.3"
+    "@native-html/transient-render-engine": "workspace:*"
     "@release-it/conventional-changelog": "npm:^2.0.1"
     "@testing-library/jest-native": "npm:^4.0.13"
     "@testing-library/react-hooks": "npm:^7.0.2"
@@ -4362,25 +4349,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@native-html/transient-render-engine@npm:^11.2.3":
-  version: 11.2.3
-  resolution: "@native-html/transient-render-engine@npm:11.2.3"
-  dependencies:
-    "@native-html/css-processor": "npm:1.11.0"
-    "@types/ramda": "npm:^0.27.44"
-    csstype: "npm:^3.0.9"
-    domelementtype: "npm:^2.2.0"
-    domhandler: "npm:^4.2.2"
-    domutils: "npm:^2.8.0"
-    htmlparser2: "npm:^7.1.2"
-    ramda: "npm:^0.27.2"
-  peerDependencies:
-    "@types/react-native": "*"
-    react-native: ^*
-  checksum: 10/b6dcaa2510938dd7f35f2a3fe21eb7d075984109bfb62df2f28b4d383cba34670b889381628e5be5169ffefed024b572164f93c8b85c7d63445fe5370e95b68d
-  languageName: node
-  linkType: hard
-
 "@native-html/transient-render-engine@workspace:*, @native-html/transient-render-engine@workspace:packages/transient-render-engine":
   version: 0.0.0-use.local
   resolution: "@native-html/transient-render-engine@workspace:packages/transient-render-engine"
@@ -4391,7 +4359,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.26.0"
     "@babel/preset-typescript": "npm:^7.26.0"
     "@babel/runtime": "npm:^7.26.0"
-    "@native-html/css-processor": "npm:^1.11.0"
+    "@native-html/css-processor": "workspace:*"
     "@react-native-community/bob": "npm:^0.17.1"
     "@release-it/conventional-changelog": "npm:^2.0.1"
     "@types/jest": "npm:^26.0.24"
@@ -5480,7 +5448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ramda@npm:^0.27.44, @types/ramda@npm:^0.27.66":
+"@types/ramda@npm:^0.27.66":
   version: 0.27.66
   resolution: "@types/ramda@npm:0.27.66"
   dependencies:
@@ -8565,7 +8533,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.0.8, csstype@npm:^3.0.9, csstype@npm:^3.1.3":
+"csstype@npm:^3.1.3":
   version: 3.1.3
   resolution: "csstype@npm:3.1.3"
   checksum: 10/f593cce41ff5ade23f44e77521e3a1bcc2c64107041e1bf6c3c32adc5187d0d60983292fda326154d20b01079e24931aa5b08e4467cc488b60bb1e7f6d478ade
@@ -11424,7 +11392,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"htmlparser2@npm:^7.1.2, htmlparser2@npm:^7.2.0":
+"htmlparser2@npm:^7.2.0":
   version: 7.2.0
   resolution: "htmlparser2@npm:7.2.0"
   dependencies:
