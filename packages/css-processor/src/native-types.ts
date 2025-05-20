@@ -45,18 +45,7 @@ export type ExtraNativeUntranslatedLongStyles = Pick<
   CSSLongNativeUntranslatableBlockPropKey
 >;
 
-type YetUnimplementedNativeTextStyleKeys =
-  | 'translateY'
-  | 'borderCurve'
-  | 'gap'
-  | 'inset'
-  | 'insetBlock'
-  | 'insetInline'
-  | 'marginBlock'
-  | 'marginInline'
-  | 'paddingBlock'
-  | 'paddingInline'
-  | 'objectFit';
+type UnimplementedNativeStyleKeys = 'translateX' | 'translateY' | 'borderCurve';
 
 /**
  * Extraneous React Native ViewStyle keys.
@@ -66,7 +55,7 @@ export type ExtraNativeLongViewStyleKeys = Exclude<
   | CSSLongNativeBlockPropKey
   | NativeDirectionalStyleKeys
   | ExtraNativeShortViewStyleKeys
-  | YetUnimplementedNativeTextStyleKeys
+  | UnimplementedNativeStyleKeys
 >;
 
 /**
