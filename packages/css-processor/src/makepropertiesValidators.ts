@@ -138,6 +138,46 @@ export default function makepropertiesValidators(config: CSSProcessorConfig) {
       model: nativeTranslatableBlockRetainModel,
       propertyName: 'flexFlow'
     }),
+    gap: new LongSizeCSSPropertyValidator({
+      config,
+      propertyName: 'gap',
+      model: nativeTranslatableBlockRetainModel
+    }),
+    inset: new LongSizeCSSPropertyValidator({
+      config,
+      propertyName: 'inset',
+      model: nativeTranslatableBlockRetainModel
+    }),
+    insetBlock: new LongSizeCSSPropertyValidator({
+      config,
+      propertyName: 'insetBlock',
+      model: nativeTranslatableBlockRetainModel
+    }),
+    insetInline: new LongSizeCSSPropertyValidator({
+      config,
+      propertyName: 'insetInline',
+      model: nativeTranslatableBlockRetainModel
+    }),
+    marginBlock: new LongSizeCSSPropertyValidator({
+      config,
+      propertyName: 'marginBlock',
+      model: nativeTranslatableBlockRetainModel
+    }),
+    marginInline: new LongSizeCSSPropertyValidator({
+      config,
+      propertyName: 'marginInline',
+      model: nativeTranslatableBlockRetainModel
+    }),
+    paddingBlock: new LongSizeCSSPropertyValidator({
+      config,
+      propertyName: 'paddingBlock',
+      model: nativeTranslatableBlockRetainModel
+    }),
+    paddingInline: new LongSizeCSSPropertyValidator({
+      config,
+      propertyName: 'paddingInline',
+      model: nativeTranslatableBlockRetainModel
+    }),
     font: new ShortFontCSSValidator({
       config,
       model: nativeTranslatableTextFlowModel,

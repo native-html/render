@@ -2,6 +2,7 @@ import { CSSParseRun } from './CSSParseRun';
 import { MixedStyleDeclaration } from './CSSProcessor';
 import { CSSPropertiesValidationRegistry } from './CSSPropertiesValidationRegistry';
 import { lookupRecord } from './helpers';
+import { ValidatorsType } from './makepropertiesValidators';
 import {
   ExtraNativeTextStyle,
   NativeDirectionalStyleKeys,
@@ -42,7 +43,15 @@ const extraLongViewStyles: Record<ExtraNativeLongViewStyleKeys, 'block'> = {
   shadowRadius: 'block',
   tintColor: 'block',
   transformMatrix: 'block',
-  translateX: 'block'
+  gap: 'block',
+  inset: 'block',
+  insetBlock: 'block',
+  insetInline: 'block',
+  marginBlock: 'block',
+  marginInline: 'block',
+  paddingBlock: 'block',
+  paddingInline: 'block',
+  objectFit: 'block'
 };
 
 const extraTextStyles: Record<keyof ExtraNativeTextStyle, 'text'> = {
@@ -72,16 +81,16 @@ export class CSSNativeParseRun extends CSSParseRun {
 
   private fillProp<K extends keyof MixedStyleDeclaration>(
     key: K,
-    value: any
+    value: MixedStyleDeclaration[K]
   ): void {
     const validator = this.validationMap.getValidatorForProperty(
-      String(key)
-    ) as any;
+      String(key) as keyof ValidatorsType
+    );
     if (validator && 'normalizeNativeValue' in validator) {
       const normalizedValue = validator.normalizeNativeValue(value);
       if (normalizedValue instanceof ShortMergeRequest) {
         normalizedValue.forEach(([innerKey, innerValue]) => {
-          this.fillProp(innerKey as any, innerValue);
+          this.fillProp(innerKey, innerValue);
         });
       } else {
         // assume longhand merge
@@ -112,10 +121,8 @@ export class CSSNativeParseRun extends CSSParseRun {
 
   protected fillProcessedProps(): void {
     const declaration = this.declaration;
-    for (const key of Object.keys(declaration) as Array<
-      keyof MixedStyleDeclaration
-    >) {
-      this.fillProp(key, this.declaration[key]);
+    for (const [key, value] of Object.entries(declaration)) {
+      this.fillProp(key as keyof MixedStyleDeclaration, value);
     }
   }
 }
