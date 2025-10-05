@@ -1,6 +1,0 @@
-{
-  "name": "@doc/constants",
-  "type": "commonjs",
-  "main": "index.js",
-  "types": "index.d.ts"
-}
