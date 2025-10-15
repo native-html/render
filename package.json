@@ -27,11 +27,11 @@
     "postinstall": "husky install"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/plugin-transform-react-jsx": "^7.13.12",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-typescript": "^7.13.0",
-    "@babel/runtime": "^7.14.0",
+    "@babel/core": "^7.25.0",
+    "@babel/plugin-transform-react-jsx": "^7.25.0",
+    "@babel/preset-env": "^7.25.0",
+    "@babel/preset-typescript": "^7.25.0",
+    "@babel/runtime": "^7.25.0",
     "@commitlint/cli": "^12.1.2",
     "@commitlint/config-conventional": "^12.1.2",
     "@react-native-community/eslint-config": "^2.0.0",

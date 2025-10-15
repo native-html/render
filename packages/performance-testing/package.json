@@ -11,7 +11,7 @@
     "microtime": "^3.1.1"
   },
   "devDependencies": {
-    "react": "18.2.0",
-    "react-native": "^0.74"
+    "react": "19.1.1",
+    "react-native": "^0.82.0"
   }
 }
