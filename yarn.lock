@@ -15685,14 +15685,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"microtime@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "microtime@npm:3.0.0"
+"microtime@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "microtime@npm:3.1.1"
   dependencies:
-    node-addon-api: "npm:^1.2.0"
+    node-addon-api: "npm:^5.0.0"
     node-gyp: "npm:latest"
-    node-gyp-build: "npm:^3.8.0"
-  checksum: 10/61c3217f51cea118c3b82d860717c7aaf5687fcc2b80389d5d4f5f694d2e2fbde5e11e979595d479e0cf9c36b2b69d459c734eda219abe769050d7269d5a206e
+    node-gyp-build: "npm:^4.4.0"
+  checksum: 10/62c29ac611a10e5ce9696c6f1167ba9f7b7955db166828fafccec16f3b8121b358a5066dec160ae7c54187c85ef75253df589e44454685f1aaff4d85cb3a4e53
   languageName: node
   linkType: hard
 
@@ -16110,12 +16110,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-addon-api@npm:^1.2.0":
-  version: 1.7.2
-  resolution: "node-addon-api@npm:1.7.2"
+"node-addon-api@npm:^5.0.0":
+  version: 5.1.0
+  resolution: "node-addon-api@npm:5.1.0"
   dependencies:
     node-gyp: "npm:latest"
-  checksum: 10/6bf8217a8cd8148f4bbfd319b46d33587e9fb2e63e3c856ded67a76715167f7a6b17e1d9b8bbf3b8508befeb6a4adb10d92b8998ed5c19ca8448343f4cea11d6
+  checksum: 10/595f59ffb4630564f587c502119cbd980d302e482781021f3b479f5fc7e41cf8f2f7280fdc2795f32d148e4f3259bd15043c52d4a3442796aa6f1ae97b959636
   languageName: node
   linkType: hard
 
@@ -16166,14 +16166,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp-build@npm:^3.8.0":
-  version: 3.9.0
-  resolution: "node-gyp-build@npm:3.9.0"
+"node-gyp-build@npm:^4.4.0":
+  version: 4.8.4
+  resolution: "node-gyp-build@npm:4.8.4"
   bin:
-    node-gyp-build: ./bin.js
-    node-gyp-build-optional: ./optional.js
-    node-gyp-build-test: ./build-test.js
-  checksum: 10/c94f1fc077852ff9b830f8f8f6bcb350441bf5ec5187cad46981eb5f4faad08a17c5fe9fa3450f346361d93c0984fde0e87c9615e52bc69ad4fb4ebf5e26259c
+    node-gyp-build: bin.js
+    node-gyp-build-optional: optional.js
+    node-gyp-build-test: build-test.js
+  checksum: 10/6a7d62289d1afc419fc8fc9bd00aa4e554369e50ca0acbc215cb91446148b75ff7e2a3b53c2c5b2c09a39d416d69f3d3237937860373104b5fe429bf30ad9ac5
   languageName: node
   linkType: hard
 
@@ -17020,7 +17020,7 @@ __metadata:
     "@native-html/transient-render-engine": "workspace:*"
     benchmark: "npm:^2.1.4"
     lodash: "npm:^4.17.21"
-    microtime: "npm:^3.0.0"
+    microtime: "npm:^3.1.1"
     react: "npm:18.2.0"
     react-native: "npm:^0.74"
   languageName: unknown
