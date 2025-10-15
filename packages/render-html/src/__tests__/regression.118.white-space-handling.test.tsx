@@ -1,6 +1,6 @@
 import React from 'react';
 import RenderHTML from '../RenderHTML';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react-native';
 import { extractTextFromInstance } from './utils';
 
 beforeAll(() => {
@@ -12,7 +12,7 @@ beforeAll(() => {
  */
 describe('RenderHTML component', () => {
   it('should pass regression #118 regarding handling of CSS white-space', () => {
-    const testRenderer = renderer.create(
+    const testRenderer = render(
       <RenderHTML
         debug={false}
         source={{ html: '  <div>  foo\n\nbar  baz  </div>' }}

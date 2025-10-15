@@ -3,6 +3,7 @@ import { renderHook } from '@testing-library/react-hooks';
 import { perf, wait } from 'react-performance-testing';
 import useIMGElementState from '../useIMGElementState';
 import { Image } from 'react-native';
+import { waitFor } from '@testing-library/react-native';
 
 describe('useIMGElementState', () => {
   const props = {
@@ -50,11 +51,8 @@ describe('useIMGElementState', () => {
     });
   });
   it('should update to success state with dimensions set to scaled physical image dimensions', async () => {
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useIMGElementState(props)
-    );
-    await waitForNextUpdate();
-    expect(result.current.type).toEqual('success');
+    const { result } = renderHook(() => useIMGElementState(props));
+    await waitFor(() => expect(result.current.type).toEqual('success'));
     expect(result.current.dimensions).toMatchObject({
       width: 300,
       height: 150

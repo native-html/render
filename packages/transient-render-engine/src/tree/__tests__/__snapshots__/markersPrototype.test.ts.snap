@@ -3,10 +3,10 @@
 exports[`markersPrototype toString should provide a string representation of own and inherited properties 1`] = `
 "Markers {
   anchor: true
-  edits: \\"none\\"
-  lang: \\"en\\"
+  edits: "none"
+  lang: "en"
   olNestLevel: -1
   ulNestLevel: -1
-  direction: \\"ltr\\"
+  direction: "ltr"
 }"
 `;

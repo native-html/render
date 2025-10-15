@@ -36,7 +36,7 @@ describe('IMGElement', () => {
         } as NativeSyntheticEvent<ImageErrorEventData>
       )
     );
-    await findByTestId('image-error', { timeout: 50 });
+    await findByTestId('image-error', {}, { timeout: 50 });
   });
   describe('object-fit support', () => {
     const defaultRM = 'cover' as const;
@@ -71,7 +71,7 @@ describe('IMGElement', () => {
         );
         const image = await findByTestId('image-success');
         expect(image).toHaveStyle({
-          resizeMode
+          resizeMode: resizeMode ?? undefined
         });
       });
     }

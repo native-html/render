@@ -5,7 +5,6 @@ import {
   TBlock
 } from '@native-html/transient-render-engine';
 import { render } from '@testing-library/react-native';
-import AccessibilityEngine from 'react-native-accessibility-engine';
 import RenderHTML from '../RenderHTML';
 import { CustomRendererProps } from '../shared-types';
 
@@ -14,9 +13,9 @@ describe('RenderHTML a11y', () => {
     describe('should add accessibility features to anchors when href is non-empty', () => {
       const snippets = [
         // Block
-        `<a href="https://domain.com">test</a>`,
+        '<a href="https://domain.com">test</a>',
         // Inline
-        `<span><a href="https://domain.com">test</a> other text</span>`
+        '<span><a href="https://domain.com">test</a> other text</span>'
       ];
       for (const snippet of snippets) {
         it(`should pas snippet "${snippet}"`, () => {
@@ -33,7 +32,7 @@ describe('RenderHTML a11y', () => {
           const anchor = getByTestId('a');
           expect(anchor).toHaveProp('accessibilityRole', 'link');
           expect(anchor).toHaveProp('accessible', true);
-          expect(() => AccessibilityEngine.check(element)).not.toThrow();
+          expect(element).toBeAccessible();
         });
       }
     });
@@ -41,7 +40,7 @@ describe('RenderHTML a11y', () => {
       const element = (
         <RenderHTML
           source={{
-            html: `<a href="">test</a>`
+            html: '<a href="">test</a>'
           }}
           debug={false}
           contentWidth={0}
@@ -51,7 +50,7 @@ describe('RenderHTML a11y', () => {
       const anchor = getByTestId('a');
       expect(anchor).not.toHaveProp('accessibilityRole');
       expect(anchor).not.toHaveProp('accessible');
-      expect(() => AccessibilityEngine.check(element)).not.toThrow();
+      expect(element).toBeAccessible();
     });
   });
   describe('regarding headings', () => {
@@ -68,7 +67,7 @@ describe('RenderHTML a11y', () => {
         );
         const { getByTestId } = render(element);
         expect(getByTestId(header)).toHaveProp('accessibilityRole', 'header');
-        expect(() => AccessibilityEngine.check(element)).not.toThrow();
+        expect(element).toBeAccessible();
       }
     });
   });
@@ -83,9 +82,9 @@ describe('RenderHTML a11y', () => {
           contentWidth={200}
         />
       );
-      const { getByA11yRole, findByTestId } = render(element);
+      const { getByTestId, findByTestId } = render(element);
       await findByTestId('image-success');
-      const image = getByA11yRole('image');
+      const image = getByTestId('img');
       expect(image).toHaveProp('accessibilityRole', 'image');
       expect(image).toHaveProp('accessibilityLabel', 'An image');
 
@@ -143,10 +142,10 @@ describe('RenderHTML a11y', () => {
           contentWidth={200}
         />
       );
-      const { getByA11yRole } = render(element);
-      const button = getByA11yRole('button');
+      const { getByRole } = render(element);
+      const button = getByRole('button');
       expect(button).toHaveProp('accessibilityRole', 'button');
-      expect(() => AccessibilityEngine.check(element)).not.toThrow();
+      expect(element).toBeAccessible();
     });
     it('should add a button role if onPress is defined for custom renderers with a textual content model', () => {
       const element = (
@@ -170,10 +169,10 @@ describe('RenderHTML a11y', () => {
           contentWidth={200}
         />
       );
-      const { getByA11yRole } = render(element);
-      const button = getByA11yRole('link');
+      const { getByRole } = render(element);
+      const button = getByRole('link');
       expect(button).toHaveProp('accessibilityRole', 'link');
-      expect(() => AccessibilityEngine.check(element)).not.toThrow();
+      expect(element).toBeAccessible();
     });
   });
 });
