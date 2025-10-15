@@ -4,7 +4,8 @@ import {
   CSSLongNativeTextPropKey,
   NativeTextStyleKey,
   CSSShortPropsKey,
-  CSSLongNativeUntranslatableBlockPropKey
+  CSSLongNativeUntranslatableBlockPropKey,
+  CSSUnimplementedNativePropKey
 } from './property-types';
 
 export type ExtendedNativeViewStyleKeys = keyof ViewStyle | keyof ImageStyle;
@@ -35,6 +36,11 @@ export type ExtraNativeShortViewStyleKeys = Extract<
   | 'paddingVertical'
 >;
 
+export type NativeUnimplementedStyleKeys = Extract<
+  ExtendedNativeViewStyleKeys,
+  'borderCurve' | 'experimental_backgroundImage' | 'objectFit'
+>;
+
 export type ExtraNativeShortStyle = Pick<
   TextStyle & ViewStyle,
   ExtraNativeShortViewStyleKeys | NativeShortKeys
@@ -51,8 +57,10 @@ export type ExtraNativeUntranslatedLongStyles = Pick<
 export type ExtraNativeLongViewStyleKeys = Exclude<
   Exclude<ExtendedNativeViewStyleKeys, CSSShortPropsKey>,
   | CSSLongNativeBlockPropKey
+  | CSSUnimplementedNativePropKey
   | NativeDirectionalStyleKeys
   | ExtraNativeShortViewStyleKeys
+  | NativeUnimplementedStyleKeys
 >;
 
 /**
@@ -68,7 +76,9 @@ export type NativeShortKeys = Extract<
  */
 export type ExtraNativeTextStyleKeys = Exclude<
   Exclude<NativeTextStyleKey, CSSShortPropsKey>,
-  CSSLongNativeTextPropKey
+  | CSSLongNativeTextPropKey
+  | CSSUnimplementedNativePropKey
+  | NativeUnimplementedStyleKeys
 >;
 
 export type ExtraNativeTextStyle = Partial<

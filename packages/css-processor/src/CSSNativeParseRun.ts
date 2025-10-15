@@ -40,7 +40,6 @@ const extraLongViewStyles: Record<ExtraNativeLongViewStyleKeys, 'block'> = {
   shadowOffset: 'block',
   shadowOpacity: 'block',
   shadowRadius: 'block',
-  testID: 'block',
   tintColor: 'block',
   transformMatrix: 'block',
   translateX: 'block',
