@@ -1,0 +1,47 @@
+.figure {
+  &--card {
+    --ifm-font-color-base: var(--ifm-color-white);
+    background-color: var(--theme-surface-bg);
+  }
+  padding: var(--ifm-leading);
+  margin: 0 0 var(--ifm-leading) 0;
+  border-radius: var(--ifm-global-radius);
+  color: var(--ifm-font-color-base);
+}
+
+.figure__caption {
+  padding: var(--ifm-leading);
+  font-style: italic;
+  text-align: center;
+  line-height: 1.4;
+  color: var(--ifm-font-color-secondary);
+}
+
+.figure__title {
+  text-transform: uppercase;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  font-size: 85%;
+  font-weight: var(--ifm-font-weight-bold);
+  background-color: var(--ifm-color-primary);
+  color: var(--theme-on-primary);
+}
+
+.reference {
+  > code {
+    background-color: var(--reference-bg);
+    border-radius: 0;
+    padding: 1px 0 1px 0;
+    font-style: normal;
+    display: inline;
+  }
+  &:hover {
+    text-decoration: none;
+    > code {
+      background-color: var(--reference-bg-hover);
+      color: var(--reference-color-hover);
+      text-decoration: underline;
+      text-decoration-color: var(--reference-color-hover);
+    }
+  }
+}
