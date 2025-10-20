@@ -49,7 +49,7 @@
     "param-case": "^3.0.4",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-native": "0.64.2",
+    "react-native": "^0.82.0",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-hsv-color-picker": "^1.0.2",
     "react-native-pager-view": "5.4.6",
@@ -73,11 +73,11 @@
     "@babel/core": "^7.12.9",
     "@doc/svgr-conf": "workspace:*",
     "@types/react": "~17.0.21",
-    "@types/react-native": "~0.64.12",
     "babel-preset-expo": "8.5.1",
     "ignore-loader": "^0.1.2",
     "jest-expo": "^43.0.0",
-    "typescript": "~4.3.5"
+    "react-native": "^0.82.0",
+    "typescript": "~4.5.0"
   },
   "private": true,
   "installConfig": {

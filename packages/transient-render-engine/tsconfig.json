@@ -1,5 +1,10 @@
 {
   "$schema": "http://json.schemastore.org/tsconfig",
   "extends": "../../tsconfig-base.json",
-  "include": ["src"]
+  "include": ["src"],
+  "compilerOptions": {
+    "paths": {
+      "@native-html/css-processor": ["../css-processor/src"],
+    }
+  }
 }
