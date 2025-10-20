@@ -65,7 +65,9 @@
   },
   "workspaces": [
     "packages/*",
-    "acceptance/*"
+    "acceptance/*",
+    "apps/*",
+    "doc-tools/*"
   ],
   "packageManager": "yarn@4.5.0"
 }
