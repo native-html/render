@@ -16,7 +16,7 @@ describe('RenderHTML component', () => {
         />
       );
       const image = UNSAFE_getByType(IMGElement);
-      expect(image).not.toHaveProp('renderers');
+      expect(image).not.legacy_toHaveProp('renderers');
     });
   });
 });

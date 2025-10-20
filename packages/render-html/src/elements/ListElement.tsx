@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { DimensionValue, StyleSheet, View } from 'react-native';
 import React from 'react';
 import { TBlock, TNode } from '@native-html/transient-render-engine';
 import { MarkedListItem, useMarkedList } from '@jsamr/react-native-li';
@@ -49,7 +49,7 @@ function extractMarkerTextStyle(tnode: TNode) {
 
 export function getMarkerBoxStyle(
   markerWidth: number | false,
-  paddingValue: string | number | undefined
+  paddingValue: DimensionValue | undefined
 ) {
   const markerBoxWidth =
     typeof markerWidth === 'number'

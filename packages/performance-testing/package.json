@@ -8,9 +8,10 @@
     "@native-html/transient-render-engine": "workspace:*",
     "benchmark": "^2.1.4",
     "lodash": "^4.17.21",
-    "microtime": "^3.0.0"
+    "microtime": "^3.1.1"
   },
   "devDependencies": {
-    "react-native": "^0.74"
+    "react": "19.1.1",
+    "react-native": "^0.82.0"
   }
 }

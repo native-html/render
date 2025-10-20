@@ -1,6 +1,6 @@
 import React from 'react';
 import RenderHTML from '../RenderHTML';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react-native';
 import { extractTextFromInstance } from './utils';
 
 beforeAll(() => {
@@ -11,7 +11,7 @@ function testCollapseRuleForCharacter(character: string, name: string) {
   const action =
     character === ' ' ? 'preserves a space' : `replaces ${name} with a space`;
   it(`collapses whitespaces when first text tag has a trailing ${name} and the second starts with a ${name}`, () => {
-    const testRenderer = renderer.create(
+    const testRenderer = render(
       <RenderHTML
         debug={false}
         source={{
@@ -23,7 +23,7 @@ function testCollapseRuleForCharacter(character: string, name: string) {
     expect(renderedText).toEqual('foo bar');
   });
   it(`${action} when the first text tag has a trailing ${name} and the second doesn't contain any`, () => {
-    const testRenderer = renderer.create(
+    const testRenderer = render(
       <RenderHTML
         debug={false}
         source={{ html: `<b>bold${character}</b><span>text</span>` }}
@@ -33,7 +33,7 @@ function testCollapseRuleForCharacter(character: string, name: string) {
     expect(renderedText).toEqual('bold text');
   });
   it(`${action} between two inline elements which don't contain ${name}s and are separated with a ${name}`, () => {
-    const testRenderer = renderer.create(
+    const testRenderer = render(
       <RenderHTML
         debug={false}
         source={{ html: `<b>bold</b>${character}<span>text</span>` }}

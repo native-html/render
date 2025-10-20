@@ -216,13 +216,13 @@ describe('CSSProcessor', () => {
     it('should pack known extra longhand properties', () => {
       expect(
         processor.compileStyleDeclaration({
-          testID: 'test'
+          tintColor: 'blue'
         })
       ).toMatchObject({
         native: {
           block: {
             retain: {
-              testID: 'test'
+              tintColor: 'blue'
             }
           }
         }

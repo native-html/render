@@ -72,7 +72,10 @@ describe('RenderHTML', () => {
           contentWidth={contentWidth}
         />
       );
-      expect(UNSAFE_getByType(ImgTag)).toHaveProp('contentWidth', contentWidth);
+      expect(UNSAFE_getByType(ImgTag)).legacy_toHaveProp(
+        'contentWidth',
+        contentWidth
+      );
       update(
         <RenderHTML
           source={{ html: '<img src="https://img.com/1" />' }}
@@ -80,14 +83,14 @@ describe('RenderHTML', () => {
           contentWidth={nextContentWidth}
         />
       );
-      expect(UNSAFE_getByType(ImgTag)).toHaveProp(
+      expect(UNSAFE_getByType(ImgTag)).legacy_toHaveProp(
         'contentWidth',
         nextContentWidth
       );
     });
 
     it('should merge `viewStyle` to <img> renderer', () => {
-      const { getByA11yRole } = render(
+      const { getByTestId } = render(
         <RenderHTML
           source={{
             html: '<img alt="An image" src="https://img.com/1" />'
@@ -101,7 +104,7 @@ describe('RenderHTML', () => {
           contentWidth={200}
         />
       );
-      expect(getByA11yRole('image')).toHaveStyle({
+      expect(getByTestId('img')).toHaveStyle({
         backgroundColor: 'red'
       });
     });
@@ -887,7 +890,7 @@ describe('RenderHTML', () => {
           enableExperimentalBRCollapsing
         />
       );
-      expect(queryByText('\n')).toBeNull();
+      expect(queryByText('\n', { normalizer: (s) => s })).toBeNull();
     });
   });
 });
