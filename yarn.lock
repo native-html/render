@@ -3740,7 +3740,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@doc/pages@workspace:*, @doc/pages@workspace:doc-tools/doc-pages":
+"@doc/pages@workspace:*, @doc/pages@workspace:^, @doc/pages@workspace:doc-tools/doc-pages":
   version: 0.0.0-use.local
   resolution: "@doc/pages@workspace:doc-tools/doc-pages"
   dependencies:
@@ -5748,7 +5748,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@native-html/transient-render-engine@npm:11.2.3, @native-html/transient-render-engine@workspace:*, @native-html/transient-render-engine@workspace:packages/transient-render-engine":
+"@native-html/transient-render-engine@workspace:*, @native-html/transient-render-engine@workspace:packages/transient-render-engine":
   version: 0.0.0-use.local
   resolution: "@native-html/transient-render-engine@workspace:packages/transient-render-engine"
   dependencies:
@@ -12722,6 +12722,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.12.9"
     "@doc/constants": "workspace:*"
+    "@doc/pages": "workspace:^"
     "@doc/svg-component": "workspace:*"
     "@doc/svgr-conf": "workspace:*"
     "@expo-google-fonts/raleway": "npm:^0.1.0"
@@ -24236,7 +24237,7 @@ __metadata:
     "@jsamr/counter-style": "npm:^2.0.1"
     "@jsamr/react-native-li": "npm:^2.3.0"
     "@microsoft/api-extractor": "npm:^7.14.0"
-    "@native-html/transient-render-engine": "npm:11.2.3"
+    "@native-html/transient-render-engine": "workspace:*"
     "@react-native/babel-preset": "npm:^0.82.0"
     "@release-it/conventional-changelog": "npm:^2.0.1"
     "@testing-library/jest-native": "npm:^5.4.3"

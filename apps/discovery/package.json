@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@doc/constants": "workspace:*",
+    "@doc/pages": "workspace:*",
     "@doc/svg-component": "workspace:*",
     "@expo-google-fonts/raleway": "^0.1.0",
     "@expo-google-fonts/source-code-pro": "^0.1.0",
