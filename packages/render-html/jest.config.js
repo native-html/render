@@ -9,7 +9,7 @@ module.exports = {
   testRegex: 'src/.*\\.test\\.tsx?$',
   coveragePathIgnorePatterns: ['/node_modules/', '__tests__'],
   transformIgnorePatterns: [
-    'node_modules/(?!(react-native|react-native-webview|ramda|react-native-render-html|@react-native)/)'
+    'node_modules/(?!(character-entities-html4|character-entities-legacy|react-native|react-native-webview|ramda|react-native-render-html|stringify-entities|@react-native)/)'
   ],
   setupFiles: ['<rootDir>/jest/setup.ts'],
   setupFilesAfterEnv: ['<rootDir>/jest/setupAfterEnv.ts']

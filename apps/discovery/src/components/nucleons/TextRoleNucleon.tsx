@@ -5,13 +5,16 @@ import useTextRoleNucleon, {
   TextRoleNucleonProps as T
 } from './useTextRoleNucleon';
 
-export type TextRoleNucleonProps = React.PropsWithChildren<TextProps & T>;
+export type TextRoleNucleonProps = Omit<TextProps, 'role'> & T;
 
 export default function TextRoleNucleon({
   style,
+  align,
+  color,
+  role,
   ...props
 }: TextRoleNucleonProps) {
-  const generatedStyle = useTextRoleNucleon(props);
+  const generatedStyle = useTextRoleNucleon({ role, align, color });
   return (
     <NativeText
       {...props}

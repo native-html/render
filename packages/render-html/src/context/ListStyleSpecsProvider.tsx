@@ -13,7 +13,6 @@ import { ListStyleSpec, UnitaryListStyleSpec } from '../shared-types';
 import { useSharedProps } from './SharedPropsProvider';
 
 // Incorrect report, probably eslint needs upgrade.
-// eslint-disable-next-line no-spaced-func
 const listStyleSpecsContext = createContext<
   Record<
     string,

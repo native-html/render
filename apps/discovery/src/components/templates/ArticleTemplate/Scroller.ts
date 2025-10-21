@@ -1,5 +1,5 @@
+import { kebabCase as paramCase } from 'change-case';
 import { LayoutChangeEvent, ScrollView } from 'react-native';
-import { paramCase } from 'param-case';
 import { RefObject } from 'react';
 import Animated from 'react-native-reanimated';
 import { HEADER_COLL_HEIGHT } from '../../../constants';

@@ -64,10 +64,11 @@ describe('RenderHTMLDebug', () => {
     console.warn = jest.fn();
     render(
       React.createElement(RenderHTMLDebug, {
-        //@ts-expect-error invalid key
+        // @ts-expect-error invalid key
         allowedStyles: ['hello-world', 'color'],
         debug: false,
-        contentWidth: 10
+        contentWidth: 10,
+        source: { html: '<div style="color: green; font-size: 12px;"></div>' }
       })
     );
     expect(console.warn).toHaveBeenCalledTimes(1);
@@ -77,10 +78,11 @@ describe('RenderHTMLDebug', () => {
     console.warn = jest.fn();
     render(
       React.createElement(RenderHTMLDebug, {
-        //@ts-expect-error invalid key
+        // @ts-expect-error invalid key
         ignoredStyles: ['hello-world', 'color'],
         debug: false,
-        contentWidth: 10
+        contentWidth: 10,
+        source: { html: '<div style="color: green; font-size: 12px;"></div>' }
       })
     );
     expect(console.warn).toHaveBeenCalledTimes(1);
