@@ -10,7 +10,13 @@
     "noEmit": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "strict": true
+    "strict": true,
+    "paths": {
+      "@doc/pages": ["../../doc-tools/doc-pages/src"],
+      "@native-html/css-processor": ["../../packages/css-processor/src"],
+      "@native-html/transient-render-engine": ["../../packages/transient-render-engine/src"],
+      "react-native-render-html": ["../../packages/render-html/src"],
+    }
   },
   "extends": "expo/tsconfig.base"
 }
