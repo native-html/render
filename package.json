@@ -65,7 +65,6 @@
   },
   "workspaces": [
     "packages/*",
-    "acceptance/*",
     "apps/*",
     "doc-tools/*"
   ],
