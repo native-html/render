@@ -58,7 +58,9 @@ export default function useInternalRenderer<T extends TagName>(
   tagName: T,
   props: InternalRendererProps<any>
 ): T extends InternalSpecialRenderedTag
-  ? InternalRendererConfig<ReturnType<typeof specialRenderersConfig[T]['hook']>>
+  ? InternalRendererConfig<
+      ReturnType<(typeof specialRenderersConfig)[T]['hook']>
+    >
   : InternalRendererConfig<TDefaultRendererProps<any>> {
   const { TDefaultRenderer, ...rendererProps } = props;
   if (hasSpecialInternalRenderer(tagName)) {
