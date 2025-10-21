@@ -54,10 +54,6 @@
     "prettier": "^2.2.1",
     "typescript": "~4.5.0"
   },
-  "resolutions": {
-    "@release-it/conventional-changelog": "patch:@release-it/conventional-changelog@2.0.0#patches/@release-it-conventional-changelog.patch",
-    "release-it": "patch:release-it@14.0.4#patches/release-it.patch"
-  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
