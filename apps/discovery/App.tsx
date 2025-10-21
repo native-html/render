@@ -16,7 +16,7 @@ enableScreens();
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-  const initialColorScheme = useColorScheme() || 'light';
+  const initialColorScheme = useColorScheme();
   const contentWidth = useWindowDimensions().width;
   if (!isLoadingComplete) {
     return null;
@@ -26,7 +26,12 @@ export default function App() {
         <PageToolkitProvider>
           <StacksProvider spacing={5}>
             <SafeAreaProvider>
-              <ColorSchemeProvider initialColorScheme={initialColorScheme}>
+              <ColorSchemeProvider
+                initialColorScheme={
+                  initialColorScheme === 'unspecified'
+                    ? 'light'
+                    : initialColorScheme
+                }>
                 <ThemeProvider>
                   <UILinkPressDisplayMolecule>
                     <Navigation />
