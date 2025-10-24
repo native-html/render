@@ -1,13 +1,15 @@
 import * as React from 'react';
 import {
   DefaultTheme as NavLightTheme,
-  DarkTheme as NavDarkTheme
+  DarkTheme as NavDarkTheme,
+  Theme
 } from '@react-navigation/native';
 import { PropsWithChildren } from 'react';
 import {
   Provider as PaperProvider,
-  DarkTheme as PaperDarkTheme,
-  DefaultTheme as PaperLightTheme
+  MD2DarkTheme as PaperDarkTheme,
+  MD2LightTheme as PaperLightTheme,
+  MD2Theme
 } from 'react-native-paper';
 import themeAdaptedColors, { ColorsShape } from './themeAdaptedColors';
 import { useColorScheme } from '../state/ColorSchemeProvider';
@@ -16,8 +18,8 @@ import colorPrimitivesDeclarations from './colorPrimitivesDeclaration';
 import DefaultColorRolesProvider from '../components/croles/DefaultColorRolesProvider';
 
 function mergeTheme(
-  paperTheme: typeof PaperDarkTheme,
-  navTheme: typeof NavDarkTheme,
+  paperTheme: MD2Theme,
+  navTheme: Theme,
   colors: ColorsShape
 ) {
   return {

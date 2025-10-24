@@ -131,8 +131,8 @@ export default function ToolkitProvider({
           <RefAPI
             library="react-native-render-html"
             url="/api/renderhtmlprops"
-            name={name}
-            member={name}
+            name={name.toString()}
+            member={name.toString()}
           />
         );
       },
@@ -141,8 +141,8 @@ export default function ToolkitProvider({
           <RefAPI
             member={member}
             library="@native-html/css-processor"
-            url={`/api/${name.toLowerCase()}`}
-            name={name}
+            url={`/api/${name.toString().toLowerCase()}`}
+            name={name.toString()}
             plural={plural}
             full={full}
           />
@@ -165,8 +165,8 @@ export default function ToolkitProvider({
           <RefAPI
             member={member}
             library="react-native-render-html"
-            url={`/api/${name.toLowerCase()}`}
-            name={name}
+            url={`/api/${name.toString().toLowerCase()}`}
+            name={name.toString()}
             plural={plural}
             full={full}
           />
@@ -177,8 +177,8 @@ export default function ToolkitProvider({
           <RefAPI
             member={member}
             library="@native-html/transient-render-engine"
-            url={`/api/${name.toLowerCase()}`}
-            name={name}
+            url={`/api/${name.toString().toLowerCase()}`}
+            name={name.toString()}
             plural={plural}
             full={full}
           />

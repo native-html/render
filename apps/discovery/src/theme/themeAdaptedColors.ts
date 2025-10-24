@@ -1,20 +1,17 @@
 import { Theme as NavTheme } from '@react-navigation/native';
-import {
-  useTheme,
-  DarkTheme as PaperDarkTheme,
-  DefaultTheme as PaperDefaultTheme
-} from 'react-native-paper';
+import { MD2Theme } from 'react-native-paper';
 import colorPrimitivesDeclarations from './colorPrimitivesDeclaration';
 import { ColorPrimitivesDeclaration } from './colorSystem';
 
-export type ColorsShape = ReturnType<typeof useTheme>['colors'] &
-  NavTheme['colors'];
+export type ColorsShape = MD2Theme['colors'] & NavTheme['colors'];
 
-function deriveThemeFromDeclaration(
-  { accent, card, primary, surface, scrim }: ColorPrimitivesDeclaration,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  paperTheme: typeof PaperDarkTheme
-): ColorsShape {
+function deriveThemeFromDeclaration({
+  accent,
+  card,
+  primary,
+  surface,
+  scrim
+}: ColorPrimitivesDeclaration): ColorsShape {
   const FIXME = '#594A13';
   return {
     border: FIXME,
@@ -24,6 +21,7 @@ function deriveThemeFromDeclaration(
     surface: FIXME,
     onSurface: FIXME,
     placeholder: FIXME,
+    tooltip: FIXME,
     accent: accent.color,
     backdrop: scrim,
     background: surface.color,
@@ -34,14 +32,8 @@ function deriveThemeFromDeclaration(
 }
 
 const themeAdaptedColors: Record<'light' | 'dark', ColorsShape> = {
-  light: deriveThemeFromDeclaration(
-    colorPrimitivesDeclarations.light,
-    PaperDefaultTheme
-  ),
-  dark: deriveThemeFromDeclaration(
-    colorPrimitivesDeclarations.dark,
-    PaperDarkTheme
-  )
+  light: deriveThemeFromDeclaration(colorPrimitivesDeclarations.light),
+  dark: deriveThemeFromDeclaration(colorPrimitivesDeclarations.dark)
 };
 
 export default themeAdaptedColors;

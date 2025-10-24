@@ -31,7 +31,6 @@ const unreachableExample = `<img
 />`;
 
 // TODO document attributes
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const imgAttributes = {
   alt: true,
   src: true,

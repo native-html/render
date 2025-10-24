@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
 interface State extends Record<string | symbol | number, unknown> {
   legacyMode: boolean;

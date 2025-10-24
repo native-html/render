@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "@doc/pages": "workspace:*",
-    "@types/fbjs": "^3.0.11",
-    "@types/react-reconciler": "^0.32.2",
     "commander": "^14.0.1",
     "fbjs": "^3.0.5",
     "html-entities": "^2.6.0",
@@ -20,13 +18,15 @@
   },
   "devDependencies": {
     "@tsconfig/react-native": "^3.0.7",
-    "@types/react": "^19.2.2",
+    "@types/fbjs": "^3.0.11",
+    "@types/react": "~19.1.0",
+    "@types/react-reconciler": "^0.32.2",
     "esbuild": "^0.25.11",
     "esbuild-plugin-alias": "^0.2.1",
     "eslint": "^8.57.1",
-    "react": "19.2.0",
+    "react": "19.1.0",
     "react-native-web": "^0.21.2",
-    "react-test-renderer": "19.2.0",
+    "react-test-renderer": "~19.1.0",
     "typescript": "^5.4.5"
   }
 }

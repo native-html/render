@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, {
   Children,
   Fragment,
@@ -35,7 +34,6 @@ import MaxWidthContainerAtom from '../components/MaxWidthContainerAtom';
 
 const genericOnLinkPress = (uri: string) => Linking.openURL(uri);
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 function useOnLinkPress(uri: string): () => void;
 function useOnLinkPress(): (uri: string) => void;
@@ -126,6 +124,7 @@ const SourceDisplay: UIToolkitConfig['SourceDisplay'] = ({
 const RefDoc: UIToolkitConfig['RefDoc'] = ({ target, children, fragment }) => {
   const navigation = useNavigation();
   const onPress = useCallback(() => {
+    // @ts-ignore TODO: fix this
     navigation.navigate(`${target.group}-${target.id}`, { fragment });
   }, [navigation, target.group, target.id, fragment]);
   return (
@@ -205,6 +204,7 @@ const toolkitConfig: UIToolkitConfig = {
   DList: ({ children }) => (
     <BoxNucleon padding={2}>
       {Children.map(children as ReactElement[], (c: ReactElement, i) =>
+        // @ts-ignore TODO: fix this
         React.cloneElement(c, { ...c.props, index: Math.floor(i / 2) })
       )}
     </BoxNucleon>

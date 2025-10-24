@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { TextStyle } from 'react-native';
 import { useColorRoles } from '../../theme/colorSystem';
 

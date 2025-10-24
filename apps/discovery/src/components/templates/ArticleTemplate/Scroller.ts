@@ -7,11 +7,11 @@ import { HEADER_COLL_HEIGHT } from '../../../constants';
 export default class Scroller {
   private layoutRegistry: Record<string, number> = {};
   public isLoaded = false;
-  private scrollRef: RefObject<ScrollView>;
+  private scrollRef: RefObject<ScrollView | null>;
   private offset: number;
 
-  constructor(scrollRef: RefObject<Animated.ScrollView>) {
-    this.scrollRef = scrollRef as any;
+  constructor(scrollRef: RefObject<Animated.ScrollView | null>) {
+    this.scrollRef = scrollRef;
     this.offset = 0;
   }
 

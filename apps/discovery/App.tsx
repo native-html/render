@@ -1,14 +1,14 @@
-import { enableScreens } from 'react-native-screens';
+import { StacksProvider } from '@mobily/stacks';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { useColorScheme, useWindowDimensions } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { enableScreens } from 'react-native-screens';
 import useCachedResources from './src/hooks/useCachedResources';
 import Navigation from './src/navigation';
 import ThemeProvider from './src/theme/ThemeProvider';
 import ColorSchemeProvider from './src/state/ColorSchemeProvider';
-import { useColorScheme, useWindowDimensions } from 'react-native';
 import UILinkPressDisplayMolecule from './src/components/UILinkPressDisplayMolecule';
-import { StacksProvider } from '@mobily/stacks';
 import contentWidthContextNucleon from './src/components/nucleons/contentWidthContextNucleon';
 import PageToolkitProvider from './src/providers/PageToolkitProvider';
 
@@ -27,11 +27,7 @@ export default function App() {
         <StacksProvider spacing={5}>
           <SafeAreaProvider>
             <ColorSchemeProvider
-              initialColorScheme={
-                initialColorScheme === 'unspecified'
-                  ? 'light'
-                  : initialColorScheme
-              }>
+              initialColorScheme={initialColorScheme ?? 'light'}>
               <ThemeProvider>
                 <UILinkPressDisplayMolecule>
                   <Navigation />

@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import MarkedList from '@jsamr/react-native-li';
 import upperAlpha from '@jsamr/counter-style/presets/upperAlpha';

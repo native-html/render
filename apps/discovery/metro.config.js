@@ -1,26 +1,31 @@
 const path = require('path');
-const fs = require('fs');
+// const fs = require('fs');
 const { getDefaultConfig } = require('expo/metro-config');
 
-const packagesRoot = path.resolve(__dirname, '../../packages');
-const docToolsRoot = path.resolve(__dirname, '../../doc-tools');
+const workspaceRoot = path.resolve(__dirname, '../..');
+// const packagesRoot = path.resolve(__dirname, '../../packages');
+// const docToolsRoot = path.resolve(__dirname, '../../doc-tools');
 
-const localPkgs = fs.readdirSync(packagesRoot);
-const docToolksPkgs = fs.readdirSync(docToolsRoot);
+// const packagesDirs = fs.readdirSync(packagesRoot);
+// const docToolsDirs = fs.readdirSync(docToolsRoot);
 
-const watchFolders = localPkgs
-  .map((f) => path.join(packagesRoot, f))
-  .concat(docToolksPkgs.map((f) => path.join(docToolsRoot, f)));
+// const watchFolders = [
+//   workspaceRoot,
+//   ...packagesDirs.map((f) => path.join(packagesRoot, f)),
+//   ...docToolsDirs.map((f) => path.join(docToolsRoot, f))
+// ];
 
 module.exports = (async () => {
   const {
     resolver: { assetExts, sourceExts },
     transformer,
     ...other
-  } = await getDefaultConfig(__dirname);
+  } = await getDefaultConfig(workspaceRoot);
   return {
     ...other,
-    watchFolders,
+    resetCache: true,
+    // projectRoot: workspaceRoot,
+    // watchFolders,
     transformer: {
       ...transformer,
       minifierConfig: {
@@ -51,12 +56,12 @@ module.exports = (async () => {
     resolver: {
       assetExts: assetExts.filter((ext) => ext !== 'svg'),
       sourceExts: [...sourceExts, 'svg'],
-      extraNodeModules: new Proxy(
-        {},
-        {
-          get: (target, name) => path.join(__dirname, `node_modules/${name}`)
-        }
-      )
+      // extraNodeModules: new Proxy(
+      //   {},
+      //   {
+      //     get: (target, name) => path.join(__dirname, `node_modules/${name}`)
+      //   }
+      // )
     }
   };
 })();

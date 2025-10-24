@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { DimensionValue, View } from 'react-native';
 import { useColorRoles } from '../theme/colorSystem';
 import { PropsWithStyle } from './nucleons/types';
 
@@ -10,7 +10,7 @@ export default function BodyDividerAtom({
 }: PropsWithStyle<{
   color?: string;
   height?: number;
-  width?: number | string;
+  width?: DimensionValue;
 }>) {
   const { softDivider } = useColorRoles();
   return (

@@ -1,32 +1,32 @@
+import { Element, Parent, Root, RootContent, Text } from 'hast';
+import { Node } from 'unist';
+
+const nodeIsParent = (node: Node): node is Parent =>
+  Boolean((node as Parent).children);
+const nodeIsText = (node: Node): node is Text => node.type === 'text';
+const childIsElement = (child: RootContent): child is Element =>
+  child.type === 'element';
+const childIsText = (child: RootContent): child is Text =>
+  child.type === 'text';
 /**
  * Transform this complex tree into a flatten tree with simple nodes
  *
- * @param nodes
+ * @param node
  */
-function flattenNodes(node: lowlight.HastNode): SimpleNode[] {
-  if (node.type === 'element') {
-    return node.children.flatMap((_child) => {
-      const child = _child as lowlight.HastNode;
-      if (child.type === 'element') {
-        return flattenNodes(child as any);
+function flattenNodes(node: Node): SimpleNode[] {
+  if (nodeIsParent(node)) {
+    return node.children.flatMap((child) => {
+      if (childIsElement(child)) {
+        return flattenNodes(child);
       }
-      if (child.type === 'text') {
-        return {
-          type: 'simple',
-          text: child.value,
-          className: node.properties.className
-        };
+      if (childIsText(child)) {
+        return { type: 'simple', text: child.value };
       }
       throw new Error('Unexpected state!');
     });
   }
-  if (node.type === 'text') {
-    return [
-      {
-        type: 'simple',
-        text: node.value
-      }
-    ];
+  if (nodeIsText(node)) {
+    return [{ type: 'simple', text: node.value }];
   }
   throw new Error('Unhandled state!');
 }
@@ -42,17 +42,20 @@ function insertLines(
     .map((node) => {
       const lines = node.text.split('\n');
       if (lines.length > 1) {
-        return lines.reduce<Array<SimpleNode | LineBreak>>((previous, text) => {
-          const current = {
-            type: 'simple',
-            text,
-            className: node.className
-          } as const;
-          if (previous.length) {
-            return [...previous, linebreak, current];
-          }
-          return [current];
-        }, [] as Array<SimpleNode | LineBreak>);
+        return lines.reduce<Array<SimpleNode | LineBreak>>(
+          (previous, text) => {
+            const current = {
+              type: 'simple',
+              text,
+              className: node.className
+            } as const;
+            if (previous.length) {
+              return [...previous, linebreak, current];
+            }
+            return [current];
+          },
+          [] as Array<SimpleNode | LineBreak>
+        );
       }
       return node;
     })
@@ -77,9 +80,7 @@ export type SimpleNode = {
   className?: string[];
 };
 
-export default function generateLines(
-  tree: lowlight.HastNode[]
-): SimpleNode[][] {
-  const flattenTree = tree.flatMap(flattenNodes);
+export default function generateLines({ children }: Root): SimpleNode[][] {
+  const flattenTree = children.flatMap(flattenNodes);
   return makeLines(insertLines(flattenTree));
 }

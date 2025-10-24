@@ -29,8 +29,8 @@ export const ulListTypes = [
   'none'
 ] as const;
 
-type OlListType = typeof olListTypes[number];
-type UlListType = typeof ulListTypes[number];
+type OlListType = (typeof olListTypes)[number];
+type UlListType = (typeof ulListTypes)[number];
 
 export interface PlaygroundMutableState<Sk extends string> {
   fontSize: number;
@@ -142,10 +142,7 @@ export default function PlaygroundStoreProvider<Sk extends string>({
   children,
   ...initParams
 }: PropsWithChildren<PlaygroundInitParams<Sk>>) {
-  const [state, dispatch] = useReducer<
-    typeof reducer,
-    PlaygroundInitParams<Sk>
-  >(reducer, initParams, getInitialState);
+  const [state, dispatch] = useReducer(reducer, initParams, getInitialState);
   return (
     <playgroundDispatchContext.Provider value={dispatch}>
       <playgroundStoreContext.Provider value={state}>

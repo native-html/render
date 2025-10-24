@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { useSpacing } from '@mobily/stacks';
 import React, {
   PropsWithChildren,
@@ -38,7 +37,7 @@ export interface ArticleTemplateProps {
 
 interface ArticleProps extends ArticleTemplateProps {
   fragment?: string;
-  scrollRef: RefObject<Animated.ScrollView>;
+  scrollRef: RefObject<Animated.ScrollView | null>;
   width: number;
   headerHeight: number;
 }
@@ -69,6 +68,7 @@ function SiblingPageTide({
       title={target.title}
       align={direction === 'prev' ? 'left' : 'right'}
       onPress={useCallback(
+        // @ts-ignore TODO: fix this
         () => navigation.navigate(`${target.group}-${target.id}`),
         [navigation, target]
       )}
@@ -178,8 +178,7 @@ export default function ArticleTemplate(
 ) {
   const { params } = useRoute();
   const { height: safeFrameHeight, width: safeFrameWidth } = useSafeAreaFrame();
-  const scrollRef =
-    useRef<Animated.ScrollView>() as RefObject<Animated.ScrollView>;
+  const scrollRef = useRef<Animated.ScrollView>(null);
   const fragment = (params as any)?.fragment;
   return (
     <ScrollerProvider scrollRef={scrollRef}>

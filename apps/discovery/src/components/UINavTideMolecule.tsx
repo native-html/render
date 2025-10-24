@@ -34,6 +34,7 @@ export default function UINavTideMolecule<R extends string>({
       {...listProps}
       title={label}
       onPress={useCallback(
+        // @ts-ignore TODO: fix this
         () => navigation.navigate(route),
         [navigation, route]
       )}

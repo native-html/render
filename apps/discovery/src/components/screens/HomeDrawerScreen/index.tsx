@@ -102,7 +102,6 @@ function mapGroup({
     <Drawer.Screen
       component={component}
       options={{
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         group,
         groupLabel,
@@ -121,13 +120,13 @@ function mapGroup({
 export default function HomeScreen({}: StackScreenProps<any>) {
   return (
     <Drawer.Navigator
-      hideStatusBar={false}
-      sceneContainerStyle={useSurfaceBackgroundStyleNucleon()}
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       initialRouteName={initialRouteName}
       screenOptions={{
         headerShown: true,
-        headerTitleAllowFontScaling: true
+        headerTitleAllowFontScaling: true,
+        drawerHideStatusBarOnOpen: false,
+        drawerContentContainerStyle: useSurfaceBackgroundStyleNucleon()
       }}>
       {mapGroup(playgroundsGroup)}
       {groups.map(mapGroup)}

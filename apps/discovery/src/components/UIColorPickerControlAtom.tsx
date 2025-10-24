@@ -1,9 +1,7 @@
-/* eslint-disable react-native/no-inline-styles */
 import Color from 'color';
 import React, { ComponentType, useCallback, useEffect, useState } from 'react';
 import { Dimensions, View } from 'react-native';
-import { NativeViewGestureHandler } from 'react-native-gesture-handler';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 const HsvColorPicker = require('react-native-hsv-color-picker')
   .default as HsvColorPicker;
 import { SelectorProps, PropsWithStyle } from './nucleons/types';
@@ -23,6 +21,11 @@ export default function UIColorPickerControlAtom({
   initialValue,
   style
 }: UIColorPickerControlAtomProps) {
+  const native = Gesture.Native()
+    .disallowInterruption(true)
+    .shouldActivateOnStart(true)
+    .shouldCancelWhenOutside(false);
+
   const getInitialSaturation = useCallback(() => {
     const col = Color(initialValue);
     return {
@@ -61,14 +64,10 @@ export default function UIColorPickerControlAtom({
     hue: number;
   }) {
     setHsv((state) => ({ ...state, hue: h }));
-  },
-  []);
+  }, []);
   return (
     <View style={[style, { alignItems: 'center' }]}>
-      <NativeViewGestureHandler
-        disallowInterruption={true}
-        shouldActivateOnStart={true}
-        shouldCancelWhenOutside={false}>
+      <GestureDetector gesture={native}>
         <HsvColorPicker
           huePickerHue={hue}
           satValPickerHue={hue}
@@ -79,7 +78,7 @@ export default function UIColorPickerControlAtom({
           onSatValPickerPress={onSaturationAndValueChange}
           onSatValPickerDragMove={onSaturationAndValueChange}
         />
-      </NativeViewGestureHandler>
+      </GestureDetector>
       <View
         style={{
           width: '100%',

@@ -4,7 +4,7 @@ import React, {
   useContext,
   useMemo
 } from 'react';
-import { highlight } from 'lowlight';
+import { createLowlight } from 'lowlight';
 import {
   StyleProp,
   Text,
@@ -18,6 +18,8 @@ import highlighterStylesheetsContext from './highlighterStylesheetsContext';
 import generateLines, { SimpleNode } from './generateLines';
 // import * as html from 'highlight.js/lib/languages/html';
 // registerLanguage('html', html);
+
+const { highlight } = createLowlight();
 
 export interface HighlighterProps extends ViewProps {
   content: string;
@@ -170,7 +172,7 @@ function HighlighterContent({
   ...viewProps
 }: Omit<HighlighterProps, 'highlightJsStyle'>) {
   const lines = useMemo(
-    () => generateLines(highlight(language, content).value),
+    () => generateLines(highlight(language, content)),
     [content, language]
   );
   const { containerStylesheet } = useContext(highlighterStylesheetsContext);

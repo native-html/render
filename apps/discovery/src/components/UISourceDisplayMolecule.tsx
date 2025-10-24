@@ -6,10 +6,6 @@ import useTextRoleNucleon, {
   TextRoleNucleonProps
 } from './nucleons/useTextRoleNucleon';
 
-export interface SourceRenderer {
-  htmlSource: string;
-}
-
 export type UISourceDisplayMoleculeProps = {
   content: string;
   style?: HighlighterProps['style'];
@@ -41,11 +37,12 @@ export default function UISourceDisplayMolecule({
     role: textRole
   });
   const syntheticPaddingVertical = useSpacing(paddingVertical ?? 0);
-  const lineNumberDisplayWidthComputer: HighlighterProps['lineNumberDisplayWidthComputer'] =
-    useCallback(
-      (fs, maxLineNumberCharLength) => spacing + fs * maxLineNumberCharLength,
-      [spacing]
-    );
+  const lineNumberDisplayWidthComputer = useCallback<
+    NonNullable<HighlighterProps['lineNumberDisplayWidthComputer']>
+  >(
+    (fs, maxLineNumberCharLength) => spacing + fs * maxLineNumberCharLength,
+    [spacing]
+  );
   return (
     <Highlighter
       {...otherProps}
