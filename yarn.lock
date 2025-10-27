@@ -17,29 +17,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ai-sdk/gateway@npm:2.0.1":
-  version: 2.0.1
-  resolution: "@ai-sdk/gateway@npm:2.0.1"
+"@ai-sdk/gateway@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@ai-sdk/gateway@npm:2.0.2"
   dependencies:
     "@ai-sdk/provider": "npm:2.0.0"
-    "@ai-sdk/provider-utils": "npm:3.0.12"
+    "@ai-sdk/provider-utils": "npm:3.0.13"
     "@vercel/oidc": "npm:3.0.3"
   peerDependencies:
     zod: ^3.25.76 || ^4.1.8
-  checksum: 10/93570867edefcedbc13162da732b31fe4ec02148df62ebfc4d0982ebf6b525a869e4397cec12099e7e6049686fc651bbbf1ed62cef35b4025fcd4001e5c557cc
+  checksum: 10/6f4058e26e275aaa59fc474f966604a1198863ad33a82570ac167dffd588dd21bb9ae476c2f9dc607374715a1d6840bcd9ff5e074961ee49cfef64eb44013bac
   languageName: node
   linkType: hard
 
-"@ai-sdk/provider-utils@npm:3.0.12":
-  version: 3.0.12
-  resolution: "@ai-sdk/provider-utils@npm:3.0.12"
+"@ai-sdk/provider-utils@npm:3.0.13":
+  version: 3.0.13
+  resolution: "@ai-sdk/provider-utils@npm:3.0.13"
   dependencies:
     "@ai-sdk/provider": "npm:2.0.0"
     "@standard-schema/spec": "npm:^1.0.0"
     eventsource-parser: "npm:^3.0.5"
   peerDependencies:
     zod: ^3.25.76 || ^4.1.8
-  checksum: 10/d637641b5d7724baf17105c25b4c091d8f0fae73b760d64a73c210bdc0b3fb87c237087237ad873beba5ca787d19ddc338622724d1ef9f6366ab55feece25da7
+  checksum: 10/9dfc26323d31e4e06d4a854cdadd0e2f5952f117d0fc298ad100c48c8b77ece769c8e53338e570cadac814454550896991b9105168624de86e7d7662edea3bf7
   languageName: node
   linkType: hard
 
@@ -53,11 +53,11 @@ __metadata:
   linkType: hard
 
 "@ai-sdk/react@npm:^2.0.30":
-  version: 2.0.78
-  resolution: "@ai-sdk/react@npm:2.0.78"
+  version: 2.0.81
+  resolution: "@ai-sdk/react@npm:2.0.81"
   dependencies:
-    "@ai-sdk/provider-utils": "npm:3.0.12"
-    ai: "npm:5.0.78"
+    "@ai-sdk/provider-utils": "npm:3.0.13"
+    ai: "npm:5.0.81"
     swr: "npm:^2.2.5"
     throttleit: "npm:2.1.0"
   peerDependencies:
@@ -66,7 +66,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/0f817117ba4de5dd175014acde722648c2d43178e859badbf4b504bba77d4625dd9bfbeb9b1c4b39e4d69bea144523cc0ba757e4bc5f0ae832d08fb93e499ef3
+  checksum: 10/de80fdfb959b8ad8897dcb8fdda92b2c6d6cc330b25048f7c4b3dba25b1489a6e614fb696073c8484d5ad53c0b631761333daaacad517e64a5de499a64e43f44
   languageName: node
   linkType: hard
 
@@ -4228,15 +4228,15 @@ __metadata:
   linkType: hard
 
 "@gerrit0/mini-shiki@npm:^3.12.0":
-  version: 3.13.1
-  resolution: "@gerrit0/mini-shiki@npm:3.13.1"
+  version: 3.14.0
+  resolution: "@gerrit0/mini-shiki@npm:3.14.0"
   dependencies:
-    "@shikijs/engine-oniguruma": "npm:^3.13.0"
-    "@shikijs/langs": "npm:^3.13.0"
-    "@shikijs/themes": "npm:^3.13.0"
-    "@shikijs/types": "npm:^3.13.0"
+    "@shikijs/engine-oniguruma": "npm:^3.14.0"
+    "@shikijs/langs": "npm:^3.14.0"
+    "@shikijs/themes": "npm:^3.14.0"
+    "@shikijs/types": "npm:^3.14.0"
     "@shikijs/vscode-textmate": "npm:^10.0.2"
-  checksum: 10/e7606dae2846cd69defb5443af38a9edd70eea241753459ffdd237a082f70200096bd501bc988fb0b49485924f2a61fed2374f89be8ef5d09f34859ba938db0b
+  checksum: 10/339fd706f2bf30193e87fe25e4d2bb676c7fd85f0abddf859c055d9ffdbfc9c5a7cd113555e990be409fb115ee24fbcb335b17e74fa71903430b4e3a619379b1
   languageName: node
   linkType: hard
 
@@ -5931,20 +5931,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-community/slider@npm:^5.0.1":
+"@react-native-community/slider@npm:5.0.1":
   version: 5.0.1
   resolution: "@react-native-community/slider@npm:5.0.1"
   checksum: 10/0356357f43d52c56aab2abd10340855c33a2c84b8d856eadc09aa6d78128555513b627085e5e52b8b4ecfb10d949ae5e3193425eb369e4a75e7309130c5549a8
   languageName: node
   linkType: hard
 
-"@react-native-picker/picker@npm:^2.11.4":
-  version: 2.11.4
-  resolution: "@react-native-picker/picker@npm:2.11.4"
+"@react-native-picker/picker@npm:2.11.1":
+  version: 2.11.1
+  resolution: "@react-native-picker/picker@npm:2.11.1"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10/cb8f0b7bf52044a5bbb89db5a3f1be7bd3cdf3a04845f0475c492ec3f24e63cd915b993b23012b674d3503499efd8ff4eebe18561f4e38ba67b4c45742de4c74
+  checksum: 10/570f8c610b2b3fadc31ab6db216b58be1fd6d790619315c78cd55593b2698816fcb8f6cf013ae018e8934b0af2fd06028c886dbcb8d3b59f69082480d1d32435
   languageName: node
   linkType: hard
 
@@ -6484,41 +6484,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/engine-oniguruma@npm:^3.13.0":
-  version: 3.13.0
-  resolution: "@shikijs/engine-oniguruma@npm:3.13.0"
+"@shikijs/engine-oniguruma@npm:^3.14.0":
+  version: 3.14.0
+  resolution: "@shikijs/engine-oniguruma@npm:3.14.0"
   dependencies:
-    "@shikijs/types": "npm:3.13.0"
+    "@shikijs/types": "npm:3.14.0"
     "@shikijs/vscode-textmate": "npm:^10.0.2"
-  checksum: 10/bc7f1c69640ccece9a3ac3f3adc9cebde9c24bcd722747cc464c338a32725af2b9087a42646cd0f56fbea98d99414918c558f2ca0beadc13db0a740183e7707f
+  checksum: 10/54fd65a8d4c2d85c170f324b122025b7c8f5f7d2e856e918ba8fed47efbca6ec976e92b37e463c8007527f597eec5403fcafad480b24588fc3304dcc66d06938
   languageName: node
   linkType: hard
 
-"@shikijs/langs@npm:^3.13.0":
-  version: 3.13.0
-  resolution: "@shikijs/langs@npm:3.13.0"
+"@shikijs/langs@npm:^3.14.0":
+  version: 3.14.0
+  resolution: "@shikijs/langs@npm:3.14.0"
   dependencies:
-    "@shikijs/types": "npm:3.13.0"
-  checksum: 10/2a0478246ce61745d9012cf5051c9790ef5afad6c89fe5716be4a81d04d7dfd9ffc90af0bad0be0061111bfc001a3bc0c55ffd4fc0b82bc1c09a4c33d7b593ca
+    "@shikijs/types": "npm:3.14.0"
+  checksum: 10/fcbf350ab743dec154e0fedae40112d732930f8bf7e91829e492625c9e49067b7ee684ea276550894dcaea72ed0df63e97872cf7d2ed64fb6ab9f0cbc2431ce9
   languageName: node
   linkType: hard
 
-"@shikijs/themes@npm:^3.13.0":
-  version: 3.13.0
-  resolution: "@shikijs/themes@npm:3.13.0"
+"@shikijs/themes@npm:^3.14.0":
+  version: 3.14.0
+  resolution: "@shikijs/themes@npm:3.14.0"
   dependencies:
-    "@shikijs/types": "npm:3.13.0"
-  checksum: 10/4ab0ecf1ddb35e387cef22e267cdf3ed7548a84f24ad58885d19401f75cc01a5a10152ee0196222e01cead8202f20012615aa0076f798599f7dfc2bb7beaa617
+    "@shikijs/types": "npm:3.14.0"
+  checksum: 10/4ab89e6eaa1de0b41ab0fb3fefa65684cae87c6efab6cd75d951f3fee81faba04f022cdc45763956cc2415d08cf56ab2c3477655570ef8ef0a4ab0c0affe9190
   languageName: node
   linkType: hard
 
-"@shikijs/types@npm:3.13.0, @shikijs/types@npm:^3.13.0":
-  version: 3.13.0
-  resolution: "@shikijs/types@npm:3.13.0"
+"@shikijs/types@npm:3.14.0, @shikijs/types@npm:^3.14.0":
+  version: 3.14.0
+  resolution: "@shikijs/types@npm:3.14.0"
   dependencies:
     "@shikijs/vscode-textmate": "npm:^10.0.2"
     "@types/hast": "npm:^3.0.4"
-  checksum: 10/a57cc95847edd84134166de1f11a044e356581834b2dfd75dcd67f2221aef6f20f505839c090a76b7c8e0a79d7d5cee829de50d261f363a633ae9afca29546c4
+  checksum: 10/361e6cd13a7c32f73ee056281fca19e53214450663ddf245c87f06e22c9d21e102cc5b8ef0778f0bf85146387b45347ae2f504591f5fd192f8ef3c5e2fcfccda
   languageName: node
   linkType: hard
 
@@ -8212,17 +8212,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ai@npm:5.0.78, ai@npm:^5.0.30":
-  version: 5.0.78
-  resolution: "ai@npm:5.0.78"
+"ai@npm:5.0.81, ai@npm:^5.0.30":
+  version: 5.0.81
+  resolution: "ai@npm:5.0.81"
   dependencies:
-    "@ai-sdk/gateway": "npm:2.0.1"
+    "@ai-sdk/gateway": "npm:2.0.2"
     "@ai-sdk/provider": "npm:2.0.0"
-    "@ai-sdk/provider-utils": "npm:3.0.12"
+    "@ai-sdk/provider-utils": "npm:3.0.13"
     "@opentelemetry/api": "npm:1.9.0"
   peerDependencies:
     zod: ^3.25.76 || ^4.1.8
-  checksum: 10/1ade2d72c57646c8e28c90504f5707790f2b1bb1e814f45e4ee9ff8afcabcbb8d6e09500ea24cf5cfaab951be09195309614f2622fc0102b6c9895c9053be9da
+  checksum: 10/1b04184e6c35c0545ca988614cd6e67d748df86af474efc912348d89d7b79fcfad7bfbaec636fe5fafd0b0291b612175e18ba85e2800fd267b03ca3072c6702d
   languageName: node
   linkType: hard
 
@@ -10045,13 +10045,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chroma-js@npm:^2.1.0":
-  version: 2.6.0
-  resolution: "chroma-js@npm:2.6.0"
-  checksum: 10/245f0a0b1da7c4cedf30e490db9ab4e9e71fde207cbe1ca05e25ef5ba517df2509b96b29d2c168786237c8162a03dccea38721c4927249cd1d5c5fe0184fc13c
-  languageName: node
-  linkType: hard
-
 "chrome-launcher@npm:^0.15.2":
   version: 0.15.2
   resolution: "chrome-launcher@npm:0.15.2"
@@ -10513,9 +10506,9 @@ __metadata:
   linkType: hard
 
 "commander@npm:^14.0.1":
-  version: 14.0.1
-  resolution: "commander@npm:14.0.1"
-  checksum: 10/783115e9403caeca29c0fcbd4e0358f70c67760e4e4933f3453fcdd5ddba2ec44173c8da5213d7ce5e404f51c7e71203a42c548164dbe27b668b32a8981577f1
+  version: 14.0.2
+  resolution: "commander@npm:14.0.2"
+  checksum: 10/2d202db5e5f9bb770112a3c1579b893d17ac6f6d932183077308bdd96d0f87f0bbe6a68b5b9ed2cf3b2514be6bb7de637480703c0e2db9741ee1b383237deb26
   languageName: node
   linkType: hard
 
@@ -10601,13 +10594,6 @@ __metadata:
     array-ify: "npm:^1.0.0"
     dot-prop: "npm:^5.1.0"
   checksum: 10/fb71d70632baa1e93283cf9d80f30ac97f003aabee026e0b4426c9716678079ef5fea7519b84d012cbed938c476493866a38a79760564a9e21ae9433e40e6f0d
-  languageName: node
-  linkType: hard
-
-"compare-versions@npm:^3.4.0":
-  version: 3.6.0
-  resolution: "compare-versions@npm:3.6.0"
-  checksum: 10/7492a50cdaa2c27f5254eee7c4b38856e1c164991bab3d98d7fd067fe4b570d47123ecb92523b78338be86aa221668fd3868bfe8caa5587dc3ebbe1a03d52b5d
   languageName: node
   linkType: hard
 
@@ -12000,8 +11986,8 @@ __metadata:
     "@jsamr/react-native-li": "npm:^2.3.1"
     "@mobily/stacks": "npm:^2.2.2"
     "@react-native-community/masked-view": "npm:0.1.11"
-    "@react-native-community/slider": "npm:^5.0.1"
-    "@react-native-picker/picker": "npm:^2.11.4"
+    "@react-native-community/slider": "npm:5.0.1"
+    "@react-native-picker/picker": "npm:2.11.1"
     "@react-native/babel-preset": "npm:0.81.5"
     "@react-navigation/bottom-tabs": "npm:^7.4.9"
     "@react-navigation/drawer": "npm:^7.5.10"
@@ -12024,6 +12010,7 @@ __metadata:
     expo-splash-screen: "npm:~31.0.10"
     expo-status-bar: "npm:~3.0.8"
     expo-web-browser: "npm:~15.0.8"
+    highlight.js: "npm:^11.11.1"
     ignore-loader: "npm:^0.1.2"
     jest-expo: "npm:^54.0.12"
     lowlight: "npm:^3.3.0"
@@ -12031,10 +12018,9 @@ __metadata:
     react-dom: "npm:19.1.0"
     react-native: "npm:0.81.5"
     react-native-gesture-handler: "npm:~2.28.0"
-    react-native-hsv-color-picker: "github:Kasun-thilina/react-native-hsv-color-picker#master"
     react-native-pager-view: "npm:^6.9.1"
     react-native-paper: "npm:^5.14.5"
-    react-native-reanimated: "npm:^4.1.3"
+    react-native-reanimated: "npm:~4.1.1"
     react-native-render-html: "workspace:*"
     react-native-safe-area-context: "npm:^5.6.1"
     react-native-screens: "npm:~4.16.0"
@@ -12045,6 +12031,7 @@ __metadata:
     react-native-webview: "npm:~13.15.0"
     react-native-worklets: "npm:^0.5.1"
     react-syntax-highlighter: "npm:^15.6.6"
+    reanimated-color-picker: "npm:^4.1.1"
     scheduler: "npm:^0.27.0"
     typescript: "npm:^5.4.5"
     urijs: "npm:^1.19.11"
@@ -13222,11 +13209,11 @@ __metadata:
   linkType: hard
 
 "estree-util-value-to-estree@npm:^3.0.1":
-  version: 3.4.1
-  resolution: "estree-util-value-to-estree@npm:3.4.1"
+  version: 3.5.0
+  resolution: "estree-util-value-to-estree@npm:3.5.0"
   dependencies:
     "@types/estree": "npm:^1.0.0"
-  checksum: 10/3f5a5c5d3f8c59c9e8fc40e68375b1bb0520c1a0b4554748a3fb08d939ea8f87388a02f4c84480607c873c065e7a2358c8bc0e918378ac3309a5f82511483b5a
+  checksum: 10/b8fc4db7a70d7af5c1ae9d611fc7802022e88fece351ddc557a2db3aa3c7d65eb79e4499f845b9783054cb6826b489ed17c178b09d50ca182c17c53d07a79b83
   languageName: node
   linkType: hard
 
@@ -13504,15 +13491,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-linear-gradient@npm:~10.0.3":
-  version: 10.0.3
-  resolution: "expo-linear-gradient@npm:10.0.3"
-  dependencies:
-    expo-modules-core: "npm:~0.4.4"
-  checksum: 10/48ab2ebdc626b4e1e86bf354f6b4398e74239029aa3f1a1c7b68d6e42621e6a5e939281ec6fd255f5f1dcdd4edce20ebf431c9c94010fea868889805c22453ca
-  languageName: node
-  linkType: hard
-
 "expo-linear-gradient@npm:~15.0.7":
   version: 15.0.7
   resolution: "expo-linear-gradient@npm:15.0.7"
@@ -13562,16 +13540,6 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 10/bbae1dd30621e24f8482ed01403f2d68cb19f8016f183cbe3d5039432103277ef0bb5db85dd13c918a84465ccd5023859e53654e689d65905d5f73dd914eaedf
-  languageName: node
-  linkType: hard
-
-"expo-modules-core@npm:~0.4.4":
-  version: 0.4.10
-  resolution: "expo-modules-core@npm:0.4.10"
-  dependencies:
-    compare-versions: "npm:^3.4.0"
-    invariant: "npm:^2.2.4"
-  checksum: 10/6da3b466db558741ca7dc4bc24f930cf1e24d7995bd18d2813229c5d38a46f5a3d76163ccc675ebf0e2610f42a49a2eb913d7880e13195d8e1146e07e0e39e17
   languageName: node
   linkType: hard
 
@@ -15335,7 +15303,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highlight.js@npm:~11.11.0":
+"highlight.js@npm:^11.11.1, highlight.js@npm:~11.11.0":
   version: 11.11.1
   resolution: "highlight.js@npm:11.11.1"
   checksum: 10/205272f12f2c8ab1760452a75c58b043b11129cf3a5d2a9c0c90d43993580d0f5c385a73a4b8aba197eef20c0ec37d64000e6b35c4ed5991324f4c2dc78f4e43
@@ -23654,18 +23622,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-hsv-color-picker@github:Kasun-thilina/react-native-hsv-color-picker#master":
-  version: 1.0.2
-  resolution: "react-native-hsv-color-picker@https://github.com/Kasun-thilina/react-native-hsv-color-picker.git#commit=60a83cd9480209dd71ad13e0b34b667df0c12556"
-  dependencies:
-    chroma-js: "npm:^2.1.0"
-    expo-linear-gradient: "npm:~10.0.3"
-  peerDependencies:
-    prop-types: ^15.7.2
-  checksum: 10/7836634d68da1875eff4aa154d6bbd731ec27a7946ac55773275d98b2eca4b625ab628e64043c6ebd382c3b9f2dec2dff64786c38b4e050c5dfb451c298b7075
-  languageName: node
-  linkType: hard
-
 "react-native-is-edge-to-edge@npm:^1.2.1":
   version: 1.2.1
   resolution: "react-native-is-edge-to-edge@npm:1.2.1"
@@ -23711,7 +23667,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-reanimated@npm:^4.1.3":
+"react-native-reanimated@npm:~4.1.1":
   version: 4.1.3
   resolution: "react-native-reanimated@npm:4.1.3"
   dependencies:
@@ -24294,6 +24250,22 @@ __metadata:
   dependencies:
     picomatch: "npm:^2.2.1"
   checksum: 10/196b30ef6ccf9b6e18c4e1724b7334f72a093d011a99f3b5920470f0b3406a51770867b3e1ae9711f227ef7a7065982f6ee2ce316746b2cb42c88efe44297fe7
+  languageName: node
+  linkType: hard
+
+"reanimated-color-picker@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "reanimated-color-picker@npm:4.1.1"
+  peerDependencies:
+    expo: ">=44.0.0"
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: ">=2.0.0"
+    react-native-reanimated: ">=2.0.0"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+  checksum: 10/dcf5fafcd520a86dfa5bc88929e7e74054040df0ecd71ff50cb247d0299221f15737956d0a1777b3d86c6c929354084c55a1c493ba2e336267a6ca6ca0872dbe
   languageName: node
   linkType: hard
 

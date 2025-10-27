@@ -16,10 +16,12 @@ import {
 import StylesheetsProvider, { HighlightJsStyles } from './StylesheetsProvider';
 import highlighterStylesheetsContext from './highlighterStylesheetsContext';
 import generateLines, { SimpleNode } from './generateLines';
-// import * as html from 'highlight.js/lib/languages/html';
-// registerLanguage('html', html);
+import bash from 'highlight.js/lib/languages/bash';
+import xml from 'highlight.js/lib/languages/xml';
 
-const { highlight } = createLowlight();
+const { highlight, register, registerAlias } = createLowlight();
+register({ bash, xml });
+registerAlias({ xml: ['html', 'jsx'] });
 
 export interface HighlighterProps extends ViewProps {
   content: string;

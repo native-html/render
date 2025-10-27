@@ -1,12 +1,10 @@
-import Color from 'color';
-import React, { ComponentType, useCallback, useEffect, useState } from 'react';
-import { Dimensions, View } from 'react-native';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-const HsvColorPicker = require('react-native-hsv-color-picker')
-  .default as HsvColorPicker;
+import React, { useCallback } from 'react';
+import ColorPicker, {
+  ColorPickerProps,
+  HueSlider,
+  Preview
+} from 'reanimated-color-picker';
 import { SelectorProps, PropsWithStyle } from './nucleons/types';
-
-type HsvColorPicker = ComponentType<Record<string, any>>;
 
 export type UIColorPickerControlAtomProps = Pick<
   SelectorProps<string>,
@@ -21,72 +19,20 @@ export default function UIColorPickerControlAtom({
   initialValue,
   style
 }: UIColorPickerControlAtomProps) {
-  const native = Gesture.Native()
-    .disallowInterruption(true)
-    .shouldActivateOnStart(true)
-    .shouldCancelWhenOutside(false);
+  const onSelectColor = useCallback<
+    NonNullable<ColorPickerProps['onComplete']>
+  >(
+    ({ hex }) => {
+      'worklet';
+      onSelectedValueChange(hex);
+    },
+    [onSelectedValueChange]
+  );
 
-  const getInitialSaturation = useCallback(() => {
-    const col = Color(initialValue);
-    return {
-      hue: col.hue(),
-      saturation: col.saturationv(),
-      value: col.value()
-    };
-  }, [initialValue]);
-  const [{ hue, saturation, value }, setHsv] = useState(getInitialSaturation);
-  const selectedColor = Color({
-    h: hue,
-    s: saturation * 100,
-    v: value * 100
-  }).string();
-  useEffect(
-    function onHSVUpdate() {
-      onSelectedValueChange?.call(null, selectedColor);
-    },
-    [onSelectedValueChange, selectedColor]
-  );
-  const onSaturationAndValueChange = useCallback(
-    function onSaturationAndValueChange({
-      saturation: s,
-      value: v
-    }: {
-      saturation: number;
-      value: number;
-    }) {
-      setHsv((state) => ({ ...state, saturation: s, value: v }));
-    },
-    []
-  );
-  const onHueChange = useCallback(function onHueChange({
-    hue: h
-  }: {
-    hue: number;
-  }) {
-    setHsv((state) => ({ ...state, hue: h }));
-  }, []);
   return (
-    <View style={[style, { alignItems: 'center' }]}>
-      <GestureDetector gesture={native}>
-        <HsvColorPicker
-          huePickerHue={hue}
-          satValPickerHue={hue}
-          satValPickerSaturation={saturation}
-          satValPickerValue={value}
-          onHuePickerDragMove={onHueChange}
-          onHuePickerPress={onHueChange}
-          onSatValPickerPress={onSaturationAndValueChange}
-          onSatValPickerDragMove={onSaturationAndValueChange}
-        />
-      </GestureDetector>
-      <View
-        style={{
-          width: '100%',
-          alignSelf: 'center',
-          height: Dimensions.get('screen').height,
-          backgroundColor: selectedColor
-        }}
-      />
-    </View>
+    <ColorPicker value={initialValue} onComplete={onSelectColor} style={style}>
+      <Preview />
+      <HueSlider />
+    </ColorPicker>
   );
 }
