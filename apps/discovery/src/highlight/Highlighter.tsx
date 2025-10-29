@@ -17,11 +17,12 @@ import StylesheetsProvider, { HighlightJsStyles } from './StylesheetsProvider';
 import highlighterStylesheetsContext from './highlighterStylesheetsContext';
 import generateLines, { SimpleNode } from './generateLines';
 import bash from 'highlight.js/lib/languages/bash';
+import javascript from 'highlight.js/lib/languages/javascript';
 import xml from 'highlight.js/lib/languages/xml';
 
 const { highlight, register, registerAlias } = createLowlight();
-register({ bash, xml });
-registerAlias({ xml: ['html', 'jsx'] });
+register({ bash, javascript, xml });
+registerAlias({ xml: ['html', 'jsx'], javascript: ['js'] });
 
 export interface HighlighterProps extends ViewProps {
   content: string;
