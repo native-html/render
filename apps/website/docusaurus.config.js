@@ -91,29 +91,30 @@ module.exports = {
       },
       items: [
         {
-          type: 'doc',
-          docId: 'intro',
+          to: '/docs/intro',
           position: 'left',
-          label: 'Docs'
+          label: 'Docs',
+          exact: true
         },
         {
           to: 'api/',
-          activeBasePath: 'api',
           position: 'left',
-          label: 'API'
+          label: 'API',
+          exact: true
         },
         {
           to: 'api/renderhtmlprops',
           position: 'left',
-          label: 'Props'
+          label: 'Props',
+          exact: true
         },
         {
-          type: 'doc',
-          docId: 'faq',
+          to: '/docs/faq',
           label: 'FAQ',
-          activeSidebarClassName: '__fun'
+          position: 'left',
+          exact: true
         },
-        { to: 'blog', label: 'Blog', position: 'left' },
+        { to: 'blog', label: 'Blog', position: 'left', exact: true },
         {
           to: 'https://github.com/sponsors/jsamr',
           label: 'Sponsorship',
