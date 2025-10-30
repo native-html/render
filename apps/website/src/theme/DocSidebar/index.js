@@ -6,23 +6,27 @@
  */
 import React, { useState, useCallback, useEffect, useRef, memo } from 'react';
 import clsx from 'clsx';
-import { useThemeConfig, isSamePath } from '@docusaurus/theme-common';
-import useUserPreferencesContext from '@theme/hooks/useUserPreferencesContext';
-import useLockBodyScroll from '@theme/hooks/useLockBodyScroll';
-import useWindowSize, { windowSizes } from '@theme/hooks/useWindowSize';
-import useScrollPosition from '@theme/hooks/useScrollPosition';
+import {
+  useThemeConfig,
+  useUserPreferencesContext,
+  useLockBodyScroll,
+  useWindowSize,
+  windowSizes,
+  useScrollPosition
+} from '@docusaurus/theme-common';
 import Link from '@docusaurus/Link';
 import isInternalUrl from '@docusaurus/isInternalUrl';
 import Logo from '@theme/Logo';
-import IconArrow from '@theme/IconArrow';
-import IconMenu from '@theme/IconMenu';
+import IconArrow from '@theme/Icon/Arrow';
+import IconMenu from '@theme/Icon/Menu';
 import { translate } from '@docusaurus/Translate';
 import styles from './styles.module.css';
 const MOBILE_TOGGLE_SIZE = 24;
 
+const normalizePath = (p) => (p || '').replace(/\/$/, '');
 const isActiveSidebarItem = (item, activePath) => {
   if (item.type === 'link') {
-    return isSamePath(item.href, activePath);
+    return normalizePath(item.href) === normalizePath(activePath);
   }
 
   if (item.type === 'category') {

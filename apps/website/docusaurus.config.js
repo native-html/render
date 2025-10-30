@@ -53,7 +53,11 @@ module.exports = {
   url: WEBSITE_ROOT,
   baseUrl: WEBSITE_BASE,
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw'
+    }
+  },
   // TODO remove when this issue is resolved
   // https://github.com/facebook/docusaurus/issues/4923
   // Also remove the swizzled LayoutHead
@@ -63,20 +67,17 @@ module.exports = {
   plugins: plugins,
   trailingSlash: false,
   themeConfig: {
-    algolia: {
-      apiKey: '4f9905bd301a15034820905263f47dda',
-      indexName: 'meliorence',
-      // Should be set to true for versioned sites
-      contextualSearch: false,
-      // Optional: Algolia search parameters
-      searchParameters: {}
-    },
-    gtag: {
-      trackingID: 'G-CYR1XDV25N',
-      anonymizeIP: true
-    },
+    // Algolia search disabled - requires appId in Docusaurus v3
+    // To re-enable, add appId to the algolia config:
+    // algolia: {
+    //   appId: 'YOUR_APP_ID',
+    //   apiKey: '4f9905bd301a15034820905263f47dda',
+    //   indexName: 'meliorence',
+    //   contextualSearch: false,
+    //   searchParameters: {}
+    // },
     prism: {
-      theme: require('prism-react-renderer/themes/dracula')
+      theme: require('prism-react-renderer').themes.dracula
     },
     colorMode: {
       defaultMode: 'dark',
@@ -89,12 +90,12 @@ module.exports = {
         src: 'img/logo.svg'
       },
       items: [
-        {
-          type: 'doc',
-          docId: 'intro',
-          position: 'left',
-          label: 'Docs'
-        },
+        // {
+        //   type: 'doc',
+        //   docId: 'intro',
+        //   position: 'left',
+        //   label: 'Docs'
+        // },
         {
           to: 'api/',
           activeBasePath: 'api',
@@ -137,10 +138,10 @@ module.exports = {
         {
           title: 'Essentials',
           items: [
-            {
-              label: 'Introduction',
-              to: '/docs/intro'
-            },
+            // {
+            //   label: 'Introduction',
+            //   to: '/docs/intro'
+            // },
             {
               label: 'Architecture',
               to: '/docs/architecture'
@@ -263,6 +264,10 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss')
+        },
+        gtag: {
+          trackingID: 'G-CYR1XDV25N',
+          anonymizeIP: true
         }
       }
     ]

@@ -6,12 +6,12 @@
  */
 import React from 'react';
 import Head from '@docusaurus/Head';
-import { useThemeConfig, useTitleFormatter } from '@docusaurus/theme-common';
+import { useThemeConfig } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function Seo({ title, description, keywords, image }) {
   const { image: defaultImage } = useThemeConfig();
-  const pageTitle = useTitleFormatter(title);
+  const pageTitle = title;
   const pageImage = useBaseUrl(image || defaultImage, {
     absolute: true
   });
