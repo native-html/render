@@ -41,13 +41,20 @@ function BlogPostItem(props) {
   const readingTimePlural = useReadingTimePlural();
   const {
     children,
-    frontMatter,
-    metadata,
+    frontMatter = {},
+    metadata = {},
     truncated,
     isBlogPostPage = false
   } = props;
-  const { date, formattedDate, permalink, tags, readingTime, title, editUrl } =
-    metadata;
+  const {
+    date,
+    formattedDate,
+    permalink,
+    tags = [],
+    readingTime,
+    title,
+    editUrl
+  } = metadata;
   const { author, image, keywords } = frontMatter;
   const authorURL = frontMatter.author_url || frontMatter.authorURL;
   const authorTitle = frontMatter.author_title || frontMatter.authorTitle;
@@ -62,7 +69,9 @@ function BlogPostItem(props) {
           {isBlogPostPage ? title : <Link to={permalink}>{title}</Link>}
         </TitleHeading>
         <div className={clsx(styles.blogPostData, 'margin-vert--md')}>
-          <time dateTime={date}>{formattedDate}</time>
+          {date && formattedDate && (
+            <time dateTime={date}>{formattedDate}</time>
+          )}
 
           {readingTime && (
             <>
@@ -103,10 +112,12 @@ function BlogPostItem(props) {
       <Head>
         <meta property="og:type" content="article" />
         {authorURL && <meta property="article:author" content={authorURL} />}
-        <meta
-          property="article:published_time"
-          content={new Date(date).toISOString()}
-        />
+        {date && (
+          <meta
+            property="article:published_time"
+            content={new Date(date).toISOString()}
+          />
+        )}
       </Head>
 
       <article className={!isBlogPostPage ? 'margin-bottom--xl' : undefined}>
