@@ -1,6 +1,5 @@
 import React from 'react';
 import type { JSONOutput } from 'typedoc';
-import { ReflectionKind } from 'typedoc/dist/lib/models/reflections/abstract';
 import clsx from 'clsx';
 import styles from './styles.module.scss';
 import renderReflection from './renderReflection';
@@ -18,9 +17,9 @@ export default function DeclarationBox({
     decodeURIComponent(rawReflection)
   ) as JSONOutput.DeclarationReflection;
   const isPropertyLike =
-    reflection.kind === ReflectionKind.Property ||
-    reflection.kind === ReflectionKind.Method ||
-    reflection.kind === ReflectionKind.Parameter;
+    reflection.kindString === 'Property' ||
+    reflection.kindString === 'Method' ||
+    reflection.kindString === 'Parameter';
   const isOptional =
     reflection.flags.isOptional ||
     typeof reflection.defaultValue !== 'undefined';

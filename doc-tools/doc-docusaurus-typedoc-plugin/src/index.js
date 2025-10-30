@@ -67,15 +67,23 @@ function plugin(
         await task__clearcache();
       }
     }
+    const resolvedTypedoc = {
+      ...typedoc,
+      entryPoints: typedoc.entryPoints.map((p) => path.resolve(p)),
+      tsconfig: typedoc.tsconfig ? path.resolve(typedoc.tsconfig) : undefined
+    };
     /**@type {import('typedoc').Application} */
-    const app = init(typedoc);
-    const project = app.convert();
+    const app = await init(resolvedTypedoc);
+    const project = await app.convert();
     if (!project) {
       throw new Error(
         'Typedoc plugin encountered a type error while generating reflections'
       );
     }
-    const data = app.serializer.toObject(project);
+    const data = app.serializer.projectToObject(
+      project,
+      /** projectRoot */ path.resolve('.')
+    );
     try {
       if (!existsSync(cachePath)) {
         await mkdir(cachePath, { recursive: true });

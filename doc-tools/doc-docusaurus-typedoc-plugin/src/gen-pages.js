@@ -186,19 +186,13 @@ function extractSignatureParams(signatures) {
     const serializedParams = params
       .map((p) => {
         if (p.comment) {
-          return `<dt><code>${p.name}</code></dt><dd>
-
-${extractDefinitionBody(p)}
-        
-</dd>`;
+          return `- \`${p.name}\`\n\n${extractDefinitionBody(p)}`;
         }
         return null;
       })
       .filter((p) => p !== null);
     return serializedParams.length
-      ? `#### Parameters
-      
-<dl>${serializedParams.join('\n')}</dl>`
+      ? `#### Parameters\n\n${serializedParams.join('\n')}`
       : '';
   }
   return '';

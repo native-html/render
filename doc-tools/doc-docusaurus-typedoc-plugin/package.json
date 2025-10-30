@@ -3,7 +3,7 @@
   "type": "commonjs",
   "main": "src/index.js",
   "dependencies": {
-    "typedoc": "^0.20.36"
+    "typedoc": "^0.28.14"
   },
   "devDependencies": {
     "@docusaurus/core": "^3.9.2",
