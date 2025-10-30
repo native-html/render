@@ -126,7 +126,16 @@ export default function renderReflection(
   params: Params
 ) {
   let nextParams: Params = params;
-  switch (reflection.kindString) {
+  const inferredKindString =
+    reflection.kindString ||
+    (reflection.signatures
+      ? 'Function'
+      : typeof (reflection as any).defaultValue !== 'undefined'
+        ? 'Enum member'
+        : (reflection as any).type
+          ? 'Property'
+          : undefined);
+  switch (inferredKindString) {
     case 'Function':
       return renderFunction(
         reflection,
@@ -155,7 +164,7 @@ export default function renderReflection(
           <code> </code>
           <TokenPunctuation>{'{'}</TokenPunctuation>
           <br />
-          {reflection.children.reduce(
+          {reflection.children?.reduce(
             reduceReflectionsWith(null, params.withIndent(), renderReflection),
             null
           )}
@@ -260,11 +269,6 @@ export default function renderReflection(
           params
         );
       });
-    case 'Function':
-      return renderArrowSignatures(
-        (reflection as JSONOutput.DeclarationReflection).signatures,
-        params
-      );
     case 'Call signature':
       return (
         <>
@@ -291,12 +295,9 @@ export default function renderReflection(
       );
     default:
       console.warn(
-        'Unhandled Declaration Reflection of kind',
-        reflection.kindString,
+        'Unhandled Declaration Reflection, falling back to any',
         reflection
       );
-      throw new Error(
-        `Unhandled Declaration Reflection of kind ${reflection.kindString}`
-      );
+      return <TokenKeyword>any</TokenKeyword>;
   }
 }

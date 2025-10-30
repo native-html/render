@@ -90,12 +90,12 @@ module.exports = {
         src: 'img/logo.svg'
       },
       items: [
-        // {
-        //   type: 'doc',
-        //   docId: 'intro',
-        //   position: 'left',
-        //   label: 'Docs'
-        // },
+        {
+          type: 'doc',
+          docId: 'intro',
+          position: 'left',
+          label: 'Docs'
+        },
         {
           to: 'api/',
           activeBasePath: 'api',
@@ -138,10 +138,10 @@ module.exports = {
         {
           title: 'Essentials',
           items: [
-            // {
-            //   label: 'Introduction',
-            //   to: '/docs/intro'
-            // },
+            {
+              label: 'Introduction',
+              to: '/docs/intro'
+            },
             {
               label: 'Architecture',
               to: '/docs/architecture'
