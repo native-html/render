@@ -54,8 +54,8 @@ function BlogPostItem(props) {
     readingTime,
     title,
     editUrl
-  } = metadata;
-  const { author, image, keywords } = frontMatter;
+  } = metadata || {};
+  const { author, image, keywords } = frontMatter || {};
   const authorURL = frontMatter.author_url || frontMatter.authorURL;
   const authorTitle = frontMatter.author_title || frontMatter.authorTitle;
   const authorImageURL =
@@ -66,10 +66,16 @@ function BlogPostItem(props) {
     return (
       <header>
         <TitleHeading className={styles.blogPostTitle}>
-          {isBlogPostPage ? title : <Link to={permalink}>{title}</Link>}
+          {title ? (
+            isBlogPostPage ? (
+              title
+            ) : (
+              <Link to={permalink}>{title}</Link>
+            )
+          ) : null}
         </TitleHeading>
         <div className={clsx(styles.blogPostData, 'margin-vert--md')}>
-          {date && formattedDate && (
+          {date && formattedDate && !isNaN(new Date(date).getTime()) && (
             <time dateTime={date}>{formattedDate}</time>
           )}
 
@@ -112,7 +118,7 @@ function BlogPostItem(props) {
       <Head>
         <meta property="og:type" content="article" />
         {authorURL && <meta property="article:author" content={authorURL} />}
-        {date && (
+        {date && !isNaN(new Date(date).getTime()) && (
           <meta
             property="article:published_time"
             content={new Date(date).toISOString()}
