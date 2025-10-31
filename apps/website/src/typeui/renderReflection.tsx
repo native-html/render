@@ -125,8 +125,13 @@ export default function renderReflection(
   reflection: JSONOutput.DeclarationReflection,
   params: Params
 ) {
+  if (!reflection) {
+    console.warn('renderReflection called with undefined reflection');
+    return <TokenKeyword>any</TokenKeyword>;
+  }
   let nextParams: Params = params;
-  const inferredKindString =
+  // Infer kindString if missing (happens with TypeDoc 0.28 in some cases)
+  const kindString =
     reflection.kindString ||
     (reflection.signatures
       ? 'Function'
@@ -134,8 +139,8 @@ export default function renderReflection(
         ? 'Enum member'
         : (reflection as any).type
           ? 'Property'
-          : undefined);
-  switch (inferredKindString) {
+          : 'Type alias');
+  switch (kindString) {
     case 'Function':
       return renderFunction(
         reflection,
@@ -152,7 +157,11 @@ export default function renderReflection(
             params.withTypeParamsLinks()
           )}
           <TokenPunctuation>{' = '}</TokenPunctuation>
-          {renderType(reflection.type, params)}
+          {reflection.type ? (
+            renderType(reflection.type, params)
+          ) : (
+            <TokenKeyword>any</TokenKeyword>
+          )}
         </>
       );
     case 'Enum':
@@ -164,7 +173,7 @@ export default function renderReflection(
           <code> </code>
           <TokenPunctuation>{'{'}</TokenPunctuation>
           <br />
-          {reflection.children?.reduce(
+          {reflection.children.reduce(
             reduceReflectionsWith(null, params.withIndent(), renderReflection),
             null
           )}
@@ -220,7 +229,11 @@ export default function renderReflection(
     case 'Parameter':
       return renderAttribute(
         reflection.name,
-        renderType(reflection.type, params),
+        reflection.type ? (
+          renderType(reflection.type, params)
+        ) : (
+          <TokenKeyword>any</TokenKeyword>
+        ),
         reflection.flags,
         params
       );
@@ -228,7 +241,11 @@ export default function renderReflection(
       nextParams = params.withoutMemberLinks();
       return renderAttribute(
         reflection.name,
-        renderType(reflection.type, nextParams),
+        reflection.type ? (
+          renderType(reflection.type, nextParams)
+        ) : (
+          <TokenKeyword>any</TokenKeyword>
+        ),
         reflection.flags,
         params
       );
@@ -269,6 +286,11 @@ export default function renderReflection(
           params
         );
       });
+    case 'Function':
+      return renderArrowSignatures(
+        (reflection as JSONOutput.DeclarationReflection).signatures,
+        params
+      );
     case 'Call signature':
       return (
         <>
@@ -284,7 +306,11 @@ export default function renderReflection(
       return (
         <>
           {renderConst(reflection.name)}
-          {renderType(reflection.type, params)}
+          {reflection.type ? (
+            renderType(reflection.type, params)
+          ) : (
+            <TokenKeyword>any</TokenKeyword>
+          )}
         </>
       );
     case 'Enum member':
@@ -294,10 +320,20 @@ export default function renderReflection(
         params
       );
     default:
-      console.warn(
-        'Unhandled Declaration Reflection, falling back to any',
+      console.warn('Unhandled Declaration Reflection, falling back to any', {
+        kindString: reflection.kindString || kindString,
         reflection
-      );
+      });
+      // Try to render as a property if it has a type
+      if (reflection.type) {
+        return renderAttribute(
+          reflection.name || '',
+          renderType(reflection.type, params),
+          reflection.flags || {},
+          params
+        );
+      }
+      // Final fallback
       return <TokenKeyword>any</TokenKeyword>;
   }
 }

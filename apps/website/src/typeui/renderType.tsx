@@ -42,6 +42,9 @@ function renderTypeArgument(
 }
 
 export default function renderType(pt: DeclarationType, params: Params) {
+  if (!pt) {
+    return <TokenKeyword>any</TokenKeyword>;
+  }
   let shouldBreak = false;
   let nextParams: Params = params;
   switch (pt.type) {
