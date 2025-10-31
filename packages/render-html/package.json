@@ -74,7 +74,7 @@
     "react-native-accessibility-engine": "patch:react-native-accessibility-engine@npm%3A3.2.0#~/.yarn/patches/react-native-accessibility-engine-npm-3.2.0-5709303461.patch",
     "react-native-builder-bob": "^0.40.13",
     "react-performance-testing": "^2.0.0",
-    "react-test-renderer": "~19.1.0",
+    "react-test-renderer": "19.1.0",
     "release-it": "^19.0.5",
     "typescript": "^5.4.5"
   },
