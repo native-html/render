@@ -140,7 +140,6 @@ html[data-theme='dark'] {
   }
 }
 
-
 .DocSearch-Button {
   border-radius: 0 !important;
 }
@@ -178,6 +177,7 @@ html[data-theme='dark'] {
   &#{&}--sublist#{&}--active {
     --ifm-menu-color-active: var(--ifm-color-primary);
     color: var(--ifm-menu-color-active);
+    overflow: hidden;
   }
   &--sublist {
     text-transform: uppercase;

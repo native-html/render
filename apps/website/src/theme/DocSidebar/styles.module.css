@@ -91,6 +91,11 @@
   html[data-theme='dark'] .collapseSidebarButton:focus {
     background-color: var(--ifm-color-emphasis-200);
   }
+
+  /* Hide the responsive sidebar toggle button on desktop */
+  :global(.menu__button) {
+    display: none !important;
+  }
 }
 
 .sidebarLogo,
