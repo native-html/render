@@ -21,7 +21,6 @@ function AppbarHeader(props: AppbarHeaderProps) {
   return (
     <View>
       <View
-        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           height: top,
           flexGrow: 1,

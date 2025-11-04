@@ -13,7 +13,7 @@ export default function normalizeResourceLocator(
 ) {
   try {
     return baseUrl ? URI(url).absoluteTo(URI(baseUrl)).href() : URI(url).href();
-  } catch (e) {
+  } catch {
     return url;
   }
 }

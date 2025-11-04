@@ -1,13 +1,10 @@
 import Constants from 'expo-constants';
+import { filter, pipe, uniq } from 'ramda';
 
-import uniq from 'ramda/es/uniq';
-import pipe from 'ramda/es/pipe';
-import filter from 'ramda/es/filter';
-
-const normalizeFonts = pipe<string[], string[], string[]>(
+const normalizeFonts = pipe<string[][], string[], string[]>(
   uniq,
-  filter(
-    (c: string) =>
+  filter<string>(
+    (c) =>
       !c.match(
         /bold|italic|semi|regular|extra|ultra|light|black|medium|thin|-/i
       )

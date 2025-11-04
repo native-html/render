@@ -43,7 +43,7 @@ function PlaygroundSlimHeader({ navigation, ...otherProps }: StackHeaderProps) {
       />
       <TextRoleNucleon
         role="headerSubtitle"
-        children={otherProps.scene.descriptor.options.title}
+        children={otherProps.options.title}
       />
     </View>
   );
@@ -55,6 +55,7 @@ export default function SheetNavigator() {
     () => ({
       ...TransitionPresets.SlideFromRightIOS,
       headerShown: true,
+      headerMode: 'screen',
       safeAreaInsets: { top: 0 },
       header: (props) => <PlaygroundSlimHeader {...props} />,
       cardStyle: contentStyle
@@ -62,7 +63,7 @@ export default function SheetNavigator() {
     [contentStyle]
   );
   return (
-    <SheetStack.Navigator screenOptions={screenOptions} headerMode="screen">
+    <SheetStack.Navigator screenOptions={screenOptions}>
       <SheetStack.Screen
         name="PlaygroundHome"
         options={homeOptions}

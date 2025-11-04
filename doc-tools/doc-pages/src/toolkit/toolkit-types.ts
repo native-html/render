@@ -50,10 +50,10 @@ export type TNodeTransformDisplayProps = {
 export interface UIToolkitBase {
   Container?: ComponentType<PropsWithChildren<{}>>;
   Header: ComponentType<PropsWithChildren<{}>>;
-  Chapter: ComponentType<{ title: string }>;
-  Section: ComponentType<{ title: string }>;
-  Paragraph: ComponentType<{}>;
-  Bold: ComponentType<{}>;
+  Chapter: ComponentType<PropsWithChildren<{ title: string }>>;
+  Section: ComponentType<PropsWithChildren<{ title: string }>>;
+  Paragraph: ComponentType<PropsWithChildren<{}>>;
+  Bold: ComponentType<PropsWithChildren<{}>>;
   SourceDisplay: ComponentType<SourceDisplayProps>;
   TNodeTransformDisplay: ComponentType<TNodeTransformDisplayProps>;
   Admonition: ComponentType<
@@ -68,7 +68,7 @@ export interface UIToolkitBase {
   DListItem: ComponentType<PropsWithChildren<{}>>;
   InlineCode: ComponentType<PropsWithChildren<{}>>;
   Hyperlink: ComponentType<PropsWithChildren<{ url: string }>>;
-  Conditional: ComponentType<{ platform: 'web' | 'mobile' }>;
+  Conditional: ComponentType<PropsWithChildren<{ platform: 'web' | 'mobile' }>>;
 }
 
 export interface UIToolkitRefs {
@@ -117,7 +117,7 @@ export interface RefAPIProps {
 
 export interface UIToolkit extends UIToolkitBase, UIToolkitRefs {
   RenderHtmlCard: ComponentType<UIRenderHtmlCardProps>;
-  RefDoc: ComponentType<{ target: PageId; fragment?: string }>;
+  RefDoc: ComponentType<PropsWithChildren<{ target: PageId; fragment?: string }>>;
   Acronym: ComponentType<{ name: Acronym }>;
   SvgFigure: ComponentType<{ asset: SvgAssetType }>;
   RefRenderHtmlProp: RefComponent<keyof RNRH.RenderHTMLProps>;
@@ -142,7 +142,9 @@ export type UIToolkitConfig = {
     extraneousDeps: string[];
     snapshot: string;
   }>;
-  RefDoc: ComponentType<{ target: PageSpecs; fragment?: string }>;
+  RefDoc: ComponentType<
+    PropsWithChildren<{ target: PageSpecs; fragment?: string }>
+  >;
   Acronym: ComponentType<AcronymDefinition>;
   SvgFigure: ComponentType<{
     asset: SvgAssetType;

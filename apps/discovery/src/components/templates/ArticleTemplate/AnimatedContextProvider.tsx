@@ -1,11 +1,12 @@
 import React, { PropsWithChildren, useContext } from 'react';
-import Animated, {
+import {
+  SharedValue,
   useAnimatedScrollHandler,
   useSharedValue
 } from 'react-native-reanimated';
 
 const animatedContext = React.createContext<{
-  scrollAnim: Animated.SharedValue<number>;
+  scrollAnim: SharedValue<number>;
   onScroll: (...args: any[]) => void;
 }>(null as any);
 

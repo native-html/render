@@ -1,37 +1,36 @@
-import React, { ReactElement, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import { TNode } from 'react-native-render-html';
 import UIBottomSheetAtom from '../../UIBottomSheetAtom';
 import BoxNucleon from '../../nucleons/BoxNucleon';
 import { demoStateContext } from './contexts';
 import { usePlaygroundSource } from './playgroundStore';
-import SheetChildrenRenderer from './SheetChildrenRenderer';
-import SheetControlsPortal from './SheetControlsPortal';
-import SheetDescriptionPortal from './SheetDescriptionPortal';
+import SheetChildrenRenderer, { TpChildren } from './SheetChildrenRenderer';
 import SheetNavigator from './SheetNavigator';
-import SheetNavigatorPortal from './SheetNavigatorPortal';
 import sheetSnapPoints from './sheetSnapPoints';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export type SheetProps = {
   ttree?: TNode;
   style?: StyleProp<ViewStyle>;
-  children: ReactElement<
-    | typeof SheetControlsPortal
-    | typeof SheetDescriptionPortal
-    | typeof SheetNavigatorPortal
-  >[];
+  children: TpChildren;
 };
 
 export default function Sheet({ ttree, children, style }: SheetProps) {
   const html = usePlaygroundSource().source;
   const { bottom: safeBottom } = useSafeAreaInsets();
+  const value = useMemo(() => ({ html, ttree }), [html, ttree]);
+
+  if (
+    !sheetSnapPoints.every(
+      (p) => typeof p === 'string' || typeof p === 'number'
+    )
+  )
+    return;
+
   return (
-    <UIBottomSheetAtom
-      enableContentPanningGesture={true}
-      snapPoints={sheetSnapPoints}>
-      <demoStateContext.Provider
-        value={useMemo(() => ({ html, ttree }), [html, ttree])}>
+    <UIBottomSheetAtom enableContentPanningGesture snapPoints={sheetSnapPoints}>
+      <demoStateContext.Provider value={value}>
         <BoxNucleon grow style={[style, { paddingBottom: safeBottom }]}>
           <SheetChildrenRenderer tpChildren={children}>
             <SheetNavigator />

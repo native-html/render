@@ -151,7 +151,7 @@ describe('RenderHTML a11y', () => {
       const element = (
         <RenderHTML
           source={{
-            html: '<span><customlink aria-label="Click me!"></customlink></span>'
+            html: '<span><customlink aria-label="Click me!">Custom link</customlink></span>'
           }}
           customHTMLElementModels={{
             ...defaultHTMLElementModels,

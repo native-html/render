@@ -23,6 +23,7 @@ export default function UINavResourceTideMolecule<R extends ResourceRoute>({
       title={definition.title}
       style={useSurfaceBackgroundStyleNucleon()}
       onPress={useCallback(
+        // @ts-ignore TODO: fix this
         () => navigation.navigate(route),
         [navigation, route]
       )}

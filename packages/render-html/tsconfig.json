@@ -3,7 +3,11 @@
   "extends": "../../tsconfig-base.json",
   "compilerOptions": {
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@native-html/css-processor": ["../css-processor/src"],
+      "@native-html/transient-render-engine": ["../transient-render-engine/src"],
+    }
   },
-  "include": ["src", "jest"]
+  "include": ["src", "jest"],
 }

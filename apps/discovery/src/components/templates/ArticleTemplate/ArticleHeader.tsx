@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { Stack, useSpacing } from '@mobily/stacks';
 import React, { PropsWithChildren, useEffect } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -7,7 +6,8 @@ import Animated, {
   useDerivedValue,
   withSpring,
   withRepeat,
-  useSharedValue
+  useSharedValue,
+  SharedValue
 } from 'react-native-reanimated';
 import { ImageBackground, ImageRequireSource, View } from 'react-native';
 import UIAppbarActionAtom from '../../UIAppbarActionAtom';
@@ -38,8 +38,7 @@ function useAnimatedChevron() {
       withSpring(chevronScale.value, {
         velocity: 1,
         damping: 1000,
-        stiffness: 10,
-        restSpeedThreshold: 0.1
+        stiffness: 10
       }),
       -1,
       true
@@ -65,7 +64,7 @@ function AnimatedContainer({
 }: PropsWithChildren<{
   height: number;
   width: number;
-  progress: Animated.SharedValue<number>;
+  progress: SharedValue<number>;
 }>) {
   const { top: safeTop } = useSafeAreaInsets();
   const { scrollAnim } = useAnimatedContext();
@@ -96,7 +95,7 @@ function AnimatedFixedHeader({
   progress
 }: {
   title: string;
-  progress: Animated.SharedValue<number>;
+  progress: SharedValue<number>;
 }) {
   const navigation = useNavigation();
   const { top: safeTop } = useSafeAreaInsets();
@@ -153,7 +152,7 @@ function ArticleHeaderFullBody({
 }: {
   width: number;
   height: number;
-  progress: Animated.SharedValue<number>;
+  progress: SharedValue<number>;
   title: string;
   groupLabel: string;
   description: string;

@@ -38,7 +38,6 @@ export function expectTranslatedInlineCSSRuleTo({
     />
   );
   const text = getByText('hello world');
-  // eslint-disable-next-line jest/no-disabled-tests
   test(StyleSheet.flatten(text.props.style));
 }
 

@@ -1,4 +1,4 @@
-import { DrawerHeaderProps } from '@react-navigation/drawer/lib/typescript/src/types';
+import { DrawerHeaderProps } from '@react-navigation/drawer';
 import React from 'react';
 import UIAppbarActionAtom from '../../UIAppbarActionAtom';
 import UIAppbarContentAtom from '../../UIAppbarContentAtom';
@@ -7,11 +7,9 @@ import UIHeaderAtom from '../../UIHeaderAtom';
 export type StandardHeaderOrganismProps = DrawerHeaderProps;
 
 export default function DrawerPlaygroundHeader({
-  scene
+  options,
+  navigation
 }: StandardHeaderOrganismProps) {
-  const {
-    descriptor: { options, navigation }
-  } = scene;
   const onMenuPress = React.useCallback(
     () => (navigation as any).openDrawer(),
     [navigation]

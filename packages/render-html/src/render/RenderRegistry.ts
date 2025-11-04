@@ -26,6 +26,9 @@ export interface RendererConfig<T extends TNode> {
 }
 
 export default class RenderRegistry {
+  private readonly customRenderers: CustomTagRendererRecord = {};
+  private readonly elementModels: HTMLElementModelRecord;
+
   constructor(
     customRenderers: CustomTagRendererRecord = {},
     elementModels: HTMLElementModelRecord
@@ -34,8 +37,19 @@ export default class RenderRegistry {
     this.elementModels = elementModels;
   }
 
-  private readonly customRenderers: CustomTagRendererRecord = {};
-  private readonly elementModels: HTMLElementModelRecord;
+  getInternalTextRenderer(tagName: string | null) {
+    if (lookupRecord(internalTextRenderers, tagName)) {
+      return internalTextRenderers[tagName];
+    }
+    return null;
+  }
+
+  getRendererConfigForTNode<T extends TNode>(tnode: T): RendererConfig<T> {
+    return {
+      Custom: this.getCustomRendererForTNode(tnode),
+      Default: this.getDefaultRendererForTNode(tnode)
+    };
+  }
 
   private getCustomRendererForTNode<T extends TNode>(
     tnode: T
@@ -69,19 +83,5 @@ export default class RenderRegistry {
       return internalRenderers[tnode.tagName!];
     }
     return null;
-  }
-
-  getInternalTextRenderer(tagName: string | null) {
-    if (lookupRecord(internalTextRenderers, tagName)) {
-      return internalTextRenderers[tagName];
-    }
-    return null;
-  }
-
-  getRendererConfigForTNode<T extends TNode>(tnode: T): RendererConfig<T> {
-    return {
-      Custom: this.getCustomRendererForTNode(tnode),
-      Default: this.getDefaultRendererForTNode(tnode)
-    };
   }
 }

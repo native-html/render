@@ -17,7 +17,7 @@ export default function ScrollerProvider({
   children,
   scrollRef
 }: PropsWithChildren<{
-  scrollRef: RefObject<Animated.ScrollView>;
+  scrollRef: RefObject<Animated.ScrollView | null>;
 }>) {
   const index = useMemo(() => new Scroller(scrollRef), [scrollRef]);
   return (

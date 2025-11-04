@@ -1,6 +1,9 @@
 import React, { useCallback } from 'react';
 import { View, StyleProp, ViewStyle } from 'react-native';
-import RenderHTML, { RenderHTMLProps } from 'react-native-render-html';
+import RenderHTML, {
+  AElementConfig,
+  RenderHTMLProps
+} from 'react-native-render-html';
 import UIDisplayLoadingAtom from './UIDisplayLoadingAtom';
 import useOnLinkPress from '../hooks/useOnLinkPress';
 import { useColorRoles } from '../theme/colorSystem';
@@ -26,7 +29,7 @@ const UIHtmlDisplayMolecule = React.memo(
     style?: StyleProp<ViewStyle>;
   }) => {
     const onSelectUri = useOnLinkPress();
-    const onLinkPress = useCallback(
+    const onLinkPress = useCallback<NonNullable<AElementConfig['onPress']>>(
       (e, uri) => onSelectUri(uri),
       [onSelectUri]
     );

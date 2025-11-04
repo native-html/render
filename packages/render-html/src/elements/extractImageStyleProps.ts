@@ -1,9 +1,8 @@
-import { ImageStyle } from 'react-native';
 import { WebBlockStyles } from '@native-html/transient-render-engine';
+import { pick } from 'ramda';
+import { ImageStyle } from 'react-native';
 
-import pick from 'ramda/src/pick';
-
-const extractProps = pick<keyof ImageStyle>([
+const keysToExtract: (keyof ImageStyle)[] = [
   'resizeMode',
   'tintColor',
   'overlayColor',
@@ -11,7 +10,9 @@ const extractProps = pick<keyof ImageStyle>([
   'borderBottomRightRadius',
   'borderTopLeftRadius',
   'borderTopRightRadius'
-]);
+];
+
+const extractProps = pick(keysToExtract);
 
 function mapObjectFit(objectFit: WebBlockStyles['objectFit']) {
   let resizeMode: ImageStyle['resizeMode'];

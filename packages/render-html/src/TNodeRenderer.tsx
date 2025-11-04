@@ -117,6 +117,7 @@ const TNodeRenderer = memo(function MemoizedTNodeRenderer(
       ? renderBlockContent
       : renderTextualContent;
   return Renderer === null
+    // @ts-ignore TODO: fix this
     ? renderFn(assembledProps)
     : React.createElement(Renderer as any, assembledProps);
 });

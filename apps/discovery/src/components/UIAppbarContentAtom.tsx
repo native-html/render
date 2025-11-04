@@ -1,13 +1,15 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Appbar } from 'react-native-paper';
+import { Appbar, AppbarContentProps } from 'react-native-paper';
 import { useColorRoles } from '../theme/colorSystem';
 import useTextRoleNucleon from './nucleons/useTextRoleNucleon';
 
 export type UIAppbarContentAtomProps = Omit<
-  React.ComponentProps<typeof Appbar.Content>,
-  'subtitleStyle' | 'color'
->;
+  AppbarContentProps,
+  'title' | 'titleStyle' | 'color'
+> & {
+  title?: string;
+};
 
 const styles = StyleSheet.create({
   title: {
@@ -15,22 +17,19 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function UIAppbarContentAtom(props: UIAppbarContentAtomProps) {
+export default function UIAppbarContentAtom({
+  title,
+  ...props
+}: UIAppbarContentAtomProps) {
   const { surface } = useColorRoles();
-  const subtitleStyle = useTextRoleNucleon({
-    role: 'headerSubtitle',
-    color: surface.content
-  });
   const titleStyle = useTextRoleNucleon({
     role: 'headerTitle',
     color: surface.content
   });
-  return (
-    <Appbar.Content
-      color={surface.content}
-      {...props}
-      titleStyle={[titleStyle, styles.title]}
-      subtitleStyle={subtitleStyle}
-    />
-  );
+
+  const titleProps = title
+    ? { title, titleStyle: [titleStyle, styles.title] }
+    : { title: undefined };
+
+  return <Appbar.Content {...props} {...titleProps} color={surface.content} />;
 }

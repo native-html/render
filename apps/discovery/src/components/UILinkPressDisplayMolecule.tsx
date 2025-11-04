@@ -1,9 +1,4 @@
-import React, {
-  PropsWithChildren,
-  useCallback,
-  useMemo,
-  useState
-} from 'react';
+import React, { PropsWithChildren, useMemo, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Linking, View } from 'react-native';
 import onLinkPressContext from '../state/onLinkPressContext';
@@ -22,9 +17,6 @@ export default function UILinkPressDisplayMolecule({
   children
 }: PropsWithChildren<{}>) {
   const [url, setUrl] = useState<string | null>(null);
-  const onLinkPress = useCallback((href) => {
-    setUrl(href);
-  }, []);
   const action: UISnackbarAtomProps['action'] = useMemo(
     () => ({
       label: 'browse',
@@ -35,7 +27,7 @@ export default function UILinkPressDisplayMolecule({
     [url]
   );
   return (
-    <onLinkPressContext.Provider value={onLinkPress}>
+    <onLinkPressContext.Provider value={setUrl}>
       <View style={styles.container}>{children}</View>
       <UISnackbarAtom
         role="uiHyperlink"

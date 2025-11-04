@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, { ComponentProps, memo, ReactNode } from 'react';
 import { Stack, useSpacing } from '@mobily/stacks';
 import { ViewStyle, StyleProp, View, AccessibilityProps } from 'react-native';

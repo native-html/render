@@ -1,5 +1,5 @@
+import { kebabCase as paramCase } from 'change-case';
 import { LayoutChangeEvent, ScrollView } from 'react-native';
-import { paramCase } from 'param-case';
 import { RefObject } from 'react';
 import Animated from 'react-native-reanimated';
 import { HEADER_COLL_HEIGHT } from '../../../constants';
@@ -7,11 +7,11 @@ import { HEADER_COLL_HEIGHT } from '../../../constants';
 export default class Scroller {
   private layoutRegistry: Record<string, number> = {};
   public isLoaded = false;
-  private scrollRef: RefObject<ScrollView>;
+  private scrollRef: RefObject<ScrollView | null>;
   private offset: number;
 
-  constructor(scrollRef: RefObject<Animated.ScrollView>) {
-    this.scrollRef = scrollRef as any;
+  constructor(scrollRef: RefObject<Animated.ScrollView | null>) {
+    this.scrollRef = scrollRef;
     this.offset = 0;
   }
 

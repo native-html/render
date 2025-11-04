@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { PropsWithChildren } from 'react';
 import useToolkit from '../toolkit/useToolkit';
 

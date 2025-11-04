@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { Stack, useSpacing } from '@mobily/stacks';
 import React, { useState } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';

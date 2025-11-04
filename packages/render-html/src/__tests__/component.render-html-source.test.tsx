@@ -43,7 +43,7 @@ describe('RenderHTMLSource', () => {
   });
   describe('should render uri sources', () => {
     it('should render content when remote resource is available', async () => {
-      global.fetch = jest.fn(() => {
+      globalThis.fetch = jest.fn(() => {
         return Promise.resolve({
           ok: true,
           text() {
@@ -58,7 +58,7 @@ describe('RenderHTMLSource', () => {
       await waitFor(() => UNSAFE_getByType(RenderTTree));
     });
     it('should render the error view when remote resource is unavailable', async () => {
-      global.fetch = jest.fn(() => {
+      globalThis.fetch = jest.fn(() => {
         return Promise.resolve({
           ok: false
         } as any);
@@ -70,7 +70,7 @@ describe('RenderHTMLSource', () => {
       await findByTestId('loader-error');
     });
     it('should render the error view when the fetch call throws', async () => {
-      global.fetch = jest.fn(() => {
+      globalThis.fetch = jest.fn(() => {
         return Promise.reject('Ooops!');
       });
       const { findByTestId } = renderSource({

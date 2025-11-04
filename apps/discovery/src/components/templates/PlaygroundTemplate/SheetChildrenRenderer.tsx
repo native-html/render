@@ -1,28 +1,31 @@
-import React, { PropsWithChildren, ReactElement, ReactNode } from 'react';
+import React, { ComponentProps, isValidElement, ReactElement } from 'react';
+import createPortal from './createPortal';
 
-function isReactElement(candidate: unknown): candidate is ReactElement {
-  return (
-    React.isValidElement(candidate as any) && typeof candidate !== 'string'
-  );
-}
+type PortalComponent = ReturnType<typeof createPortal>;
+
+type PortalProps = ComponentProps<PortalComponent>;
+type TpChild = ReactElement<PortalProps, PortalComponent>;
+export type TpChildren = TpChild[];
 
 export default function SheetChildrenRenderer({
   tpChildren,
   children
-}: PropsWithChildren<{
-  tpChildren: ReactNode;
-}>) {
-  let description: ReactElement | undefined,
-    controls: ReactElement | undefined,
-    navigator: ReactElement | undefined;
+}: {
+  children: ReactElement<{}>;
+  tpChildren: TpChildren;
+}) {
+  let description: TpChild | undefined,
+    controls: TpChild | undefined,
+    navigator: TpChild | undefined;
+
   React.Children.forEach(tpChildren, (child) => {
-    if (isReactElement(child)) {
-      const childName = (child.type as any).displayName as string;
-      if (childName?.match('SheetControlsPortal')) {
+    if (isValidElement(child)) {
+      const childName = child.type.displayName;
+      if (childName.match('SheetControlsPortal')) {
         controls = child;
-      } else if (childName?.match('SheetDescriptionPortal')) {
+      } else if (childName.match('SheetDescriptionPortal')) {
         description = child;
-      } else if (childName?.match('SheetNavigatorPortal')) {
+      } else if (childName.match('SheetNavigatorPortal')) {
         navigator = child;
       } else {
         console.warn(

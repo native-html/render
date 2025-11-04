@@ -1,4 +1,4 @@
-import strigifyEntities from 'stringify-entities';
+import { stringifyEntities } from 'stringify-entities';
 import {
   Node,
   isDomText,
@@ -8,7 +8,7 @@ import {
 function renderOpeningTag(tag: string, attributes: Record<string, string>) {
   const strAttributes: string[] = [];
   Object.keys(attributes).forEach((key) => {
-    strAttributes.push(`${key}="${strigifyEntities(`${attributes[key]}`)}"`);
+    strAttributes.push(`${key}="${stringifyEntities(`${attributes[key]}`)}"`);
   });
   return `<${tag}${strAttributes.length ? ' ' : ''}${strAttributes.join(' ')}>`;
 }
@@ -36,7 +36,7 @@ export default function domNodeToHTMLString(
       root.tagName
     }>`;
   } else if (isDomText(root)) {
-    const text = strigifyEntities(root.data);
+    const text = stringifyEntities(root.data);
     html = text;
   }
   typeof reporter === 'function' && reporter(root, depth, html);

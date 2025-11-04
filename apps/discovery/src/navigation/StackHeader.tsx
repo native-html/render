@@ -6,19 +6,14 @@ import UIHeaderAtom from '../components/UIHeaderAtom';
 
 export { StackHeaderProps };
 
-export default function StackHeader(props: StackHeaderProps) {
-  const { scene } = props;
-  const {
-    descriptor: { options, navigation }
-  } = scene;
-  const onMenuPress = React.useCallback(
-    () => navigation.goBack(),
-    [navigation]
-  );
+export default function StackHeader({
+  options: { title },
+  navigation: { goBack }
+}: StackHeaderProps) {
   return (
     <UIHeaderAtom>
-      <UIAppbarActionAtom icon="arrow-left" onPress={onMenuPress} />
-      <UIAppbarContentAtom title={options.title} />
+      <UIAppbarActionAtom icon="arrow-left" onPress={goBack} />
+      <UIAppbarContentAtom title={title} />
     </UIHeaderAtom>
   );
 }

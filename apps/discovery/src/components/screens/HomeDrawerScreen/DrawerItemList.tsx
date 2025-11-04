@@ -27,7 +27,7 @@ export default function DrawerItemList({
   state,
   navigation,
   descriptors
-}: DrawerContentComponentProps<any>) {
+}: DrawerContentComponentProps) {
   const { surface } = useColorRoles();
   //  const buildLink = useLinkBuilder();
   // const routes = state.routes as Array<{ key: string; }>

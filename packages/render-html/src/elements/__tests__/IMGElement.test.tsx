@@ -53,7 +53,8 @@ describe('IMGElement', () => {
       inherit: defaultRM,
       initial: defaultRM,
       none: defaultRM,
-      revert: defaultRM
+      revert: defaultRM,
+      'revert-layer': defaultRM,
     };
     for (const [objectFit, resizeMode] of Object.entries(specs)) {
       it(`should map object-fit "${objectFit}" to resizeMode "${resizeMode}"`, async () => {

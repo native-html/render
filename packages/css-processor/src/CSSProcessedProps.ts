@@ -86,6 +86,7 @@ export class CSSProcessedProps
   private newCompatCategory<
     T extends CSSPropertyCompatCategory
   >(): CSSProcessedProps[T] {
+    // @ts-ignore TODO: fix this
     return {
       block: {
         retain: emptyProps,

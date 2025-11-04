@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
 import VersionDisplay from './VersionDisplay';
@@ -60,7 +59,7 @@ function Header() {
 }
 
 export default function CustomDrawerContent(
-  props: DrawerContentComponentProps<any>
+  props: DrawerContentComponentProps
 ) {
   const { surface, statusBarBackground } = useColorRoles();
   const { top } = useSafeAreaInsets();
