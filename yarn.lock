@@ -10293,13 +10293,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colors@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "colors@npm:1.4.0"
-  checksum: 10/90b2d5465159813a3983ea72ca8cff75f784824ad70f2cc2b32c233e95bcfbcda101ebc6d6766bc50f57263792629bfb4f1f8a4dfbd1d240f229fc7f69b785fc
-  languageName: node
-  linkType: hard
-
 "combine-promises@npm:^1.1.0":
   version: 1.2.0
   resolution: "combine-promises@npm:1.2.0"
@@ -10801,6 +10794,13 @@ __metadata:
   version: 0.1.1
   resolution: "copy-descriptor@npm:0.1.1"
   checksum: 10/edf4651bce36166c7fcc60b5c1db2c5dad1d87820f468507331dd154b686ece8775f5d383127d44aeef813462520c866f83908aa2d4291708f898df776816860
+  languageName: node
+  linkType: hard
+
+"copy-text-to-clipboard@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "copy-text-to-clipboard@npm:3.2.2"
+  checksum: 10/ae512de746632eb0cc3fe78ba16022b46134f835aa411d372798ee76c93baae8faa6b2cf5052ebd132ec6a2016124dc19786b231e5c0d333999c5d448e7a2e42
   languageName: node
   linkType: hard
 
@@ -11886,7 +11886,7 @@ __metadata:
     "@docusaurus/core": "npm:^3.9.2"
     "@docusaurus/plugin-content-docs": "npm:^3.9.2"
     "@docusaurus/types": "npm:^3.9.2"
-    typedoc: "npm:^0.20.36"
+    typedoc: "npm:^0.28.14"
     typescript: "npm:^5.4.5"
   languageName: unknown
   linkType: soft
@@ -15712,13 +15712,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"interpret@npm:^1.0.0":
-  version: 1.4.0
-  resolution: "interpret@npm:1.4.0"
-  checksum: 10/5beec568d3f60543d0f61f2c5969d44dffcb1a372fe5abcdb8013968114d4e4aaac06bc971a4c9f5bd52d150881d8ebad72a8c60686b1361f5f0522f39c0e1a3
-  languageName: node
-  linkType: hard
-
 "invariant@npm:2.2.4, invariant@npm:^2.2.4":
   version: 2.2.4
   resolution: "invariant@npm:2.2.4"
@@ -17501,13 +17494,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonc-parser@npm:^3.0.0":
-  version: 3.3.1
-  resolution: "jsonc-parser@npm:3.3.1"
-  checksum: 10/9b0dc391f20b47378f843ef1e877e73ec652a5bdc3c5fa1f36af0f119a55091d147a86c1ee86a232296f55c929bba174538c2bf0312610e0817a22de131cc3f4
-  languageName: node
-  linkType: hard
-
 "jsonfile@npm:^2.1.0":
   version: 2.4.0
   resolution: "jsonfile@npm:2.4.0"
@@ -18268,15 +18254,6 @@ __metadata:
   bin:
     marked: bin/marked.js
   checksum: 10/b5f475dbe297162dc988b7f345b559d03248fde1023822b9f2a68f50cbca0981c78c42f380c3aa5e133b5f5c069a2c6cd683413c12c83710e983a7bc46cdf4a2
-  languageName: node
-  linkType: hard
-
-"marked@npm:~2.0.3":
-  version: 2.0.7
-  resolution: "marked@npm:2.0.7"
-  bin:
-    marked: bin/marked
-  checksum: 10/1d99d3e5fa62b6edefbd22651d95f01b9c53bb710b255800758d6d0532797907614cccef05ef634b89f60186176db7a096ffbbfef80f25e009c4ff497235bc47
   languageName: node
   linkType: hard
 
@@ -20200,7 +20177,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:3.1.2, minimatch@npm:^3.0.0, minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
+"minimatch@npm:3.1.2, minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
   dependencies:
@@ -22701,7 +22678,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prism-react-renderer@npm:^2.3.0":
+"prism-react-renderer@npm:^2.3.0, prism-react-renderer@npm:^2.3.1":
   version: 2.4.1
   resolution: "prism-react-renderer@npm:2.4.1"
   dependencies:
@@ -23939,15 +23916,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rechoir@npm:^0.6.2":
-  version: 0.6.2
-  resolution: "rechoir@npm:0.6.2"
-  dependencies:
-    resolve: "npm:^1.1.6"
-  checksum: 10/fe76bf9c21875ac16e235defedd7cbd34f333c02a92546142b7911a0f7c7059d2e16f441fe6fb9ae203f459c05a31b2bcf26202896d89e390eda7514d5d2702b
-  languageName: node
-  linkType: hard
-
 "recma-build-jsx@npm:^1.0.0":
   version: 1.0.0
   resolution: "recma-build-jsx@npm:1.0.0"
@@ -24451,7 +24419,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.1.6, resolve@npm:^1.20.0, resolve@npm:^1.22.10, resolve@npm:^1.22.2, resolve@npm:^1.5.0, resolve@npm:~1.22.1, resolve@npm:~1.22.2":
+"resolve@npm:^1.20.0, resolve@npm:^1.22.10, resolve@npm:^1.22.2, resolve@npm:^1.5.0, resolve@npm:~1.22.1, resolve@npm:~1.22.2":
   version: 1.22.11
   resolution: "resolve@npm:1.22.11"
   dependencies:
@@ -24486,7 +24454,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.1.6#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.10#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.5.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A~1.22.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A~1.22.2#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.10#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.5.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A~1.22.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A~1.22.2#optional!builtin<compat/resolve>":
   version: 1.22.11
   resolution: "resolve@patch:resolve@npm%3A1.22.11#optional!builtin<compat/resolve>::version=1.22.11&hash=c3c19d"
   dependencies:
@@ -25225,30 +25193,6 @@ __metadata:
   version: 1.8.3
   resolution: "shell-quote@npm:1.8.3"
   checksum: 10/5473e354637c2bd698911224129c9a8961697486cff1fb221f234d71c153fc377674029b0223d1d3c953a68d451d79366abfe53d1a0b46ee1f28eb9ade928f4c
-  languageName: node
-  linkType: hard
-
-"shelljs@npm:^0.8.4":
-  version: 0.8.5
-  resolution: "shelljs@npm:0.8.5"
-  dependencies:
-    glob: "npm:^7.0.0"
-    interpret: "npm:^1.0.0"
-    rechoir: "npm:^0.6.2"
-  bin:
-    shjs: bin/shjs
-  checksum: 10/f2178274b97b44332bbe9ddb78161137054f55ecf701c7a99db9552cb5478fe279ad5f5131d8a7c2f0730e01ccf0c629d01094143f0541962ce1a3d0243d23f7
-  languageName: node
-  linkType: hard
-
-"shiki@npm:^0.9.3":
-  version: 0.9.15
-  resolution: "shiki@npm:0.9.15"
-  dependencies:
-    jsonc-parser: "npm:^3.0.0"
-    vscode-oniguruma: "npm:^1.6.1"
-    vscode-textmate: "npm:5.2.0"
-  checksum: 10/a087224620222247aa9be92f1768eb1de15bdd227ea8137e007c3143d4f6ee40e967c34e814e85e4267c21785295ec3d3db203908e5a0327e068c33400c9a21b
   languageName: node
   linkType: hard
 
@@ -26867,36 +26811,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-default-themes@npm:^0.12.10":
-  version: 0.12.10
-  resolution: "typedoc-default-themes@npm:0.12.10"
-  checksum: 10/2e5005f375d5db74d0fa42c9d44d8cef3ff723ae98badf096db17ff2898bd4c7c9b8ac1cf54833ed5cd3ddaaeb143dbce3ff851ca7e7cafa48b2504f153c5817
-  languageName: node
-  linkType: hard
-
-"typedoc@npm:^0.20.36":
-  version: 0.20.37
-  resolution: "typedoc@npm:0.20.37"
-  dependencies:
-    colors: "npm:^1.4.0"
-    fs-extra: "npm:^9.1.0"
-    handlebars: "npm:^4.7.7"
-    lodash: "npm:^4.17.21"
-    lunr: "npm:^2.3.9"
-    marked: "npm:~2.0.3"
-    minimatch: "npm:^3.0.0"
-    progress: "npm:^2.0.3"
-    shelljs: "npm:^0.8.4"
-    shiki: "npm:^0.9.3"
-    typedoc-default-themes: "npm:^0.12.10"
-  peerDependencies:
-    typescript: 3.9.x || 4.0.x || 4.1.x || 4.2.x
-  bin:
-    typedoc: bin/typedoc
-  checksum: 10/b1b1c22ebc1e84d499f214f7ac5ca56f13f59034bd9efe1b48d616ab0d3afcd7d55f5397d50890ffac7f1dc7210afc219908ec848fecab20247b194d35d12d26
-  languageName: node
-  linkType: hard
-
 "typedoc@npm:^0.28.14":
   version: 0.28.14
   resolution: "typedoc@npm:0.28.14"
@@ -27553,20 +27467,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vscode-oniguruma@npm:^1.6.1":
-  version: 1.7.0
-  resolution: "vscode-oniguruma@npm:1.7.0"
-  checksum: 10/7da9d21459f9788544b258a5fd1b9752df6edd8b406a19eea0209c6bf76507d5717277016799301c4da0d536095f9ca8c06afd1ab8f4001189090c804ca4814e
-  languageName: node
-  linkType: hard
-
-"vscode-textmate@npm:5.2.0":
-  version: 5.2.0
-  resolution: "vscode-textmate@npm:5.2.0"
-  checksum: 10/bb7e377ebee67ae1c62a6f5be3923d80e192572003f51c4243193bb057c727588d2300ad6aeb824da46c94d531d37310802bfbedc75f2758503ff795ad14b333
-  languageName: node
-  linkType: hard
-
 "w3c-xmlserializer@npm:^4.0.0":
   version: 4.0.0
   resolution: "w3c-xmlserializer@npm:4.0.0"
@@ -27856,9 +27756,12 @@ __metadata:
     "@types/react-modal": "npm:^3.16.3"
     "@types/react-router-dom": "npm:^5.3.3"
     clsx: "npm:^2.1.1"
+    copy-text-to-clipboard: "npm:^3.2.2"
     doc-docusaurus-rfg-plugin: "workspace:*"
     doc-docusaurus-typedoc-plugin: "workspace:*"
     docusaurus-plugin-sass: "npm:^0.2.6"
+    parse-numeric-range: "npm:^1.3.0"
+    prism-react-renderer: "npm:^2.3.1"
     react: "npm:19.1.0"
     react-dom: "npm:19.1.0"
     react-modal: "npm:^3.16.3"
