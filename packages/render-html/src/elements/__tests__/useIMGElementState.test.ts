@@ -1,9 +1,21 @@
 import React from 'react';
-import { renderHook } from '@testing-library/react-hooks';
-import { perf, wait } from 'react-performance-testing';
+import { act, renderHook, render } from '@testing-library/react-native';
+import { perf, wait } from 'react-performance-testing/native';
 import useIMGElementState from '../useIMGElementState';
 import { Image } from 'react-native';
 import { waitFor } from '@testing-library/react-native';
+
+/**
+ * Renders the hook inside a named component to allow extracting perf results
+ */
+function renderHookForPerf(renderFn: () => void) {
+  function TestComponent() {
+    renderFn();
+    return null;
+  }
+
+  return render(React.createElement(TestComponent));
+}
 
 describe('useIMGElementState', () => {
   const props = {
@@ -14,7 +26,8 @@ describe('useIMGElementState', () => {
   };
   it('should render at most twice when width and height physical dimensions are not provided, prior and after fetching physical dimensions', async () => {
     const { renderCount } = perf<{ TestComponent: unknown }>(React);
-    renderHook(() => useIMGElementState(props));
+
+    renderHookForPerf(() => useIMGElementState(props));
     await wait(() => {
       expect(renderCount.current.TestComponent.value).toBeLessThan(2);
     });
@@ -23,7 +36,7 @@ describe('useIMGElementState', () => {
     const { renderCount } = perf<{ TestComponent: unknown }>(React);
     const source = { uri: 'http://via.placeholder.com/640x360', headers: {} };
     const localProps = { ...props, source };
-    renderHook(() => useIMGElementState(localProps));
+    renderHookForPerf(() => useIMGElementState(localProps));
     await wait(() => {
       expect(renderCount.current.TestComponent.value).toBeLessThan(2);
     });
@@ -31,7 +44,7 @@ describe('useIMGElementState', () => {
   });
   it('should render once when width and height physical dimensions are provided, bypassing the fetching of physical dimensions', async () => {
     const { renderCount } = perf<{ TestComponent: unknown }>(React);
-    renderHook(() =>
+    renderHookForPerf(() =>
       useIMGElementState({
         ...props,
         width: 600,
