@@ -23732,7 +23732,7 @@ __metadata:
     react-native-accessibility-engine: "patch:react-native-accessibility-engine@npm%3A3.2.0#~/.yarn/patches/react-native-accessibility-engine-npm-3.2.0-5709303461.patch"
     react-native-builder-bob: "npm:^0.40.13"
     react-performance-testing: "npm:^2.0.0"
-    react-test-renderer: "npm:~19.1.0"
+    react-test-renderer: "npm:19.1.0"
     release-it: "npm:^19.0.5"
     stringify-entities: "npm:^4.0.4"
     typescript: "npm:^5.4.5"
