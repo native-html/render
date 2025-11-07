@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useKeepAwake } from 'expo-keep-awake';
 import html from './source';
@@ -21,7 +22,7 @@ const props = {
 export default function App() {
   useKeepAwake();
   return (
-    <SafeAreaView style={{ flexGrow: 1, padding: 16 }}>
+    <SafeAreaView style={styles.container}>
       <TRenderEngineProvider ignoredDomTags={config.ignoredTags}>
         <RenderHTMLConfigProvider {...props}>
           <Benchmark html={html} {...config} />
@@ -30,3 +31,10 @@ export default function App() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff'
+  }
+});
