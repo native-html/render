@@ -36,6 +36,7 @@ export default function Benchmark({ samples, html, ignoredTags }) {
   return (
     <View>
       <Button
+        style={{ marginTop: 40 }}
         title="Run Benchmark"
         onPress={launch}
         disabled={state.state !== 'WAIT_BENCH'}
@@ -57,7 +58,12 @@ export default function Benchmark({ samples, html, ignoredTags }) {
 }
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flexGrow: 1,
+    padding: 16
+  },
   container: {
-    flexGrow: 1
+    flexGrow: 1,
+    padding: 16
   }
 });

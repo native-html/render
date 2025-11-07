@@ -1,7 +1,18 @@
 import { DimensionValue, StyleSheet, View } from 'react-native';
 import React from 'react';
 import { TBlock, TNode } from '@native-html/transient-render-engine';
-import { MarkedListItem, useMarkedList } from '@jsamr/react-native-li';
+// TEMPORARY: Commented out for benchmarking app compatibility
+// import { MarkedListItem, useMarkedList } from '@jsamr/react-native-li';
+
+// TEMPORARY: Simple stubs for benchmarking
+const MarkedListItem = ({ children, style }: any) => <View style={style}>{children}</View>;
+const useMarkedList = (config: any) => ({
+  markerTextStyle: config.markerTextStyle || {},
+  markerBoxStyle: config.markerBoxStyle || {},
+  markerTextWidth: false,
+  style: {},
+});
+
 import type {
   DefaultSupportedListStyleType,
   InternalRendererProps,

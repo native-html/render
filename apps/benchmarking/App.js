@@ -21,7 +21,7 @@ const props = {
 export default function App() {
   useKeepAwake();
   return (
-    <SafeAreaView style={{ flexGrow: 1 }}>
+    <SafeAreaView style={{ flexGrow: 1, padding: 16 }}>
       <TRenderEngineProvider ignoredDomTags={config.ignoredTags}>
         <RenderHTMLConfigProvider {...props}>
           <Benchmark html={html} {...config} />
