@@ -13,6 +13,7 @@
   "scripts": {
     "build:css-processor": "yarn workspace @native-html/css-processor build",
     "build:transient-render-engine": "yarn workspace @native-html/transient-render-engine build",
+    "build:render-html": "yarn workspace react-native-render-html build",
     "test:css-processor": "yarn workspace @native-html/css-processor test",
     "test:css-processor:ts": "yarn workspace @native-html/css-processor test:ts",
     "test:css-processor:lint": "yarn workspace @native-html/css-processor test:lint",
@@ -22,6 +23,10 @@
     "test:transient-render-engine:lint": "yarn workspace @native-html/transient-render-engine test:lint",
     "test:transient-render-engine:jest": "yarn workspace @native-html/transient-render-engine test:jest",
     "test:transient-render-engine:perf": "yarn workspace performance-testing benchmark",
+    "test:render-html": "yarn workspace react-native-render-html test",
+    "test:render-html:ts": "yarn workspace react-native-render-html test:ts",
+    "test:render-html:lint": "yarn workspace react-native-render-html test:lint",
+    "test:render-html:jest": "yarn workspace react-native-render-html test:jest",
     "release:css-processor": "yarn workspace @native-html/css-processor release-it",
     "release:transient-render-engine": "yarn workspace @native-html/transient-render-engine release-it",
     "postinstall": "husky install"
