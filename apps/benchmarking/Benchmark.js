@@ -52,7 +52,18 @@ function ProgressIndicator({
   );
 }
 
-export default function Benchmark({ samples, html, ignoredTags }) {
+function WaitingIndicator() {
+  return (
+    <Text style={styles.waitingText}>Waiting for benchmark to launch</Text>
+  );
+}
+
+export default function Benchmark({
+  samples,
+  html,
+  tagsStyles,
+  classesStyles
+}) {
   const {
     onLayout,
     launch,
@@ -67,15 +78,26 @@ export default function Benchmark({ samples, html, ignoredTags }) {
       return (
         <View key={runId} onLayout={onLayout}>
           <currentProfile.component
-            ignoredTags={ignoredTags}
             running={true}
             html={html}
+            tagsStyles={tagsStyles}
+            classesStyles={classesStyles}
             {...currentProfile.props}
           />
         </View>
       );
     },
-    [html, ignoredTags, onLayout, currentProfile]
+    [html, onLayout, currentProfile, tagsStyles, classesStyles]
+  );
+
+  const renderWaitBench = React.useCallback(
+    ({ benchmarks }) =>
+      benchmarks ? (
+        <Benchmarks benchmarks={benchmarks} />
+      ) : (
+        <WaitingIndicator />
+      ),
+    []
   );
 
   const isRunning = state.state === 'RUNNING' || state.state === 'WAIT_RUN';
@@ -102,14 +124,7 @@ export default function Benchmark({ samples, html, ignoredTags }) {
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {match(state, {
-          WAIT_BENCH: ({ benchmarks }) =>
-            benchmarks ? (
-              <Benchmarks benchmarks={benchmarks} />
-            ) : (
-              <Text style={styles.waitingText}>
-                Waiting for benchmark to launch
-              </Text>
-            ),
+          WAIT_BENCH: renderWaitBench,
           WAIT_RUN: renderHtml,
           RUNNING: renderHtml
         })}
@@ -123,12 +138,15 @@ const styles = StyleSheet.create({
     flex: 1
   },
   buttonContainer: {
+    paddingTop: 40,
     marginBottom: 16,
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
+    backgroundColor: '#fff',
+    zIndex: 10
   },
   scrollContainer: {
-    flexGrow: 1,
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
+    paddingBottom: 20
   },
   progressContainer: {
     backgroundColor: '#E3F2FD',
