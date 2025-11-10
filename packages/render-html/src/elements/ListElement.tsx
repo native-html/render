@@ -9,7 +9,7 @@ const MarkedListItem = ({ children, style }: any) => <View style={style}>{childr
 const useMarkedList = (config: any) => ({
   markerTextStyle: config.markerTextStyle || {},
   markerBoxStyle: config.markerBoxStyle || {},
-  markerTextWidth: false,
+  markerTextWidth: false as const,
   style: {},
 });
 
