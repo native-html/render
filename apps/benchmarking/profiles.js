@@ -10,11 +10,15 @@ const profiles = [
   // },
   {
     name: 'V5',
-    component: ProfileV5
+    component: ProfileV5,
+    props: {
+      ignoredTags: ['svg', 'button', 'input', 'form', 'img', 'ol', 'table']
+    }
   },
   {
     name: 'V6',
-    component: ProfileV6Source
+    component: ProfileV6Source,
+    props: {}
   }
 ];
 
