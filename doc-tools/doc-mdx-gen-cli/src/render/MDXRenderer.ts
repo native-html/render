@@ -1,8 +1,10 @@
 import Reconciler from 'react-reconciler';
+import { DefaultEventPriority } from 'react-reconciler/constants';
 import emptyObject from 'fbjs/lib/emptyObject';
 import { createElement } from './createElement';
 
 const MDXRenderer = Reconciler<
+  any,
   any,
   any,
   any,
@@ -46,10 +48,6 @@ const MDXRenderer = Reconciler<
     return null;
   },
 
-  prepareUpdate() {
-    return true;
-  },
-
   resetAfterCommit() {
     // noop
   },
@@ -73,7 +71,7 @@ const MDXRenderer = Reconciler<
 
   preparePortalMount() {},
 
-  supportsHydration: true,
+  supportsHydration: false,
 
   supportsPersistence: false,
 
@@ -84,12 +82,6 @@ const MDXRenderer = Reconciler<
   scheduleTimeout: setTimeout,
 
   noTimeout: -1,
-
-  // eslint-disable-next-line no-undef
-  queueMicrotask: queueMicrotask,
-
-  //@ts-ignore
-  now: () => {},
 
   // Setting to false leads to crash...
   supportsMutation: true,
@@ -136,6 +128,36 @@ const MDXRenderer = Reconciler<
 
   commitTextUpdate(textInstance, oldText, newText) {
     textInstance.children = newText;
+  },
+
+  resolveUpdatePriority() {
+    return DefaultEventPriority;
+  },
+
+  NotPendingTransition: undefined,
+
+  HostTransitionContext: undefined,
+
+  setCurrentUpdatePriority: function (
+    newPriority: Reconciler.EventPriority
+  ): void {
+    // noop
+  },
+
+  getCurrentUpdatePriority: function (): Reconciler.EventPriority {
+    return DefaultEventPriority;
+  },
+
+  trackSchedulerEvent: function (): void {
+    // noop
+  },
+
+  resolveEventType: function (): null | string {
+    return null;
+  },
+
+  resolveEventTimeStamp: function (): number {
+    return -1;
   }
 });
 

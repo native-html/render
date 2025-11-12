@@ -19,6 +19,7 @@
   "devDependencies": {
     "@tsconfig/react-native": "^3.0.7",
     "@types/fbjs": "^3.0.11",
+    "@types/node": "22.19.1",
     "@types/react": "~19.1.0",
     "@types/react-reconciler": "^0.32.2",
     "esbuild": "^0.25.11",
