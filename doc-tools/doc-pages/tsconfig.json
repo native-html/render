@@ -4,12 +4,7 @@
     "outDir": "./lib",
     "target": "ESNext",
     "noEmit": false,
-    "jsx": "react",
-    "paths": {
-      "@native-html/css-processor": ["../../packages/css-processor/src"],
-      "@native-html/transient-render-engine": ["../../packages/transient-render-engine/src"],
-      "react-native-render-html": ["../../packages/render-html/src"],
-    }
+    "jsx": "react"
   },
   "include": ["src/"],
   "exclude": ["**/__tests__"]

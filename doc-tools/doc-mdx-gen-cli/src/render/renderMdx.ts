@@ -20,10 +20,10 @@ async function renderMdx(
   //@ts-ignore
   const node = MDXRenderer.createContainer(container, undefined, false);
 
-  //@ts-ignore
-  MDXRenderer.updateContainer(element, node, null);
-
   try {
+    await new Promise<void>((resolve) => {
+      MDXRenderer.updateContainer(element, node, null, resolve);
+    });
     await fs.writeFile(filePath, container.toMdx());
   } catch (e) {
     console.error(
