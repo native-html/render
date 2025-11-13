@@ -9,7 +9,7 @@ async function docMdxGen(outDir: string) {
   try {
     const dir = await fs.opendir(dirPath);
     await dir.close();
-  } catch (e) {
+  } catch {
     console.warn(`${outDir} cannot be read or isn't a directory.`);
     process.exit(1);
   }

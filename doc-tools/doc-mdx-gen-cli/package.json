@@ -6,6 +6,9 @@
     "doc-mdx-gen-cli": "bin/bundle.js"
   },
   "scripts": {
+    "test": "yarn test:ts && yarn test:lint",
+    "test:ts": "tsc --noEmit",
+    "test:lint": "eslint --ext ts,tsx src/",
     "build": "node ./build.js",
     "prepack": "yarn build"
   },
