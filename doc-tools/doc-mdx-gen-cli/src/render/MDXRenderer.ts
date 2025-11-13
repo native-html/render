@@ -136,9 +136,11 @@ const MDXRenderer = Reconciler<
 
   NotPendingTransition: undefined,
 
+  // @ts-ignore
   HostTransitionContext: undefined,
 
   setCurrentUpdatePriority: function (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     newPriority: Reconciler.EventPriority
   ): void {
     // noop

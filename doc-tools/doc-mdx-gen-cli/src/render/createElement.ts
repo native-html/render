@@ -1,3 +1,4 @@
+import React from 'react';
 import AdmonitionElement from './components/AdmonitionElement';
 import CodeBlockElement from './components/CodeBlockElement';
 import RenderHTMLCardElement from './components/RenderHTMLCardElement';
@@ -13,7 +14,7 @@ import H3Element from './components/H3Element';
 import TNodeTransformDisplayElement from './components/TNodeTransformDisplayElement';
 import ReferenceElement from './components/ReferenceElement';
 
-export type NodeType = 'ROOT' | keyof JSX.IntrinsicElements;
+export type NodeType = 'ROOT' | keyof React.JSX.IntrinsicElements;
 
 /**
  * Creates an element for a document
