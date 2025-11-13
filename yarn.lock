@@ -9185,6 +9185,9 @@ __metadata:
   resolution: "benchmarking@workspace:apps/benchmarking"
   dependencies:
     "@babel/core": "npm:^7.28.4"
+    "@jsamr/counter-style": "npm:^2.0.2"
+    "@jsamr/react-native-li": "npm:^2.3.1"
+    css-to-react-native: "npm:^3.2.0"
     expo: "npm:^54.0.15"
     expo-keep-awake: "npm:~15.0.7"
     expo-status-bar: "npm:~3.0.8"
@@ -9197,6 +9200,7 @@ __metadata:
     react-native-safe-area-context: "npm:^5.6.1"
     react-native-web: "npm:^0.21.2"
     react-states: "npm:^5.0.0"
+    urijs: "npm:^1.19.11"
   languageName: unknown
   linkType: soft
 
@@ -11800,6 +11804,7 @@ __metadata:
     "@expo-google-fonts/space-mono": "npm:^0.4.2"
     "@expo/vector-icons": "npm:^15.0.3"
     "@gorhom/bottom-sheet": "npm:^5.2.6"
+    "@jsamr/counter-style": "npm:^2.0.2"
     "@jsamr/react-native-li": "npm:^2.3.1"
     "@mobily/stacks": "npm:^2.2.2"
     "@react-native-community/masked-view": "npm:0.1.11"
@@ -11817,6 +11822,7 @@ __metadata:
     babel-preset-expo: "npm:^54.0.5"
     change-case: "npm:^5.4.4"
     color: "npm:^5.0.2"
+    css-to-react-native: "npm:^3.2.0"
     deepmerge: "npm:^4.3.1"
     expo: "npm:^54.0.15"
     expo-asset: "npm:~12.0.9"

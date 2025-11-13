@@ -26,7 +26,6 @@ import CardColorRolesProvider from '../components/croles/CardColorRolesProvider'
 import { Linking, StyleSheet } from 'react-native';
 import BoxNucleon from '../components/nucleons/BoxNucleon';
 import { WEBSITE_URL } from '@doc/constants';
-import URI from 'urijs';
 import TNodeTransformDisplayOrganism from '../components/TNodeTransformDisplayOrganism';
 import UICardContainer from '../components/UICardContainer';
 import { BODY_PARAGRAPH_SPACING } from '../constants';
@@ -82,7 +81,7 @@ function RefAPI({
   const fullName =
     (member && full ? `${name}.${member}` : member ? member : name) +
     pluralMark;
-  const fullUrl = new URI(WEBSITE_URL + url).normalizePath().href();
+  const fullUrl = new URL(url, WEBSITE_URL).href;
   return (
     <UIHyperlinkAtom
       role="bodyAPIRef"
