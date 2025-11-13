@@ -1,11 +1,4 @@
-// TEMPORARY: Commented out for benchmarking app compatibility
-// import { getPropertyName } from 'css-to-react-native';
-
-// TEMPORARY: Simple stub to convert CSS property names to camelCase
-function getPropertyName(cssProperty: string): string {
-  return cssProperty.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
-}
-
+import { getPropertyName } from 'css-to-react-native';
 import { CSSParseRun } from './CSSParseRun';
 import { MixedStyleDeclaration } from './CSSProcessor';
 import { CSSPropertiesValidationRegistry } from './CSSPropertiesValidationRegistry';

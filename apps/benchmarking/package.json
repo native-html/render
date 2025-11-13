@@ -9,6 +9,9 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@jsamr/counter-style": "^2.0.2",
+    "@jsamr/react-native-li": "^2.3.1",
+    "css-to-react-native": "^3.2.0",
     "expo": "^54.0.15",
     "expo-keep-awake": "~15.0.7",
     "expo-status-bar": "~3.0.8",
@@ -20,7 +23,8 @@
     "react-native-render-html-v5": "npm:react-native-render-html@^5.0.0",
     "react-native-safe-area-context": "^5.6.1",
     "react-native-web": "^0.21.2",
-    "react-states": "^5.0.0"
+    "react-states": "^5.0.0",
+    "urijs": "^1.19.11"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4"
