@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React, { useRef, useCallback } from 'react';
 //@ts-ignore
 import discoveryVideoUrl from '@site/static/video/discovery.webm';
@@ -7,7 +6,7 @@ import clsx from 'clsx';
 import IPhoneFrame from './IPhoneFrame';
 
 export default function DiscoveryFrame({ scale }: { scale?: number }) {
-  const videoRef = useRef<HTMLVideoElement>();
+  const videoRef = useRef<HTMLVideoElement>(null);
   const playPause = useCallback(() => {
     if (videoRef.current?.paused) {
       videoRef.current?.play();
@@ -16,7 +15,7 @@ export default function DiscoveryFrame({ scale }: { scale?: number }) {
     }
   }, []);
   return (
-    <div className={classes['container']}>
+    <div className={classes.container}>
       <IPhoneFrame scale={scale}>
         <video
           ref={videoRef}

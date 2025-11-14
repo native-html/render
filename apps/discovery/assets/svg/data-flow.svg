@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="550" height="770" version="1.1" viewBox="0 0 145.52 203.73" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <style type="text/css">.link { fill:none;    stroke:red;    stroke-width:0.2px; }
+text { fill: blue;   font-family:'Fira Code'; }
+.step { font-size:5px; }
+.delimiter { stroke:blue;    stroke-width:1px; }
+.transition-title { font-style:italic;    font-size:4px;    fill:blue; }
+.transition { font-style:italic;    font-size:3px; }
+.arrow { fill:red;    stroke:red;    stroke-width:0.2px; }
+.code { fill:red;    font-size:3.0px; }
+.box-title { font-weight:bold;    font-size:3px; }
+.box { 
+    fill:lightgray;
+    fill-opacity:1;
+}</style>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-70.128 -33.442)">
+  <g transform="translate(-26.458 3.0868)">
+   <rect class="box" x="175.96" y="86.358" width="66.146" height="29.104" ry="2.6458" fill="#d3d3d3" stroke-width="0"/>
+   <text class="box-title" x="178.44737" y="90.968567" xml:space="preserve"><tspan x="178.44737" y="90.968567">Document Object Model (DOM)</tspan></text>
+   <text class="code" x="178.60738" y="96.568245" xml:space="preserve"><tspan x="178.60738" y="96.568245">&lt;Element</tspan><tspan x="178.60738" y="100.31824">  tagName="p"</tspan><tspan x="178.60738" y="104.06824">  style={{ color: "blue" }}&gt;</tspan><tspan x="178.60738" y="107.81824">  &lt;TextNode data="Hello World!"/&gt;</tspan><tspan x="178.60738" y="111.56824">&lt;/Element&gt;</tspan></text>
+  </g>
+  <g transform="translate(-26.458 -13.67)">
+   <rect class="box" x="175.96" y="160.44" width="66.146" height="31.75" ry="2.6458" fill="#d3d3d3" stroke-width="0"/>
+   <text class="box-title" x="178.53815" y="165.57683" xml:space="preserve"><tspan x="178.53815" y="165.57683">Transient Render Tree</tspan></text>
+   <text class="code" x="178.60738" y="170.68388" xml:space="preserve"><tspan x="178.60738" y="170.68388">&lt;TBlock tagName="p"&gt;</tspan><tspan x="178.60738" y="174.43388">  &lt;TPhrasing</tspan><tspan x="178.60738" y="178.18388">    style={{ color: "blue" }}&gt;</tspan><tspan x="178.60738" y="181.93388">    &lt;TText data="Hello World!" /&gt;</tspan><tspan x="178.60738" y="185.68388">  &lt;/TPhrasing&gt;</tspan><tspan x="178.60738" y="189.43388">&lt;/TBlock&gt;</tspan></text>
+  </g>
+  <g transform="translate(-26.458 -31.75)">
+   <rect class="box" x="175.96" y="237.17" width="66.146" height="31.75" ry="2.6458" fill="#d3d3d3" stroke-width="0"/>
+   <text class="box-title" x="178.42891" y="242.41029" xml:space="preserve"><tspan x="178.42891" y="242.41029">React Native VDOM</tspan></text>
+   <text class="code" x="178.60738" y="247.06818" stroke-width=".26458" xml:space="preserve"><tspan x="178.60738" y="247.06818">&lt;View&gt;</tspan><tspan x="178.60738" y="250.81818">  &lt;Text</tspan><tspan x="178.60738" y="254.56818">    style={{ color: "blue" }}&gt;</tspan><tspan x="178.60738" y="258.31818">    Hello World!</tspan><tspan x="178.60738" y="262.06818">  &lt;/Text&gt;</tspan><tspan x="178.60738" y="265.81818">&lt;/View&gt;</tspan></text>
+  </g>
+  <g transform="translate(-26.458)">
+   <rect class="box" x="175.96" y="33.442" width="66.146" height="23.812" ry="2.6458"/>
+   <text class="box-title" x="178.44737" y="37.892281" xml:space="preserve"><tspan x="178.44737" y="37.892281">HTML Markup</tspan></text>
+   <text class="code" x="178.60738" y="43.206963" xml:space="preserve"><tspan x="178.60738" y="43.206963">&lt;p</tspan><tspan x="178.60738" y="46.956963">  style="color:blue;"&gt;</tspan><tspan x="178.60738" y="50.706963">  Hello World!</tspan><tspan x="178.60738" y="54.456963">&lt;/p&gt;</tspan></text>
+  </g>
+  <g transform="translate(0 -23.692)">
+   <g transform="translate(-21.293 72.716)">
+    <text class="transition" x="91.096573" y="152.49992" xml:space="preserve"><tspan x="91.096573" y="152.49992"/><tspan x="91.096573" y="156.24992">with RenderTTree component from</tspan><tspan x="91.096573" y="159.99992">react-native-render-html</tspan></text>
+    <text class="step" x="91.295547" y="131.37723" xml:space="preserve"><tspan x="91.295547" y="131.37723">C. TTree is</tspan><tspan x="91.295547" y="137.62723">rendered into</tspan><tspan x="91.295547" y="143.87723">VDOM.</tspan></text>
+   </g>
+   <path class="transition-title  delimiter" d="m130.48 200.01v34.516"/>
+  </g>
+  <path class="link" d="m130.59 131.24h18.992"/>
+  <g transform="translate(-5.3203e-7 .12513)">
+   <g transform="translate(0 -2.6458)">
+    <text class="transition" x="69.972816" y="140.54939" xml:space="preserve"><tspan x="69.972816" y="140.54939"/><tspan x="69.972816" y="144.29939">with TRenderEngine.buildTTree</tspan><tspan x="69.972816" y="148.04939">method from @native-html/</tspan><tspan x="69.972816" y="151.79939">transient-render-engine</tspan></text>
+    <text class="step" x="70.44458" y="119.42671" xml:space="preserve"><tspan x="70.44458" y="119.42671">B. Transient</tspan><tspan x="70.44458" y="125.67671">Render Tree is</tspan><tspan x="70.44458" y="131.92671">assembled.</tspan></text>
+    <path class="transition-title  delimiter" d="m130.48 115.34v37.014"/>
+   </g>
+  </g>
+  <path class="link" d="m130.79 73.129h18.692"/>
+  <g transform="translate(0 21.167)">
+   <g transform="translate(-24.634 -95.603)">
+    <text class="transition" x="94.453041" y="147.25241" xml:space="preserve"><tspan x="94.453041" y="147.25241"/><tspan x="94.453041" y="151.00241"/><tspan x="94.453041" y="154.75241">with TRenderEngine.parseDocument</tspan><tspan x="94.453041" y="158.50241">method from @native-html/</tspan><tspan x="94.453041" y="162.25241">transient-render-engine</tspan></text>
+    <text class="step" x="94.924812" y="132.88579" xml:space="preserve"><tspan x="94.924812" y="132.88579">A. HTML markup</tspan><tspan x="94.924812" y="139.13579">is parsed</tspan><tspan x="94.924812" y="145.38579">into DOM.</tspan></text>
+   </g>
+   <path class="transition-title  delimiter" d="m130.48 33.368v34.33"/>
+  </g>
+  <g transform="translate(-26.458 .22039)">
+   <g transform="translate(0 18.221)">
+    <text class="transition-title" x="204.82776" y="56.684299" xml:space="preserve"><tspan x="204.82776" y="56.684299">parseDocument()</tspan></text>
+    <g id="arrowBottom" transform="matrix(.046382 0 0 .046667 193.31 52.262)" stroke-width="21.494">
+     <path class="arrow" d="m-46.299-56.583v212.37l51.393-53.444 20.023 21.096-85.433 103.21-85.433-103.21 20.023-21.096 51.393 53.444v-212.37z"/>
+    </g>
+   </g>
+  </g>
+  <g transform="translate(-19.05 1.0701)">
+   <g transform="translate(0 -1.173)">
+    <text class="transition-title" x="197.77432" y="134.58205" xml:space="preserve"><tspan x="197.77432" y="134.58205">buildTTree()</tspan></text>
+    <use transform="translate(-7.4083 77.194)" width="100%" height="100%" xlink:href="#arrowBottom"/>
+   </g>
+  </g>
+  <g transform="translate(-26.458 1.0701)">
+   <g transform="translate(0 -17.894)">
+    <text class="transition-title" x="204.48314" y="209.66362" xml:space="preserve"><tspan x="204.48314" y="209.66362">&lt;RenderTTree /&gt;</tspan></text>
+    <use transform="translate(0 152.56)" width="100%" height="100%" xlink:href="#arrowBottom"/>
+   </g>
+  </g>
+  <path class="link" d="m131.01 192.19h18.428" fill="none" stroke="#f00" stroke-width=".2px"/>
+ </g>
+</svg>
