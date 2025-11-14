@@ -12,7 +12,9 @@ const profiles = [
   {
     name: 'V6',
     component: ProfileV6Source,
-    props: {}
+    props: {
+      ignoredDomTags: ['svg', 'button', 'input', 'form', 'img', 'ol', 'table']
+    }
   }
 ];
 
