@@ -1,18 +1,30 @@
 import React from 'react';
 import { useWindowDimensions } from 'react-native';
-import { RenderHTMLSource } from 'react-native-render-html';
+import { RenderHTMLSource, TRenderEngineProvider } from 'react-native-render-html';
 
-export default function ProfileV6Source({ running, html, ...otherProps }) {
+export default function ProfileV6Source({ running, html, ignoredDomTags, ...otherProps }) {
   const { width } = useWindowDimensions();
   
-  return (
-    html &&
-    running && (
-      <RenderHTMLSource
-        contentWidth={width}
-        source={{ html }}
-        {...otherProps}
-      />
-    )
+  if (!html || !running) {
+    return null;
+  }
+
+  const content = (
+    <RenderHTMLSource
+      contentWidth={width}
+      source={{ html }}
+      {...otherProps}
+    />
   );
+
+  // If ignoredDomTags is provided, wrap in a TRenderEngineProvider
+  if (ignoredDomTags) {
+    return (
+      <TRenderEngineProvider ignoredDomTags={ignoredDomTags}>
+        {content}
+      </TRenderEngineProvider>
+    );
+  }
+
+  return content;
 }
