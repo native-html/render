@@ -1,6 +1,8 @@
-const { WEBSITE_ROOT, WEBSITE_BASE } = require('@doc/constants');
-const version = require('react-native-render-html/package.json').version;
-const { existsSync } = require('fs');
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+import { WEBSITE_ROOT, WEBSITE_BASE } from '@doc/constants';
+import { version } from 'react-native-render-html/package.json';
+import { existsSync } from 'node:fs';
 
 const apisidebarPath = './apisidebar.json';
 let hasAPIsidebar = existsSync(apisidebarPath);
@@ -45,8 +47,7 @@ const plugins = [
   ]
 ].filter((c) => c !== null);
 
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
+const config: Config = {
   title: 'React Native Render HTML',
   tagline:
     'The hackable, full-featured Open Source HTML rendering solution for React Native.',
@@ -243,7 +244,7 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Meliorence, Inc and Jules Sam. Randolph.`
     }
-  },
+  } satisfies Preset.ThemeConfig,
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -269,7 +270,9 @@ module.exports = {
           trackingID: 'G-CYR1XDV25N',
           anonymizeIP: true
         }
-      }
+      } satisfies Preset.Options
     ]
   ]
 };
+
+export default config;

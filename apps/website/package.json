@@ -13,13 +13,17 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "api-gendoc": "docusaurus api:gen"
+    "api-gendoc": "docusaurus api:gen",
+    "test": "yarn test:ts && yarn test:lint",
+    "test:ts": "tsc --noEmit",
+    "test:lint": "eslint --ext ts,tsx src/"
   },
   "dependencies": {
     "@doc/constants": "workspace:*",
     "@doc/svg-component": "workspace:*",
     "@docusaurus/core": "^3.9.2",
     "@docusaurus/preset-classic": "^3.9.2",
+    "@docusaurus/theme-common": "^3.9.2",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
     "copy-text-to-clipboard": "^3.2.2",
@@ -35,7 +39,8 @@
     "@doc/pages": "workspace:*",
     "@doc/svgr-conf": "workspace:*",
     "@docusaurus/module-type-aliases": "^3.9.2",
-    "@tsconfig/docusaurus": "^2.0.4",
+    "@docusaurus/tsconfig": "^3.9.2",
+    "@docusaurus/types": "^3.9.2",
     "@types/react": "~19.1.0",
     "@types/react-helmet": "^6.1.11",
     "@types/react-modal": "^3.16.3",

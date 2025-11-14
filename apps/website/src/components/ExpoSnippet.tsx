@@ -5,7 +5,7 @@ import React, {
   useMemo,
   useRef
 } from 'react';
-import useThemeContext from '@theme/hooks/useThemeContext';
+import { useColorMode } from '@docusaurus/theme-common';
 import styles from './ExpoSnippet.module.scss';
 
 function makeIframeSrcParamsQuery({
@@ -145,7 +145,7 @@ export default function ExpoSnippet({
   className?: string;
   extraneousDeps: string[];
 }>) {
-  const { isDarkTheme } = useThemeContext();
+  const isDarkTheme = useColorMode().colorMode === 'dark';
   const style: React.CSSProperties = {
     backgroundColor: isDarkTheme ? '#212121' : '#f9f9f9'
   };

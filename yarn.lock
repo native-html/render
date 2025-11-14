@@ -3374,7 +3374,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/theme-common@npm:3.9.2":
+"@docusaurus/theme-common@npm:3.9.2, @docusaurus/theme-common@npm:^3.9.2":
   version: 3.9.2
   resolution: "@docusaurus/theme-common@npm:3.9.2"
   dependencies:
@@ -3432,6 +3432,13 @@ __metadata:
     fs-extra: "npm:^11.1.1"
     tslib: "npm:^2.6.0"
   checksum: 10/a98b5a7b1d7f123b5609caadea4000b4ee956426396d4a62ce675bd1e0fe7fd65be3bba2ef97b2ec3f84bafd65fd53d1d55d3a35c585ddc7288ebca199c5a865
+  languageName: node
+  linkType: hard
+
+"@docusaurus/tsconfig@npm:^3.9.2":
+  version: 3.9.2
+  resolution: "@docusaurus/tsconfig@npm:3.9.2"
+  checksum: 10/8e08e352ab8285d4601822dbd424700a7c875b30dd2eefb087f540e62e5a9f05026368625ce3e89948380f0b232ecd7a52e03ce069fab4de1e6a39dedf324d1b
   languageName: node
   linkType: hard
 
@@ -6788,13 +6795,6 @@ __metadata:
   version: 0.2.0
   resolution: "@trysound/sax@npm:0.2.0"
   checksum: 10/7379713eca480ac0d9b6c7b063e06b00a7eac57092354556c81027066eb65b61ea141a69d0cc2e15d32e05b2834d4c9c2184793a5e36bbf5daf05ee5676af18c
-  languageName: node
-  linkType: hard
-
-"@tsconfig/docusaurus@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "@tsconfig/docusaurus@npm:2.0.4"
-  checksum: 10/6a1603d7d191ef4d90601dc5137b37f1d8db5d225c0884485be6d1c79902ed54cef1a5b0a151e4f3e471cea8d4675290d5539747cc4f4610157f820399e8b683
   languageName: node
   linkType: hard
 
@@ -27754,8 +27754,10 @@ __metadata:
     "@docusaurus/core": "npm:^3.9.2"
     "@docusaurus/module-type-aliases": "npm:^3.9.2"
     "@docusaurus/preset-classic": "npm:^3.9.2"
+    "@docusaurus/theme-common": "npm:^3.9.2"
+    "@docusaurus/tsconfig": "npm:^3.9.2"
+    "@docusaurus/types": "npm:^3.9.2"
     "@mdx-js/react": "npm:^3.1.1"
-    "@tsconfig/docusaurus": "npm:^2.0.4"
     "@types/react": "npm:~19.1.0"
     "@types/react-helmet": "npm:^6.1.11"
     "@types/react-modal": "npm:^3.16.3"
