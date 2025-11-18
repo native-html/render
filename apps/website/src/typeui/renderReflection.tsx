@@ -93,12 +93,10 @@ function renderPropsAndMethods(
   params: Params
 ) {
   const props = reflection.children?.filter(
-    (c) =>
-      (c as any).kindString === 'Property' || c.kind === ReflectionKind.Property
+    (c) => c.kind === ReflectionKind.Property || getKindString(c) === 'Property'
   );
   const methods = reflection.children?.filter(
-    (c) =>
-      (c as any).kindString === 'Method' || c.kind === ReflectionKind.Method
+    (c) => c.kind === ReflectionKind.Method || getKindString(c) === 'Method'
   );
   return (
     <>
@@ -128,6 +126,38 @@ function renderFunction(
   );
 }
 
+function getKindString(
+  reflection: JSONOutput.DeclarationReflection
+): string | undefined {
+  if ('kindString' in reflection) {
+    const obj = reflection as unknown as { kindString?: string };
+    return obj.kindString;
+  }
+  return undefined;
+}
+
+function getDefaultValue(
+  reflection: JSONOutput.DeclarationReflection
+): unknown {
+  if ('defaultValue' in reflection) {
+    const obj = reflection as unknown as { defaultValue?: unknown };
+    return obj.defaultValue;
+  }
+  return undefined;
+}
+
+function getTypeParameter(
+  reflection: JSONOutput.DeclarationReflection
+): JSONOutput.TypeParameterReflection[] | undefined {
+  if ('typeParameter' in reflection) {
+    const obj = reflection as unknown as {
+      typeParameter?: JSONOutput.TypeParameterReflection[];
+    };
+    return obj.typeParameter;
+  }
+  return undefined;
+}
+
 // Helper function to get ReflectionKind from reflection, with fallback to kindString
 function getReflectionKind(
   reflection: JSONOutput.DeclarationReflection
@@ -153,18 +183,19 @@ function getReflectionKind(
     'Call signature': ReflectionKind.CallSignature
   };
 
-  if ((reflection as any).kindString) {
-    return kindStringMap[(reflection as any).kindString] || null;
+  const kindString = getKindString(reflection);
+  if (kindString) {
+    return kindStringMap[kindString] || null;
   }
 
   // Infer from reflection properties (for TypeDoc 0.28 compatibility)
   if (reflection.signatures) {
     return ReflectionKind.Function;
   }
-  if (typeof (reflection as any).defaultValue !== 'undefined') {
+  if (getDefaultValue(reflection) !== undefined) {
     return ReflectionKind.EnumMember;
   }
-  if ((reflection as any).type) {
+  if (reflection.type) {
     return ReflectionKind.Property;
   }
   return ReflectionKind.TypeAlias;
@@ -194,9 +225,7 @@ export default function renderReflection(
           <code> </code>
           <TokenPlain>{reflection.name}</TokenPlain>
           {renderTypeParameters(
-            (reflection as any).typeParameter ||
-              reflection.typeParameters ||
-              [],
+            getTypeParameter(reflection) || reflection.typeParameters || [],
             params.withTypeParamsLinks()
           )}
           <TokenPunctuation>{' = '}</TokenPunctuation>
@@ -230,9 +259,7 @@ export default function renderReflection(
           <code> </code>
           <TokenPlain>{reflection.name}</TokenPlain>
           {renderTypeParameters(
-            (reflection as any).typeParameter ||
-              reflection.typeParameters ||
-              [],
+            getTypeParameter(reflection) || reflection.typeParameters || [],
             params.withTypeParamsLinks()
           )}
           <code> </code>
@@ -253,9 +280,7 @@ export default function renderReflection(
           <code> </code>
           <TokenPlain>{reflection.name}</TokenPlain>
           {renderTypeParameters(
-            (reflection as any).typeParameter ||
-              reflection.typeParameters ||
-              [],
+            getTypeParameter(reflection) || reflection.typeParameters || [],
             params.withTypeParamsLinks()
           )}
           <code> </code>
@@ -304,7 +329,7 @@ export default function renderReflection(
       if (reflection.signatures) {
         return renderArrowSignatures(reflection.signatures, params);
       }
-      let ret: any = null;
+      let ret: React.ReactElement | null = null;
       for (const group of reflection.groups!) {
         if (group.title === 'Properties') {
           const props = reflection.children.filter((c) =>
@@ -344,14 +369,26 @@ export default function renderReflection(
           </>
         );
       }
-      // Fallback: try to cast if it's actually a SignatureReflection
+      // Fallback: check if reflection has SignatureReflection properties
+      if (
+        'type' in reflection &&
+        (reflection as unknown as JSONOutput.SignatureReflection).type
+      ) {
+        return (
+          <>
+            {renderConst(reflection.name)}
+            {renderArrowSignature(
+              reflection as unknown as JSONOutput.SignatureReflection,
+              params
+            )}
+          </>
+        );
+      }
+      // If no valid signature found, return fallback
       return (
         <>
           {renderConst(reflection.name)}
-          {renderArrowSignature(
-            reflection as any as JSONOutput.SignatureReflection,
-            params
-          )}
+          <TokenKeyword>any</TokenKeyword>
         </>
       );
     case ReflectionKind.Variable:
@@ -378,7 +415,7 @@ export default function renderReflection(
     default:
       console.warn('Unhandled Declaration Reflection, falling back to any', {
         kind: kind,
-        kindString: (reflection as any).kindString,
+        kindString: getKindString(reflection),
         reflection
       });
       // Try to render as a property if it has a type

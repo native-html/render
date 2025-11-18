@@ -67,8 +67,7 @@ module.exports = {
   plugins: plugins,
   trailingSlash: false,
   themeConfig: {
-    // Algolia search disabled - requires appId in Docusaurus v3
-    // To re-enable, add appId to the algolia config:
+    // TODO: if we want to re-enable Algolia, we need to get a new key and app id.
     // algolia: {
     //   appId: 'YOUR_APP_ID',
     //   apiKey: '4f9905bd301a15034820905263f47dda',
