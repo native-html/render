@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, renderHook, render } from '@testing-library/react-native';
+import { renderHook, render } from '@testing-library/react-native';
 import { perf, wait } from 'react-performance-testing/native';
 import useIMGElementState from '../useIMGElementState';
 import { Image } from 'react-native';
