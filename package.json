@@ -11,6 +11,7 @@
   },
   "private": true,
   "scripts": {
+    "build-all": "node scripts/build_all.js",
     "build:css-processor": "yarn workspace @native-html/css-processor build",
     "build:transient-render-engine": "yarn workspace @native-html/transient-render-engine build",
     "build:render": "yarn workspace @native-html/render build",

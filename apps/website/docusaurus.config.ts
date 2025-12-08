@@ -8,6 +8,8 @@ const apisidebarPath = './apisidebar.json';
 let hasAPIsidebar = existsSync(apisidebarPath);
 
 const plugins = [
+  require.resolve('./sitePlugin'),
+  ['docusaurus-node-polyfills', { excludeAliases: ['console']}],
   'docusaurus-plugin-sass',
   [
     'doc-docusaurus-rfg-plugin',
