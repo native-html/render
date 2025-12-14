@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native';
-import { RenderHTMLProps, TNode } from 'react-native-render-html';
+import { RenderHTMLProps, TNode } from '@native-html/render';
 import {
   PlaygroundInitParams,
   usePlaygroundSource,

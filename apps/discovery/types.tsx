@@ -1,4 +1,4 @@
-import { RenderHTMLProps } from 'react-native-render-html';
+import { RenderHTMLProps } from '@native-html/render';
 
 export type RootStackParamList = {
   Root: undefined;

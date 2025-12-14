@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, run JS and Typescript tests.
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: render-html
+name: render
 
 on:
   push:
@@ -29,16 +29,16 @@ jobs:
       name: Build dependencies (css-processor)
     - run: yarn build:transient-render-engine
       name: Build dependencies (transient-render-engine)
-    - run: yarn test:render-html:ts
+    - run: yarn test:render:ts
       name: Typescript Tests
-    - run: yarn run test:render-html:lint
+    - run: yarn run test:render:lint
       name: Linting Tests
-    - run: yarn run test:render-html:jest --coverage
+    - run: yarn run test:render:jest --coverage
       name: Behavior Tests
-    - run: yarn build:render-html
+    - run: yarn build:render
       name: Build
     - uses: codecov/codecov-action@v4
       with:
-        flags: render-html
+        flags: render
         fail_ci_if_error: true
         token: ${{ secrets.CODECOV_TOKEN }}

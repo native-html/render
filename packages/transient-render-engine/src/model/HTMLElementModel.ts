@@ -103,7 +103,7 @@ export default class HTMLElementModel<
    * @example
    *
    * ```ts
-   * import {HTMLElementModel, HTMLContentModel} from 'react-native-render-html';
+   * import {HTMLElementModel, HTMLContentModel} from '@native-html/render';
    *
    * const customHTMLElementModels = {
    *  'nav-button': HTMLElementModel.fromCustomModel({
@@ -159,7 +159,7 @@ export default class HTMLElementModel<
    * @example
    *
    * ```ts
-   * import { defaultHTMLElementModels } from "react-native-render-html";
+   * import { defaultHTMLElementModels } from "@native-html/render";
    *
    * const customHTMLElementModels = {
    *   a: defaultHTMLElementModels.a.extend({

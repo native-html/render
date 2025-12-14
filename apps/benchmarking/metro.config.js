@@ -29,7 +29,7 @@ config.resolver = {
     'react-dom': path.resolve(projectRoot, 'node_modules/react-dom'),
     'react-native': path.resolve(projectRoot, 'node_modules/react-native'),
     // Map workspace packages to their source directories
-    'react-native-render-html': path.resolve(packagesRoot, 'render-html/src'),
+    '@native-html/render': path.resolve(packagesRoot, 'render/src'),
     '@native-html/transient-render-engine': path.resolve(packagesRoot, 'transient-render-engine/src'),
     '@native-html/css-processor': path.resolve(packagesRoot, 'css-processor/src'),
     // Map dependencies from workspace root

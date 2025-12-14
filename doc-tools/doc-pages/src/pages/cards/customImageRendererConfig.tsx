@@ -8,7 +8,7 @@ import {
   CustomBlockRenderer,
   IMGElementStateLoading,
   IMGElementStateSuccess
-} from 'react-native-render-html';
+} from '@native-html/render';
 import { UIRenderHtmlCardProps } from '../../toolkit/toolkit-types';
 
 const html = '<img src="http://placeimg.com/1200/800/architecture">';

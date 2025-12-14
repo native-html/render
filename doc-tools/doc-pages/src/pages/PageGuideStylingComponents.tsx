@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import { RenderHTMLProps } from 'react-native-render-html';
+import { RenderHTMLProps } from '@native-html/render';
 import RefCssProcessor from '../components/RefCssProcessor';
 import Page from '../Page';
 import useToolkit from '../toolkit/useToolkit';

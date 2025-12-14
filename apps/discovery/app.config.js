@@ -1,7 +1,7 @@
 module.exports = {
   expo: {
     name: 'RNRH Discovery',
-    slug: 'react-native-render-html-discovery',
+    slug: '@native-html/render-discovery',
     description:
       'An App to discover React Native Render HTML features and API!',
     version: require('./version').demo,

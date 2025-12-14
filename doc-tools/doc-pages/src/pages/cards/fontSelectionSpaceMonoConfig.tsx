@@ -1,12 +1,12 @@
 import { UIRenderHtmlCardProps } from '../../toolkit/toolkit-types';
-import { defaultSystemFonts } from 'react-native-render-html';
+import { defaultSystemFonts } from '@native-html/render';
 
 const html = `<p style="font-family: 'space-mono'; padding: 10px;">
   Lorem ipsum dolor sit amet, consectetur adipiscing
   elit, sed do eiusmod tempor incididunt ut labore et
   dolore magna aliqua. Ut enim ad minim veniam, quis
   nostrud exercitation ullamco laboris nisi ut aliquip
-  ex ea commodo consequat. 
+  ex ea commodo consequat.
 </p>`;
 
 const fontLoaderSrc = `function FontLoader({ children }){
@@ -33,7 +33,7 @@ const fontSelectionSpaceMonoConfig: UIRenderHtmlCardProps = {
   config: {
     importStatements: [
       {
-        package: 'react-native-render-html',
+        package: '@native-html/render',
         named: ['defaultSystemFonts']
       },
       {

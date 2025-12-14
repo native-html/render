@@ -1,6 +1,6 @@
 import { UIRenderHtmlCardProps } from '../../toolkit/toolkit-types';
 import { findOne } from 'domutils';
-import type { NodeWithChildren } from 'react-native-render-html';
+import type { NodeWithChildren } from '@native-html/render';
 
 const html = `
 <body>

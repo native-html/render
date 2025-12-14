@@ -3,7 +3,7 @@ import { Modal, Button, Text, View } from 'react-native';
 import {
   CustomBlockRenderer,
   useInternalRenderer
-} from 'react-native-render-html';
+} from '@native-html/render';
 import { UIRenderHtmlCardProps } from '../../toolkit/toolkit-types';
 
 const html = '<img src="https://dummyimage.com/1200x800">';
@@ -83,7 +83,7 @@ const internalImageRendererConfig: UIRenderHtmlCardProps = {
         named: ['useState']
       },
       {
-        package: 'react-native-render-html',
+        package: '@native-html/render',
         named: ['useInternalRenderer']
       }
     ],

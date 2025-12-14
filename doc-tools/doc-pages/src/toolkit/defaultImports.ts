@@ -9,8 +9,8 @@ const defaultImports: Record<string, ImportStmt> = {
     package: 'react-native',
     named: ['useWindowDimensions']
   },
-  'react-native-render-html': {
-    package: 'react-native-render-html',
+  '@native-html/render': {
+    package: '@native-html/render',
     default: 'RenderHtml'
   }
 };

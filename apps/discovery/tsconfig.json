@@ -12,8 +12,8 @@
       "@native-html/transient-render-engine": [
         "../../packages/transient-render-engine/src"
       ],
-      "react-native-render-html": [
-        "../../packages/render-html/src"
+      "@native-html/render": [
+        "../../packages/render/src"
       ]
     }
   },

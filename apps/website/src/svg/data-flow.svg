@@ -9,7 +9,7 @@ text { fill: blue;   font-family:'Fira Code'; }
 .arrow { fill:red;    stroke:red;    stroke-width:0.2px; }
 .code { fill:red;    font-size:3.0px; }
 .box-title { font-weight:bold;    font-size:3px; }
-.box { 
+.box {
     fill:lightgray;
     fill-opacity:1;
 }</style>
@@ -44,7 +44,7 @@ text { fill: blue;   font-family:'Fira Code'; }
   </g>
   <g transform="translate(0 -23.692)">
    <g transform="translate(-21.293 72.716)">
-    <text class="transition" x="91.096573" y="152.49992" xml:space="preserve"><tspan x="91.096573" y="152.49992"/><tspan x="91.096573" y="156.24992">with RenderTTree component from</tspan><tspan x="91.096573" y="159.99992">react-native-render-html</tspan></text>
+    <text class="transition" x="91.096573" y="152.49992" xml:space="preserve"><tspan x="91.096573" y="152.49992"/><tspan x="91.096573" y="156.24992">with RenderTTree component from</tspan><tspan x="91.096573" y="159.99992">@native-html/render</tspan></text>
     <text class="step" x="91.295547" y="131.37723" xml:space="preserve"><tspan x="91.295547" y="131.37723">C. TTree is</tspan><tspan x="91.295547" y="137.62723">rendered into</tspan><tspan x="91.295547" y="143.87723">VDOM.</tspan></text>
    </g>
    <path class="transition-title  delimiter" d="m130.48 200.01v34.516"/>

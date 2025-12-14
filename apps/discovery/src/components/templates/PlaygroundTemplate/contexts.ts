@@ -1,5 +1,5 @@
 import { createContext, ReactNode } from 'react';
-import { TNode } from 'react-native-render-html';
+import { TNode } from '@native-html/render';
 
 export const demoDescriptionContext = createContext<ReactNode>(null);
 export const demoControlsContext = createContext<ReactNode>(null);

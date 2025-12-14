@@ -1,7 +1,7 @@
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { WEBSITE_ROOT, WEBSITE_BASE } from '@doc/constants';
-import { version } from 'react-native-render-html/package.json';
+import { version } from '@native-html/render/package.json';
 import { existsSync } from 'node:fs';
 
 const apisidebarPath = './apisidebar.json';
@@ -39,8 +39,8 @@ const plugins = [
       outDir: './api',
       sidebarFile: './apisidebar.json',
       typedoc: {
-        entryPoints: ['../../packages/render-html/src/index.ts'],
-        tsconfig: '../../packages/render-html/tsconfig.json',
+        entryPoints: ['../../packages/render/src/index.ts'],
+        tsconfig: '../../packages/render/tsconfig.json',
         excludePrivate: true
       }
     }
@@ -64,7 +64,7 @@ const config: Config = {
   // Also remove the swizzled LayoutHead
   favicon: 'favicons/favicon-32x32.png',
   organizationName: 'meliorence',
-  projectName: 'react-native-render-html',
+  projectName: '@native-html/render',
   plugins: plugins,
   trailingSlash: false,
   themeConfig: {

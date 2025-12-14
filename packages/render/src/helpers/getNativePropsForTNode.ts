@@ -20,7 +20,7 @@ const empty: any = {};
  * ```tsx
  * import React from 'react';
  * import { Animated } from 'react-native';
- * import { CustomTextualRenderer, getNativePropsForTNode } from 'react-native-render-html';
+ * import { CustomTextualRenderer, getNativePropsForTNode } from '@native-html/render';
  *
  * const AnimatedSpanRenderer: CustomTextualRenderer = (props) => {
  *   const nativeProps = getNativePropsForTNode(props);

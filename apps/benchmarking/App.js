@@ -6,7 +6,7 @@ import html from './source';
 import {
   TRenderEngineProvider,
   RenderHTMLConfigProvider
-} from 'react-native-render-html';
+} from '@native-html/render';
 
 import Benchmark from './Benchmark';
 

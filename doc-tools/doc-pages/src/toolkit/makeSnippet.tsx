@@ -1,4 +1,4 @@
-import type { RenderHTMLProps } from 'react-native-render-html';
+import type { RenderHTMLProps } from '@native-html/render';
 import { RendererCardConfig, ImportStmt } from './toolkit-types';
 import defaultImports from './defaultImports';
 
@@ -139,7 +139,7 @@ function flattenStatements(importStmts: ImportStmt[]) {
   const mergeReg: Record<string, boolean> = {
     react: false,
     'react-native': false,
-    'react-native-render-html': false
+    '@native-html/render': false
   };
   const merged = importStmts.map((stmt) => {
     if (stmt.package in defaultImports) {

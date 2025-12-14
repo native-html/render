@@ -52,7 +52,7 @@ function installIframeListener({
     var eventName = event.data[0];
     var data = event.data[1];
     const deps = [
-      `react-native-render-html@${version}`,
+      `@native-html/renderl@${version}`,
       'react-native-safe-area-context',
       ...extraneousDeps
     ];

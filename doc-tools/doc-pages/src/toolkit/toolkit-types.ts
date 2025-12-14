@@ -1,5 +1,5 @@
 import type { ComponentType, PropsWithChildren } from 'react';
-import * as RNRH from 'react-native-render-html';
+import * as RNRH from '@native-html/render';
 import type * as TRE from '@native-html/transient-render-engine';
 import type * as CSS from '@native-html/css-processor';
 import type * as DOM from 'domhandler';

@@ -1,7 +1,7 @@
 import MDXDocument from './MDXDocument';
 import NodeWithChildren from './NodeWithChildren';
 
-const version = require('react-native-render-html/package.json').version;
+const version = require('@native-html/render/package.json').version;
 
 export type RenderHTMLCardElementProps = {
   snippet: string;

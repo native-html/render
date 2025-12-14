@@ -1,7 +1,7 @@
 import {
   HTMLContentModel,
   defaultHTMLElementModels
-} from 'react-native-render-html';
+} from '@native-html/render';
 import { UIRenderHtmlCardProps } from '../../toolkit/toolkit-types';
 
 const html = `<p style="text-align:center">
@@ -27,7 +27,7 @@ const inlineImagesConfig: UIRenderHtmlCardProps = {
   config: {
     importStatements: [
       {
-        package: 'react-native-render-html',
+        package: '@native-html/render',
         named: ['HTMLContentModel', 'defaultHTMLElementModels']
       }
     ],

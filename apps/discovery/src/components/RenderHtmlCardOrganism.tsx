@@ -8,7 +8,7 @@ import IconNucleon, { IconNucleonProps } from './nucleons/IconNucleon';
 import { useColorRoles } from '../theme/colorSystem';
 import { useNuclearContentWidth } from './nucleons/useContentWidthContext';
 import { PropsWithStyle } from './nucleons/types';
-import { RenderHTMLProps, HTMLSourceInline } from 'react-native-render-html';
+import { RenderHTMLProps, HTMLSourceInline } from '@native-html/render';
 import { TouchableWithoutFeedbackProps } from 'react-native';
 import GestureHandlerAdapterNucleon from './nucleons/GestureHandlerAdapterNucleon';
 import { Card, TouchableRipple } from 'react-native-paper';

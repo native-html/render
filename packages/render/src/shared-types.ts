@@ -199,7 +199,7 @@ export interface AElementConfig {
  * you should use {@link https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation | module augmentation}:
  *
  * ```ts
- * declare module 'react-native-render-html' {
+ * declare module '@native-html/render' {
  *   interface RenderersProps {
  *     div?: {
  *       customProp: boolean;
@@ -230,7 +230,7 @@ export interface RenderHTMLPassedProps {
    *     you should use {@link https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation | module augmentation}:
    *
    * ```ts
-   * declare module 'react-native-render-html' {
+   * declare module '@native-html/render' {
    *   interface RenderersProps {
    *     div?: {
    *       customProp: boolean;
@@ -717,7 +717,7 @@ export interface TRenderEngineConfig {
    *
    * @example
    * ```tsx
-   * import RenderHTML, {defaultSystemFonts} from 'react-native-render-html'
+   * import RenderHTML, {defaultSystemFonts} from '@native-html/render'
    * // Replace defaultSystemFonts with Constants.systemFonts if you're using expo
    * const systemFonts = [...defaultSystemFonts, 'Mysuperfont']
    * // ...
@@ -852,7 +852,7 @@ export interface RenderHTMLConfig
    *
    * ```tsx
    * import React from 'react';
-   * import RenderHTML, { CustomBlockRenderer } from 'react-native-render-html';
+   * import RenderHTML, { CustomBlockRenderer } from '@native-html/render';
    * import { Alert } from 'react-native';
    *
    * const onPress = () => Alert.alert("I pressed a div!");

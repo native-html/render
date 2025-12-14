@@ -66,7 +66,7 @@ export default function HeaderTypeBox({
           },
           !isExternal && {
             label: 'export',
-            title: `This definition is an export from react-native-render-html v${version}.`
+            title: `This definition is an export from @native-html/render v${version}.`
           }
         ]}
       />
@@ -84,9 +84,6 @@ export default function HeaderTypeBox({
             className={classes.sourceBox}
             href={`https://github.com/meliorence/react-native-render-html/tree/v${version}/${source.fileName}#L${source.line}`}>
             {source.fileName}
-            {/* <code>{`react-native-render-html/…/${source.fileName
-              .split('/')
-              .pop()}#L${source.line}`}</code> */}
           </a>
         )}
         {isExternal && source && <ExternalSource libraryName={libraryName} />}

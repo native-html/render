@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, Fragment } from 'react';
-import { HTMLSourceInline } from 'react-native-render-html';
+import { HTMLSourceInline } from '@native-html/render';
 import { ToolkitProvider, UIToolkitConfig } from '@doc/pages';
 import { WEBSITE_BASE } from '@doc/constants';
 
@@ -80,7 +80,7 @@ const config: UIToolkitConfig = {
         : ['/docs', target.group, target.id];
     return (
       <reference
-        library="react-native-render-html"
+        library="@native-html/render"
         name={(children as string) || target.title}
         url={normalizeUrl(linkFragments.join('/'), fragment)}
         type={'doc'}

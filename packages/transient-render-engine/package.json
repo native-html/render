@@ -17,7 +17,7 @@
   "license": "MIT",
   "keywords": [
     "react-native",
-    "react-native-render-html",
+    "@native-html/render",
     "CSS"
   ],
   "repository": {
