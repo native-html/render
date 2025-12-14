@@ -1,10 +1,10 @@
 import React from 'react';
 import { useWindowDimensions } from 'react-native';
-import { RenderHTMLSource, TRenderEngineProvider } from 'react-native-render-html';
+import { RenderHTMLSource, TRenderEngineProvider } from '@native-html/render';
 
 export default function ProfileV6Source({ running, html, ignoredDomTags, ...otherProps }) {
   const { width } = useWindowDimensions();
-  
+
   if (!html || !running) {
     return null;
   }

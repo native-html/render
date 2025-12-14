@@ -13,7 +13,7 @@ import toolkitContext from './toolkitContext';
 import makeSnippet from './makeSnippet';
 import defaultImports from './defaultImports';
 import { TRenderEngine } from '@native-html/transient-render-engine';
-import { HTMLSourceInline } from 'react-native-render-html';
+import { HTMLSourceInline } from '@native-html/render';
 
 function buildRefs(Builder: UIToolkitConfig['RefBuilder']): UIToolkitRefs {
   return {
@@ -129,7 +129,7 @@ export default function ToolkitProvider({
       RefRenderHtmlProp({ name }) {
         return (
           <RefAPI
-            library="react-native-render-html"
+            library="@native-html/render"
             url="/api/renderhtmlprops"
             name={name.toString()}
             member={name.toString()}
@@ -164,7 +164,7 @@ export default function ToolkitProvider({
         return (
           <RefAPI
             member={member}
-            library="react-native-render-html"
+            library="@native-html/render"
             url={`/api/${name.toString().toLowerCase()}`}
             name={name.toString()}
             plural={plural}

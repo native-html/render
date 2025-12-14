@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { TNode } from 'react-native-render-html';
+import { TNode } from '@native-html/render';
 import UIBottomSheetAtom from '../../UIBottomSheetAtom';
 import BoxNucleon from '../../nucleons/BoxNucleon';
 import { demoStateContext } from './contexts';

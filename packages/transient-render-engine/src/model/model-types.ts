@@ -214,7 +214,7 @@ export interface ElementModelBase<T extends string> {
    * @example
    *
    * ```ts
-   * import {HTMLElementModel, HTMLContentModel} from 'react-native-render-html';
+   * import {HTMLElementModel, HTMLContentModel} from '@native-html/render';
    *
    * const customHTMLElementModels = {
    *  'nav-button': HTMLElementModel.fromCustomModel({
@@ -295,7 +295,7 @@ export interface ElementModelBase<T extends string> {
    * @example
    *
    * ```ts
-   * import { defaultHTMLElementModels } from "react-native-render-html";
+   * import { defaultHTMLElementModels } from "@native-html/render";
    *
    * const customHTMLElementModels = {
    *   a: defaultHTMLElementModels.a.extend({

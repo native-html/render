@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TNode } from 'react-native-render-html';
+import { TNode } from '@native-html/render';
 import PlaygroundStoreProvider, {
   PlaygroundInitParams
 } from './playgroundStore';

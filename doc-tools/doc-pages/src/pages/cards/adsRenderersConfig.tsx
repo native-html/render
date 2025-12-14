@@ -3,7 +3,7 @@ import {
   CustomBlockRenderer,
   RenderHTMLProps,
   TChildrenRenderer
-} from 'react-native-render-html';
+} from '@native-html/render';
 import { View, Text } from 'react-native';
 import { UIRenderHtmlCardProps } from '../../toolkit/toolkit-types';
 
@@ -91,7 +91,7 @@ const adsRenderersConfig: UIRenderHtmlCardProps = {
   config: {
     importStatements: [
       { package: 'react-native', named: ['View', 'Text'] },
-      { package: 'react-native-render-html', named: ['TChildrenRenderer'] }
+      { package: '@native-html/render', named: ['TChildrenRenderer'] }
     ],
     fnSrcMap: {
       AdComponent: adComponentSrc,

@@ -2855,6 +2855,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": "npm:^7.27.1"
     "@babel/preset-typescript": "npm:^7.27.1"
     "@babel/runtime": "npm:^7.28.4"
+    "@native-html/render": "workspace:^"
     "@testing-library/react-native": "npm:^13.3.3"
     "@tsconfig/react-native": "npm:^3.0.7"
     "@types/jest": "npm:^29.5.14"
@@ -2866,7 +2867,6 @@ __metadata:
     metro-react-native-babel-preset: "npm:^0.77.0"
     metro-react-native-babel-transformer: "npm:^0.77.0"
     react: "npm:19.1.0"
-    react-native-render-html: "workspace:^"
     react-test-renderer: "npm:~19.1.0"
     typescript: "npm:^5.4.5"
   peerDependencies:
@@ -5295,6 +5295,51 @@ __metadata:
     typescript: "npm:^5.4.5"
   peerDependencies:
     "@types/react": "*"
+  languageName: unknown
+  linkType: soft
+
+"@native-html/render@workspace:*, @native-html/render@workspace:^, @native-html/render@workspace:packages/render":
+  version: 0.0.0-use.local
+  resolution: "@native-html/render@workspace:packages/render"
+  dependencies:
+    "@babel/cli": "npm:^7.28.3"
+    "@babel/core": "npm:^7.28.4"
+    "@babel/plugin-transform-react-jsx": "npm:^7.27.1"
+    "@babel/preset-react": "npm:^7.27.1"
+    "@babel/preset-typescript": "npm:^7.27.1"
+    "@babel/runtime": "npm:^7.28.4"
+    "@jsamr/counter-style": "npm:^2.0.2"
+    "@jsamr/react-native-li": "npm:^2.3.1"
+    "@microsoft/api-extractor": "npm:^7.53.1"
+    "@native-html/transient-render-engine": "workspace:*"
+    "@react-native/babel-preset": "npm:0.81.5"
+    "@release-it/conventional-changelog": "npm:^10.0.1"
+    "@testing-library/jest-native": "npm:^5.4.3"
+    "@testing-library/react-native": "npm:^13.3.3"
+    "@types/jest": "npm:^29.5.14"
+    "@types/ramda": "npm:^0.31.1"
+    "@types/react-test-renderer": "npm:~19.1.0"
+    "@types/urijs": "npm:^1.19.25"
+    babel-jest: "npm:^29.7.0"
+    eslint: "npm:^8.57.1"
+    htmlparser2: "npm:^10.0.0"
+    jest: "npm:^29.7.0"
+    prettier: "npm:^3.6.2"
+    prop-types: "npm:^15.8.1"
+    ramda: "npm:^0.32.0"
+    react: "npm:19.1.0"
+    react-native: "npm:0.81.5"
+    react-native-accessibility-engine: "patch:react-native-accessibility-engine@npm%3A3.2.0#~/.yarn/patches/react-native-accessibility-engine-npm-3.2.0-5709303461.patch"
+    react-native-builder-bob: "npm:^0.40.13"
+    react-performance-testing: "npm:^2.0.0"
+    react-test-renderer: "npm:19.1.0"
+    release-it: "npm:^19.0.5"
+    stringify-entities: "npm:^4.0.4"
+    typescript: "npm:^5.4.5"
+    urijs: "npm:^1.19.11"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
   languageName: unknown
   linkType: soft
 
@@ -9190,6 +9235,7 @@ __metadata:
     "@babel/core": "npm:^7.28.4"
     "@jsamr/counter-style": "npm:^2.0.2"
     "@jsamr/react-native-li": "npm:^2.3.1"
+    "@native-html/render": "workspace:*"
     css-to-react-native: "npm:^3.2.0"
     expo: "npm:^54.0.15"
     expo-keep-awake: "npm:~15.0.7"
@@ -9198,7 +9244,6 @@ __metadata:
     react: "npm:19.1.0"
     react-dom: "npm:19.1.0"
     react-native: "npm:0.81.5"
-    react-native-render-html: "workspace:*"
     react-native-render-html-v5: "npm:react-native-render-html@^5.0.0"
     react-native-safe-area-context: "npm:^5.6.1"
     react-native-web: "npm:^0.21.2"
@@ -11810,6 +11855,7 @@ __metadata:
     "@jsamr/counter-style": "npm:^2.0.2"
     "@jsamr/react-native-li": "npm:^2.3.1"
     "@mobily/stacks": "npm:^2.2.2"
+    "@native-html/render": "workspace:*"
     "@react-native-community/masked-view": "npm:0.1.11"
     "@react-native-community/slider": "npm:5.0.1"
     "@react-native-picker/picker": "npm:2.11.1"
@@ -11847,7 +11893,6 @@ __metadata:
     react-native-pager-view: "npm:^6.9.1"
     react-native-paper: "npm:^5.14.5"
     react-native-reanimated: "npm:~4.1.1"
-    react-native-render-html: "workspace:*"
     react-native-safe-area-context: "npm:^5.6.1"
     react-native-screens: "npm:~4.16.0"
     react-native-svg: "npm:~15.12.0"
@@ -23341,51 +23386,6 @@ __metadata:
   checksum: 10/76ad54db2e091c7a15e111c8971174c82104756f8a44eda7f52c80261c27fc7197462796e7d118af56c52ff6a2a931fffd393c2f0ac51c10bf481dacc9b9541b
   languageName: node
   linkType: hard
-
-"react-native-render-html@workspace:*, react-native-render-html@workspace:^, react-native-render-html@workspace:packages/render-html":
-  version: 0.0.0-use.local
-  resolution: "react-native-render-html@workspace:packages/render-html"
-  dependencies:
-    "@babel/cli": "npm:^7.28.3"
-    "@babel/core": "npm:^7.28.4"
-    "@babel/plugin-transform-react-jsx": "npm:^7.27.1"
-    "@babel/preset-react": "npm:^7.27.1"
-    "@babel/preset-typescript": "npm:^7.27.1"
-    "@babel/runtime": "npm:^7.28.4"
-    "@jsamr/counter-style": "npm:^2.0.2"
-    "@jsamr/react-native-li": "npm:^2.3.1"
-    "@microsoft/api-extractor": "npm:^7.53.1"
-    "@native-html/transient-render-engine": "workspace:*"
-    "@react-native/babel-preset": "npm:0.81.5"
-    "@release-it/conventional-changelog": "npm:^10.0.1"
-    "@testing-library/jest-native": "npm:^5.4.3"
-    "@testing-library/react-native": "npm:^13.3.3"
-    "@types/jest": "npm:^29.5.14"
-    "@types/ramda": "npm:^0.31.1"
-    "@types/react-test-renderer": "npm:~19.1.0"
-    "@types/urijs": "npm:^1.19.25"
-    babel-jest: "npm:^29.7.0"
-    eslint: "npm:^8.57.1"
-    htmlparser2: "npm:^10.0.0"
-    jest: "npm:^29.7.0"
-    prettier: "npm:^3.6.2"
-    prop-types: "npm:^15.8.1"
-    ramda: "npm:^0.32.0"
-    react: "npm:19.1.0"
-    react-native: "npm:0.81.5"
-    react-native-accessibility-engine: "patch:react-native-accessibility-engine@npm%3A3.2.0#~/.yarn/patches/react-native-accessibility-engine-npm-3.2.0-5709303461.patch"
-    react-native-builder-bob: "npm:^0.40.13"
-    react-performance-testing: "npm:^2.0.0"
-    react-test-renderer: "npm:19.1.0"
-    release-it: "npm:^19.0.5"
-    stringify-entities: "npm:^4.0.4"
-    typescript: "npm:^5.4.5"
-    urijs: "npm:^1.19.11"
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  languageName: unknown
-  linkType: soft
 
 "react-native-safe-area-context@npm:^5.6.1":
   version: 5.6.1

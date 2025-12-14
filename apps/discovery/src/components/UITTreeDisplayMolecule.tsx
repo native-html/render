@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { TNode } from 'react-native-render-html';
+import { TNode } from '@native-html/render';
 import { HighlighterProps } from '../highlight/Highlighter';
 import { TextRoleNucleonProps } from './nucleons/TextRoleNucleon';
 import UISourceDisplayMolecule from './UISourceDisplayMolecule';

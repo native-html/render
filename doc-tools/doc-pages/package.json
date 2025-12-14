@@ -18,7 +18,7 @@
     "prepack": "yarn build"
   },
   "dependencies": {
-    "react-native-render-html": "workspace:^"
+    "@native-html/render": "workspace:^"
   },
   "devDependencies": {
     "@babel/cli": "^7.28.3",

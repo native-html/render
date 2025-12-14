@@ -5,7 +5,7 @@ import useToolkit from '../toolkit/useToolkit';
 import cssInheritanceConfig from './cards/cssInheritanceConfig';
 import RefCssProcessor from '../components/RefCssProcessor';
 import RefTRE from '../components/RefTRE';
-import { RenderHTMLProps } from 'react-native-render-html';
+import { RenderHTMLProps } from '@native-html/render';
 
 const mixedStyleExample = `const mixedStyles = {
   whiteSpace: 'normal',

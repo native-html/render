@@ -13,7 +13,7 @@ let reflectionsRegistry = {};
 function extractFrontmatter(reflection) {
   const lowercase = reflection.name.toLowerCase();
   return `---
-id: ${lowercase}  
+id: ${lowercase}
 title: ${reflection.name}
 ---
 import DeclarationBox from '@site/src/typeui/DeclarationBox';
@@ -84,7 +84,7 @@ function extractRemarks(remarks) {
 
 ${parseLinks(remarks.text)}
 
-:::  
+:::
 `;
 }
 
@@ -99,7 +99,7 @@ function extractDeprecated(deprecated) {
 This feature will be removed in the next major release.
 ${parseLinks(deprecated.text)}
 
-:::  
+:::
 `;
 }
 
@@ -113,7 +113,7 @@ function extractWarning(warnings) {
 
 ${parseLinks(warnings.text)}
 
-:::  
+:::
 `;
 }
 
@@ -556,7 +556,7 @@ module.exports = async function genPages(
       type: 'category',
       label: 'Externals',
       description:
-        'Reexports from direct dependencies of `react-native-render-html`.',
+        'Reexports from direct dependencies of `@native-html/render`.',
       items: sidebarGroups.externals.sort(sortDefinitions)
     }
   ];

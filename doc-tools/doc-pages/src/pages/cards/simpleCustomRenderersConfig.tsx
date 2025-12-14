@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert } from 'react-native';
-import { CustomBlockRenderer, RenderHTMLProps } from 'react-native-render-html';
+import { CustomBlockRenderer, RenderHTMLProps } from '@native-html/render';
 import { UIRenderHtmlCardProps } from '../../toolkit/toolkit-types';
 
 const Renderer: CustomBlockRenderer = function H1Renderer({

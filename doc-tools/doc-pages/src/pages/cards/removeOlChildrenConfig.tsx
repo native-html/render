@@ -1,6 +1,6 @@
 import { UIRenderHtmlCardProps } from '../../toolkit/toolkit-types';
 import { removeElement, isTag } from 'domutils';
-import { Element } from 'react-native-render-html';
+import { Element } from '@native-html/render';
 
 const html = `
 <ol>

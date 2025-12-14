@@ -17,7 +17,7 @@ import {
   RenderHTMLConfigProvider,
   RenderHTMLSource,
   useAmbientTRenderEngine
-} from 'react-native-render-html';
+} from '@native-html/render';
 import { findAll } from 'domutils';
 
 function isImgElement(node) {

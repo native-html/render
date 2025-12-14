@@ -13,7 +13,7 @@ const compositeImportStmt = `import {
   TRenderEngineProvider,
   RenderHTMLConfigProvider,
   RenderHTMLSource
-} from 'react-native-render-html';`;
+} from '@native-html/render';`;
 
 export default function PageConceptRendering() {
   const {

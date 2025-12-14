@@ -52,8 +52,7 @@ export default function PageFAQ() {
           <Paragraph>
             Use <RefRenderHTMLExport name="domNodeToHTMLString" /> utility. See{' '}
             <Hyperlink url="https://stackoverflow.com/q/63979897/2779871">
-              Stack Overflow | Extract raw HTML in react-native-render-html
-              custom renderers
+              Stack Overflow | Extract raw HTML in @native-html/render custom renderers
             </Hyperlink>
             .
           </Paragraph>
@@ -115,7 +114,7 @@ export default function PageFAQ() {
           <Paragraph>
             There is a detailed explaination for this warning here:{' '}
             <Hyperlink url="https://stackoverflow.com/q/68966120/2779871">
-              Stack Overflow | react-native-render-html, "You seem to update
+              Stack Overflow | @native-html/render, "You seem to update
               ..."
             </Hyperlink>
             .

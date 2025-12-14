@@ -9,7 +9,7 @@ const features = [
     description: (
       <>
         Despite its rich features and plugins,{' '}
-        <code>react-native-render-html</code> was designed for ease of use in
+        <code>@native-html/render</code> was designed for ease of use in
         mind. Getting started is a matter of seconds.
       </>
     )

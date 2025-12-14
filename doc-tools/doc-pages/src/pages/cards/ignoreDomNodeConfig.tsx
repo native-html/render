@@ -1,6 +1,6 @@
 import { UIRenderHtmlCardProps } from '../../toolkit/toolkit-types';
 import { isTag } from 'domutils';
-import type { Node, NodeWithChildren } from 'react-native-render-html';
+import type { Node, NodeWithChildren } from '@native-html/render';
 
 const html = `
 <p style="text-align: center">

@@ -3,7 +3,7 @@ import { View, StyleProp, ViewStyle } from 'react-native';
 import RenderHTML, {
   AElementConfig,
   RenderHTMLProps
-} from 'react-native-render-html';
+} from '@native-html/render';
 import UIDisplayLoadingAtom from './UIDisplayLoadingAtom';
 import useOnLinkPress from '../hooks/useOnLinkPress';
 import { useColorRoles } from '../theme/colorSystem';

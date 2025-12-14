@@ -74,7 +74,7 @@ export default function PageReinventTheWheel() {
           To understand how this library works, we propose a teeny, tiny
           implementation of an HTML renderer in just about{' '}
           <Bold>40 lines of code</Bold>. Of course, it has many limitations that
-          are overcomed by <InlineCode>react-native-render-html</InlineCode>,
+          are overcomed by <InlineCode>@native-html/render</InlineCode>,
           but it will give you a good glimpse at how things work internally.
         </Paragraph>
       </Header>
@@ -195,7 +195,7 @@ export default function PageReinventTheWheel() {
           </ListItem>
         </List>
         <Paragraph>
-          <InlineCode>react-native-render-html</InlineCode> overcomes all of
+          <InlineCode>@native-html/render</InlineCode> overcomes all of
           those caveats and more out of the box!
         </Paragraph>
       </Chapter>

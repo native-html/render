@@ -139,7 +139,7 @@ describe('ListElement', () => {
       </TRenderEngineProvider>
     );
     expect(console.warn).toHaveBeenCalledWith(
-      expect.stringContaining('is not handled by react-native-render-html.')
+      expect.stringContaining('is not handled by @native-html/render.')
     );
   });
   it('should handle getFallbackListStyleTypeFromNestLevel returning undefined', () => {

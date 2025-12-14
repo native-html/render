@@ -1,4 +1,4 @@
-const json = require('react-native-render-html/package.json');
+const json = require('@native-html/render/package.json');
 
 module.exports = {
   demo: '4.0.1',

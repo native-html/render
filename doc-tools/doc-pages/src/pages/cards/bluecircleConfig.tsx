@@ -1,4 +1,4 @@
-import { HTMLContentModel, HTMLElementModel } from 'react-native-render-html';
+import { HTMLContentModel, HTMLElementModel } from '@native-html/render';
 import { UIRenderHtmlCardProps } from '../../toolkit/toolkit-types';
 
 const html = '<blue-circle></blue-circle>';
@@ -26,7 +26,7 @@ const bluecircleConfig: UIRenderHtmlCardProps = {
   config: {
     importStatements: [
       {
-        package: 'react-native-render-html',
+        package: '@native-html/render',
         named: ['HTMLElementModel', 'HTMLContentModel']
       }
     ],

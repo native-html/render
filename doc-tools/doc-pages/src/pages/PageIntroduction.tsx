@@ -96,12 +96,12 @@ export default function PageIntroduction() {
       </Chapter>
       <Chapter title="Install">
         <Paragraph>
-          Install <InlineCode>react-native-render-html</InlineCode> Foundry
+          Install <InlineCode>@native-html/render</InlineCode> Foundry
           release (v6) on your project:
         </Paragraph>
         <SourceDisplay
           lang="bash"
-          content="npm install --save-prod react-native-render-html"
+          content="npm install --save-prod @native-html/render"
           showLineNumbers={false}
         />
       </Chapter>

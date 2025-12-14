@@ -1,7 +1,7 @@
 {
   "name": "core",
   "version": "0.0.0",
-  "description": "Core packages for react-native-render-html",
+  "description": "Core packages for @native-html ecosystem.",
   "author": "Jules Sam. Randolph <jules.sam.randolph@gmail.com> (https://github.com/jsamr)",
   "license": "MIT",
   "homepage": "https://github.com/native-html/core#readme",
@@ -13,7 +13,7 @@
   "scripts": {
     "build:css-processor": "yarn workspace @native-html/css-processor build",
     "build:transient-render-engine": "yarn workspace @native-html/transient-render-engine build",
-    "build:render-html": "yarn workspace react-native-render-html build",
+    "build:render": "yarn workspace @native-html/render build",
     "test:css-processor": "yarn workspace @native-html/css-processor test",
     "test:css-processor:ts": "yarn workspace @native-html/css-processor test:ts",
     "test:css-processor:lint": "yarn workspace @native-html/css-processor test:lint",
@@ -23,10 +23,10 @@
     "test:transient-render-engine:lint": "yarn workspace @native-html/transient-render-engine test:lint",
     "test:transient-render-engine:jest": "yarn workspace @native-html/transient-render-engine test:jest",
     "test:transient-render-engine:perf": "yarn workspace performance-testing benchmark",
-    "test:render-html": "yarn workspace react-native-render-html test",
-    "test:render-html:ts": "yarn workspace react-native-render-html test:ts",
-    "test:render-html:lint": "yarn workspace react-native-render-html test:lint",
-    "test:render-html:jest": "yarn workspace react-native-render-html test:jest",
+    "test:render": "yarn workspace @native-html/render test",
+    "test:render:ts": "yarn workspace @native-html/render test:ts",
+    "test:render:lint": "yarn workspace @native-html/render test:lint",
+    "test:render:jest": "yarn workspace @native-html/render test:jest",
     "release:css-processor": "yarn workspace @native-html/css-processor release-it",
     "release:transient-render-engine": "yarn workspace @native-html/transient-render-engine release-it",
     "postinstall": "husky install"

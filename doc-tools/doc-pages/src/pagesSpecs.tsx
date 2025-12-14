@@ -19,7 +19,7 @@ const pagesIndex: Record<PageId, PageSpecs> = {
     title: 'Introduction',
     iconName: 'information-variant',
     component: PageIntroduction,
-    description: 'An introduction to react-native-render-html library.',
+    description: 'An introduction to @native-html/render library.',
     group: 'root',
     id: 'intro',
     position: 0
@@ -39,7 +39,7 @@ const pagesIndex: Record<PageId, PageSpecs> = {
     group: 'root',
     position: 1,
     title: 'Architecture',
-    description: 'An overview of react-native-render-html architecture.',
+    description: 'An overview of @native-html/render architecture.',
     id: 'architecture',
     iconName: 'pillar'
   },
@@ -49,7 +49,7 @@ const pagesIndex: Record<PageId, PageSpecs> = {
     position: 4,
     id: 'css-processing',
     group: 'flow',
-    description: 'An overview of CSS processing in react-native-render-html.',
+    description: 'An overview of CSS processing in @native-html/render.',
     component: PageConceptCSS
   },
   'transient-render-engine': {
@@ -59,13 +59,13 @@ const pagesIndex: Record<PageId, PageSpecs> = {
     position: 3,
     id: 'transient-render-engine',
     description:
-      'An overview of the transient render engine features in react-native-render-html.',
+      'An overview of the transient render engine features in @native-html/render.',
     component: PageConceptTRE
   },
   rendering: {
     title: 'Rendering',
     description:
-      'An overview of the rendering step in react-native-render-html.',
+      'An overview of the rendering step in @native-html/render.',
     group: 'flow',
     iconName: 'react',
     position: 4,
@@ -76,7 +76,7 @@ const pagesIndex: Record<PageId, PageSpecs> = {
     component: PageGuideCustomRenderers,
     group: 'guides',
     description:
-      'How to implement custom renderers in react-native-render-html?',
+      'How to implement custom renderers in @native-html/render?',
     iconName: 'eye-settings',
     id: 'custom-renderers',
     position: 2,
@@ -84,7 +84,7 @@ const pagesIndex: Record<PageId, PageSpecs> = {
   },
   'dom-tampering': {
     component: PageGuideDomTampering,
-    description: 'How to alter the DOM in react-native-render-html?',
+    description: 'How to alter the DOM in @native-html/render?',
     group: 'guides',
     iconName: 'medical-bag',
     id: 'dom-tampering',
@@ -94,7 +94,7 @@ const pagesIndex: Record<PageId, PageSpecs> = {
   styling: {
     component: PageGuideStylingComponents,
     description:
-      'How to add custom styles to components in react-native-render-html?',
+      'How to add custom styles to components in @native-html/render?',
     group: 'guides',
     iconName: 'format-paint',
     id: 'styling',
@@ -105,7 +105,7 @@ const pagesIndex: Record<PageId, PageSpecs> = {
   textual: {
     group: 'content',
     component: PageContentTextual,
-    description: 'An overview of textual contents in react-native-render-html.',
+    description: 'An overview of textual contents in @native-html/render.',
     iconName: 'format-text',
     id: 'textual',
     position: 1,
@@ -116,13 +116,13 @@ const pagesIndex: Record<PageId, PageSpecs> = {
     group: 'content',
     position: 2,
     title: 'Images',
-    description: 'An overview of images in react-native-render-html.',
+    description: 'An overview of images in @native-html/render.',
     id: 'images',
     iconName: 'image-album'
   },
   lists: {
     component: PageContentLists,
-    description: 'An overview of lists in react-native-render-html.',
+    description: 'An overview of lists in @native-html/render.',
     group: 'content',
     iconName: 'format-list-bulleted',
     id: 'lists',
@@ -131,7 +131,7 @@ const pagesIndex: Record<PageId, PageSpecs> = {
   },
   anchors: {
     component: PageContentAnchors,
-    description: 'An overview of anchors in react-native-render-html.',
+    description: 'An overview of anchors in @native-html/render.',
     group: 'content',
     iconName: 'link-variant',
     id: 'anchors',
