@@ -68,7 +68,7 @@ hi to inline images!
 - It is shipped with a CSS processor which enforces strict translation rules
 from CSS to React Native styles. Say goodbye to native crashes caused by
 unsupported CSS properties! See the [**dedicated
-article**](/react-native-render-html/docs/flow/css-processing) for 
+article**](/react-native-render-html/docs/flow/css-processing) for
 reference.
 - It paves the way to server side (or build-time) pre-rendering in the future,
 and, why not, a react fiber and MDX builder.
@@ -105,7 +105,7 @@ function H1Renderer({
   );
 }
 ```
-Default renderers support `onPress` and many more interesting props! See 
+Default renderers support `onPress` and many more interesting props! See
 &ZeroWidthSpace;<Reference type="api-def" name="TDefaultRendererProps" url="/react-native-render-html/api/tdefaultrendererprops" />.
 Moreover, you can customize the rendering of children thanks to the <Reference
 type="api-def" name="TChildrenRenderer" url="/react-native-render-html/api/tchildrenrenderer" /> component!
@@ -164,7 +164,7 @@ url="/react-native-render-html/api/renderhtmlprops#systemfonts"/>.
 The versatile new list component [gives access to 47 markers
 presets](https://github.com/jsamr/react-native-li/tree/master/packages/counter-style#readme)
 for custom [CSS Counter
-Styles](https://drafts.csswg.org/css-counter-styles-3/); supports 
+Styles](https://drafts.csswg.org/css-counter-styles-3/); supports
 `list-style-type` CSS property and `start` attribute. There is also an experimental RTL feature!
 
 <ListsShowcase />
@@ -238,13 +238,13 @@ The three-layer rendering architecture shows its potential when rendering many H
 snippets at a time. It basically means that you can put configuration in a
 context to avoid the cost of instantiating the TRE too many times:
 
-```jsx 
+```jsx
 <RenderHTML source={{ html }} />
 ```
 
 is equivalent to this (**explicit 3 layers**):
 
-```jsx 
+```jsx
 <TRenderEngineProvider>
   <RenderHTMLConfigProvider>
     <RenderHTMLSource source={{ html }} />
@@ -293,7 +293,7 @@ models in the <Reference type="api-doc" name="defaultHTMLElementModels" url="/re
 With all the bug fixes, high test coverage and API stability, entering the
 beta stage means **the Foundry release is now ready for production**. Test coverage for
 the CSS processor and TRE is **100%** (see
-[native-html/core](https://github.com/native-html/core)) repository. The
+[native-html/render](https://github.com/native-html/render)) repository. The
 `react-native-render-html` package has a test coverage above **64%**, and will
 rise to above **90%** by the end of the beta stage.
 

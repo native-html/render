@@ -11,9 +11,9 @@
     "lib",
     "src"
   ],
-  "homepage": "https://github.com/native-html/core",
+  "homepage": "https://github.com/native-html/render",
   "bugs": {
-    "url": "https://github.com/native-html/core/issues"
+    "url": "https://github.com/native-html/render/issues"
   },
   "keywords": [
     "react-native",
@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/native-html/core.git",
+    "url": "git+ssh://git@github.com/native-html/render.git",
     "directory": "packages/render"
   },
   "scripts": {

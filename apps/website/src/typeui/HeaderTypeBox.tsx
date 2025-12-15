@@ -8,9 +8,9 @@ import Badges from './Badges';
 
 const thirdPartiesMap: Record<string, string> = {
   '@native-html/transient-render-engine':
-    'https://github.com/native-html/core/tree/master/packages/transient-render-engine',
+    'https://github.com/native-html/render/tree/master/packages/transient-render-engine',
   '@native-html/css-processor':
-    'https://github.com/native-html/core/tree/master/packages/css-processor',
+    'https://github.com/native-html/render/tree/master/packages/css-processor',
   domhandler: 'https://github.com/fb55/domhandler'
 };
 

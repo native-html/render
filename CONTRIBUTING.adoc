@@ -8,7 +8,7 @@ ifdef::env-github[]
 endif::[]
 :toc:
 
-:rnrh-test-folder: https://github.com/native-html/core/tree/master/packages/render-html/src/__tests__
+:rnrh-test-folder: https://github.com/native-html/render/tree/master/packages/render-html/src/__tests__
 
 = A Contributors' Guide
 
@@ -22,7 +22,7 @@ this project! Your effort will be very much appreciated.
 
 After you've read the relevant sections of this document, you can open a ticket
 through GitHub here:
-https://github.com/native-html/core/issues/new/choose. Make
+https://github.com/native-html/render/issues/new/choose. Make
 sure you follow the appropriate template.
 
 [NOTE]
@@ -46,7 +46,7 @@ cannot help you if you don't help us in the process!
 If you would like to report a problem, take a look around and see if someone
 already opened an issue about it (see <<HELP.adoc#,HELP>> document). If you a
 are certain this is a new, unreported bug, you can submit a bug report
-https://github.com/native-html/core/issues/new/choose[by
+https://github.com/native-html/render/issues/new/choose[by
 opening a new issue].
 
 The most important quality of your bug report is *reproducibility*. It means we
@@ -93,13 +93,13 @@ a *Snack*. I will take you 2 minutes to configure.
 
 Second important thing: try-out the latest version, including pre-releases! For
 more information on this topic, read the
-https://github.com/native-html/core#versions[Versions section
+https://github.com/native-html/render#versions[Versions section
 of the README]. If you can try `master` branch, that would be even better, but
 we don't require it because it could contain breaking changes. To do
 so, simply run the following command:
 
 ```bash
-npm install "github:native-html/core#master"
+npm install "github:native-html/render#master"
 ```
 
 [[features]]
@@ -174,7 +174,7 @@ feature will address).
 supported?).
 
 You can take a look at drafts in
-https://github.com/native-html/core/tree/master/rfc[the `rfc`
+https://github.com/native-html/render/tree/master/rfc[the `rfc`
 folder] for inspiration.
 
 [NOTE]

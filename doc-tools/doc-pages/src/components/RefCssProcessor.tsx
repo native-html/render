@@ -6,7 +6,7 @@ const RefCssProcessor = ({}) => {
   return (
     <RefLibrary
       name="@native-html/css-processor"
-      url="https://github.com/native-html/core/tree/master/packages/css-processor#readme"
+      url="https://github.com/native-html/render/tree/master/packages/css-processor#readme"
     />
   );
 };

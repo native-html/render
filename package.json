@@ -4,10 +4,10 @@
   "description": "Core packages for @native-html ecosystem.",
   "author": "Jules Sam. Randolph <jules.sam.randolph@gmail.com> (https://github.com/jsamr)",
   "license": "MIT",
-  "homepage": "https://github.com/native-html/core#readme",
+  "homepage": "https://github.com/native-html/render#readme",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:native-html/core.git"
+    "url": "git+ssh://git@github.com:native-html/render.git"
   },
   "private": true,
   "scripts": {

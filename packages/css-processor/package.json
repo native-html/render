@@ -9,9 +9,9 @@
     "lib",
     "src"
   ],
-  "homepage": "https://github.com/native-html/core/tree/main/packages/css-processor#readme",
+  "homepage": "https://github.com/native-html/render/tree/main/packages/css-processor#readme",
   "bugs": {
-    "url": "https://github.com/native-html/core/issues"
+    "url": "https://github.com/native-html/render/issues"
   },
   "author": "Jules Sam. Randolph <jules.sam.randolph@gmail.com> (https://github.com/jsamr)",
   "license": "MIT",
@@ -22,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/native-html/core.git",
+    "url": "git+ssh://git@github.com/native-html/render.git",
     "directory": "packages/css-processor"
   },
   "scripts": {
