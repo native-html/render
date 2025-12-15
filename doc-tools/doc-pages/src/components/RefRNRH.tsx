@@ -6,7 +6,7 @@ const RefRNRH = ({}) => {
   return (
     <RefLibrary
       name="@native-html/render"
-      url="https://github.com/native-html/core"
+      url="https://github.com/native-html/render"
     />
   );
 };

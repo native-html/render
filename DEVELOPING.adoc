@@ -14,7 +14,7 @@ endif::[]
 
 Clone the project:
 ```
-git clone git@github.com:native-html/core.git
+git clone git@github.com:native-html/render.git
 ```
 Then yarn-install:
 ```

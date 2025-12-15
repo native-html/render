@@ -6,7 +6,7 @@ const RefTRE = ({}) => {
   return (
     <RefLibrary
       name="@native-html/transient-render-engine"
-      url="https://github.com/native-html/core/tree/master/packages/transient-render-engine#readme"
+      url="https://github.com/native-html/render/tree/master/packages/transient-render-engine#readme"
     />
   );
 };
