@@ -29,6 +29,7 @@
     "test:render:jest": "yarn workspace @native-html/render test:jest",
     "release:css-processor": "yarn workspace @native-html/css-processor release-it",
     "release:transient-render-engine": "yarn workspace @native-html/transient-render-engine release-it",
+    "release:render": "yarn workspace @native-html/render release-it",
     "postinstall": "husky install"
   },
   "devDependencies": {
