@@ -8,7 +8,7 @@ esbuild.build({
   platform: 'node',
   minify: false,
   define: {
-    __DEV__: 'false'
+    __DEV__: "false"
   },
   plugins: [
     alias({
