@@ -1,7 +1,22 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [12.0.0-alpha.0](github.com/native-html/render/compare/@native-html/transient-render-engine@11.2.3...@native-html/transient-render-engine@12.0.0-alpha.0) (2026-01-08)
+
+### Bug Fixes
+
+* change all links from native-html/core to native-html/render ([d7130d2](github.com/native-html/render/commits/d7130d2a39b77e12dc7499673df3390f13ac3f5a)) - by @5ZYSZ3K
+* remove @types/react-native peer dependency ([b10e861](github.com/native-html/render/commits/b10e861060d055c5bd2290fc9a50c42df39db13f)) - by @jsamr
+
+### Features
+
+* rename package react-native-render-html to @native-html/render ([5942242](github.com/native-html/render/commits/5942242629a6d1120ad0bd9a3c082e51b8f2252c)) - by @5ZYSZ3K
+
 ## [11.2.3](https://github.com/native-html/render/compare/@native-html/transient-render-engine@11.2.2...@native-html/transient-render-engine@11.2.3) (2022-01-11)
 
 ## [11.2.2](https://github.com/native-html/render/compare/@native-html/transient-render-engine@11.2.1...@native-html/transient-render-engine@11.2.2) (2021-11-25)
-
 
 ### Bug Fixes
 
@@ -11,13 +26,11 @@
 
 # [11.2.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@11.1.2...@native-html/transient-render-engine@11.2.0) (2021-10-20)
 
-
 ### Features
 
 * **tre:** enhanced typings and documentation ([e467185](https://github.com/native-html/render/commit/e46718561c7d6d41db37ebd7d08059e3298c47fc))
 
 ## [11.1.2](https://github.com/native-html/render/compare/@native-html/transient-render-engine@11.1.1...@native-html/transient-render-engine@11.1.2) (2021-10-20)
-
 
 ### Bug Fixes
 
@@ -27,7 +40,6 @@
 
 ## [11.1.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@11.1.0...@native-html/transient-render-engine@11.1.1) (2021-10-19)
 
-
 ### Bug Fixes
 
 * **tre:** map HTML `role` attribute instead of notional `aria-role` ([50031a4](https://github.com/native-html/render/commit/50031a484b9f3dd4c83122892b0cce1110a0d81c))
@@ -35,24 +47,20 @@
 
 # [11.1.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@11.0.0...@native-html/transient-render-engine@11.1.0) (2021-10-16)
 
-
 ### Features
 
 * **tre:** allow `HTMLElementModel.extend` to take a merge function ([ab7019f](https://github.com/native-html/render/commit/ab7019f904a1ef6372bc4cfd95fff259fa74376e))
 
 # [11.0.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@10.4.0...@native-html/transient-render-engine@11.0.0) (2021-10-15)
 
-
 ### Code Refactoring
 
 * rename `getDynamicReactNativeProps` to `getReactNativeProps` for consistency ([3401890](https://github.com/native-html/render/commit/340189047b9f9d775b6ea73bf892ae79c6f85a6e))
 * rename `getuadynamicmixedstyles` to `getmixeduastyles` for consistency ([a1ce296](https://github.com/native-html/render/commit/a1ce296092a216437ab75abae7a30e6c46f4b5db))
 
-
 ### Features
 
 * add new typescript util, `ExtractTNodeFromType` ([9b1b008](https://github.com/native-html/render/commit/9b1b0081a8cca688e05ec3435a2169e6652839a6))
-
 
 ### BREAKING CHANGES
 
@@ -63,13 +71,11 @@ for consistency
 
 # [10.4.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@10.3.0...@native-html/transient-render-engine@10.4.0) (2021-10-14)
 
-
 ### Features
 
 * **tre:** add `onPress` support in native props ([8185e0d](https://github.com/native-html/render/commit/8185e0d5bf3d22635ae620141bba65cf6987e151))
 
 # [10.3.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@10.2.1...@native-html/transient-render-engine@10.3.0) (2021-10-13)
-
 
 ### Features
 
@@ -77,20 +83,17 @@ for consistency
 
 ## [10.2.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@10.2.0...@native-html/transient-render-engine@10.2.1) (2021-09-11)
 
-
 ### Bug Fixes
 
 * set accessibilityLabel for headings to bypass RN limitation ([52d5be7](https://github.com/native-html/render/commit/52d5be7f9e862a9a014a8205bab19fa5726b3a79))
 
 # [10.2.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@10.1.0...@native-html/transient-render-engine@10.2.0) (2021-09-11)
 
-
 ### Features
 
 * support aria-role="search" and aria-role="presentation" ([4372c4b](https://github.com/native-html/render/commit/4372c4b6aa48aeb8318d4921fa5e72658d04815b))
 
 # [10.1.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@10.0.2...@native-html/transient-render-engine@10.1.0) (2021-09-05)
-
 
 ### Features
 
@@ -99,13 +102,11 @@ for consistency
 * provide sensible accessibility values for interactive elements and svg ([486e649](https://github.com/native-html/render/commit/486e6499b032dc8abc47ebea63916314e1f05791))
 * **tre:** add support for `user-select` CSS property ([42da28f](https://github.com/native-html/render/commit/42da28f1ed865b5b1aac29d977efcec61a18a9bd))
 
-
 ### Performance Improvements
 
 * memoize return values in `getNativeStyles` and `getWebStyles` ([32090fb](https://github.com/native-html/render/commit/32090fbb115fa955e3461a1c44f1c74db8445e84))
 
 ## [10.0.2](https://github.com/native-html/render/compare/@native-html/transient-render-engine@10.0.1...@native-html/transient-render-engine@10.0.2) (2021-09-04)
-
 
 ### Bug Fixes
 
@@ -113,18 +114,15 @@ for consistency
 
 ## [10.0.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@10.0.0...@native-html/transient-render-engine@10.0.1) (2021-09-04)
 
-
 ### Bug Fixes
 
 * **tre:** provide accessibility props when `<a>` has a non-empty `href` attribute ([aa82791](https://github.com/native-html/render/commit/aa82791b04b2196a1b80037ba31c09f860867dd7))
 
 # [10.0.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@9.3.0...@native-html/transient-render-engine@10.0.0) (2021-09-04)
 
-
 ### Code Refactoring
 
 * rename `ReactNativePropsDefinitions.all` to `native` for consistency ([292e75e](https://github.com/native-html/render/commit/292e75e57e0818894637887b875dea9e2cb00984))
-
 
 ### BREAKING CHANGES
 
@@ -132,7 +130,6 @@ for consistency
 for consistency with RNRH.
 
 # [9.3.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@9.2.4...@native-html/transient-render-engine@9.3.0) (2021-09-04)
-
 
 ### Features
 
@@ -150,13 +147,11 @@ for consistency with RNRH.
 
 # [9.2.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@9.1.0...@native-html/transient-render-engine@9.2.0) (2021-07-01)
 
-
 ### Features
 
 * **tre:** reexport css-processor types ([59e81e9](https://github.com/native-html/render/commit/59e81e9a6032bf0faab5212b1a9d63781969f448))
 
 # [9.1.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@9.0.3...@native-html/transient-render-engine@9.1.0) (2021-06-24)
-
 
 ### Features
 
@@ -170,16 +165,13 @@ for consistency with RNRH.
 
 # [9.0.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@8.4.1...@native-html/transient-render-engine@9.0.0) (2021-05-26)
 
-
 ### Code Refactoring
 
 * **tre:** avoid renaming reexports ([965094d](https://github.com/native-html/render/commit/965094da304813a8a26d7acca8cb42af159695de))
 
-
 ### Features
 
 * **tre:** export TNodePrintOptions ([46b40a2](https://github.com/native-html/render/commit/46b40a23579c3d3949bc9124b3272b3625246ce8))
-
 
 ### BREAKING CHANGES
 
@@ -190,13 +182,11 @@ isNode.
 
 ## [8.4.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@8.4.0...@native-html/transient-render-engine@8.4.1) (2021-05-18)
 
-
 ### Bug Fixes
 
 * **tre:** don't append an extraneous line return in snapshot() ([091d5dd](https://github.com/native-html/render/commit/091d5dda3eaaa59fd027f198ca9d87ede7d90031))
 
 # [8.4.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@8.3.0...@native-html/transient-render-engine@8.4.0) (2021-05-18)
-
 
 ### Features
 
@@ -204,13 +194,11 @@ isNode.
 
 # [8.3.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@8.2.0...@native-html/transient-render-engine@8.3.0) (2021-05-18)
 
-
 ### Features
 
 * **tre:** expose webBlockRet styles to support "objectFit" mixed style ([4f3f6f2](https://github.com/native-html/render/commit/4f3f6f2408cb74ac0173c7d57444e2a3c85870b1))
 
 # [8.2.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@8.1.2...@native-html/transient-render-engine@8.2.0) (2021-05-15)
-
 
 ### Features
 
@@ -218,13 +206,11 @@ isNode.
 
 ## [8.1.2](https://github.com/native-html/render/compare/@native-html/transient-render-engine@8.1.1...@native-html/transient-render-engine@8.1.2) (2021-05-15)
 
-
 ### Bug Fixes
 
 * **tre:** don't append text nested in ignored tags ([f1f2e04](https://github.com/native-html/render/commit/f1f2e0424ca5662e67088e1d9610f7e5126ba01a))
 
 ## [8.1.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@8.1.0...@native-html/transient-render-engine@8.1.1) (2021-05-14)
-
 
 ### Bug Fixes
 
@@ -232,18 +218,15 @@ isNode.
 
 # [8.1.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@8.0.0...@native-html/transient-render-engine@8.1.0) (2021-05-12)
 
-
 ### Features
 
 * rehabilitate `styles` in TNode ([f6240f5](https://github.com/native-html/render/commit/f6240f5ff2e2d32a4202633a381e9339942af18e))
 
 # [8.0.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@7.3.0...@native-html/transient-render-engine@8.0.0) (2021-05-12)
 
-
 ### Features
 
 * new getNativeStyles and getWebStyles utilities in TNodes ([d1e9603](https://github.com/native-html/render/commit/d1e96031b0a4ae9d2074e9b330cb8d3e2523a23a))
-
 
 ### BREAKING CHANGES
 
@@ -252,13 +235,11 @@ isNode.
 
 # [7.3.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@7.2.0...@native-html/transient-render-engine@7.3.0) (2021-05-10)
 
-
 ### Features
 
 * export HTMLElementsModels in TRenderEngine ([fe0f261](https://github.com/native-html/render/commit/fe0f261324ce28a0ba810f1c07e88779ada6b621))
 
 # [7.2.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@7.1.0...@native-html/transient-render-engine@7.2.0) (2021-05-10)
-
 
 ### Features
 
@@ -266,11 +247,9 @@ isNode.
 
 # [7.1.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@7.0.0...@native-html/transient-render-engine@7.1.0) (2021-05-08)
 
-
 ### Bug Fixes
 
 * **tre:** 3 spaces indentation on TNode.snapshot print instead of 2 ([c14c3bc](https://github.com/native-html/render/commit/c14c3bc69037899b2b22988c0da0adb629642c85))
-
 
 ### Features
 
@@ -278,16 +257,13 @@ isNode.
 
 # [7.0.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@6.3.0...@native-html/transient-render-engine@7.0.0) (2021-05-08)
 
-
 ### Code Refactoring
 
 * **tre:** drop alterDOMParams ([ed6a751](https://github.com/native-html/render/commit/ed6a7515e515cd18a1f11ec95db2d68e228b62b9))
 
-
 ### Features
 
 * **tre:** new `ignoredDomTags`, `ignoreDomNode` and `domVisitors` opts. These options will add very little overhead as they don't require a tree traversal; they are used during parsing instead!
-
 
 ### BREAKING CHANGES
 
@@ -296,20 +272,17 @@ isNode.
 
 # [6.3.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@6.2.1...@native-html/transient-render-engine@6.3.0) (2021-05-07)
 
-
 ### Features
 
 * **tre:** new tamperDOM optional argument to parseDocument ([7f49fee](https://github.com/native-html/render/commit/7f49fee60ee9ed6da6303dafb204d5e771892cf4))
 
 ## [6.2.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@6.2.0...@native-html/transient-render-engine@6.2.1) (2021-05-07)
 
-
 ### Bug Fixes
 
 * **tre:** actually apply withNodeIndex parameter ([c7030fd](https://github.com/native-html/render/commit/c7030fd3d4e282fba90715613a7bec56d6808ce4))
 
 # [6.2.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@6.1.1...@native-html/transient-render-engine@6.2.0) (2021-05-07)
-
 
 ### Features
 
@@ -318,13 +291,11 @@ isNode.
 
 ## [6.1.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@6.1.0...@native-html/transient-render-engine@6.1.1) (2021-05-07)
 
-
 ### Bug Fixes
 
 * **tre:** add missing withStyles param in recursive calls serializeTnode ([da60350](https://github.com/native-html/render/commit/da60350b021caec7b96b528eae62614e0ee5d26e))
 
 # [6.1.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@6.0.0...@native-html/transient-render-engine@6.1.0) (2021-05-06)
-
 
 ### Features
 
@@ -332,25 +303,21 @@ isNode.
 
 # [6.0.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@5.1.1...@native-html/transient-render-engine@6.0.0) (2021-05-06)
 
-
 ### Bug Fixes
 
 * collapse whitespaces after <br> and <wbr> tags ([cb84d62](https://github.com/native-html/render/commit/cb84d62cdc9aa24b4cdb337be49cc6d7baa3df2f))
 * **tre:** preserve style inheritance in anonymous TPhrasing nodes ([734f105](https://github.com/native-html/render/commit/734f1058de38778613df2762d53a5bf88aa125c9))
-
 
 ### Code Refactoring
 
 * **tre:** expose TNode.snapshot instead of TNode.toString ([f28c81b](https://github.com/native-html/render/commit/f28c81b508713d2ef98fd25080567d1ab9e42737))
 * remove tnodeToString from exports ([4c7e31b](https://github.com/native-html/render/commit/4c7e31b27dba7bcd2a9871ed7f8ef83b2d9974bc))
 
-
 ### Features
 
 * **tre:** add nodeIndex in serialized snapshot ([307b145](https://github.com/native-html/render/commit/307b14558d0518304bc1cf666674d9e99dc64488))
 * **tre:** expose TNode.isUnregistered field ([b5b5efd](https://github.com/native-html/render/commit/b5b5efde9ce209a04c3ce55e4743d46358d6c7b1))
 * **tre:** print "unregistered" and "src" attribute in TNode.toString ([7ff6d74](https://github.com/native-html/render/commit/7ff6d749f7b3dee39796a243372d89f7e462e835))
-
 
 ### BREAKING CHANGES
 
@@ -360,18 +327,15 @@ TNode.snapshot() instead.
 
 ## [5.1.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@5.1.0...@native-html/transient-render-engine@5.1.1) (2021-05-06)
 
-
 ### Bug Fixes
 
 * **tre:** expose "matchContentModel" method from TNode ([c67b70f](https://github.com/native-html/render/commit/c67b70f7785081281231ec888b1a7865286088ff))
 
 # [5.1.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@5.0.0...@native-html/transient-render-engine@5.1.0) (2021-05-06)
 
-
 ### Bug Fixes
 
 * **tre:** typings confusion between exported TNode types and impl ([9878327](https://github.com/native-html/render/commit/9878327aef03759261a79bfdc2a80697d81e933e))
-
 
 ### Features
 
@@ -379,23 +343,19 @@ TNode.snapshot() instead.
 
 # [5.0.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@4.4.1...@native-html/transient-render-engine@5.0.0) (2021-05-05)
 
-
 ### Bug Fixes
 
 * **tre:** optionalize dangerous options ([8ec75b0](https://github.com/native-html/render/commit/8ec75b03314f5a905577967d5aafa39be22f3329))
 
-
 ### Code Refactoring
 
 * **tre:** hide TNode internals via interfaces ([304fd3a](https://github.com/native-html/render/commit/304fd3a838f106629b258040c19f17f0525888fc))
-
 
 ### Performance Improvements
 
 * optimize whitespace collapsing ([77bf33d](https://github.com/native-html/render/commit/77bf33d98e64678a5073682f90d7f711708f20ea))
 * **tre:** multiply translate speed by 30% with prototypal inheritance ([c5a596c](https://github.com/native-html/render/commit/c5a596c6b07159b9e97b60335d4ebeec575f10ff))
 * **tre:** remove intermediary serialization step ([e559bcf](https://github.com/native-html/render/commit/e559bcfb90e3e738f20b9e495fa6c839115bc845))
-
 
 ### BREAKING CHANGES
 
@@ -407,13 +367,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [4.4.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@4.4.0...@native-html/transient-render-engine@4.4.1) (2021-02-16)
 
-
 ### Bug Fixes
 
 * **TRE:** re-index children `nodeIndex` after whitespace collapsing ([3130a1b](https://github.com/native-html/render/commit/3130a1bfb2ae322fc459f325a6f005e116f9c987))
 
 # [4.4.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@4.3.0...@native-html/transient-render-engine@4.4.0) (2021-02-14)
-
 
 ### Features
 
@@ -421,11 +379,9 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 # [4.3.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@4.2.0...@native-html/transient-render-engine@4.3.0) (2021-02-13)
 
-
 ### Bug Fixes
 
 * import of const enum not working ([c41ca5d](https://github.com/native-html/render/commit/c41ca5d79e058d4f96a6cc5237cd12f2a8bc7600))
-
 
 ### Features
 
@@ -434,16 +390,13 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 # [4.2.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@4.1.0...@native-html/transient-render-engine@4.2.0) (2021-02-07)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** provide csstype dependency for css-processor ([ca6104e](https://github.com/native-html/render/commit/ca6104ef311f2ad9d69d44b7993c85f66152a7df))
 
-
 ### Features
 
 * **transient-render-engine:** support picture node as basic block ([a3a384b](https://github.com/native-html/render/commit/a3a384b29934fc16e8019ed2a1c1390059215ac9))
-
 
 ### Performance Improvements
 
@@ -451,18 +404,15 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 # [4.1.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@4.0.0...@native-html/transient-render-engine@4.1.0) (2021-02-01)
 
-
 ### Features
 
 * **transient-render-engine:** provide default styles for tabular elements ([e26811b](https://github.com/native-html/render/commit/e26811bd95b007e1d1a7758c6c5ca8718b7a03e1))
 
 # [4.0.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.9.1...@native-html/transient-render-engine@4.0.0) (2021-02-01)
 
-
 ### Code Refactoring
 
 * **transient-render-engine:** distinguish between rendered and other embedded ([8d003c0](https://github.com/native-html/render/commit/8d003c0f3e0bcf9f124250656ade0b0374604fb0))
-
 
 ### BREAKING CHANGES
 
@@ -471,13 +421,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [3.9.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.9.0...@native-html/transient-render-engine@3.9.1) (2021-01-31)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** missing domNode initial value ([ba9328c](https://github.com/native-html/render/commit/ba9328cf2b59d3c5616beb68423d629b56e250c8))
 
 # [3.9.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.8.1...@native-html/transient-render-engine@3.9.0) (2021-01-31)
-
 
 ### Features
 
@@ -485,18 +433,15 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [3.8.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.8.0...@native-html/transient-render-engine@3.8.1) (2021-01-19)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** ignoreDOMNode ignored when no other hooks ([d54e37b](https://github.com/native-html/render/commit/d54e37b6cb8f7c5a71affcdb70795b1ed79d5edb))
 
 # [3.8.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.7.0...@native-html/transient-render-engine@3.8.0) (2021-01-19)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** reset `alterDOMChildren` signature ([32f0699](https://github.com/native-html/render/commit/32f069989bcc555b6d451c786a5bf33a11682f21))
-
 
 ### Features
 
@@ -504,13 +449,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 # [3.7.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.6.2...@native-html/transient-render-engine@3.7.0) (2021-01-18)
 
-
 ### Features
 
 * new alterDOMParams option ([53b00bc](https://github.com/native-html/render/commit/53b00bcb6d82c6102ee7834edade6a5a3416132d))
 
 ## [3.6.2](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.6.1...@native-html/transient-render-engine@3.6.2) (2021-01-14)
-
 
 ### Bug Fixes
 
@@ -518,18 +461,15 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [3.6.1](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.6.0...@native-html/transient-render-engine@3.6.1) (2020-12-03)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** use unicode escape sequences inside regex literal ([6fad215](https://github.com/native-html/render/commit/6fad2154a56c231225e9f9152b36660ce034c59c))
 
 # [3.6.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.5.8...@native-html/transient-render-engine@3.6.0) (2020-11-30)
 
-
 ### Features
 
 * **transient-render-engine:** new removeLineBreaksAroundEastAsianDiscardSet option ([3264d96](https://github.com/native-html/render/commit/3264d96fa30a2e19457782a0578a0906d5fab483))
-
 
 ### Performance Improvements
 
@@ -537,13 +477,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [3.5.8](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.5.7...@native-html/transient-render-engine@3.5.8) (2020-11-30)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** don't assign a default fontSize ([9aba734](https://github.com/native-html/render/commit/9aba73429755f508aed9120c9528091fec2c09f9))
 
 ## [3.5.7](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.5.6...@native-html/transient-render-engine@3.5.7) (2020-11-30)
-
 
 ### Bug Fixes
 
@@ -551,13 +489,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [3.5.6](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.5.5...@native-html/transient-render-engine@3.5.6) (2020-11-29)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** collapse form-feed characters (\f) ([faff027](https://github.com/native-html/render/commit/faff0272057fec2fd7e90c1959cb045356097b37))
 
 ## [3.5.5](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.5.4...@native-html/transient-render-engine@3.5.5) (2020-11-29)
-
 
 ### Bug Fixes
 
@@ -565,13 +501,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [3.5.4](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.5.3...@native-html/transient-render-engine@3.5.4) (2020-11-27)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** type for HTMLElementModel.extend (ts) ([aa3165d](https://github.com/native-html/render/commit/aa3165d27081efc8fb39b2c3f88027011ede588f))
 
 ## [3.5.3](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.5.1...@native-html/transient-render-engine@3.5.3) (2020-11-26)
-
 
 ### Bug Fixes
 
@@ -581,12 +515,10 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 # [3.5.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.4.3...@native-html/transient-render-engine@3.5.0) (2020-11-25)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** duplicate body when root element is body ([9db7c24](https://github.com/native-html/render/commit/9db7c2432774e129271b65e29d96e0ff72aaee53))
 * **transient-render-engine:** only assert anonymous TText as empty ([3ee9507](https://github.com/native-html/render/commit/3ee95074e3fbdd9498c1e27e56135b2501241ac0))
-
 
 ### Features
 
@@ -596,7 +528,6 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [3.4.2](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.4.1...@native-html/transient-render-engine@3.4.2) (2020-11-25)
 
-
 ### Bug Fixes
 
 * **transient-render-tree:** render void TText nodes ([50046bc](https://github.com/native-html/render/commit/50046bc789c236eea5d7ca1d2770f7f5bcc77b38))
@@ -605,13 +536,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 # [3.4.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.3.0...@native-html/transient-render-engine@3.4.0) (2020-11-24)
 
-
 ### Features
 
 * **transient-render-engine:** content model type inference ([2f3db1a](https://github.com/native-html/render/commit/2f3db1af1e5de7ba5fdb282e3a3140eaa02c77c5))
 
 # [3.3.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.2.0...@native-html/transient-render-engine@3.3.0) (2020-11-24)
-
 
 ### Features
 
@@ -619,13 +548,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 # [3.2.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.1.0...@native-html/transient-render-engine@3.2.0) (2020-11-24)
 
-
 ### Features
 
 * **transient-render-engine:** new TNode.matchContentMode method ([cebf709](https://github.com/native-html/render/commit/cebf7094bc5ec7c322d06ffa6ede25b57d1c6246))
 
 # [3.1.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@3.0.0...@native-html/transient-render-engine@3.1.0) (2020-11-24)
-
 
 ### Features
 
@@ -635,11 +562,9 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 # [3.0.0](https://github.com/native-html/render/compare/@native-html/transient-render-engine@2.0.2...@native-html/transient-render-engine@3.0.0) (2020-11-23)
 
-
 ### Features
 
 * **transient-render-engine:** align specs with RFC002 v2.0.0 ([1b1ac68](https://github.com/native-html/render/commit/1b1ac68b2b057a17b0c1383987c3fe90d9027123))
-
 
 ### BREAKING CHANGES
 
@@ -661,11 +586,9 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 # [1.5.0](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.4.1...@native-html/transient-render-tree@1.5.0) (2020-11-20)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** design flaw with UA styles ([340ab7f](https://github.com/native-html/render/commit/340ab7f834a7cd74c92c0ce90555683b99e3f39f))
-
 
 ### Features
 
@@ -673,13 +596,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [1.4.1](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.4.0...@native-html/transient-render-tree@1.4.1) (2020-11-19)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** shrink UA spacing from 40 to 30px ([fbadede](https://github.com/native-html/render/commit/fbadede370bb4760560721939eba26168aeeec3e))
 
 # [1.4.0](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.3.1...@native-html/transient-render-tree@1.4.0) (2020-11-19)
-
 
 ### Features
 
@@ -689,13 +610,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [1.3.1](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.3.0...@native-html/transient-render-tree@1.3.1) (2020-11-19)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** align hr UA styles with legacy ([af1ba78](https://github.com/native-html/render/commit/af1ba7874c77348a1aab78cbea0b8db4396614d9))
 
 # [1.3.0](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.2.0...@native-html/transient-render-tree@1.3.0) (2020-11-19)
-
 
 ### Features
 
@@ -703,18 +622,15 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 # [1.2.0](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.1.4...@native-html/transient-render-tree@1.2.0) (2020-11-19)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** anchor child losing its children during hoisting ([d8c4a9f](https://github.com/native-html/render/commit/d8c4a9f17a512e30a0237663221b0ee18b3d9291))
-
 
 ### Features
 
 * **transient-render-engine:** implement tnodeToString to print a tree ([00acc0c](https://github.com/native-html/render/commit/00acc0cf18f6a83ff6cef977e10c65e66ce8c379))
 
 ## [1.1.4](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.1.3...@native-html/transient-render-tree@1.1.4) (2020-11-18)
-
 
 ### Bug Fixes
 
@@ -723,13 +639,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [1.1.3](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.1.2...@native-html/transient-render-tree@1.1.3) (2020-11-18)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** preserve the anchors color from legacy ([0ec10e6](https://github.com/native-html/render/commit/0ec10e669e67fe55bae07707dfacf4f2c5594545))
 
 ## [1.1.2](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.1.1...@native-html/transient-render-tree@1.1.2) (2020-11-18)
-
 
 ### Bug Fixes
 
@@ -737,13 +651,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [1.1.1](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.1.0...@native-html/transient-render-tree@1.1.1) (2020-11-17)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** ol user agent styles overriden by ul styles ([548880c](https://github.com/native-html/render/commit/548880cd93fcee7dfba2d2cbc0fd89b363f75b4d))
 
 # [1.1.0](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.0.4...@native-html/transient-render-tree@1.1.0) (2020-11-17)
-
 
 ### Features
 
@@ -757,13 +669,11 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 
 ## [1.0.1](https://github.com/native-html/render/compare/@native-html/transient-render-tree@1.0.0...@native-html/transient-render-tree@1.0.1) (2020-11-16)
 
-
 ### Bug Fixes
 
 * **transient-render-engine:** avoid using Object.create for styles ([676855a](https://github.com/native-html/render/commit/676855a19ea5f4154336d4dda2102fc18989bcbc))
 
 # 1.0.0 (2020-11-16)
-
 
 ### Features
 
@@ -775,4 +685,3 @@ type of TNode.domNode has changed to the one exported by htmlparser2
 * **transient-render-engine:** support TNode style inheritance ([20a08b3](https://github.com/native-html/render/commit/20a08b3fbac51d292979d67068f5969e54881196))
 * **transient-render-engine:** user agent styles for tags in HTML models ([696a389](https://github.com/native-html/render/commit/696a38975976713d27795310f7eef295f7c03bd1))
 * initial commit ([cb5489d](https://github.com/native-html/render/commit/cb5489de79b0265be09eb5545dae855e48038fcd))
-

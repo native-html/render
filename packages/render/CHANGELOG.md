@@ -1,5 +1,19 @@
-# [6.4.0](https://github.com/meliorence/react-native-render-html/compare/v6.3.4...v6.4.0) (2022-12-23)
+# Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 1.0.0-alpha.0 (2026-01-08)
+
+### Bug Fixes
+
+* change all links from native-html/core to native-html/render ([d7130d2](github.com/native-html/render/commits/d7130d2a39b77e12dc7499673df3390f13ac3f5a)) - by @5ZYSZ3K
+
+### Features
+
+* rename package react-native-render-html to @native-html/render ([5942242](github.com/native-html/render/commits/5942242629a6d1120ad0bd9a3c082e51b8f2252c)) - by @5ZYSZ3K
+
+# [6.4.0](https://github.com/meliorence/react-native-render-html/compare/v6.3.4...v6.4.0) (2022-12-23)
 
 ### Features
 
@@ -7,7 +21,6 @@
 * move config for 'img' and 'a' into named interface ([2bd0ba1](https://github.com/meliorence/react-native-render-html/commit/2bd0ba1a6f463fdc095dd4c1cadad9cc3a0a9a6b))
 
 ## [6.3.4](https://github.com/meliorence/react-native-render-html/compare/v6.3.3...v6.3.4) (2022-01-24)
-
 
 ### Bug Fixes
 
@@ -19,7 +32,6 @@
 
 ## [6.3.1](https://github.com/meliorence/react-native-render-html/compare/v6.3.0...v6.3.1) (2021-12-03)
 
-
 ### Bug Fixes
 
 * bold style not applied to `<b>` tags ([7bd5045](https://github.com/meliorence/react-native-render-html/commit/7bd5045bd6458681e7e6d875cb89c9ee67f8c402)), closes [#539](https://github.com/meliorence/react-native-render-html/issues/539)
@@ -27,11 +39,9 @@
 
 # [6.3.0](https://github.com/meliorence/react-native-render-html/compare/v6.2.0...v6.3.0) (2021-11-03)
 
-
 ### Bug Fixes
 
 * `provideEmbeddedHeaders` results in failing fetch for img ([5488259](https://github.com/meliorence/react-native-render-html/commit/54882596c78a7f66aa5f1766820de646866f6bd8)), closes [#533](https://github.com/meliorence/react-native-render-html/issues/533)
-
 
 ### Features
 
@@ -79,20 +89,17 @@ This release is focused on accessibility! Moreover, it empowers [model-based cus
 
 ## [6.0.5](https://github.com/meliorence/react-native-render-html/compare/v6.0.4...v6.0.5) (2021-07-31)
 
-
 ### Bug Fixes
 
 * test presence of "performance" global variable in useProfiler ([7379c9b](https://github.com/meliorence/react-native-render-html/commit/7379c9b9c533a03754e417b21aaa546f566c5436)), closes [#510](https://github.com/meliorence/react-native-render-html/issues/510)
 
 ## [6.0.4](https://github.com/meliorence/react-native-render-html/compare/v6.0.3...v6.0.4) (2021-07-19)
 
-
 ### Bug Fixes
 
 * npm v7 peer dependencies on @native-html/* ([3d50b0e](https://github.com/meliorence/react-native-render-html/commit/3d50b0e79b2869deeebc67fcac7719f50d351e9d))
 
 ## [6.0.3](https://github.com/meliorence/react-native-render-html/compare/v6.0.2...v6.0.3) (2021-07-19)
-
 
 ### Bug Fixes
 
