@@ -1,6 +1,6 @@
 {
   "name": "@native-html/render",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "Jules Sam. Randolph <jules.sam.randolph@gmail.com> (https://github.com/jsamr)",
   "license": "MIT",
   "description": "The hackable, full-featured Open Source HTML rendering solution for React Native.",
@@ -34,7 +34,7 @@
     "test:lint": "eslint --ext ts,tsx src/",
     "build": "bob build",
     "build:defs": "api-extractor run --local --verbose",
-    "prepack": "yarn run prepack:readme && yarn run build",
+    "prepack": "yarn run build",
     "prepack:readme": "./scripts/prepack.sh"
   },
   "dependencies": {
@@ -57,7 +57,6 @@
     "@babel/runtime": "^7.28.4",
     "@microsoft/api-extractor": "^7.53.1",
     "@react-native/babel-preset": "0.81.5",
-    "@release-it/conventional-changelog": "^10.0.1",
     "@testing-library/jest-native": "^5.4.3",
     "@testing-library/react-native": "^13.3.3",
     "@types/jest": "^29.5.14",
@@ -73,7 +72,6 @@
     "react-native-builder-bob": "^0.40.13",
     "react-performance-testing": "^2.0.0",
     "react-test-renderer": "19.1.0",
-    "release-it": "^19.0.5",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {

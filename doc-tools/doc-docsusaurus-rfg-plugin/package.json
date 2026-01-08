@@ -2,6 +2,7 @@
   "name": "doc-docusaurus-rfg-plugin",
   "type": "commonjs",
   "main": "lib/index.js",
+  "private": true,
   "scripts": {
     "build": "tsc -p ."
   },

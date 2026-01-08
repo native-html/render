@@ -75,3 +75,4 @@ android/keystores/debug.keystore
 coverage
 lib
 snippets.html
+lerna-debug.log

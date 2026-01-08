@@ -1,6 +1,7 @@
 {
   "name": "@doc/svg-component",
   "types": "index.d.ts",
+  "private": true,
   "peerDependencies": {
     "react": "*",
     "react-native-svg": "*"
