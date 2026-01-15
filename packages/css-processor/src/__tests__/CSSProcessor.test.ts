@@ -1,6 +1,6 @@
-import { CSSProcessor, MixedStyleDeclaration } from '../CSSProcessor';
-import { paramCase } from 'param-case';
+import { kebabCase as paramCase } from 'change-case';
 import { TextStyle, ViewStyle } from 'react-native';
+import { CSSProcessor, MixedStyleDeclaration } from '../CSSProcessor';
 import { defaultCSSProcessorConfig } from '../default';
 import {
   CSSPropertyCompatCategory,
@@ -216,13 +216,13 @@ describe('CSSProcessor', () => {
     it('should pack known extra longhand properties', () => {
       expect(
         processor.compileStyleDeclaration({
-          testID: 'test'
+          tintColor: 'blue'
         })
       ).toMatchObject({
         native: {
           block: {
             retain: {
-              testID: 'test'
+              tintColor: 'blue'
             }
           }
         }

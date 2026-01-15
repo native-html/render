@@ -1,0 +1,47 @@
+{
+  "name": "@doc/pages",
+  "private": true,
+  "main": "lib/index.js",
+  "react-native": "src/index.ts",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "test": "yarn test:ts && yarn test:lint && yarn test:jest",
+    "test:jest": "jest src/",
+    "test:ts": "tsc --noEmit",
+    "test:lint": "eslint --ext ts,tsx src/",
+    "build": "tsc -p tsconfig.json",
+    "prepack": "yarn build"
+  },
+  "dependencies": {
+    "@native-html/render": "workspace:^"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.4",
+    "@babel/plugin-transform-react-jsx": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
+    "@babel/runtime": "^7.28.4",
+    "@testing-library/react-native": "^13.3.3",
+    "@tsconfig/react-native": "^3.0.7",
+    "@types/jest": "^29.5.14",
+    "@types/react": "~19.1.0",
+    "@types/react-test-renderer": "~19.1.0",
+    "babel-jest": "^29.7.0",
+    "eslint": "^8.57.1",
+    "jest": "^29.7.0",
+    "metro-react-native-babel-preset": "^0.77.0",
+    "metro-react-native-babel-transformer": "^0.77.0",
+    "react": "19.1.0",
+    "react-test-renderer": "~19.1.0",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "author": "Jules Sam. Randolph <jules.sam.randolph@gmail.com> (https://github.com/jsamr)",
+  "license": "MIT"
+}

@@ -65,7 +65,7 @@ export class CSSInlineParseRun extends CSSParseRun {
         return normalizedValue
           .map((r) => this.normalizeProp(r, true))
           .reduce(this.reduceProps, reg);
-      } catch (e) {
+      } catch {
         return reg;
       }
     }

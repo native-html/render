@@ -1,0 +1,36 @@
+{
+  "main": "index.js",
+  "name": "benchmarking",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "@jsamr/counter-style": "^2.0.2",
+    "@jsamr/react-native-li": "^2.3.1",
+    "@native-html/render": "workspace:*",
+    "css-to-react-native": "^3.2.0",
+    "expo": "^54.0.15",
+    "expo-keep-awake": "~15.0.7",
+    "expo-status-bar": "~3.0.8",
+    "ramda": "^0.32.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-render-html-v5": "npm:react-native-render-html@^5.0.0",
+    "react-native-safe-area-context": "^5.6.1",
+    "react-native-web": "^0.21.2",
+    "react-states": "^5.0.0",
+    "urijs": "^1.19.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.4"
+  },
+  "private": true,
+  "installConfig": {
+    "hoistingLimits": "workspaces"
+  }
+}

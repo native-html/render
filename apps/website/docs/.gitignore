@@ -1,0 +1,4 @@
+**/*.mdx
+**/*.md
+!migration-guide.mdx
+!architecture.mdx

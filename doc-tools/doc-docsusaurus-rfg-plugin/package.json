@@ -1,0 +1,19 @@
+{
+  "name": "doc-docusaurus-rfg-plugin",
+  "type": "commonjs",
+  "main": "lib/index.js",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "dependencies": {
+    "htmlparser2": "^10.0.0",
+    "rfg-api": "^0.5.3"
+  },
+  "devDependencies": {
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/plugin-content-docs": "3.9.2",
+    "@docusaurus/types": "3.9.2",
+    "typescript": "^5.4.5"
+  }
+}

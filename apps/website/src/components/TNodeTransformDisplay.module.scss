@@ -1,0 +1,19 @@
+@import '../css/shared.scss';
+
+.arrow {
+  text-align: center;
+  font-size: 50px;
+  padding-bottom: var(--ifm-leading);
+}
+
+.figure {
+  @extend .figure, .figure--card;
+}
+
+.figure__caption {
+  @extend .figure__caption;
+}
+
+.figure__title {
+  @extend .figure__title;
+}

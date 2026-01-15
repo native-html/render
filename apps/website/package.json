@@ -1,0 +1,65 @@
+{
+  "name": "website",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus api:gen && DOCUSAURUS_NO_DUPLICATE_TITLE_WARNING=false docusaurus start --no-open",
+    "build": "docusaurus api:gen && DOCUSAURUS_NO_DUPLICATE_TITLE_WARNING=false docusaurus build",
+    "build-docs": "doc-mdx-gen-cli docs",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus api:gen && docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "api-gendoc": "docusaurus api:gen",
+    "test": "yarn test:ts && yarn test:lint",
+    "test:ts": "tsc --noEmit",
+    "test:lint": "eslint --ext ts,tsx src/"
+  },
+  "dependencies": {
+    "@doc/constants": "workspace:*",
+    "@doc/svg-component": "workspace:*",
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
+    "@docusaurus/theme-common": "^3.9.2",
+    "@mdx-js/react": "^3.1.1",
+    "clsx": "^2.1.1",
+    "copy-text-to-clipboard": "^3.2.2",
+    "docusaurus-plugin-sass": "^0.2.6",
+    "parse-numeric-range": "^1.3.0",
+    "prism-react-renderer": "^2.3.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-modal": "^3.16.3"
+  },
+  "devDependencies": {
+    "@doc/mdx-gen-cli": "workspace:*",
+    "@doc/pages": "workspace:*",
+    "@doc/svgr-conf": "workspace:*",
+    "@docusaurus/module-type-aliases": "^3.9.2",
+    "@docusaurus/tsconfig": "^3.9.2",
+    "@docusaurus/types": "^3.9.2",
+    "@types/react": "~19.1.0",
+    "@types/react-helmet": "^6.1.11",
+    "@types/react-modal": "^3.16.3",
+    "@types/react-router-dom": "^5.3.3",
+    "doc-docusaurus-rfg-plugin": "workspace:*",
+    "doc-docusaurus-typedoc-plugin": "workspace:*",
+    "sass": "^1.93.2",
+    "typedoc": "^0.28.14",
+    "typescript": "^5.4.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

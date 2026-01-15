@@ -229,6 +229,7 @@ export class TRenderEngine {
     }
     for (const child of document.children) {
       if (isDomElement(child) && child.tagName === 'html') {
+        // @ts-ignore TODO: fix this
         document = child;
         break;
       }
@@ -237,6 +238,7 @@ export class TRenderEngine {
   }
 
   buildTTreeFromDoc(document: Document | Element): TDocument {
+    // @ts-ignore TODO: fix this
     const tdoc = translateDocument(document, this.dataFlowParams);
     const hoistedTDoc = this.hoistingEnabled ? hoist(tdoc) : tdoc;
     const collapsedTDoc = this.whitespaceCollapsingEnabled

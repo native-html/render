@@ -1,6 +1,6 @@
 {
   "name": "@native-html/transient-render-engine",
-  "version": "11.2.3",
+  "version": "12.0.0-alpha.0",
   "description": "An engine which produces an intermediary structure from HTML to create a React Native render tree.",
   "main": "lib/commonjs/index.js",
   "types": "lib/typescript/index.d.ts",
@@ -9,20 +9,20 @@
     "lib",
     "src"
   ],
-  "homepage": "https://github.com/native-html/core/tree/main/packages/transient-render-engine#readme",
+  "homepage": "https://github.com/native-html/render/tree/main/packages/transient-render-engine#readme",
   "bugs": {
-    "url": "https://github.com/native-html/core/issues"
+    "url": "https://github.com/native-html/render/issues"
   },
   "author": "Jules Sam. Randolph <jules.sam.randolph@gmail.com> (https://github.com/jsamr)",
   "license": "MIT",
   "keywords": [
     "react-native",
-    "react-native-render-html",
+    "@native-html/render",
     "CSS"
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/native-html/core.git",
+    "url": "git+ssh://git@github.com/native-html/render.git",
     "directory": "packages/transient-render-engine"
   },
   "scripts": {
@@ -33,28 +33,35 @@
     "build": "bob build",
     "prepack": "yarn run build"
   },
+  "dependencies": {
+    "@native-html/css-processor": "workspace:*",
+    "csstype": "^3.1.3",
+    "domelementtype": "^2.3.0",
+    "domhandler": "^5.0.3",
+    "domutils": "^3.2.2",
+    "htmlparser2": "^10.0.0",
+    "ramda": "^0.32.0"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.14.0",
-    "@babel/plugin-transform-react-jsx": "^7.13.12",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-typescript": "^7.13.0",
-    "@babel/runtime": "^7.14.0",
-    "@react-native-community/bob": "^0.17.1",
-    "@release-it/conventional-changelog": "^2.0.1",
-    "@tsconfig/react-native": "^1.0.3",
-    "@types/jest": "^26.0.23",
-    "@types/react-native": "^0.64.4",
-    "babel-jest": "^26.6.3",
-    "dom-serializer": "^1.3.2",
-    "eslint": "^7.25.0",
-    "jest": "^26.6.3",
-    "metro-react-native-babel-preset": "^0.66.0",
-    "prettier": "^2.2.1",
-    "react": "17.0.2",
-    "release-config": "workspace:*",
-    "release-it": "^14.6.1",
-    "typescript": "~4.2.4"
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.4",
+    "@babel/plugin-transform-react-jsx": "^7.27.1",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-typescript": "^7.27.1",
+    "@babel/runtime": "^7.28.4",
+    "@tsconfig/react-native": "^3.0.7",
+    "@types/css-to-react-native": "^3.0.2",
+    "@types/jest": "^29.5.14",
+    "@types/ramda": "^0.31.1",
+    "babel-jest": "^29.7.0",
+    "dom-serializer": "^2.0.0",
+    "eslint": "^8.57.1",
+    "jest": "^29.7.0",
+    "metro-react-native-babel-preset": "^0.77.0",
+    "prettier": "^3.6.2",
+    "react": "19.1.0",
+    "react-native-builder-bob": "^0.40.13",
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "react-native": "*"
@@ -62,7 +69,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "@react-native-community/bob": {
+  "react-native-builder-bob": {
     "source": "src",
     "output": "lib",
     "targets": [
@@ -74,15 +81,5 @@
         }
       ]
     ]
-  },
-  "dependencies": {
-    "@native-html/css-processor": "workspace:*",
-    "@types/ramda": "^0.27.44",
-    "csstype": "^3.0.9",
-    "domelementtype": "^2.2.0",
-    "domhandler": "^4.2.2",
-    "domutils": "^2.8.0",
-    "htmlparser2": "^7.1.2",
-    "ramda": "^0.27.2"
   }
 }

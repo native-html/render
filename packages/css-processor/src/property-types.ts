@@ -73,11 +73,60 @@ export type CSSFlowedPropKey = Extract<
 >;
 
 /**
+ * CSS properties supported by React Native, but not yet by the processor
+ */
+export type CSSUnimplementedNativePropKey = Extract<
+  keyof TextStyle | keyof ViewStyle,
+  | 'boxSizing'
+  | 'boxShadow'
+  | 'marginBlock'
+  | 'marginBlockEnd'
+  | 'marginBlockStart'
+  | 'marginInline'
+  | 'marginInlineEnd'
+  | 'marginInlineStart'
+  | 'paddingBlock'
+  | 'paddingBlockEnd'
+  | 'paddingBlockStart'
+  | 'paddingInline'
+  | 'paddingInlineEnd'
+  | 'paddingInlineStart'
+  | 'gap'
+  | 'columnGap'
+  | 'rowGap'
+  | 'borderBlockColor'
+  | 'borderBlockEndColor'
+  | 'borderBlockStartColor'
+  | 'borderEndEndRadius'
+  | 'borderEndStartRadius'
+  | 'borderStartEndRadius'
+  | 'borderStartStartRadius'
+  | 'filter'
+  | 'inset'
+  | 'insetBlock'
+  | 'insetBlockEnd'
+  | 'insetBlockStart'
+  | 'insetInline'
+  | 'insetInlineEnd'
+  | 'insetInlineStart'
+  | 'isolation'
+  | 'mixBlendMode'
+  | 'outlineColor'
+  | 'outlineOffset'
+  | 'outlineStyle'
+  | 'outlineWidth'
+  | 'pointerEvents'
+  | 'transformOrigin'
+  | 'cursor'
+  | 'verticalAlign'
+>;
+
+/**
  * Long, Native Text properties
  */
 export type CSSLongNativeTextPropKey = Extract<
   keyof StandardLonghandProperties,
-  NativeTextStyleKey
+  Exclude<NativeTextStyleKey, CSSUnimplementedNativePropKey>
 >;
 
 /**
@@ -169,7 +218,7 @@ export type CSSShortNativeTranslatableBlockPropKey = Exclude<
  */
 export type CSSLongNativeBlockPropKey = Extract<
   keyof StandardLonghandProperties | 'borderStyle',
-  keyof ViewStyle
+  Exclude<keyof ViewStyle, CSSUnimplementedNativePropKey>
 >;
 
 /**

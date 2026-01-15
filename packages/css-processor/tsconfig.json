@@ -1,5 +1,11 @@
 {
   "$schema": "http://json.schemastore.org/tsconfig",
   "extends": "../../tsconfig-base.json",
-  "include": ["src"]
+  "include": ["src"],
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "ESNext",
+    "strict": true,
+    // other options...
+  }
 }

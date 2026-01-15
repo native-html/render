@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/@lerna-lite/cli/schemas/lerna-schema.json",
+  "packages": ["packages/*"],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent",
+  "command": {
+    "publish": {
+      "graphType": "all",
+      "syncWorkspaceLock": true,
+      "allowPeerDependenciesUpdate": true,
+      "conventionalCommits": true,
+      "createRelease": "github",
+      "skipBumpOnlyReleases": true,
+      "changelogIncludeCommitsClientLogin": " - by @%l",
+      "message": "chore: publish",
+      "preId": "alpha",
+      "preDistTag": "next"
+    }
+  }
+}

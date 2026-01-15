@@ -62,9 +62,10 @@ android/keystores/debug.keystore
 # Expo
 .expo/*
 
-# yarn berry (zero install)
+# yarn berry
+.pnp.*
 .yarn/*
-!.yarn/cache
+!.yarn/patches
 !.yarn/releases
 !.yarn/plugins
 !.yarn/sdks
@@ -74,3 +75,4 @@ android/keystores/debug.keystore
 coverage
 lib
 snippets.html
+lerna-debug.log

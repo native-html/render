@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: var(--ifm-leading);
+}
+
+.button {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}

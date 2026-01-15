@@ -1,0 +1,36 @@
+{
+  "name": "@doc/mdx-gen-cli",
+  "private": true,
+  "type": "commonjs",
+  "bin": {
+    "doc-mdx-gen-cli": "bin/bundle.js"
+  },
+  "scripts": {
+    "test": "yarn test:ts && yarn test:lint",
+    "test:ts": "tsc --noEmit",
+    "test:lint": "eslint --ext ts,tsx src/",
+    "build": "node ./build.js",
+    "prepack": "yarn build"
+  },
+  "dependencies": {
+    "@doc/pages": "workspace:*",
+    "commander": "^14.0.1",
+    "fbjs": "^3.0.5",
+    "html-entities": "^2.6.0",
+    "react-reconciler": "^0.33.0"
+  },
+  "devDependencies": {
+    "@tsconfig/react-native": "^3.0.7",
+    "@types/fbjs": "^3.0.11",
+    "@types/node": "22.19.1",
+    "@types/react": "~19.1.0",
+    "@types/react-reconciler": "^0.32.2",
+    "esbuild": "^0.25.11",
+    "esbuild-plugin-alias": "^0.2.1",
+    "eslint": "^8.57.1",
+    "react": "19.1.0",
+    "react-native-web": "^0.21.2",
+    "react-test-renderer": "~19.1.0",
+    "typescript": "^5.4.5"
+  }
+}

@@ -83,6 +83,7 @@ export default class DomHandler extends OriginalDomHandler {
         this.ignoredTagsCount++;
       }
     } else {
+      // @ts-ignore TODO: fix this
       super.addNode(node);
       if (isDomText(node)) {
         this.visitors.onText?.(node);

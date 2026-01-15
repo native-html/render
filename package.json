@@ -1,18 +1,19 @@
 {
   "name": "core",
   "version": "0.0.0",
-  "description": "Core packages for react-native-render-html",
+  "description": "Core packages for @native-html ecosystem.",
   "author": "Jules Sam. Randolph <jules.sam.randolph@gmail.com> (https://github.com/jsamr)",
   "license": "MIT",
-  "homepage": "https://github.com/native-html/core#readme",
+  "homepage": "https://github.com/native-html/render#readme",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:native-html/core.git"
+    "url": "git+ssh://git@github.com:native-html/render.git"
   },
   "private": true,
   "scripts": {
     "build:css-processor": "yarn workspace @native-html/css-processor build",
     "build:transient-render-engine": "yarn workspace @native-html/transient-render-engine build",
+    "build:render": "yarn workspace @native-html/render build",
     "test:css-processor": "yarn workspace @native-html/css-processor test",
     "test:css-processor:ts": "yarn workspace @native-html/css-processor test:ts",
     "test:css-processor:lint": "yarn workspace @native-html/css-processor test:lint",
@@ -22,41 +23,39 @@
     "test:transient-render-engine:lint": "yarn workspace @native-html/transient-render-engine test:lint",
     "test:transient-render-engine:jest": "yarn workspace @native-html/transient-render-engine test:jest",
     "test:transient-render-engine:perf": "yarn workspace performance-testing benchmark",
-    "release:css-processor": "yarn workspace @native-html/css-processor release-it",
-    "release:transient-render-engine": "yarn workspace @native-html/transient-render-engine release-it",
+    "test:render": "yarn workspace @native-html/render test",
+    "test:render:ts": "yarn workspace @native-html/render test:ts",
+    "test:render:lint": "yarn workspace @native-html/render test:lint",
+    "test:render:jest": "yarn workspace @native-html/render test:jest",
+    "release": "lerna publish",
     "postinstall": "husky install"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/plugin-transform-react-jsx": "^7.13.12",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-typescript": "^7.13.0",
-    "@babel/runtime": "^7.14.0",
-    "@commitlint/cli": "^12.1.2",
-    "@commitlint/config-conventional": "^12.1.2",
-    "@react-native-community/eslint-config": "^2.0.0",
-    "@react-native-community/eslint-plugin": "^1.1.0",
-    "@tsconfig/react-native": "^1.0.2",
-    "@typescript-eslint/eslint-plugin": "^4.23.0",
-    "@typescript-eslint/parser": "^4.23.0",
-    "commitlint": "^12.1.2",
-    "eslint": "^7.25.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-compat": "^3.9.0",
+    "@babel/core": "^7.28.4",
+    "@babel/plugin-transform-react-jsx": "^7.27.1",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-typescript": "^7.27.1",
+    "@babel/runtime": "^7.28.4",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@lerna-lite/cli": "^4.4.1",
+    "@lerna-lite/publish": "^4.4.1",
+    "@react-native/eslint-config": "^0.82.1",
+    "@tsconfig/react-native": "^3.0.7",
+    "commitlint": "^20.1.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-compat": "^6.0.2",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-jest": "^24.3.6",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-react-native": "^3.10.0",
-    "husky": "^6.0.0",
-    "jest": "^26.6.3",
-    "prettier": "^2.2.1",
-    "typescript": "~4.2.4"
-  },
-  "resolutions": {
-    "@release-it/conventional-changelog": "patch:@release-it/conventional-changelog@2.0.0#patches/@release-it-conventional-changelog.patch",
-    "release-it": "patch:release-it@14.0.4#patches/release-it.patch"
+    "eslint-plugin-jest": "^28.14.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-native": "^5.0.0",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.4.5"
   },
   "commitlint": {
     "extends": [
@@ -65,7 +64,8 @@
   },
   "workspaces": [
     "packages/*",
-    "acceptance/*"
+    "apps/*",
+    "doc-tools/*"
   ],
   "packageManager": "yarn@4.5.0"
 }

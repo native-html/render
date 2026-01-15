@@ -1,0 +1,13 @@
+{
+  "name": "@doc/svg-component",
+  "types": "index.d.ts",
+  "private": true,
+  "peerDependencies": {
+    "react": "*",
+    "react-native-svg": "*"
+  },
+  "devDependencies": {
+    "react": "19.1.0",
+    "react-native-svg": "^15.14.0"
+  }
+}
