@@ -7,10 +7,25 @@ import { existsSync } from 'node:fs';
 const apisidebarPath = './apisidebar.json';
 let hasAPIsidebar = existsSync(apisidebarPath);
 
-const plugins = [
+// Only include it when running on the server (during Node execution).
+const isRanOnTheServer = typeof window === 'undefined';
+
+const plugins: any[] = [
   require.resolve('./sitePlugin'),
   ['docusaurus-node-polyfills', { excludeAliases: ['console']}],
   'docusaurus-plugin-sass',
+  () => ({
+    name: 'exclude-typedoc-from-client',
+    configureWebpack() {
+      return {
+        resolve: {
+          alias: {
+            typedoc: false, // Exclude typedoc from browser bundle
+          }
+        }
+      };
+    }
+  }),
   [
     'doc-docusaurus-rfg-plugin',
     {
@@ -22,32 +37,39 @@ const plugins = [
     }
   ],
   // Only include this plugin when the apisidebar file has been generated.
-  hasAPIsidebar
+  ...(hasAPIsidebar
     ? [
-        '@docusaurus/plugin-content-docs',
-        {
-          id: 'api',
-          path: 'api',
-          routeBasePath: 'api',
-          sidebarPath: require.resolve(apisidebarPath),
-          disableVersioning: false
-        }
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'api',
+            path: 'api',
+            routeBasePath: 'api',
+            sidebarPath: require.resolve(apisidebarPath),
+            disableVersioning: false
+          }
+        ]
       ]
-    : null,
-  [
-    'doc-docusaurus-typedoc-plugin',
-    {
-      version,
-      outDir: './api',
-      sidebarFile: './apisidebar.json',
-      typedoc: {
-        entryPoints: ['../../packages/render/src/index.ts'],
-        tsconfig: '../../packages/render/tsconfig.json',
-        excludePrivate: true
-      }
-    }
-  ]
-].filter((c) => c !== null);
+    : []),
+  // Typedoc plugin depends on Node-only modules (child_process, inspector, etc.).
+  ...(isRanOnTheServer
+    ? [
+        [
+          'doc-docusaurus-typedoc-plugin',
+          {
+            version,
+            outDir: './api',
+            sidebarFile: './apisidebar.json',
+            typedoc: {
+              entryPoints: ['../../packages/render/src/index.ts'],
+              tsconfig: '../../packages/render/tsconfig.json',
+              excludePrivate: true
+            }
+          }
+        ]
+      ]
+    : [])
+];
 
 const config: Config = {
   title: 'React Native Render HTML',
