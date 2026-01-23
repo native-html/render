@@ -11,7 +11,7 @@
   },
   "private": true,
   "scripts": {
-    "build-all": "node scripts/build_all.js",
+    "build:all": "yarn build:transient-render-engine && yarn build:css-processor && yarn build:render && yarn workspace @doc/mdx-gen-cli build && yarn workspace @doc/pages build && yarn workspace website build",
     "build:css-processor": "yarn workspace @native-html/css-processor build",
     "build:transient-render-engine": "yarn workspace @native-html/transient-render-engine build",
     "build:render": "yarn workspace @native-html/render build",
