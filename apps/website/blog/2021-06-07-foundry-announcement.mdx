@@ -49,7 +49,7 @@ specific components and observe how they respond to style and props changes.
 ### The Transient Render Engine
 
 The Transient Render engine (TRE) transforms DOM nodes into a ready-to-render
-data structure called the Transient Render Tree (TRT), which is made of <Reference type="api-def" name="TNodes" url="/react-native-render-html/api/tnode" />. It allows features such as **whitespace collapsing**, **hoisting**,
+data structure called the Transient Render Tree (TRT), which is made of <Reference type="api-def" name="TNodes" url="/api/tnode" />. It allows features such as **whitespace collapsing**, **hoisting**,
 **CSS inheritance** and more.
 
 A legitimate concerns is whether it adds any overhead. The short answer is
@@ -59,8 +59,8 @@ its speed. In addition to the enumerated features, the new transient data
 structure offers obvious advantages for library consumers:
 
 - It is totally transparent and predictable; you can create snapshots of a
-&ZeroWidthSpace;<Reference type="api-def" name="TNode" url="/react-native-render-html/api/tnode" /> thanks to the <Reference type="api-def" name="TNodeShape" member="snaphot()"
-url="/react-native-render-html/api/tnodeshape#snapshot" /> method for an
+&ZeroWidthSpace;<Reference type="api-def" name="TNode" url="/api/tnode" /> thanks to the <Reference type="api-def" name="TNodeShape" member="snaphot()"
+url="/api/tnodeshape#snapshot" /> method for an
 intuitive understanding of the engine internals. This feature is extremely
 handy for debugging and testing!
 - It's hackable by allowing to define custom **content models** for tags. Say
@@ -68,7 +68,7 @@ hi to inline images!
 - It is shipped with a CSS processor which enforces strict translation rules
 from CSS to React Native styles. Say goodbye to native crashes caused by
 unsupported CSS properties! See the [**dedicated
-article**](/react-native-render-html/docs/flow/css-processing) for
+article**](/docs/flow/css-processing) for
 reference.
 - It paves the way to server side (or build-time) pre-rendering in the future,
 and, why not, a react fiber and MDX builder.
@@ -78,8 +78,8 @@ Below is an example of HTML transformation into a Transient Render Tree:
 <TNodeTransformDisplay title="Translation of HTML markup into a Transient Render Tree" caption="This figure shows how HTML markup translates to a transient render tree structure. The markup for the TRT is JSX and has been produced by the snapshot() method. Notice that whitespace have collapsed!" html="%3Ca%20href%3D%22https%3A%2F%2Fdomain.com%22%3E%0AThis%20is%0A%3Cspan%3Ephrasing%20content%3C%2Fspan%3E%0A%3Cimg%20src%3D%22https%3A%2F%2Fdomain.com%2Flogo.jpg%22%20%2F%3E%0A%20%20%20%20and%20this%20is%20%3Cstrong%3Etoo%3C%2Fstrong%3E.%0A%3C%2Fa%3E" snapshot="%3CTDocument%20tagName%3D%22html%22%3E%0A%20%20%3CTBlock%20tagName%3D%22body%22%3E%0A%20%20%20%20%3CTBlock%20tagName%3D%22a%22%20href%3D%22https%3A%2F%2Fdomain.com%22%3E%0A%20%20%20%20%20%20%3CTPhrasing%20anonymous%3E%0A%20%20%20%20%20%20%20%20%3CTText%20anonymous%20data%3D%22This%20is%20%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CTText%20tagName%3D%22span%22%20data%3D%22phrasing%20content%22%20%2F%3E%0A%20%20%20%20%20%20%3C%2FTPhrasing%3E%0A%20%20%20%20%20%20%3CTBlock%20tagName%3D%22img%22%20src%3D%22https%3A%2F%2Fdomain.com%2Flogo.jpg%22%20%2F%3E%0A%20%20%20%20%20%20%3CTPhrasing%20anonymous%3E%0A%20%20%20%20%20%20%20%20%3CTText%20anonymous%20data%3D%22and%20this%20is%20%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CTText%20tagName%3D%22strong%22%20data%3D%22too%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CTText%20anonymous%20data%3D%22.%22%20%2F%3E%0A%20%20%20%20%20%20%3C%2FTPhrasing%3E%0A%20%20%20%20%3C%2FTBlock%3E%0A%20%20%3C%2FTBlock%3E%0A%3C%2FTDocument%3E" />
 
 :::tip Learn More
-A detailed review of the Transient Render Engine has its [**dedicated article**](/react-native-render-html/docs/flow/transient-render-engine).
-You can also learn more about the new data flow in the [**Architecture article**](/react-native-render-html/docs/architecture).
+A detailed review of the Transient Render Engine has its [**dedicated article**](/docs/flow/transient-render-engine).
+You can also learn more about the new data flow in the [**Architecture article**](/docs/architecture).
 :::
 
 ### Custom Renderers
@@ -106,9 +106,9 @@ function H1Renderer({
 }
 ```
 Default renderers support `onPress` and many more interesting props! See
-&ZeroWidthSpace;<Reference type="api-def" name="TDefaultRendererProps" url="/react-native-render-html/api/tdefaultrendererprops" />.
+&ZeroWidthSpace;<Reference type="api-def" name="TDefaultRendererProps" url="/api/tdefaultrendererprops" />.
 Moreover, you can customize the rendering of children thanks to the <Reference
-type="api-def" name="TChildrenRenderer" url="/react-native-render-html/api/tchildrenrenderer" /> component!
+type="api-def" name="TChildrenRenderer" url="/api/tchildrenrenderer" /> component!
 
 ```jsx title="Foundry Custom Renderer with Children Tampering"
 import React from 'react';
@@ -135,14 +135,14 @@ function ArticleWithAds({
 }
 ```
 This custom renderer will insert an `AdComponent` element after the second and
-fourth children of this <Reference type="api-def" name="TNode" url="/react-native-render-html/api/tnode" />.
+fourth children of this <Reference type="api-def" name="TNode" url="/api/tnode" />.
 
 Last but not least, custom renderers can reuse internal renderers (those
 special renderers displaying lists, images and anchors). For this purpose,
-you can use the <Reference type="api-def" name="InternalRenderer" url="/react-native-render-html/api/customrendererprops#internalrenderer" /> prop or <Reference type="api-def" name="useInternalRenderer" url="/react-native-render-html/api/useinternalrenderer" /> hook.
+you can use the <Reference type="api-def" name="InternalRenderer" url="/api/customrendererprops#internalrenderer" /> prop or <Reference type="api-def" name="useInternalRenderer" url="/api/useinternalrenderer" /> hook.
 
 :::tip Learn More
-[**Check-out the Custom Rendering guide**](/react-native-render-html/docs/guides/custom-renderers).
+[**Check-out the Custom Rendering guide**](/docs/guides/custom-renderers).
 :::
 
 ### Font Selection
@@ -153,10 +153,10 @@ the system will often lead to native crashes. To reconcile this inconsistency, t
 Processor will try to match each font in a `font-family` property with a list
 of supported fonts available in the system by the library consumer. The prop to
 declare such fonts is <Reference type="api-def" name="systemFonts"
-url="/react-native-render-html/api/renderhtmlprops#systemfonts"/>.
+url="/api/renderhtmlprops#systemfonts"/>.
 
 :::tip Learn More
-[**Check-out the Font Selection section from the Textual guide**](/react-native-render-html/docs/content/textual#font-selection).
+[**Check-out the Font Selection section from the Textual guide**](/docs/content/textual#font-selection).
 :::
 
 ### A Revamped List Renderer
@@ -173,7 +173,7 @@ Note that the **thai** and **arabic indic** counters have been rendered via
 [@jsamr/counter-style](https://github.com/jsamr/react-native-li/tree/master/packages/counter-style#readme)
 presets, and the **russian** counter has been rendered with a custom, 2
 lines-of-code counter renderer. Learn more about this fancy feature and examples [**in the dedicated
-article**](/react-native-render-html/docs/content/lists).
+article**](/docs/content/lists).
 
 ### Extensible Internal Image Renderer
 
@@ -185,7 +185,7 @@ rendering**:
 
 <dt>
 
-&ZeroWidthSpace;<Reference library="react-native-render-html" name="IMGElementContainer" url="/react-native-render-html/api/imgelementcontainer" member={undefined} full={false} type="api-def" plural={undefined} />
+&ZeroWidthSpace;<Reference library="react-native-render-html" name="IMGElementContainer" url="/api/imgelementcontainer" member={undefined} full={false} type="api-def" plural={undefined} />
 
 </dt><dd>
 
@@ -193,7 +193,7 @@ To render the container of the &ZeroWidthSpace;<Reference full={false} name="&lt
 
 </dd><dt>
 
-&ZeroWidthSpace;<Reference library="react-native-render-html" name="IMGElementContentError" url="/react-native-render-html/api/imgelementcontenterror" member={undefined} full={false} type="api-def" plural={undefined} />
+&ZeroWidthSpace;<Reference library="react-native-render-html" name="IMGElementContentError" url="/api/imgelementcontenterror" member={undefined} full={false} type="api-def" plural={undefined} />
 
 </dt><dd>
 
@@ -201,7 +201,7 @@ To render the fallback view on error state.
 
 </dd><dt>
 
-&ZeroWidthSpace;<Reference library="react-native-render-html" name="IMGElementContentLoading" url="/react-native-render-html/api/imgelementcontentloading" member={undefined} full={false} type="api-def" plural={undefined} />
+&ZeroWidthSpace;<Reference library="react-native-render-html" name="IMGElementContentLoading" url="/api/imgelementcontentloading" member={undefined} full={false} type="api-def" plural={undefined} />
 
 </dt><dd>
 
@@ -209,7 +209,7 @@ To render the fallback view on loading state.
 
 </dd><dt>
 
-&ZeroWidthSpace;<Reference library="react-native-render-html" name="IMGElementContentSuccess" url="/react-native-render-html/api/imgelementcontentsuccess" member={undefined} full={false} type="api-def" plural={undefined} />
+&ZeroWidthSpace;<Reference library="react-native-render-html" name="IMGElementContentSuccess" url="/api/imgelementcontentsuccess" member={undefined} full={false} type="api-def" plural={undefined} />
 
 </dt><dd>
 
@@ -217,7 +217,7 @@ To render the image on success state..
 
 </dd><dt>
 
-&ZeroWidthSpace;<Reference library="react-native-render-html" name="useIMGElementState" url="/react-native-render-html/api/useimgelementstate" member={undefined} full={false} type="api-def" plural={undefined} />
+&ZeroWidthSpace;<Reference library="react-native-render-html" name="useIMGElementState" url="/api/useimgelementstate" member={undefined} full={false} type="api-def" plural={undefined} />
 
 </dt><dd>
 
@@ -229,7 +229,7 @@ To get the state of the image resource fetching.
 
 
 :::tip Learn More
-[**Check-out the Images article**](/react-native-render-html/docs/content/images).
+[**Check-out the Images article**](/docs/content/images).
 :::
 
 ### Composite Rendering Architecture
@@ -253,14 +253,14 @@ is equivalent to this (**explicit 3 layers**):
 ```
 
 :::tip Learn More
-[**Check-out the rendering article**](/react-native-render-html/docs/flow/rendering).
+[**Check-out the rendering article**](/docs/flow/rendering).
 :::
 
 It also offers the ability to select the root of the document to render, and to
 inspect the DOM object asynchronously before rendering.
 
 :::tip Learn More
-[**Check-out the DOM Tampering guide**](/react-native-render-html/docs/guides/dom-tampering)
+[**Check-out the DOM Tampering guide**](/docs/guides/dom-tampering)
 :::
 
 ## Massive dumps of squashed bugs
@@ -280,10 +280,10 @@ tags specified in the [HTML5 WHATWG living
 standard](https://html.spec.whatwg.org/). However, not all tags will be
 rendered. Tags with a **content model** set to `none` will not be rendered (you
 can override this model though). Check-out the list of all tags and their
-models in the <Reference type="api-doc" name="defaultHTMLElementModels" url="/react-native-render-html/api/defaulthtmlelementmodels/" /> definition.
+models in the <Reference type="api-doc" name="defaultHTMLElementModels" url="/api/defaulthtmlelementmodels/" /> definition.
 
 :::tip Learn More
-[Check-out the release notes for more details](https://github.com/meliorence/react-native-render-html/releases/tag/v6.0.0-beta.0).
+[Check-out the release notes for more details](https://github.com/meliorence/releases/tag/v6.0.0-beta.0).
 :::
 
 ## Ready for Production?
@@ -300,7 +300,7 @@ rise to above **90%** by the end of the beta stage.
 ### Migrating from v4 and v5
 
 [**Check-out our dedicated
-guide**](/react-native-render-html/docs/migration-guide), and please don't
+guide**](/docs/migration-guide), and please don't
 hesitate to ask for help in [**our discord channel**](https://discord.gg/dbEMMJM).
 
 ## Final Notes

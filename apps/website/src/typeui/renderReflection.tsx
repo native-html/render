@@ -1,6 +1,5 @@
 import React from 'react';
 import type { JSONOutput } from 'typedoc';
-import { ReflectionKind } from 'typedoc';
 import {
   TokenPunctuation,
   TokenAttrName,
@@ -93,10 +92,10 @@ function renderPropsAndMethods(
   params: Params
 ) {
   const props = reflection.children?.filter(
-    (c) => c.kind === ReflectionKind.Property || getKindString(c) === 'Property'
+    (c) => getKindString(c) === 'Property'
   );
   const methods = reflection.children?.filter(
-    (c) => c.kind === ReflectionKind.Method || getKindString(c) === 'Method'
+    (c) => getKindString(c) === 'Method'
   );
   return (
     <>
@@ -158,47 +157,69 @@ function getTypeParameter(
   return undefined;
 }
 
-// Helper function to get ReflectionKind from reflection, with fallback to kindString
+// Helper function to get a normalized "kind" string from the reflection.
+// This avoids depending on the runtime `typedoc` ReflectionKind enum,
+// which is not available in the browser bundle.
+type NormalizedKind =
+  | 'Function'
+  | 'TypeAlias'
+  | 'Enum'
+  | 'Class'
+  | 'Interface'
+  | 'Parameter'
+  | 'Property'
+  | 'TypeLiteral'
+  | 'Method'
+  | 'Variable'
+  | 'EnumMember'
+  | 'CallSignature';
+
 function getReflectionKind(
   reflection: JSONOutput.DeclarationReflection
-): ReflectionKind | null {
-  // Use kind if available (preferred)
-  if (reflection.kind !== undefined) {
-    return reflection.kind;
+): NormalizedKind {
+  const rawKindString = getKindString(reflection);
+
+  // Normalize various TypeDoc kindString values to a stable internal union.
+  switch (rawKindString) {
+    case 'Function':
+      return 'Function';
+    case 'Type alias':
+      return 'TypeAlias';
+    case 'Enum':
+      return 'Enum';
+    case 'Class':
+      return 'Class';
+    case 'Interface':
+      return 'Interface';
+    case 'Parameter':
+      return 'Parameter';
+    case 'Property':
+      return 'Property';
+    case 'Type literal':
+      return 'TypeLiteral';
+    case 'Method':
+      return 'Method';
+    case 'Variable':
+      return 'Variable';
+    case 'Enum member':
+      return 'EnumMember';
+    case 'Call signature':
+      return 'CallSignature';
+    default:
+      break;
   }
 
-  // Fallback: map kindString to ReflectionKind (for TypeDoc 0.28 compatibility)
-  const kindStringMap: Record<string, ReflectionKind> = {
-    Function: ReflectionKind.Function,
-    'Type alias': ReflectionKind.TypeAlias,
-    Enum: ReflectionKind.Enum,
-    Class: ReflectionKind.Class,
-    Interface: ReflectionKind.Interface,
-    Parameter: ReflectionKind.Parameter,
-    Property: ReflectionKind.Property,
-    'Type literal': ReflectionKind.TypeLiteral,
-    Method: ReflectionKind.Method,
-    Variable: ReflectionKind.Variable,
-    'Enum member': ReflectionKind.EnumMember,
-    'Call signature': ReflectionKind.CallSignature
-  };
-
-  const kindString = getKindString(reflection);
-  if (kindString) {
-    return kindStringMap[kindString] || null;
-  }
-
-  // Infer from reflection properties (for TypeDoc 0.28 compatibility)
+  // Heuristics fallback for when kindString is missing or unexpected.
   if (reflection.signatures) {
-    return ReflectionKind.Function;
+    return 'Function';
   }
   if (getDefaultValue(reflection) !== undefined) {
-    return ReflectionKind.EnumMember;
+    return 'EnumMember';
   }
   if (reflection.type) {
-    return ReflectionKind.Property;
+    return 'Property';
   }
-  return ReflectionKind.TypeAlias;
+  return 'TypeAlias';
 }
 
 export default function renderReflection(
@@ -213,12 +234,12 @@ export default function renderReflection(
   const kind = getReflectionKind(reflection);
 
   switch (kind) {
-    case ReflectionKind.Function:
+    case 'Function':
       return renderFunction(
         reflection,
         params.withMemberLinks().withTypeParamsLinks()
       );
-    case ReflectionKind.TypeAlias:
+    case 'TypeAlias':
       return (
         <>
           <TokenKeyword>type</TokenKeyword>
@@ -236,7 +257,7 @@ export default function renderReflection(
           )}
         </>
       );
-    case ReflectionKind.Enum:
+    case 'Enum':
       return (
         <>
           <TokenKeyword>enum</TokenKeyword>
@@ -252,7 +273,7 @@ export default function renderReflection(
           <TokenPunctuation>{'}'}</TokenPunctuation>
         </>
       );
-    case ReflectionKind.Class:
+    case 'Class':
       return (
         <>
           <TokenKeyword>class</TokenKeyword>
@@ -272,7 +293,7 @@ export default function renderReflection(
           <TokenPunctuation>{'}'}</TokenPunctuation>
         </>
       );
-    case ReflectionKind.Interface:
+    case 'Interface':
       nextParams = params.withIndent().withMemberLinks();
       return (
         <>
@@ -298,7 +319,7 @@ export default function renderReflection(
           <TokenPunctuation>{'}'}</TokenPunctuation>
         </>
       );
-    case ReflectionKind.Parameter:
+    case 'Parameter':
       return renderAttribute(
         reflection.name,
         reflection.type ? (
@@ -309,7 +330,7 @@ export default function renderReflection(
         reflection.flags,
         params
       );
-    case ReflectionKind.Property:
+    case 'Property':
       nextParams = params.withoutMemberLinks();
       return renderAttribute(
         reflection.name,
@@ -321,7 +342,7 @@ export default function renderReflection(
         reflection.flags,
         params
       );
-    case ReflectionKind.TypeLiteral:
+    case 'TypeLiteral':
       if (!reflection.groups && !reflection.signatures) {
         console.warn('Unhandled Type Literal with no group', reflection);
         return <TokenKeyword>any</TokenKeyword>;
@@ -349,7 +370,7 @@ export default function renderReflection(
         }
       }
       return ret;
-    case ReflectionKind.Method:
+    case 'Method':
       return reflection.signatures?.map((s) => {
         return renderAttribute(
           reflection.name,
@@ -358,7 +379,7 @@ export default function renderReflection(
           params
         );
       });
-    case ReflectionKind.CallSignature:
+    case 'CallSignature':
       // CallSignature is typically a SignatureReflection, not DeclarationReflection
       // If reflection has signatures, use the first one
       if (reflection.signatures && reflection.signatures.length > 0) {
@@ -391,7 +412,7 @@ export default function renderReflection(
           <TokenKeyword>any</TokenKeyword>
         </>
       );
-    case ReflectionKind.Variable:
+    case 'Variable':
       if (reflection.signatures) {
         // For docs legibility, consider const with signature like functions
         return renderFunction(reflection, params.withMemberLinks());
@@ -406,7 +427,7 @@ export default function renderReflection(
           )}
         </>
       );
-    case ReflectionKind.EnumMember:
+    case 'EnumMember':
       return renderEnumMember(
         reflection.name,
         <TokenLiteral>{reflection.defaultValue}</TokenLiteral>,
