@@ -387,7 +387,7 @@ export default function TOC({
 
 The `Scroller` is still missing the coordinates of each heading to be able to
 properly `scrollToEntry`. For this purpose, we are going to create a [custom
-renderer](/react-native-render-html/docs/guides/custom-renderers#component-based-custom-rendering)
+renderer](/docs/guides/custom-renderers#component-based-custom-rendering)
 for `<h2>` and `<h3>` tags. We will also need to register a `<header>` renderer
 to store the header height. If you remember well, the DOM has a structure like
 below:
@@ -665,7 +665,7 @@ So, let's fix it!
 ### Fixing Code Samples
 
 Code samples are rendered by Docusaurus in a `<pre class="prism-code">` tag. We need to fix two issues:
-  
+
 - Define a custom renderer for `pre` tags, which renders inside a `ScrollView` when matching the `"prism-code"` class.
 - Define a custom renderer for `span` tags. We need to do that because the
 whole code block is rendered inside a `code` element with a `display: flex;
@@ -820,7 +820,7 @@ CSS, it only spans to the text content-area. Below is a diagram explaining the d
 ![](https://iamvdo.me/content/01-blog/30-css-avance-metriques-des-fontes-line-height-et-vertical-align/line-height.png) See a complete explanation [in this excellent article on CSS text styling](https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align).
 2. `padding` and `border` are ignored in nested text elements.
 
-All these features are required to get the official blog appealing anchors styles: 
+All these features are required to get the official blog appealing anchors styles:
 
 ![](/img/react-native-blog-anchors.png)
 
