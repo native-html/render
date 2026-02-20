@@ -8,9 +8,8 @@ body:
     description: |
       A good amount of bug reports are actually feature requests. To help you with that, read and check all the boxes to make sure you really need to fill the full template. If you can't check those two boxes, this is a feature request, not a bug. Fill a feature request here: https://native-html.canny.io/features
     options:
-      - label: "My issue does not look like “The HTML attribute 'xxx' is ignored” (unless
-    we claim support for it)"
-        required: true
+      - label: "My issue does not look like “The HTML attribute 'xxx' is ignored” (unlesswe claim support for it)"
+      - required: true
       - label: "My issue does not look like “The HTML element `<yyy>` is not rendered”"
         required: true
   validations:
@@ -44,8 +43,8 @@ body:
 - type: textarea
   attributes:
     label: "RNRH Version"
-    placeholder: "Type which version of react-native-render-html you are using."
-  validations:  
+    placeholder: "Type which version of @native-html/render you are using."
+  validations:
     required: true
 - type: checkboxes
   attributes:
@@ -76,7 +75,7 @@ body:
     label: Minimal, Reproducible Example
     description: |
       [*What is a Minimal, Reproducible Example (MRE)?*](https://stackoverflow.com/help/minimal-reproducible-example). Provide either a link to an expo snack, git repository, or a code block. You can fork [**our Snack template**](https://snack.expo.dev/@jsamr/rnrhtml-template) to gain time (follow instructions from the README in this snack)! The MRE **must be self-contained**, and **HTML inlined** unless strictly necessary (e.g., a bug with remote HTML). Also note:
-      - If your issue is related to operations such as dependency resolution or testing, **you must** provide a MRE in the form of a git repository. 
+      - If your issue is related to operations such as dependency resolution or testing, **you must** provide a MRE in the form of a git repository.
       - If and only if you provide a regression test in lieu of a MRE, you can reference the related PR instead.
     placeholder: "https://snack.expo.dev/@jsamr/rnrhtml-template"
   validations:

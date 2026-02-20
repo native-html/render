@@ -82,7 +82,7 @@ export default function HeaderTypeBox({
             target="_blank"
             rel="noopener"
             className={classes.sourceBox}
-            href={`https://github.com/meliorence/react-native-render-html/tree/v${version}/${source.fileName}#L${source.line}`}>
+            href={`https://github.com/native-html/render/tree/v${version}/${source.fileName}#L${source.line}`}>
             {source.fileName}
           </a>
         )}

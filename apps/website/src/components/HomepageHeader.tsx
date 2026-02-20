@@ -24,7 +24,7 @@ export default function HomepageHeader() {
     <header className={classes.root}>
       <div className={classes.rootOverlay} />
       <div className={clsx(classes.title, 'margin-bottom--md')}>
-        <h1 className={clsx('hero__title')}>React Native Render HTML</h1>
+        <h1 className={clsx('hero__title')}>Native HTML</h1>
         <p className={clsx('hero__subtitle', classes.subtitle)}>
           Give a <strong>genuine native</strong> feeling to your HTML content.
         </p>
@@ -63,7 +63,7 @@ export default function HomepageHeader() {
               <Screenshot
                 url={showcaseImgJpeg}
                 webpUrl={showcaseImgWebp}
-                alt="Showcase of a component rendered with React Native Render HTML."
+                alt="Showcase of a component rendered with Native HTML."
                 scale={1}
               />
               <div className={classes.screenshotOverlay} />

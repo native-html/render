@@ -72,7 +72,7 @@ const plugins: any[] = [
 ];
 
 const config: Config = {
-  title: 'React Native Render HTML',
+  title: 'Native HTML',
   tagline:
     'The hackable, full-featured Open Source HTML rendering solution for React Native.',
   url: WEBSITE_ROOT,
@@ -145,12 +145,12 @@ const config: Config = {
           position: 'left'
         },
         {
-          to: `https://github.com/meliorence/react-native-render-html/releases/tag/v${version}`,
+          to: `https://github.com/native-html/render/releases/tag/v${version}`,
           label: `v${version}`,
           position: 'right'
         },
         {
-          href: 'https://github.com/meliorence/react-native-render-html',
+          href: 'https://github.com/native-html/render',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository'
@@ -223,11 +223,11 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              to: 'https://github.com/meliorence/react-native-render-html/blob/master/HELP.adoc',
+              to: 'https://github.com/native-html/render/blob/main/HELP.adoc',
               label: 'Help'
             },
             {
-              to: 'https://github.com/meliorence/react-native-render-html/blob/master/CONTRIBUTING.adoc',
+              to: 'https://github.com/native-html/render/blob/main/CONTRIBUTING.adoc',
               label: 'Contributing'
             },
             {
@@ -236,7 +236,7 @@ const config: Config = {
             },
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/react-native-render-html'
+              href: 'https://stackoverflow.com/questions/tagged/native-html-render'
             },
             {
               label: 'Discord',
@@ -253,15 +253,11 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/meliorence/react-native-render-html'
+              href: 'https://github.com/native-html/render'
             },
             {
               label: 'Twitter',
               href: 'https://twitter.com/jsamrn?ref_src=twsrc%5Etfw'
-            },
-            {
-              label: 'Rate this library',
-              href: 'https://openbase.com/js/react-native-render-html?utm_source=embedded&utm_medium=badge&utm_campaign=rate-badge'
             }
           ]
         }
@@ -283,7 +279,7 @@ const config: Config = {
           showReadingTime: true,
           feedOptions: {
             type: 'all',
-            title: 'React Native Render HTML Official Blog',
+            title: 'Native HTML Official Blog',
             copyright: `Copyright © ${new Date().getFullYear()} Meliorence, Inc. and Jules Sam. Randolph`
           }
         },
