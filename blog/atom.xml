@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://native-html.github.io/render/blog</id>
-    <title>React Native Render HTML Official Blog</title>
+    <title>Native HTML Official Blog</title>
     <updated>2021-10-23T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://native-html.github.io/render/blog"/>
-    <subtitle>React Native Render HTML Blog</subtitle>
+    <subtitle>Native HTML Blog</subtitle>
     <icon>https://native-html.github.io/render/favicons/favicon-32x32.png</icon>
     <rights>Copyright © 2026 Meliorence, Inc. and Jules Sam. Randolph</rights>
     <entry>

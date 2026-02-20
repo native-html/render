@@ -1,8 +1,8 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "React Native Render HTML Official Blog",
+    "title": "Native HTML Official Blog",
     "home_page_url": "https://native-html.github.io/render/blog",
-    "description": "React Native Render HTML Blog",
+    "description": "Native HTML Blog",
     "items": [
         {
             "id": "https://native-html.github.io/render/blog/2021/10/23/6-2-updates",
