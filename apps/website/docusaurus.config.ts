@@ -262,7 +262,7 @@ const config: Config = {
           ]
         }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Meliorence, Inc and Jules Sam. Randolph.`
+      copyright: `Copyright © ${new Date().getFullYear()} Meliorence, Inc, Jules Sam. Randolph and Software Mansion S.A.`
     }
   } satisfies Preset.ThemeConfig,
   presets: [
