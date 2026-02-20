@@ -1,0 +1,39 @@
+name: "Deploy website to github pages"
+
+on:
+  push:
+    branches:
+      - main
+      - chore/deploy-website-and-andjust-docs
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy to github pages
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install packages
+        run: yarn install --frozen-lockfile
+
+      - name: Build packages and web
+        run: yarn build:all
+
+      - name: Deploy 🚀
+        id: deploy-gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: apps/website/build
+          branch: gh-pages
