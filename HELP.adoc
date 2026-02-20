@@ -37,12 +37,12 @@ I am using `@native-html/render` and I am witnessing a failure such as:
 [sidebar]
 .__Recommendations__
 --
-1. Read the https://meliorence.github.io/react-native-render-html/docs/faq[FAQ].
+1. Read the https://native-html.github.io/render/docs/faq[FAQ].
 2. Take a look at
-https://stackoverflow.com/questions/tagged/react-native-render-html for similar
+https://stackoverflow.com/questions/tagged/native-html-render or https://stackoverflow.com/questions/tagged/react-native-render-html for similar
 questions.
 3. Take a look at
-https://github.com/meliorence/react-native-render-html/issues[our issue tracker]
+https://github.com/native-html/render/issues[our issue tracker]
 for similar questions.
 4. If you still don't have a solution, you can choose one or more:
 +
@@ -85,14 +85,14 @@ B. Select "Check by text input"
 C. Paste your snippet in the body of the document.
 D. Press "Check"
 2. Make sure your issue isn't covered
-https://meliorence.github.io/react-native-render-html/docs/intro[by
+https://native-html.github.io/render/docs/intro[by
 the docs].
-3. Read the https://meliorence.github.io/react-native-render-html/docs/faq[FAQ].
+3. Read the https://native-html.github.io/render/docs/faq[FAQ].
 4. Take a look at
-https://stackoverflow.com/questions/tagged/react-native-render-html for similar
+https://stackoverflow.com/questions/tagged/native-html-render or https://stackoverflow.com/questions/tagged/react-native-render-html for similar
 questions.
 5. Take a look at
-https://github.com/meliorence/react-native-render-html/issues[our issue tracker]
+https://github.com/native-html/render/issues[our issue tracker]
 for similar questions.
 6. If you still don't have a solution, you can choose one or more:
 +
@@ -109,19 +109,19 @@ report anyway.
 .__Recommendations__
 --
 1. Make sure the feature isn't covered
-https://meliorence.github.io/react-native-render-html/docs/intro[by
+https://native-html.github.io/render/docs/intro[by
 the docs].
-2. Read the https://meliorence.github.io/react-native-render-html/docs/faq[FAQ].
+2. Read the https://native-html.github.io/render/docs/faq[FAQ].
 3. Take a look at
-https://stackoverflow.com/questions/tagged/react-native-render-html for similar
+https://stackoverflow.com/questions/tagged/native-html-render or https://stackoverflow.com/questions/tagged/react-native-render-html for similar
 questions.
 4. Take a look at
-https://github.com/meliorence/react-native-render-html/issues[our issue tracker]
+https://github.com/native-html/render/issues[our issue tracker]
 for similar questions.
 5. If you still don't have an answer, you can choose one or more:
 +
 A. https://stackoverflow.com/questions/ask[Opening a StackOverflow post] with the
-`react-native-render-html` tag.
+`@native-html/render` tag.
 B. Submitting a <<CONTRIBUTING.adoc#features,Feature Request>>.
 C. Going to https://discord.gg/dbEMMJM[our Discord #support channel].
 --
@@ -133,9 +133,9 @@ C. Going to https://discord.gg/dbEMMJM[our Discord #support channel].
 .__Recommendations__
 --
 1. Carefully
-https://meliorence.github.io/react-native-render-html/docs/intro[read
+https://native-html.github.io/render/docs/intro[read
 the docs].
-2. Read the https://meliorence.github.io/react-native-render-html/docs/faq[FAQ].
+2. Read the https://native-html.github.io/render/docs/faq[FAQ].
 3. If you still find difficult to use this feature, then we are lacking good
 documentation, and we should fix it. Go to https://discord.gg/dbEMMJM[our
 Discord #support channel] and we will help you out.

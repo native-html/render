@@ -4,8 +4,8 @@ contact_links:
     url: https://native-html.canny.io/features
     about: A page where all feature requests are handled.
   - name: 🆘 Getting Help
-    url: https://github.com/meliorence/react-native-render-html/blob/master/HELP.adoc
+    url: https://github.com/native-html/render/blob/main/HELP.adoc
     about: A resource which describes all the steps you should go through when you're facing an issue with this library.
   - name: 🌐 Official Website
-    url: https://meliorence.github.io/react-native-render-html/
+    url: https://native-html.github.io/render/
     about: The official website with plenty of guides, blog posts and documentation!

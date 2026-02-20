@@ -5,7 +5,7 @@ import RootNavigator from './RootNavigator';
 import { useTheme } from '../theme/ThemeProvider';
 
 const linking = {
-  prefixes: ['https://meliorence.github.io/react-native-render-html']
+  prefixes: ['https://native-html.github.io/render']
 };
 
 export default function Navigation() {

@@ -88,7 +88,7 @@ const customImageRendererConfig: UIRenderHtmlCardProps = {
     importStatements: [
       { package: 'react-native', named: ['View', 'ActivityIndicator'] },
       {
-        package: 'react-native-render-html',
+        package: '@native-html/render',
         named: [
           'IMGElementContainer',
           'IMGElementContentError',

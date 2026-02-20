@@ -3,7 +3,7 @@ module.exports = {
     name: 'RNRH Discovery',
     slug: '@native-html/render-discovery',
     description:
-      'An App to discover React Native Render HTML features and API!',
+      'An App to discover Native HTML features and API!',
     version: require('./version').demo,
     primaryColor: '#6767e2',
     orientation: 'default',
