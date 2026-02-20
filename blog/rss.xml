@@ -2,7 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>React Native Render HTML Official Blog</title>
-        <link>https://meliorence.github.io/blog</link>
+        <link>https://native-html.github.io/render/blog</link>
         <description>React Native Render HTML Blog</description>
         <lastBuildDate>Sat, 23 Oct 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -11,8 +11,8 @@
         <copyright>Copyright © 2026 Meliorence, Inc. and Jules Sam. Randolph</copyright>
         <item>
             <title><![CDATA[What's New in v6.2?]]></title>
-            <link>https://meliorence.github.io/blog/2021/10/23/6-2-updates</link>
-            <guid>https://meliorence.github.io/blog/2021/10/23/6-2-updates</guid>
+            <link>https://native-html.github.io/render/blog/2021/10/23/6-2-updates</link>
+            <guid>https://native-html.github.io/render/blog/2021/10/23/6-2-updates</guid>
             <pubDate>Sat, 23 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[A version focused on accessibility and enhanced model rendering.]]></description>
             <category>foundry</category>
@@ -20,8 +20,8 @@
         </item>
         <item>
             <title><![CDATA[Create A WebView-free Blog App with React Native Render HTML, Part III]]></title>
-            <link>https://meliorence.github.io/blog/2021/06/29/create-blog-app-rnrh-III</link>
-            <guid>https://meliorence.github.io/blog/2021/06/29/create-blog-app-rnrh-III</guid>
+            <link>https://native-html.github.io/render/blog/2021/06/29/create-blog-app-rnrh-III</link>
+            <guid>https://native-html.github.io/render/blog/2021/06/29/create-blog-app-rnrh-III</guid>
             <pubDate>Tue, 29 Jun 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[A step-by-step guide to render a Blog Article with table of content and scroll-to-section feature in React Native.]]></description>
             <category>foundry</category>
@@ -30,8 +30,8 @@
         </item>
         <item>
             <title><![CDATA[Create A WebView-free Blog App with React Native Render HTML, Part II]]></title>
-            <link>https://meliorence.github.io/blog/2021/06/28/create-blog-app-rnrh-II</link>
-            <guid>https://meliorence.github.io/blog/2021/06/28/create-blog-app-rnrh-II</guid>
+            <link>https://native-html.github.io/render/blog/2021/06/28/create-blog-app-rnrh-II</link>
+            <guid>https://native-html.github.io/render/blog/2021/06/28/create-blog-app-rnrh-II</guid>
             <pubDate>Mon, 28 Jun 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[A step-by-step guide to render a Blog Article with table of content and scroll-to-section feature in React Native.]]></description>
             <category>foundry</category>
@@ -40,8 +40,8 @@
         </item>
         <item>
             <title><![CDATA[Create A WebView-free Blog App with React Native Render HTML, Part I]]></title>
-            <link>https://meliorence.github.io/blog/2021/06/27/create-blog-app-rnrh-I</link>
-            <guid>https://meliorence.github.io/blog/2021/06/27/create-blog-app-rnrh-I</guid>
+            <link>https://native-html.github.io/render/blog/2021/06/27/create-blog-app-rnrh-I</link>
+            <guid>https://native-html.github.io/render/blog/2021/06/27/create-blog-app-rnrh-I</guid>
             <pubDate>Sun, 27 Jun 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[A step-by-step guide to render a Blog Article with table of content and scroll-to-section feature in React Native.]]></description>
             <category>foundry</category>
@@ -50,8 +50,8 @@
         </item>
         <item>
             <title><![CDATA[Announcing the Beta Foundry Release]]></title>
-            <link>https://meliorence.github.io/blog/2021/06/07/foundry-announcement</link>
-            <guid>https://meliorence.github.io/blog/2021/06/07/foundry-announcement</guid>
+            <link>https://native-html.github.io/render/blog/2021/06/07/foundry-announcement</link>
+            <guid>https://native-html.github.io/render/blog/2021/06/07/foundry-announcement</guid>
             <pubDate>Mon, 07 Jun 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[A major rewrite of the hackable, full-featured Open Source HTML rendering solution for React Native.]]></description>
             <category>foundry</category>

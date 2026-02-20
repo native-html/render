@@ -1,13 +1,13 @@
 {
     "version": "https://jsonfeed.org/version/1",
     "title": "React Native Render HTML Official Blog",
-    "home_page_url": "https://meliorence.github.io/blog",
+    "home_page_url": "https://native-html.github.io/render/blog",
     "description": "React Native Render HTML Blog",
     "items": [
         {
-            "id": "https://meliorence.github.io/blog/2021/10/23/6-2-updates",
+            "id": "https://native-html.github.io/render/blog/2021/10/23/6-2-updates",
             "content_html": null,
-            "url": "https://meliorence.github.io/blog/2021/10/23/6-2-updates",
+            "url": "https://native-html.github.io/render/blog/2021/10/23/6-2-updates",
             "title": "What's New in v6.2?",
             "summary": "A version focused on accessibility and enhanced model rendering.",
             "date_modified": "2021-10-23T00:00:00.000Z",
@@ -21,9 +21,9 @@
             ]
         },
         {
-            "id": "https://meliorence.github.io/blog/2021/06/29/create-blog-app-rnrh-III",
+            "id": "https://native-html.github.io/render/blog/2021/06/29/create-blog-app-rnrh-III",
             "content_html": null,
-            "url": "https://meliorence.github.io/blog/2021/06/29/create-blog-app-rnrh-III",
+            "url": "https://native-html.github.io/render/blog/2021/06/29/create-blog-app-rnrh-III",
             "title": "Create A WebView-free Blog App with React Native Render HTML, Part III",
             "summary": "A step-by-step guide to render a Blog Article with table of content and scroll-to-section feature in React Native.",
             "date_modified": "2021-06-29T00:00:00.000Z",
@@ -38,9 +38,9 @@
             ]
         },
         {
-            "id": "https://meliorence.github.io/blog/2021/06/28/create-blog-app-rnrh-II",
+            "id": "https://native-html.github.io/render/blog/2021/06/28/create-blog-app-rnrh-II",
             "content_html": null,
-            "url": "https://meliorence.github.io/blog/2021/06/28/create-blog-app-rnrh-II",
+            "url": "https://native-html.github.io/render/blog/2021/06/28/create-blog-app-rnrh-II",
             "title": "Create A WebView-free Blog App with React Native Render HTML, Part II",
             "summary": "A step-by-step guide to render a Blog Article with table of content and scroll-to-section feature in React Native.",
             "date_modified": "2021-06-28T00:00:00.000Z",
@@ -55,9 +55,9 @@
             ]
         },
         {
-            "id": "https://meliorence.github.io/blog/2021/06/27/create-blog-app-rnrh-I",
+            "id": "https://native-html.github.io/render/blog/2021/06/27/create-blog-app-rnrh-I",
             "content_html": null,
-            "url": "https://meliorence.github.io/blog/2021/06/27/create-blog-app-rnrh-I",
+            "url": "https://native-html.github.io/render/blog/2021/06/27/create-blog-app-rnrh-I",
             "title": "Create A WebView-free Blog App with React Native Render HTML, Part I",
             "summary": "A step-by-step guide to render a Blog Article with table of content and scroll-to-section feature in React Native.",
             "date_modified": "2021-06-27T00:00:00.000Z",
@@ -72,9 +72,9 @@
             ]
         },
         {
-            "id": "https://meliorence.github.io/blog/2021/06/07/foundry-announcement",
+            "id": "https://native-html.github.io/render/blog/2021/06/07/foundry-announcement",
             "content_html": null,
-            "url": "https://meliorence.github.io/blog/2021/06/07/foundry-announcement",
+            "url": "https://native-html.github.io/render/blog/2021/06/07/foundry-announcement",
             "title": "Announcing the Beta Foundry Release",
             "summary": "A major rewrite of the hackable, full-featured Open Source HTML rendering solution for React Native.",
             "date_modified": "2021-06-07T00:00:00.000Z",
