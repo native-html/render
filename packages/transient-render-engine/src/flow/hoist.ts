@@ -16,7 +16,7 @@ function groupText(tnode: TBlockImpl): TNodeImpl {
     // some React Native styles working only for the uppermost Text element
     // such as "textAlign" are preserved.
     parentStyles: tnode.styles,
-    parent: null
+    parent: tnode
   };
   let wrapper = new TPhrasingCtor(wrapperInit);
   let wrapperChildren: TNodeImpl[] = [];
@@ -26,7 +26,7 @@ function groupText(tnode: TBlockImpl): TNodeImpl {
     } else {
       if (wrapperChildren.length) {
         newChildren.push(wrapper);
-        wrapper.bindChildren(wrapperChildren);
+        wrapper.bindChildren(wrapperChildren, true);
         wrapper = new TPhrasingCtor(wrapperInit);
         wrapperChildren = [];
       }
@@ -34,10 +34,10 @@ function groupText(tnode: TBlockImpl): TNodeImpl {
     }
   }
   if (wrapperChildren.length) {
-    wrapper.bindChildren(wrapperChildren);
+    wrapper.bindChildren(wrapperChildren, true);
     newChildren.push(wrapper);
   }
-  tnode.bindChildren(newChildren);
+  tnode.bindChildren(newChildren, true);
   return tnode;
 }
 

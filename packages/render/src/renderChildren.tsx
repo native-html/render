@@ -4,6 +4,16 @@ import TNodeRenderer from './TNodeRenderer';
 import { TChildrenRendererProps } from './shared-types';
 import collapseTopMarginForChild from './helpers/collapseTopMarginForChild';
 
+function generateKey(childTnode: TNode): string {
+  let key = "";
+  let currNode = childTnode as TNode | null;
+  while (currNode){
+    key = `${key}-${currNode.tagName}-${String(currNode.nodeIndex)}`
+    currNode = currNode.parent;
+  }
+  return `childTnode-${key}`
+}
+
 const mapCollapsibleChildren = (
   propsForChildren: TChildrenRendererProps['propsForChildren'],
   renderChild: TChildrenRendererProps['renderChild'],
@@ -16,7 +26,7 @@ const mapCollapsibleChildren = (
     ? null
     : collapseTopMarginForChild(n, tchildren);
   const propsFromParent = { ...propsForChildren, collapsedMarginTop };
-  const key = childTnode.nodeIndex;
+  const key = `tnode_${generateKey(childTnode)}`;
   const childElement = React.createElement(TNodeRenderer, {
     propsFromParent,
     tnode: childTnode,

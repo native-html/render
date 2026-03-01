@@ -7,11 +7,11 @@ exports[`hoist function should comply with RFC002 example (hoisting)  1`] = `
     <TText tagName="span" nodeIndex={1} data="phrasing content" />
     <TText anonymous nodeIndex={2} data="\\n" />
   </TPhrasing>
-  <TBlock tagName="img" nodeIndex={3} src="https://domain.com/logo.jpg" />
-  <TPhrasing anonymous nodeIndex={0}>
-    <TText anonymous nodeIndex={4} data="\\n    and this is " />
-    <TText tagName="strong" nodeIndex={5} data="too" />
-    <TText anonymous nodeIndex={6} data=".\\n" />
+  <TBlock tagName="img" nodeIndex={1} src="https://domain.com/logo.jpg" />
+  <TPhrasing anonymous nodeIndex={2}>
+    <TText anonymous nodeIndex={0} data="\\n    and this is " />
+    <TText tagName="strong" nodeIndex={1} data="too" />
+    <TText anonymous nodeIndex={2} data=".\\n" />
   </TPhrasing>
 </TBlock>
 `;
@@ -19,8 +19,8 @@ exports[`hoist function should comply with RFC002 example (hoisting)  1`] = `
 exports[`hoist function should hoist multiple blocks 1`] = `
 <TBlock tagName="span" nodeIndex={0}>
   <TBlock tagName="div" nodeIndex={0} />
-  <TPhrasing anonymous nodeIndex={0}>
-    <TText anonymous nodeIndex={1} data="Hello" />
+  <TPhrasing anonymous nodeIndex={1}>
+    <TText anonymous nodeIndex={0} data="Hello" />
   </TPhrasing>
   <TBlock tagName="img" nodeIndex={2} />
 </TBlock>
