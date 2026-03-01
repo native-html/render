@@ -893,4 +893,142 @@ describe('RenderHTML', () => {
       expect(queryByText('\n', { normalizer: (s) => s })).toBeNull();
     });
   });
+  describe('regarding key generation in renderChildren', () => {
+    it('should generate unique keys for sibling elements with the same tag name', () => {
+      const capturedKeys: string[] = [];
+      const renderChild = jest.fn(({ key }) => {
+        capturedKeys.push(key);
+        return null;
+      });
+      const DivRenderer: CustomTextualRenderer = jest.fn(function DivRenderer({
+        TDefaultRenderer,
+        ...props
+      }) {
+        return (
+          <TDefaultRenderer {...props}>
+            <TNodeChildrenRenderer
+              renderChild={renderChild}
+              tnode={props.tnode}
+            />
+          </TDefaultRenderer>
+        );
+      });
+      render(
+        <RenderHTML
+          source={{
+            html: '<div><p>One</p><p>Two</p></div>'
+          }}
+          debug={false}
+          renderers={{ div: DivRenderer }}
+          contentWidth={100}
+        />
+      );
+      expect(capturedKeys.length).toBeGreaterThanOrEqual(2);
+      expect(new Set(capturedKeys).size).toBe(capturedKeys.length);
+    });
+    it('should generate unique keys for elements with the same tag and same nodeIndex in different subtrees', () => {
+      const capturedKeys: string[] = [];
+      const renderChild = jest.fn(({ key }) => {
+        capturedKeys.push(key);
+        return null;
+      });
+      const DivRenderer: CustomTextualRenderer = jest.fn(function DivRenderer({
+        TDefaultRenderer,
+        ...props
+      }) {
+        return (
+          <TDefaultRenderer {...props}>
+            <TNodeChildrenRenderer
+              renderChild={renderChild}
+              tnode={props.tnode}
+            />
+          </TDefaultRenderer>
+        );
+      });
+      render(
+        <RenderHTML
+          source={{
+            html: '<div><div><p>Nested One</p></div><div><p>Nested Two</p></div></div>'
+          }}
+          debug={false}
+          renderers={{ div: DivRenderer }}
+          contentWidth={100}
+        />
+      );
+      expect(new Set(capturedKeys).size).toBe(capturedKeys.length);
+    });
+    it('should generate a key matching the exact expected string including parent path', () => {
+      const capturedKeys: string[] = [];
+      const renderChild = jest.fn(({ key }) => {
+        capturedKeys.push(key);
+        return null;
+      });
+      const DivRenderer: CustomTextualRenderer = jest.fn(function DivRenderer({
+        TDefaultRenderer,
+        ...props
+      }) {
+        return (
+          <TDefaultRenderer {...props}>
+            <TNodeChildrenRenderer
+              renderChild={renderChild}
+              tnode={props.tnode}
+            />
+          </TDefaultRenderer>
+        );
+      });
+      render(
+        <RenderHTML
+          source={{
+            html: '<div><p>One</p><p>Two</p></div>'
+          }}
+          debug={false}
+          renderers={{ div: DivRenderer }}
+          contentWidth={100}
+        />
+      );
+      // The key encodes the full ancestor path: <p> at index 0 inside <div> at index 0
+      // inside synthetic <body> at index 0 inside TDocument (tagName "html") at index 0
+      expect(capturedKeys[0]).toBe(
+        'tnode_childTnode--p-0-div-0-body-0-html-0'
+      );
+      // Second <p> differs only in its own nodeIndex (1 instead of 0)
+      expect(capturedKeys[1]).toBe(
+        'tnode_childTnode--p-1-div-0-body-0-html-0'
+      );
+    });
+    it('should generate keys with the tnode_childTnode- prefix', () => {
+      const capturedKeys: string[] = [];
+      const renderChild = jest.fn(({ key }) => {
+        capturedKeys.push(key);
+        return null;
+      });
+      const DivRenderer: CustomTextualRenderer = jest.fn(function DivRenderer({
+        TDefaultRenderer,
+        ...props
+      }) {
+        return (
+          <TDefaultRenderer {...props}>
+            <TNodeChildrenRenderer
+              renderChild={renderChild}
+              tnode={props.tnode}
+            />
+          </TDefaultRenderer>
+        );
+      });
+      render(
+        <RenderHTML
+          source={{
+            html: '<div><p>One</p><p>Two</p></div>'
+          }}
+          debug={false}
+          renderers={{ div: DivRenderer }}
+          contentWidth={100}
+        />
+      );
+      expect(capturedKeys.length).toBeGreaterThan(0);
+      for (const key of capturedKeys) {
+        expect(key).toMatch(/^tnode_childTnode-/);
+      }
+    });
+  });
 });
