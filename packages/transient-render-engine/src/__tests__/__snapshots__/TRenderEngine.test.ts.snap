@@ -132,11 +132,11 @@ exports[`TRenderEngine > buildTTree method should support disabling whitespace c
         <TText tagName="span" nodeIndex={1} data="phrasing content" webStyles={{ whiteSpace: "normal"}} />
         <TText anonymous nodeIndex={2} data="\\n" webStyles={{ whiteSpace: "normal"}} />
       </TPhrasing>
-      <TBlock tagName="img" nodeIndex={3} src="https://domain.com/logo.jpg" webStyles={{ whiteSpace: "normal"}} />
-      <TPhrasing anonymous nodeIndex={0} webStyles={{ whiteSpace: "normal"}}>
-        <TText anonymous nodeIndex={4} data="\\n    and this is " webStyles={{ whiteSpace: "normal"}} />
-        <TText tagName="strong" nodeIndex={5} data="too" webStyles={{ whiteSpace: "normal"}} />
-        <TText anonymous nodeIndex={6} data=".\\n" webStyles={{ whiteSpace: "normal"}} />
+      <TBlock tagName="img" nodeIndex={1} src="https://domain.com/logo.jpg" webStyles={{ whiteSpace: "normal"}} />
+      <TPhrasing anonymous nodeIndex={2} webStyles={{ whiteSpace: "normal"}}>
+        <TText anonymous nodeIndex={0} data="\\n    and this is " webStyles={{ whiteSpace: "normal"}} />
+        <TText tagName="strong" nodeIndex={1} data="too" webStyles={{ whiteSpace: "normal"}} />
+        <TText anonymous nodeIndex={2} data=".\\n" webStyles={{ whiteSpace: "normal"}} />
       </TPhrasing>
     </TBlock>
   </TBlock>
