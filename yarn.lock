@@ -5319,7 +5319,7 @@ __metadata:
     "@jsamr/counter-style": "npm:^2.0.2"
     "@jsamr/react-native-li": "npm:^2.3.1"
     "@microsoft/api-extractor": "npm:^7.53.1"
-    "@native-html/transient-render-engine": "workspace:*"
+    "@native-html/transient-render-engine": "npm:12.0.0"
     "@react-native/babel-preset": "npm:0.81.5"
     "@testing-library/jest-native": "npm:^5.4.3"
     "@testing-library/react-native": "npm:^13.3.3"
@@ -5349,7 +5349,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@native-html/transient-render-engine@workspace:*, @native-html/transient-render-engine@workspace:packages/transient-render-engine":
+"@native-html/transient-render-engine@npm:12.0.0, @native-html/transient-render-engine@workspace:*, @native-html/transient-render-engine@workspace:packages/transient-render-engine":
   version: 0.0.0-use.local
   resolution: "@native-html/transient-render-engine@workspace:packages/transient-render-engine"
   dependencies:
