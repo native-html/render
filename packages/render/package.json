@@ -1,6 +1,6 @@
 {
   "name": "@native-html/render",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Jules Sam. Randolph <jules.sam.randolph@gmail.com> (https://github.com/jsamr)",
   "license": "MIT",
   "description": "The hackable, full-featured Open Source HTML rendering solution for React Native.",
@@ -40,7 +40,7 @@
   "dependencies": {
     "@jsamr/counter-style": "^2.0.2",
     "@jsamr/react-native-li": "^2.3.1",
-    "@native-html/transient-render-engine": "workspace:*",
+    "@native-html/transient-render-engine": "12.0.0",
     "@types/ramda": "^0.31.1",
     "@types/urijs": "^1.19.25",
     "prop-types": "^15.8.1",
