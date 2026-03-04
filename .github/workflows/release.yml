@@ -1,0 +1,95 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Version bump type'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+        default: patch
+      prerelease:
+        description: 'Pre-release'
+        required: false
+        type: boolean
+        default: false
+      dryrun:
+        description: 'Dry-run'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create release branch
+        run: |
+          BRANCH="chore/release-$(date +%Y-%m-%d_%H:%M:%S)""
+          echo "RELEASE_BRANCH=$BRANCH" >> $GITHUB_ENV
+          git checkout -b "$BRANCH"
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build dependencies
+        run: |
+          yarn build:css-processor
+          yarn build:transient-render-engine
+          yarn build:render
+
+      - name: Copy README to packages/render
+        run: cp README.md packages/render/README.md
+
+      - name: Determine bump type
+        id: bump
+        run: |
+          BUMP="${{ inputs.bump }}"
+          if [ "${{ inputs.prerelease }}" == "true" ]; then
+            BUMP="pre${{ inputs.bump }} --preid alpha --dist-tag alpha"
+          fi
+          if [ "${{ inputs.dryrun }}" == "true" ]; then
+            BUMP="$BUMP --dry-run"
+          fi
+          echo "$BUMP" >> $GITHUB_OUTPUT
+
+      - name: Release
+        run: yarn release ${{ steps.bump.outputs.type }} --yes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create pull request
+        run: |
+          gh pr create \
+            --title "chore: release-$(date +%Y-%m-%d_%H:%M:%S)"" \
+            --body "chore: this PR contains the changes from the release workflow: version bumps, changelog updates, and README synchronization." \
+            --base main \
+            --head "$RELEASE_BRANCH"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
