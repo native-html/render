@@ -40,7 +40,7 @@
   "dependencies": {
     "@jsamr/counter-style": "^2.0.2",
     "@jsamr/react-native-li": "^2.3.1",
-    "@native-html/transient-render-engine": "12.0.0",
+    "@native-html/transient-render-engine": "workspace:*",
     "@types/ramda": "^0.31.1",
     "@types/urijs": "^1.19.25",
     "prop-types": "^15.8.1",
