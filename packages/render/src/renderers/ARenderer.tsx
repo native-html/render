@@ -16,8 +16,9 @@ function useAnchorOnLinkPress(
   const { baseTarget } = useDocumentMetadata();
   const shouldHandleLinkPress =
     tnode.tagName === 'a' &&
-    typeof normalizedHref === 'string' &&
+    typeof href === 'string' &&
     href.length > 0 &&
+    typeof normalizedHref === 'string' &&
     typeof onPress === 'function';
   return shouldHandleLinkPress
     ? (e: GestureResponderEvent) =>
