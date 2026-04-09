@@ -48,8 +48,12 @@ TPhrasingCtor.prototype.collapseChildren = function collapseChildren() {
     }
     previous = childK;
   });
-  this.trimLeft();
-  this.trimRight();
+  // Preserve boundary spaces for named inline wrappers (e.g. styled spans) so
+  // their parent phrasing container can collapse sibling boundaries correctly.
+  if (this.tagName === null) {
+    this.trimLeft();
+    this.trimRight();
+  }
   return null;
 };
 
