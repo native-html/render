@@ -41,14 +41,16 @@ describe('collapse function', () => {
     const ttree = makeTTree(
       '<span><span><strong>foo</strong> </span><span><strong>bar</strong></span></span>'
     );
-    const [firstSpan, secondSpan] = ttree.children;
-    expect(firstSpan.tagName).toBe('span');
-    expect(firstSpan.children).toHaveLength(2);
-    expect((firstSpan.children[0] as TTextImpl).data).toBe('foo');
-    expect((firstSpan.children[1] as TTextImpl).data).toBe(' ');
-    expect(secondSpan.tagName).toBe('span');
-    expect(secondSpan.children).toHaveLength(1);
-    expect((secondSpan.children[0] as TTextImpl).data).toBe('bar');
+    expect(ttree).toMatchSnapshot();
+  });
+  it('should collapse consecutive boundary spaces wrapped in nested inline phrasing tags', () => {
+    const twoSpaces = makeTTree(
+      '<span><span><strong>foo</strong>  </span><span><strong>bar</strong></span></span>'
+    );
+    const oneSpace = makeTTree(
+      '<span><span><strong>foo</strong> </span><span><strong>bar</strong></span></span>'
+    );
+    expect(twoSpaces).toEqual(oneSpace);
   });
   it('should handle nested anchors', () => {
     const ttree = makeTTree(nestedHyperlinksSource);

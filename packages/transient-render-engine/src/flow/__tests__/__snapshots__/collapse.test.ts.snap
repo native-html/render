@@ -140,6 +140,18 @@ exports[`collapse function should not collapse when white-space CSS property is 
 </TBlock>
 `;
 
+exports[`collapse function should preserve boundary spaces wrapped in nested inline phrasing tags 1`] = `
+<TPhrasing tagName="span" nodeIndex={0}>
+  <TPhrasing tagName="span" nodeIndex={0}>
+    <TText tagName="strong" nodeIndex={0} data="foo" />
+    <TText anonymous nodeIndex={1} data=" " />
+  </TPhrasing>
+  <TPhrasing tagName="span" nodeIndex={1}>
+    <TText tagName="strong" nodeIndex={0} data="bar" />
+  </TPhrasing>
+</TPhrasing>
+`;
+
 exports[`collapse function should remove children from TPhrasing nodes which are empty after timming 1`] = `
 <TPhrasing anonymous nodeIndex={0}>
   <TText anonymous nodeIndex={0} data="Foo" />
