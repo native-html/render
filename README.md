@@ -68,12 +68,9 @@ An iOS/Android pure javascript react-native component that renders your HTML int
 
 ### 🗃️ Releases
 
-**The Foundry (v6) release is finally stable, and is now-on the recommended
-version.** [Check out **the announcement blog post** in our brand new
-website](https://native-html.github.io/render/blog/2021/06/07/foundry-announcement).
-We also have a [**migration
-guide**](https://native-html.github.io/render/docs/migration-guide)
-for those who are coming from v5 and below.
+** We've moved from `react-native-render-html` to `@native-html/native`.
+The v1 release is stable, and is now-on the recommended.
+`@native-html/native` v1 follows exactly the same API as `react-native-render-html` does, so migrating is plug-and-play.
 
 > :warning: **You are on the main branch which is home for the latest development.**
 > Check the table bellow to get documentation for your exact
