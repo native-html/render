@@ -100,17 +100,12 @@ export type MixedStyleDeclaration = Omit<
     [k in MixedSizeCSSPropertiesKeys]?: number | string;
   };
 
-// Bounded to avoid unbounded growth on long-lived processors. Sized to comfortably
-// cover docs with many distinct inline-style strings while staying small enough
-// that lookups in the underlying Map remain fast.
+// Bounded to avoid unbounded growth on long-lived processors.
 const INLINE_CSS_CACHE_LIMIT = 256;
 
 export class CSSProcessor {
   public readonly registry: CSSPropertiesValidationRegistry;
-  // LRU cache for compiled inline CSS strings. The same string commonly repeats
-  // across many elements (think syntax-highlighted code spans or design-system
-  // styling), so caching the compiled result avoids the parse + validate +
-  // CSSProcessedProps construction work on each repeat.
+  // LRU cache: same inline string compiles to the same CSSProcessedProps.
   private inlineCssCache: Map<string, CSSProcessedProps> = new Map();
   constructor(userConfig?: Partial<CSSProcessorConfig>) {
     const config = {
@@ -147,7 +142,7 @@ export class CSSProcessor {
     const parseRun = new CSSInlineParseRun(inlineCSS, this.registry);
     const result = parseRun.exec();
     if (cache.size >= INLINE_CSS_CACHE_LIMIT) {
-      // Evict oldest entry (Map preserves insertion order).
+      // Evict oldest (Map preserves insertion order).
       const oldest = cache.keys().next().value;
       if (oldest !== undefined) {
         cache.delete(oldest);
