@@ -23,7 +23,9 @@ export function createLRUCache<K, V extends {}>(
       return value;
     },
     set(key, value) {
-      if (map.size >= maxSize) {
+      // Only evict when adding a new key; replacing an existing key updates
+      // in place and must not free an unrelated slot.
+      if (map.size >= maxSize && !map.has(key)) {
         const oldest = map.keys().next().value;
         if (oldest !== undefined) {
           map.delete(oldest);
