@@ -4,6 +4,7 @@ import { CSSNativeParseRun } from './CSSNativeParseRun';
 import { CSSProcessedProps } from './CSSProcessedProps';
 import { CSSPropertiesValidationRegistry } from './CSSPropertiesValidationRegistry';
 import { defaultCSSProcessorConfig } from './default';
+import { createLRUCache, LRUCache } from './lruCache';
 import {
   ExtraNativeShortStyle,
   ExtraNativeTextStyle,
@@ -100,19 +101,20 @@ export type MixedStyleDeclaration = Omit<
     [k in MixedSizeCSSPropertiesKeys]?: number | string;
   };
 
-// Bounded to avoid unbounded growth on long-lived processors.
-const INLINE_CSS_CACHE_LIMIT = 256;
-
 export class CSSProcessor {
   public readonly registry: CSSPropertiesValidationRegistry;
-  // LRU cache: same inline string compiles to the same CSSProcessedProps.
-  private inlineCssCache: Map<string, CSSProcessedProps> = new Map();
+  private readonly inlineCssCache: LRUCache<string, CSSProcessedProps> | null;
   constructor(userConfig?: Partial<CSSProcessorConfig>) {
     const config = {
       ...defaultCSSProcessorConfig,
       ...userConfig
     };
     this.registry = new CSSPropertiesValidationRegistry(config);
+    this.inlineCssCache = config.enableExperimentalCssLRUCache
+      ? createLRUCache<string, CSSProcessedProps>(
+          config.maxCssLruCacheSize ?? 256
+        )
+      : null;
   }
 
   /**
@@ -132,23 +134,15 @@ export class CSSProcessor {
 
   compileInlineCSS(inlineCSS: string): CSSProcessedProps {
     const cache = this.inlineCssCache;
-    const cached = cache.get(inlineCSS);
-    if (cached !== undefined) {
-      // LRU touch: re-insert to mark as most recently used.
-      cache.delete(inlineCSS);
-      cache.set(inlineCSS, cached);
-      return cached;
+    if (cache) {
+      const cached = cache.get(inlineCSS);
+      if (cached !== undefined) {
+        return cached;
+      }
     }
     const parseRun = new CSSInlineParseRun(inlineCSS, this.registry);
     const result = parseRun.exec();
-    if (cache.size >= INLINE_CSS_CACHE_LIMIT) {
-      // Evict oldest (Map preserves insertion order).
-      const oldest = cache.keys().next().value;
-      if (oldest !== undefined) {
-        cache.delete(oldest);
-      }
-    }
-    cache.set(inlineCSS, result);
+    cache?.set(inlineCSS, result);
     return result;
   }
 }
