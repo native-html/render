@@ -81,7 +81,7 @@
     "@types/react-syntax-highlighter": "^15.5.13",
     "babel-preset-expo": "^54.0.5",
     "ignore-loader": "^0.1.2",
-    "jest-expo": "^54.0.12",
+    "jest-expo": "^54.0.14",
     "typescript": "^5.4.5"
   },
   "private": true
