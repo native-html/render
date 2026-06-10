@@ -137,6 +137,13 @@ Please refer to [our dedicated document](./HELP.adoc).
 
 You're always welcome to join our [discord channel](https://discord.gg/dbEMMJM) :-).
 
+## Credits
+
+This project has been built and is maintained thanks to the support from [jsamr](https://github.com/jsamr) and [Software Mansion](https://swmansion.com)
+
+[![jsamr](https://avatars.githubusercontent.com/u/3646758?s=100 'jsamr')](https://github.com/jsamr)
+[![swm](https://logo.swmansion.com/logo?color=white\&variant=desktop\&width=150\&tag=react-native-reanimated-github 'Software Mansion')](https://swmansion.com)
+
 ## :pencil: Contributing
 
 Check-out our [contributing guide](./CONTRIBUTING.adoc).

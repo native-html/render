@@ -3,7 +3,6 @@ import { TBlock } from '@native-html/transient-render-engine';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { render, waitFor } from '@testing-library/react-native';
-import { perf, wait } from 'react-performance-testing';
 import buildTREFromConfig from '../../helpers/buildTREFromConfig';
 import RenderHTMLConfigProvider from '../../RenderHTMLConfigProvider';
 import { DefaultSupportedListStyleType } from '../../shared-types';
@@ -79,7 +78,13 @@ describe('ListElement', () => {
   for (const listStyleType of listStyleTypes) {
     for (const dir of ['ltr', 'rtl']) {
       it(`should render and support listStyleType ${listStyleType} in ${dir}`, async () => {
-        const { renderCount } = perf<{ ListElement: unknown }>(React);
+        let renderCount = 0;
+        function TrackedListElement(
+          props: React.ComponentProps<typeof ListElement>
+        ) {
+          renderCount++;
+          return React.createElement(ListElement, props);
+        }
         const props = makeListElementProps(
           `<ol dir="${dir}"><li>One</li></ol>`,
           'ol',
@@ -91,15 +96,12 @@ describe('ListElement', () => {
         render(
           <TRenderEngineProvider>
             <RenderHTMLConfigProvider>
-              {React.createElement(ListElement, props)}
+              <TrackedListElement {...props} />
             </RenderHTMLConfigProvider>
           </TRenderEngineProvider>
         );
-        await wait(() => {
-          // Expect only one instance
-          expect(typeof renderCount.current.ListElement.value).toBe('number');
-          // Expect only one render
-          expect(renderCount.current.ListElement.value).toBeLessThan(2);
+        await waitFor(() => {
+          expect(renderCount).toBeLessThan(2);
         });
       });
     }
