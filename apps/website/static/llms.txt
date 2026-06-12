@@ -1,0 +1,70 @@
+# @native-html/render
+
+> A WebView-free, pure-JavaScript React Native component that renders HTML into 100% native iOS and Android views. Powered by the Transient Render Engine (TRE): an HTML5-compliant pipeline that parses HTML, builds a Transient Render Tree (TRT) of `TNode`s, processes CSS into React Native styles (with inheritance, specificity, font selection, and whitespace collapsing), and renders the tree through composable internal and custom renderers. This is the monorepo (formerly `react-native-render-html`); core packages include `@native-html/render`, `@native-html/transient-render-engine`, and `@native-html/css-processor`.
+
+This `llms.txt` is a navigation guide for the live documentation at https://native-html.github.io/render/. For a single consolidated file covering all topics, see [llms-full.txt](https://native-html.github.io/render/llms-full.txt).
+
+When unsure where a topic lives:
+- "What is this library / minimal example / FAQ" → Getting Started
+- "How does an HTML string become native views / what is TRE / how does CSS resolve" → Architecture & Data Flow
+- "How are paragraphs / images / lists / anchors rendered out of the box" → Content
+- "How do I style / write a custom renderer / mutate the DOM at parse time" → Guides
+- "Migrating from v5 / what changed in v6.x" → Migration & Releases
+- "End-to-end worked example" → Tutorial
+- "API: props, components, hooks signatures" → API Reference
+- "How to contribute, run tests, cut a release" → Contributing
+
+## Getting Started
+
+- [Introduction](https://native-html.github.io/render/docs/intro): What `@native-html/render` is, when to use it (vs. `react-native-webview`), install, minimal `RenderHtml` example, the published-tree TRT shape, and monorepo package list.
+- [Reinvent the Wheel](https://native-html.github.io/render/docs/reinvent-the-wheel): A 40-line toy renderer that motivates the real engine by showing what a hand-rolled implementation would look like.
+- [FAQ](https://native-html.github.io/render/docs/faq): Links, fonts, lists, tables, accessibility, common bugs and workaround props.
+
+## Architecture & Data Flow
+
+- [Architecture](https://native-html.github.io/render/docs/architecture): Overview of the three-stage pipeline and the composite rendering architecture (`TRenderEngineProvider` + `RenderHTMLConfigProvider` + `RenderHTMLSource`).
+- [Transient Render Engine](https://native-html.github.io/render/docs/flow/transient-render-engine): TRT construction, element models (`HTMLElementModel`, content models: textual/block/mixed/none), TNode anatomy and the four types (`TDocument` / `TBlock` / `TPhrasing` / `TText`), translation/hoisting/whitespace-collapsing steps, markers.
+- [CSS Processing](https://native-html.github.io/render/docs/flow/css-processing): CSS inheritance/specificity rules, mixed style declarations, native vs. web style maps.
+- [Rendering](https://native-html.github.io/render/docs/flow/rendering): How TNodes are turned into React Native views, internal renderer dispatch, and the rendering lifecycle.
+
+## Content
+
+- [Textual](https://native-html.github.io/render/docs/content/textual): Paragraphs, whitespace collapsing (`normal`/`pre`), preformatted blocks, font selection via `systemFonts`/`fallbackFonts`, and the `enableExperimentalBRCollapsing` / `enableExperimentalGhostLinesPrevention` workaround props.
+- [Images](https://native-html.github.io/render/docs/content/images): Scaling, `object-fit`, automatic sizing via `contentWidth`/`computeEmbeddedMaxWidth`, error/loading states, `useInternalRenderer`, the `IMGElement*` building blocks, `provideEmbeddedHeaders`.
+- [Lists](https://native-html.github.io/render/docs/content/lists): Supported `list-style-type` values, `customListStyleSpecs`, `@jsamr/counter-style` presets, experimental RTL.
+- [Anchors](https://native-html.github.io/render/docs/content/anchors): Default `Linking` behavior, mixed content model, relative-URL resolution via `<base>`, `renderersProps.a.onPress`, `useNormalizedUrl`.
+
+## Guides
+
+- [Styling](https://native-html.github.io/render/docs/guides/styling): `baseStyle`, `tagsStyles`, `classesStyles`, `idsStyles` (mixed-style declarations, not `StyleSheet`), inline-style processing knobs (`enableCSSInlineProcessing` / `allowedStyles` / `ignoredStyles`).
+- [Custom Rendering](https://native-html.github.io/render/docs/guides/custom-renderers): Model-based (`customHTMLElementModels`, `HTMLElementModel.fromCustomModel` / `extend`) and component-based (`renderers` prop, `TChildrenRenderer` for children tampering, `useInternalRenderer`, `useRendererProps`).
+- [DOM Tampering](https://native-html.github.io/render/docs/guides/dom-tampering): `domVisitors` (`onDocument` / `onElement` / `onText`) with `domutils`/`domhandler` examples; `ignoredDomTags` / `ignoreDomNode`; `selectDomRoot`; the explicit-composite prerendering pattern with `useAmbientTRenderEngine`.
+
+## Migration & Releases
+
+- [Migration Guide](https://native-html.github.io/render/docs/migration-guide): v5 → v6 ("Foundry") migration — props to monitor, renamed/moved/discontinued props, and a v5-vs-v6 arguments-equivalence table for custom renderers.
+- [Foundry Release Announcement](https://native-html.github.io/render/blog/2021/06/07/foundry-announcement): v6.0 release highlights — TRE, custom renderers, font selection, list renderer, image renderer building blocks, composite architecture, accessibility groundwork.
+- [What's New in v6.2?](https://native-html.github.io/render/blog/2021/10/23/6-2-updates): Richer model-based rendering via `getMixedUAStyles` / `reactNativeProps` / `getReactNativeProps`; accessibility for `aria-label`, `role`, `<a>`, `<img>`, `<h1-6>`; `user-select` support.
+
+## Tutorial
+
+- [Blog App Part I](https://native-html.github.io/render/blog/2021/06/27/create-blog-app-rnrh-I): Sets up an Expo + React Navigation + React Native Paper project and an RSS-driven home list.
+- [Blog App Part II](https://native-html.github.io/render/blog/2021/06/28/create-blog-app-rnrh-II): Implements an `ArticleScreen` using the explicit composite architecture plus `useAmbientTRenderEngine` to parse the article DOM ahead of render, with a drawer-based table of contents.
+- [Blog App Part III](https://native-html.github.io/render/blog/2021/06/29/create-blog-app-rnrh-III): Adds tap-to-scroll via a `Scroller` class shared through React context, custom renderers for `<h1>`/`<h2>`/`<header>`, and styling refinements.
+
+## API Reference
+
+- [API Index](https://native-html.github.io/render/api): Full list of all exported symbols — components, hooks, types, constants.
+- [RenderHTML Props](https://native-html.github.io/render/api/renderhtmlprops): All props accepted by the `RenderHTML` component — the primary integration point.
+- Key components: [RenderHTML](https://native-html.github.io/render/api/renderhtml), [RenderHTMLSource](https://native-html.github.io/render/api/renderhtmlsource), [RenderHTMLConfigProvider](https://native-html.github.io/render/api/renderhtmlconfigprovider), [TRenderEngineProvider](https://native-html.github.io/render/api/trenderengineprovider), [TDefaultRenderer](https://native-html.github.io/render/api/tdefaultrenderer), [TChildrenRenderer](https://native-html.github.io/render/api/tchildrenrenderer), [IMGElement](https://native-html.github.io/render/api/imgelement).
+- Key hooks: [useInternalRenderer](https://native-html.github.io/render/api/useinternalrenderer), [useRendererProps](https://native-html.github.io/render/api/userendererprops), [useAmbientTRenderEngine](https://native-html.github.io/render/api/useambienttrenderengine), [useNormalizedUrl](https://native-html.github.io/render/api/usenormalizedurl), [useContentWidth](https://native-html.github.io/render/api/usecontentwidth).
+- Key types: [TNode](https://native-html.github.io/render/api/tnode), [MixedStyleDeclaration](https://native-html.github.io/render/api/mixedstyledeclaration), [HTMLElementModel](https://native-html.github.io/render/api/htmlelementmodel), [CustomRenderer](https://native-html.github.io/render/api/customrenderer), [Markers](https://native-html.github.io/render/api/markers).
+
+## Contributing
+
+- [GitHub Repository](https://github.com/native-html/render): Source code, issues, and pull requests.
+- [Help & Support](https://github.com/native-html/render/blob/main/HELP.adoc): Decision tree for getting help (FAQ → StackOverflow → issues → Discord).
+- [Contributing Guide](https://github.com/native-html/render/blob/main/CONTRIBUTING.adoc): Opening tickets, bug-report reproducibility tiers, RFCs, draft-PR workflow, Yarn Berry workspaces, testing commands, and the release process.
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/native-html-render): Community Q&A tagged `native-html-render`.
+- [Discord](https://discord.gg/dbEMMJM): Real-time community chat.
+- [npm](https://www.npmjs.com/package/@native-html/render): Published package.
