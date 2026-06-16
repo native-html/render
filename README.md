@@ -148,7 +148,7 @@ This project has been built and is maintained thanks to the support from [jsamr]
 
 Check-out our [contributing guide](./CONTRIBUTING.adoc).
 
-- You can report bugs in [our Issue Tracker](https://github.com/meliorence/native-html/render/issues);
+- You can report bugs in [our Issue Tracker](https://github.com/native-html/render/issues);
 - We handle Feature Requests [in our Canny board](https://native-html.canny.io/features).
 
 ## :blue_heart: Sponsorship
