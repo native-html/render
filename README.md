@@ -127,7 +127,7 @@ You like to learn by example? We have a tutorial from which the demo GIF has bee
 
 ## :notebook: Changelog
 
-The changelog is available here: [packages/render-html/CHANGELOG.md](./packages/render-html/CHANGELOG.md).
+The changelog is available here: [packages/render/CHANGELOG.md](./packages/render/CHANGELOG.md).
 
 ## :bulb: Help
 
