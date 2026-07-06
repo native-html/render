@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4-alpha.1](github.com/native-html/render/compare/@native-html/render@1.0.4-alpha.0...@native-html/render@1.0.4-alpha.1) (2026-07-06)
+
+**Note:** Version bump only for package @native-html/render
+
+## [1.0.4-alpha.0](github.com/native-html/render/compare/@native-html/render@1.0.0-alpha.0...@native-html/render@1.0.4-alpha.0) (2026-07-06)
+
+### Bug Fixes
+
+* add tests for key generation ([0d3296a](github.com/native-html/render/commits/0d3296a3ede6e6b7a0ef603a8e97d41d1f0f69f6)) - by @5ZYSZ3K
+* adjust key generating in the library ([a555d6c](github.com/native-html/render/commits/a555d6c836e11af5dc6e98c0b5335e835ac17391)) - by @5ZYSZ3K
+* ARenderer TypeError when href undefined ([257d824](github.com/native-html/render/commits/257d8241d9a01d72fc195afe4f7babccd47c3049)) - by @arieloO
+* bring workspace version after release ([5636b6e](github.com/native-html/render/commits/5636b6e03738627c4f1e198cc470da559cc2f80b)) - by @5ZYSZ3K
+* dedupe dependencies and remove critical vulnerabilities ([b829513](github.com/native-html/render/commits/b829513527d0b7a67c014e3154aaa6da693f5a7a)) - by @5ZYSZ3K
+
+## [1.0.3](github.com/native-html/render/compare/@native-html/render@1.0.0-alpha.0...@native-html/render@1.0.3) (2026-05-07)
+
+### Bug Fixes
+
+* add tests for key generation ([0d3296a](github.com/native-html/render/commits/0d3296a3ede6e6b7a0ef603a8e97d41d1f0f69f6)) - by @5ZYSZ3K
+* adjust key generating in the library ([a555d6c](github.com/native-html/render/commits/a555d6c836e11af5dc6e98c0b5335e835ac17391)) - by @5ZYSZ3K
+* ARenderer TypeError when href undefined ([257d824](github.com/native-html/render/commits/257d8241d9a01d72fc195afe4f7babccd47c3049)) - by @arieloO
+* bring workspace version after release ([5636b6e](github.com/native-html/render/commits/5636b6e03738627c4f1e198cc470da559cc2f80b)) - by @5ZYSZ3K
+
 ## [1.0.3-alpha.0](github.com/native-html/render/compare/@native-html/render@1.0.0-alpha.0...@native-html/render@1.0.3-alpha.0) (2026-05-04)
 
 ### Bug Fixes
