@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4-alpha.1](github.com/native-html/render/compare/@native-html/render@1.0.4-alpha.0...@native-html/render@1.0.4-alpha.1) (2026-07-06)
+
+**Note:** Version bump only for package @native-html/render
+
 ## [1.0.4-alpha.0](github.com/native-html/render/compare/@native-html/render@1.0.0-alpha.0...@native-html/render@1.0.4-alpha.0) (2026-07-06)
 
 ### Bug Fixes
