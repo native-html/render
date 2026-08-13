@@ -1,7 +1,7 @@
 import { Text } from '../dom/dom-utils';
 import HTMLContentModel from '../model/HTMLContentModel';
 
-import compose from 'ramda/src/compose';
+import { compose } from 'ramda';
 import { TNodeInit, TNodeImpl } from './tree-types';
 import {
   normalizeWhitespaces,
