@@ -2,7 +2,7 @@ import { collapse } from './flow/collapse';
 import { hoist } from './flow/hoist';
 import { translateDocument } from './flow/translate';
 import { ParserOptions as HTMLParserOptions } from 'htmlparser2';
-import omit from 'ramda/src/omit';
+import { omit } from 'ramda';
 import {
   CSSProcessorConfig,
   defaultCSSProcessorConfig

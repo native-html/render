@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import { MarkerBoxProps } from '@jsamr/react-native-li';
-import mapObjIndexed from 'ramda/src/mapObjIndexed';
+import { mapObjIndexed } from 'ramda';
 import React, {
   createContext,
   PropsWithChildren,
