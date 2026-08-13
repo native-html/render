@@ -10,7 +10,7 @@ import type {
 } from '../shared-types';
 import { useTChildrenRenderer } from '../context/TChildrenRendererContext';
 import { DEFAULT_TEXT_COLOR } from '../constants';
-import pick from 'ramda/src/pick';
+import { pick } from 'ramda';
 import { useListStyleSpecs } from '../context/ListStyleSpecsProvider';
 
 export interface ListElementProps<T extends 'ol' | 'ul'>

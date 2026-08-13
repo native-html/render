@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useMemo } from 'react';
-import mergeDeepRight from 'ramda/src/mergeDeepRight';
+import { mergeDeepRight } from 'ramda';
 
 import { RenderersProps, RenderHTMLPassedProps } from '../shared-types';
 import defaultRendererProps from './defaultRendererProps';

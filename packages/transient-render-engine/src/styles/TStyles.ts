@@ -1,9 +1,7 @@
 import { CSSProperties, CSSProcessedProps } from '@native-html/css-processor';
-import nil from 'ramda/src/isNil';
-import not from 'ramda/src/not';
-import compose from 'ramda/src/compose';
+import { compose, isNil, not } from 'ramda';
 
-const notNil = compose(not, nil);
+const notNil = compose(not, isNil);
 /**
  * A merge properties from left to right.
  *
