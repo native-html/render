@@ -1,4 +1,4 @@
-import equals from 'ramda/src/equals';
+import { equals } from 'ramda';
 import React, { memo, ReactElement, useMemo } from 'react';
 import { Dimensions } from 'react-native';
 import ttreeEventsContext from './context/ttreeEventsContext';
