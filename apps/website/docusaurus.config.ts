@@ -145,7 +145,9 @@ const config: Config = {
           position: 'left'
         },
         {
-          to: `https://github.com/native-html/render/releases/tag/v${version}`,
+          to: `https://github.com/native-html/render/releases/tag/${encodeURIComponent(
+            `@native-html/render@${version}`
+          )}`,
           label: `v${version}`,
           position: 'right'
         },
