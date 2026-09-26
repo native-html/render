@@ -5158,7 +5158,7 @@ __metadata:
     react-native-accessibility-engine: "patch:react-native-accessibility-engine@npm%3A3.2.0#~/.yarn/patches/react-native-accessibility-engine-npm-3.2.0-5709303461.patch"
     react-native-builder-bob: "npm:^0.40.13"
     react-test-renderer: "npm:19.1.0"
-    stringify-entities: "npm:^4.0.4"
+    stringify-entities: "npm:^3.1.0"
     typescript: "npm:^5.4.5"
     urijs: "npm:^1.19.11"
   peerDependencies:
@@ -24073,7 +24073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stringify-entities@npm:^4.0.0, stringify-entities@npm:^4.0.4":
+"stringify-entities@npm:^4.0.0":
   version: 4.0.4
   resolution: "stringify-entities@npm:4.0.4"
   dependencies:
