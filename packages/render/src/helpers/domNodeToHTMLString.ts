@@ -1,4 +1,4 @@
-import { stringifyEntities } from 'stringify-entities';
+import stringifyEntities from 'stringify-entities';
 import {
   Node,
   isDomText,
