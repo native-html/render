@@ -68,9 +68,9 @@ An iOS/Android pure javascript react-native component that renders your HTML int
 
 ### 🗃️ Releases
 
-** We've moved from `react-native-render-html` to `@native-html/native`.
+** We've moved from `react-native-render-html` to `@native-html/render`.
 The v1 release is stable, and is now-on the recommended.
-`@native-html/native` v1 follows exactly the same API as `react-native-render-html` does, so migrating is plug-and-play.
+`@native-html/render` v1 follows exactly the same API as `react-native-render-html` does, so migrating is plug-and-play.
 
 > :warning: **You are on the main branch which is home for the latest development.**
 > Check the table bellow to get documentation for your exact
