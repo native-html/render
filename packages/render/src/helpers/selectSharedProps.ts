@@ -1,4 +1,7 @@
-import { mergeRight, pick, pickBy, pipe } from 'ramda';
+import mergeRight from 'ramda/src/mergeRight';
+import pick from 'ramda/src/pick';
+import pickBy from 'ramda/src/pickBy';
+import pipe from 'ramda/src/pipe';
 import { RenderHTMLProps, RenderHTMLAmbiantSharedProps } from '../shared-types';
 import defaultSharedProps from '../context/defaultSharedProps';
 

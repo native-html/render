@@ -2,7 +2,8 @@ import {
   NativeBlockStyles,
   NativeTextStyles
 } from '@native-html/transient-render-engine';
-import { omit, pick } from 'ramda';
+import omit from 'ramda/src/omit';
+import pick from 'ramda/src/pick';
 
 type NativeStyles = NativeBlockStyles | NativeTextStyles;
 

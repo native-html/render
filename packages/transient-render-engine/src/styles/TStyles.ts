@@ -1,5 +1,7 @@
 import { CSSProperties, CSSProcessedProps } from '@native-html/css-processor';
-import { compose, isNil, not } from 'ramda';
+import compose from 'ramda/src/compose';
+import isNil from 'ramda/src/isNil';
+import not from 'ramda/src/not';
 
 const notNil = compose(not, isNil);
 /**

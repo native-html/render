@@ -1,5 +1,5 @@
 import { WebBlockStyles } from '@native-html/transient-render-engine';
-import { pick } from 'ramda';
+import pick from 'ramda/src/pick';
 import { ImageStyle } from 'react-native';
 
 const keysToExtract: (keyof ImageStyle)[] = [

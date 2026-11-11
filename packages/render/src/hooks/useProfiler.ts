@@ -1,5 +1,5 @@
 import { useCallback, useRef } from 'react';
-import { identity } from 'ramda';
+import identity from 'ramda/src/identity';
 
 declare const performance: { now: () => number };
 
