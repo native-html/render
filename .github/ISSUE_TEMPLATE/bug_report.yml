@@ -42,7 +42,7 @@ body:
     required: true
 - type: textarea
   attributes:
-    label: "RNRH Version"
+    label: "native-html Version"
     placeholder: "Type which version of @native-html/render you are using."
   validations:
     required: true
