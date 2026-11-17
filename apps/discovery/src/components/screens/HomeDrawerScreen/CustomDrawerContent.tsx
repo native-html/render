@@ -52,7 +52,7 @@ function Header() {
       padding={1}>
       <Logo height={LOGO_SIZE} width={LOGO_SIZE} />
       <TextRoleNucleon style={{ marginLeft: useSpacing(2) }} role="bodyBold">
-        Discover RNRH
+        Discover native-html
       </TextRoleNucleon>
     </BoxNucleon>
   );

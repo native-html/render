@@ -1,5 +1,5 @@
 import type { ComponentType, PropsWithChildren } from 'react';
-import * as RNRH from '@native-html/render';
+import * as NH from '@native-html/render';
 import type * as TRE from '@native-html/transient-render-engine';
 import type * as CSS from '@native-html/css-processor';
 import type * as DOM from 'domhandler';
@@ -95,7 +95,7 @@ export interface RendererCardConfig {
 export interface UIRenderHtmlCardProps {
   title: string;
   caption?: string;
-  props: RNRH.RenderHTMLProps;
+  props: NH.RenderHTMLProps;
   config?: RendererCardConfig;
   preferHtmlSrc?: boolean;
 }
@@ -120,9 +120,9 @@ export interface UIToolkit extends UIToolkitBase, UIToolkitRefs {
   RefDoc: ComponentType<PropsWithChildren<{ target: PageId; fragment?: string }>>;
   Acronym: ComponentType<{ name: Acronym }>;
   SvgFigure: ComponentType<{ asset: SvgAssetType }>;
-  RefRenderHtmlProp: RefComponent<keyof RNRH.RenderHTMLProps>;
+  RefRenderHtmlProp: RefComponent<keyof NH.RenderHTMLProps>;
   RefRenderHTMLExport: RefComponent<
-    keyof typeof RNRH | string,
+    keyof typeof NH | string,
     RefOptionalProps
   >;
   RefTRE: RefComponent<keyof typeof TRE | string, RefOptionalProps>;
@@ -137,7 +137,7 @@ export type UIToolkitConfig = {
     expoSource: string;
     title: string;
     caption?: string;
-    props: RNRH.RenderHTMLProps;
+    props: NH.RenderHTMLProps;
     preferHtmlSrc: boolean;
     extraneousDeps: string[];
     snapshot: string;

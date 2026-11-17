@@ -4,7 +4,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus api:gen && DOCUSAURUS_NO_DUPLICATE_TITLE_WARNING=false docusaurus start --no-open",
-    "build": "yarn workspace @doc/mdx-gen-cli build && yarn workspace doc-docusaurus-rfg-plugin build && docusaurus api:gen && DOCUSAURUS_NO_DUPLICATE_TITLE_WARNING=false docusaurus build",
+    "build": "yarn workspace @doc/mdx-gen-cli build && docusaurus api:gen && DOCUSAURUS_NO_DUPLICATE_TITLE_WARNING=false docusaurus build",
     "build-docs": "doc-mdx-gen-cli docs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus api:gen && docusaurus deploy",
@@ -44,7 +44,6 @@
     "@types/react-helmet": "^6.1.11",
     "@types/react-modal": "^3.16.3",
     "@types/react-router-dom": "^5.3.3",
-    "doc-docusaurus-rfg-plugin": "workspace:*",
     "doc-docusaurus-typedoc-plugin": "workspace:*",
     "docusaurus-node-polyfills": "^1.0.0",
     "sass": "^1.93.2",
