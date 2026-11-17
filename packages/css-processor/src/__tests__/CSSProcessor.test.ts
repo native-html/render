@@ -13,6 +13,22 @@ import { ExtraNativeShortViewStyleKeys } from '../native-types';
 const processor = new CSSProcessor(defaultCSSProcessorConfig);
 const propertiesValidators = processor.registry.validators;
 
+/**
+ * Merge all categories of processed props into one record.
+ */
+function flatten(output: CSSProcessedProps) {
+  return {
+    ...output.native.text.flow,
+    ...output.native.text.retain,
+    ...output.native.block.flow,
+    ...output.native.block.retain,
+    ...output.web.text.flow,
+    ...output.web.text.retain,
+    ...output.web.block.flow,
+    ...output.web.block.retain
+  };
+}
+
 type Specs = {
   readonly inlineIncomingValues: ReadonlyArray<string>;
   readonly mixedIncomingValues: ReadonlyArray<any> | null;
@@ -377,6 +393,21 @@ describe('CSSProcessor', () => {
         } as any)
       ).toEqual(new CSSProcessedProps());
     });
+    it('should not match keyword values case-insensitively', () => {
+      expect(
+        flatten(
+          processor.compileStyleDeclaration({
+            display: 'FLEX',
+            marginTop: '5PX'
+          } as any)
+        )
+      ).toStrictEqual({});
+    });
+    it('should not validate the sign of numeric values', () => {
+      expect(
+        flatten(processor.compileStyleDeclaration({ paddingTop: -5 }))
+      ).toStrictEqual({ paddingTop: -5 });
+    });
     it('should ignore unknown properties', () => {
       console.warn = jest.fn();
       expect(
@@ -404,12 +435,6 @@ describe('CSSProcessor', () => {
       ).toStrictEqual(new CSSProcessedProps());
     });
     describe('regarding the !important flag', () => {
-      const flatten = (output: CSSProcessedProps) => ({
-        ...output.native.text.flow,
-        ...output.native.text.retain,
-        ...output.native.block.flow,
-        ...output.native.block.retain
-      });
       it('should ignore the flag on longhand properties', () => {
         expect(
           flatten(
@@ -451,6 +476,145 @@ describe('CSSProcessor', () => {
           processor.compileInlineCSS('font-family: Arial !important').native
             .text.flow
         ).toStrictEqual({ fontFamily: 'Arial' });
+      });
+    });
+    describe('regarding case-insensitivity', () => {
+      it('should match property names case-insensitively', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'COLOR: red; Font-Size: 20px; MARGIN: 10px'
+            )
+          )
+        ).toStrictEqual({
+          color: 'red',
+          fontSize: 20,
+          marginTop: 10,
+          marginRight: 10,
+          marginBottom: 10,
+          marginLeft: 10
+        });
+      });
+      it('should keep supporting camelCase property names', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'paddingBottom: 10px; backgroundColor: red'
+            )
+          )
+        ).toStrictEqual({
+          paddingBottom: 10,
+          backgroundColor: 'red'
+        });
+      });
+      it('should apply inlinePropertiesBlacklist regardless of property names case', () => {
+        const processorWithIgnoreStyles = new CSSProcessor({
+          ...defaultCSSProcessorConfig,
+          inlinePropertiesBlacklist: ['backgroundColor']
+        });
+        expect(
+          processorWithIgnoreStyles.compileInlineCSS('BACKGROUND-COLOR: red;')
+        ).toStrictEqual(new CSSProcessedProps());
+      });
+      it('should match keyword values case-insensitively', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'display: FLEX; font-weight: BOLD; font-variant: small-caps OLDSTYLE-NUMS; border-style: SOLID; margin-top: AUTO; margin-left: -5PX; border-top-width: THIN; font-size: LARGE'
+            )
+          )
+        ).toStrictEqual({
+          display: 'flex',
+          fontWeight: 'bold',
+          fontVariant: ['small-caps', 'oldstyle-nums'],
+          borderStyle: 'solid',
+          marginTop: 'auto',
+          marginLeft: -5,
+          borderTopWidth:
+            propertiesValidators.borderTopWidth.normalizeInlineCSSValue('thin'),
+          fontSize:
+            propertiesValidators.fontSize.normalizeInlineCSSValue('large')
+        });
+      });
+      it('should match color keywords case-insensitively', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'color: RED; background-color: RGB(0, 0, 0); border-top-color: Transparent'
+            )
+          )
+        ).toStrictEqual({
+          color: 'red',
+          backgroundColor: 'rgb(0, 0, 0)',
+          borderTopColor: 'transparent'
+        });
+      });
+      it('should keep values which are valid as written unchanged', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'color: #FFF; background-color: #AbCdEf'
+            )
+          )
+        ).toStrictEqual({
+          color: '#FFF',
+          backgroundColor: '#AbCdEf'
+        });
+      });
+      it('should match keywords of shorthand properties case-insensitively, preserving hex colors', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'border: 1px SOLID #FFF; flex-flow: ROW WRAP; text-decoration: UNDERLINE RED'
+            )
+          )
+        ).toStrictEqual({
+          borderTopWidth: 1,
+          borderRightWidth: 1,
+          borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderTopColor: '#FFF',
+          borderRightColor: '#FFF',
+          borderBottomColor: '#FFF',
+          borderLeftColor: '#FFF',
+          borderStyle: 'solid',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          textDecorationLine: 'underline',
+          textDecorationColor: 'red',
+          textDecorationStyle: 'solid'
+        });
+        expect(
+          flatten(processor.compileInlineCSS('background: RED'))
+        ).toStrictEqual({ backgroundColor: 'red' });
+      });
+      it('should not lowercase the font family of the font shorthand', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'font: ITALIC BOLD 12PX/18PX Times New Roman'
+            )
+          )
+        ).toStrictEqual({
+          fontStyle: 'italic',
+          fontWeight: 'bold',
+          fontVariant: [],
+          fontSize: 12,
+          lineHeight: 18,
+          fontFamily: 'Times New Roman'
+        });
+      });
+      it('should not lowercase case-sensitive values', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'font-family: HELVETICA; list-style-type: DISC; transform: ROTATE(45DEG)'
+            )
+          )
+        ).toStrictEqual({
+          fontFamily: 'HELVETICA',
+          listStyleType: 'DISC'
+        });
       });
     });
     it('should ignore rules from the inlinePropertiesBlacklist config array', () => {
