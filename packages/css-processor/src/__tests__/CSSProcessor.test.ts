@@ -403,6 +403,56 @@ describe('CSSProcessor', () => {
         processor.compileInlineCSS('padding-horizontal: 10px;')
       ).toStrictEqual(new CSSProcessedProps());
     });
+    describe('regarding the !important flag', () => {
+      const flatten = (output: CSSProcessedProps) => ({
+        ...output.native.text.flow,
+        ...output.native.text.retain,
+        ...output.native.block.flow,
+        ...output.native.block.retain
+      });
+      it('should ignore the flag on longhand properties', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'color: red !important; margin-top: 5px !important; display: flex !important; font-size: 20px !important'
+            )
+          )
+        ).toStrictEqual({
+          color: 'red',
+          marginTop: 5,
+          display: 'flex',
+          fontSize: 20
+        });
+      });
+      it('should ignore the flag on shorthand properties', () => {
+        expect(
+          flatten(processor.compileInlineCSS('margin: -10px 0 !important'))
+        ).toStrictEqual({
+          marginTop: -10,
+          marginRight: 0,
+          marginBottom: -10,
+          marginLeft: 0
+        });
+      });
+      it('should ignore the flag regardless of case and whitespace', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'color: rgb(0, 0, 0)!important; background-color: blue ! IMPORTANT ;'
+            )
+          )
+        ).toStrictEqual({
+          color: 'rgb(0, 0, 0)',
+          backgroundColor: 'blue'
+        });
+      });
+      it('should not leak the flag into forgiving properties', () => {
+        expect(
+          processor.compileInlineCSS('font-family: Arial !important').native
+            .text.flow
+        ).toStrictEqual({ fontFamily: 'Arial' });
+      });
+    });
     it('should ignore rules from the inlinePropertiesBlacklist config array', () => {
       const processorWithIgnoreStyles = new CSSProcessor({
         ...defaultCSSProcessorConfig,

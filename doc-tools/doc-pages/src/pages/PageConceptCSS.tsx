@@ -170,9 +170,11 @@ export default function PageConceptCSS() {
           precedence over classes styles, ...etc.
         </Paragraph>
         <Admonition type="important">
-          <InlineCode>important!</InlineCode> directives, complex selectors such
-          as <InlineCode>div &gt; *</InlineCode>, pseudo-classes and
-          pseudo-elements are not supported.
+          The <InlineCode>!important</InlineCode> flag is accepted and ignored
+          in inline styles: a later declaration in the same{' '}
+          <RefHtmlAttr name="style" /> attribute still overrides it. Complex
+          selectors such as <InlineCode>div &gt; *</InlineCode>, pseudo-classes
+          and pseudo-elements are not supported.
         </Admonition>
       </Chapter>
     </Page>
