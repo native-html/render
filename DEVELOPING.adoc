@@ -8,7 +8,7 @@ ifdef::env-github[]
 endif::[]
 :toc:
 
-= Participating in RNRH development
+= Participating in native-html development
 
 == Initializing the project
 

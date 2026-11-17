@@ -1,6 +1,6 @@
 module.exports = {
   expo: {
-    name: 'RNRH Discovery',
+    name: 'native-html Discovery',
     slug: '@native-html/render-discovery',
     description:
       'An App to discover Native HTML features and API!',

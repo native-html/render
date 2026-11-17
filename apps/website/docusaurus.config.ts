@@ -140,7 +140,7 @@ const config: Config = {
     navbar: {
       hideOnScroll: true,
       logo: {
-        alt: 'RNRH',
+        alt: 'native-html',
         src: 'img/logo.svg'
       },
       items: [

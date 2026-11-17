@@ -1,6 +1,6 @@
 {
-  "name": "Discover RNRH",
-  "short_name": "Discover RNRH",
+  "name": "Discover native-html",
+  "short_name": "Discover native-html",
   "icons": [
     {
       "src": "web-app-manifest-192x192.png",
