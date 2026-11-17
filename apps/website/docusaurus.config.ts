@@ -26,16 +26,6 @@ const plugins: any[] = [
       };
     }
   }),
-  [
-    'doc-docusaurus-rfg-plugin',
-    {
-      icon: '../../assets/favicon.svg',
-      apiKey: '5cfedd426015fefc5fb4a1612a13ebdb930aaf46',
-      name: 'Discover RNRH',
-      themeColor: '#8181ff',
-      backgroundColor: '#000040'
-    }
-  ],
   // Only include this plugin when the apisidebar file has been generated.
   ...(hasAPIsidebar
     ? [
@@ -71,6 +61,45 @@ const plugins: any[] = [
     : [])
 ];
 
+// Favicons are committed in static/favicons (generated once from
+// assets/favicon.svg with https://realfavicongenerator.net).
+const faviconsBase = `${WEBSITE_BASE}favicons/`;
+const faviconHeadTags: Config['headTags'] = [
+  {
+    tagName: 'link',
+    attributes: {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '96x96',
+      href: `${faviconsBase}favicon-96x96.png`
+    }
+  },
+  {
+    tagName: 'link',
+    attributes: {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: `${faviconsBase}favicon.svg`
+    }
+  },
+  {
+    tagName: 'link',
+    attributes: { rel: 'shortcut icon', href: `${faviconsBase}favicon.ico` }
+  },
+  {
+    tagName: 'link',
+    attributes: {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: `${faviconsBase}apple-touch-icon.png`
+    }
+  },
+  {
+    tagName: 'link',
+    attributes: { rel: 'manifest', href: `${faviconsBase}site.webmanifest` }
+  }
+];
+
 const config: Config = {
   title: 'Native HTML',
   tagline:
@@ -87,6 +116,7 @@ const config: Config = {
   // https://github.com/facebook/docusaurus/issues/4923
   // Also remove the swizzled LayoutHead
   favicon: 'favicons/favicon-32x32.png',
+  headTags: faviconHeadTags,
   organizationName: 'meliorence',
   projectName: '@native-html/render',
   plugins: plugins,
