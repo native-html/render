@@ -9,6 +9,16 @@ import { LongCSSPropertyValidator } from './validators/LongCSSPropertyValidator'
 
 type CSSRawPropertiesList = [string, any][];
 
+/**
+ * The `!important` flag is stripped and ignored. Between style sources, this
+ * makes no difference: inline styles are merged last, and tagsStyles,
+ * classesStyles and idsStyles are JS objects which can't carry the flag.
+ * Within one style attribute however, declarations are applied in order, so
+ * a later declaration overrides an earlier important one, unlike in
+ * browsers: `color: red !important; color: blue` gives blue.
+ */
+const IMPORTANT_FLAG_REGEX = /\s*!\s*important\s*$/i;
+
 export class CSSInlineParseRun extends CSSParseRun {
   private rules: CSSRawPropertiesList;
 
@@ -25,7 +35,10 @@ export class CSSInlineParseRun extends CSSParseRun {
       .map((prop) => prop.split(':'))
       .reduce<CSSRawPropertiesList>((acc, prop) => {
         if (prop.length === 2) {
-          return [...acc, [prop[0].trim(), prop[1].trim()]];
+          return [
+            ...acc,
+            [prop[0].trim(), prop[1].replace(IMPORTANT_FLAG_REGEX, '').trim()]
+          ];
         }
         return acc;
       }, []);
