@@ -25,6 +25,9 @@ type Specs = {
 
 type SpecsModel = Pick<Specs, 'compat' | 'display' | 'propagation'>;
 
+// Only allowed for signed sizes (margins, offsets, letter-spacing)
+const negativeLengthSamples = ['-5px', '-10%', '-.5em'];
+
 const lengthSamples = [
   '0', // no-unit
   'auto', // special value
@@ -44,7 +47,13 @@ const lengthSamples = [
   'inherit', // should be ignored
   'calc(100% - 80px)', // should be ignored
   'var(--main-bg-color)', // should be ignored
-  'not-a-dimension!' // should be ignored
+  'not-a-dimension!', // should be ignored
+  'px', // no number, should be ignored
+  '.px', // no digit, should be ignored
+  '+5px', // explicit positive sign
+  '-0', // signed unitless zero
+  '-0px', // negative zero
+  ...negativeLengthSamples
 ];
 
 const sizeSpec: Pick<
@@ -72,7 +81,25 @@ const sizeSpec: Pick<
     null, // inherit
     null, // calc(...)
     null, // var(...)
-    null // not-a-dimension!
+    null, // not-a-dimension!
+    null, // px
+    null, // .px
+    5, // +5px
+    0, // -0
+    0, // -0px
+    null, // -5px
+    null, // -10%
+    null // -.5em
+  ]
+};
+
+const signedSizeSpec: typeof sizeSpec = {
+  ...sizeSpec,
+  outValues: [
+    ...sizeSpec.outValues.slice(0, -negativeLengthSamples.length),
+    -5, // -5px
+    '-10%', // -10%
+    -8 // -.5em
   ]
 };
 
@@ -432,21 +459,21 @@ describe('CSSProcessor', () => {
       ...sizeSpec,
       ...nativeRetainedBlockSpec
     };
+    const nativeRetainedBlockSignedSizeSpecModel = {
+      ...signedSizeSpec,
+      ...nativeRetainedBlockSpec
+    };
     const nativeRetainedBlockNonPercentSizeSpecModel: Specs = {
       ...sizeSpec,
       ...nativeRetainedBlockSpec,
-      inlineIncomingValues: ['10px', '10%'],
-      mixedIncomingValues: [10, '10%'],
-      outValues: [10, null]
+      inlineIncomingValues: ['10px', '10%', '-10px'],
+      mixedIncomingValues: [10, '10%', '-10px'],
+      outValues: [10, null, null]
     };
     const retainedWebBlockSpec: SpecsModel = {
       compat: 'web',
       display: 'block',
       propagation: 'retain'
-    };
-    const retainedNativeBlockSizeSpec = {
-      ...nativeRetainedBlockSpec,
-      ...sizeSpec
     };
     const borderWidthValues = [
       ...sizeSpec.inlineIncomingValues,
@@ -546,10 +573,10 @@ describe('CSSProcessor', () => {
         inlineIncomingValues: propertiesValidators.position.allowedList,
         mixedIncomingValues: propertiesValidators.position.allowedList
       },
-      left: retainedNativeBlockSizeSpec,
-      right: retainedNativeBlockSizeSpec,
-      top: retainedNativeBlockSizeSpec,
-      bottom: retainedNativeBlockSizeSpec,
+      left: nativeRetainedBlockSignedSizeSpecModel,
+      right: nativeRetainedBlockSignedSizeSpecModel,
+      top: nativeRetainedBlockSignedSizeSpecModel,
+      bottom: nativeRetainedBlockSignedSizeSpecModel,
       direction: {
         compat: 'native',
         display: 'block',
@@ -577,10 +604,10 @@ describe('CSSProcessor', () => {
       borderTopColor: nativeRetainedBlockColorSpecModel,
       borderTopWidth: borderWidthSpec,
       height: nativeRetainedBlockSizeSpecModel,
-      marginBottom: nativeRetainedBlockSizeSpecModel,
-      marginLeft: nativeRetainedBlockSizeSpecModel,
-      marginRight: nativeRetainedBlockSizeSpecModel,
-      marginTop: nativeRetainedBlockSizeSpecModel,
+      marginBottom: nativeRetainedBlockSignedSizeSpecModel,
+      marginLeft: nativeRetainedBlockSignedSizeSpecModel,
+      marginRight: nativeRetainedBlockSignedSizeSpecModel,
+      marginTop: nativeRetainedBlockSignedSizeSpecModel,
       maxHeight: nativeRetainedBlockSizeSpecModel,
       maxWidth: nativeRetainedBlockSizeSpecModel,
       minHeight: nativeRetainedBlockSizeSpecModel,
@@ -715,14 +742,14 @@ describe('CSSProcessor', () => {
         ],
         outValues: [...propertiesValidators.fontWeight.allowedList, null]
       },
-      letterSpacing: { ...flowedNativeTextSpec, ...sizeSpec },
+      letterSpacing: { ...flowedNativeTextSpec, ...signedSizeSpec },
       lineHeight: {
         compat: 'native',
         display: 'text',
         propagation: 'flow',
-        inlineIncomingValues: ['1px', '1em'],
+        inlineIncomingValues: ['1px', '1em', '-1px'],
         mixedIncomingValues: null,
-        outValues: [1, 16]
+        outValues: [1, 16, null]
       },
       textAlign: {
         ...flowedNativeTextSpec,
@@ -1071,7 +1098,9 @@ describe('CSSProcessor', () => {
           'auto',
           '0 auto',
           '2px 3px auto',
-          '1px 2px 3px 4px'
+          '1px 2px 3px 4px',
+          '-10px 0',
+          '0 -5px 0 -5%'
         ],
         mixedIncomingValues: null,
         outProps: [
@@ -1098,6 +1127,18 @@ describe('CSSProcessor', () => {
             marginRight: 2,
             marginBottom: 3,
             marginLeft: 4
+          },
+          {
+            marginTop: -10,
+            marginRight: 0,
+            marginBottom: -10,
+            marginLeft: 0
+          },
+          {
+            marginTop: 0,
+            marginRight: -5,
+            marginBottom: 0,
+            marginLeft: '-5%'
           }
         ]
       },
@@ -1110,7 +1151,8 @@ describe('CSSProcessor', () => {
           '1px 2px 3px',
           '1px 2px',
           '1px',
-          '1px 1px 1px 1px 1px' // illegal
+          '1px 1px 1px 1px 1px', // illegal
+          '-1px 2px' // illegal, padding cannot be negative
         ],
         mixedIncomingValues: null,
         outProps: [
@@ -1138,6 +1180,7 @@ describe('CSSProcessor', () => {
             paddingBottom: 1,
             paddingLeft: 1
           },
+          null,
           null
         ]
       }

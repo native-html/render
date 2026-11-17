@@ -4,6 +4,7 @@ import { LongFloatNumberCSSPropertyValidator } from './validators/LongFloatNumbe
 import { LongBorderWidthCSSPropertyValidator } from './validators/LongBorderWidthCSSPropertyValidator';
 import { LongFontSizeCSSValidator } from './validators/LongFontSizeCSSValidator';
 import { LongSizeCSSPropertyValidator } from './validators/LongSizeCSSPropertyValidator';
+import { LongSignedSizeCSSPropertyValidator } from './validators/LongSignedSizeCSSPropertyValidator';
 import { LongAspectRatioPropertyValidator } from './validators/LongAspectRatioPropertyValidator';
 import { LongEnumerationListCSSPropertyValidator } from './validators/LongEnumerationListCSSPropertyValidator';
 import { LongBorderStyleCSSPropertyValidator } from './validators/LongBorderStyleCSSPropertyValidator';
@@ -292,7 +293,7 @@ export default function makepropertiesValidators(config: CSSProcessorConfig) {
         '900'
       ]
     ),
-    letterSpacing: new LongSizeCSSPropertyValidator({
+    letterSpacing: new LongSignedSizeCSSPropertyValidator({
       config,
       propertyName: 'letterSpacing',
       model: nativeTranslatableTextFlowModel
@@ -372,7 +373,7 @@ export default function makepropertiesValidators(config: CSSProcessorConfig) {
       model: nativeTranslatableBlockRetainModel,
       propertyName: 'aspectRatio'
     }),
-    bottom: new LongSizeCSSPropertyValidator({
+    bottom: new LongSignedSizeCSSPropertyValidator({
       config,
       propertyName: 'bottom',
       model: nativeTranslatableBlockRetainModel
@@ -431,7 +432,7 @@ export default function makepropertiesValidators(config: CSSProcessorConfig) {
         'space-evenly'
       ]
     ),
-    left: new LongSizeCSSPropertyValidator({
+    left: new LongSignedSizeCSSPropertyValidator({
       config,
       propertyName: 'left',
       model: nativeTranslatableBlockRetainModel
@@ -444,12 +445,12 @@ export default function makepropertiesValidators(config: CSSProcessorConfig) {
       },
       ['absolute', 'relative']
     ),
-    right: new LongSizeCSSPropertyValidator({
+    right: new LongSignedSizeCSSPropertyValidator({
       config,
       propertyName: 'right',
       model: nativeTranslatableBlockRetainModel
     }),
-    top: new LongSizeCSSPropertyValidator({
+    top: new LongSignedSizeCSSPropertyValidator({
       config,
       model: nativeTranslatableBlockRetainModel,
       propertyName: 'top'
@@ -532,22 +533,22 @@ export default function makepropertiesValidators(config: CSSProcessorConfig) {
       propertyName: 'height',
       model: nativeTranslatableBlockRetainModel
     }),
-    marginBottom: new LongSizeCSSPropertyValidator({
+    marginBottom: new LongSignedSizeCSSPropertyValidator({
       config,
       propertyName: 'marginBottom',
       model: nativeTranslatableBlockRetainModel
     }),
-    marginLeft: new LongSizeCSSPropertyValidator({
+    marginLeft: new LongSignedSizeCSSPropertyValidator({
       config,
       propertyName: 'marginLeft',
       model: nativeTranslatableBlockRetainModel
     }),
-    marginRight: new LongSizeCSSPropertyValidator({
+    marginRight: new LongSignedSizeCSSPropertyValidator({
       config,
       propertyName: 'marginRight',
       model: nativeTranslatableBlockRetainModel
     }),
-    marginTop: new LongSizeCSSPropertyValidator({
+    marginTop: new LongSignedSizeCSSPropertyValidator({
       config,
       propertyName: 'marginTop',
       model: nativeTranslatableBlockRetainModel
