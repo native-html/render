@@ -44,18 +44,51 @@ export class CSSInlineParseRun extends CSSParseRun {
       }, []);
   }
 
+  /**
+   * Find the registered property matching a raw inline CSS property name.
+   *
+   * @remarks CSS property names are ASCII case-insensitive (e.g. `COLOR`).
+   * Names registered as written are kept, which preserves support for
+   * camelCase names (e.g. `paddingBottom`), others get a second attempt
+   * lowercased.
+   */
+  private resolvePropertyName(rawName: string): keyof ValidatorsType | null {
+    const camelCaseName = getPropertyName(rawName);
+    if (this.validationMap.shouldRegisterInlineProperty(camelCaseName)) {
+      return camelCaseName;
+    }
+    const lowercasedName = rawName.toLowerCase();
+    if (lowercasedName !== rawName) {
+      const lowercasedCamelCaseName = getPropertyName(lowercasedName);
+      if (
+        this.validationMap.shouldRegisterInlineProperty(lowercasedCamelCaseName)
+      ) {
+        return lowercasedCamelCaseName;
+      }
+    }
+    return null;
+  }
+
   normalizeProp(
     rule: CSSRawPropertiesList[number],
     strict = false
   ): null | [keyof ValidatorsType, any] {
     const rawName = rule[0];
     const rawValue = rule[1];
-    const camelCaseName = getPropertyName(rawName);
-    if (!this.validationMap.shouldRegisterInlineProperty(camelCaseName)) {
+    const camelCaseName = this.resolvePropertyName(rawName);
+    if (camelCaseName === null) {
       return null;
     }
     const validator = this.validationMap.getValidatorForProperty(camelCaseName);
-    const normalizedValue = validator.normalizeInlineCSSValue(rawValue);
+    let normalizedValue = validator.normalizeInlineCSSValue(rawValue);
+    if (normalizedValue === null && typeof rawValue === 'string') {
+      // CSS keywords are case-insensitive. Values valid as written are kept
+      // unchanged, others get a second attempt with lowercased keywords.
+      const lowercasedValue = validator.lowercaseInlineCSSKeywords(rawValue);
+      if (lowercasedValue !== rawValue) {
+        normalizedValue = validator.normalizeInlineCSSValue(lowercasedValue);
+      }
+    }
     if (normalizedValue === null) {
       if (strict) {
         throw new TypeError();

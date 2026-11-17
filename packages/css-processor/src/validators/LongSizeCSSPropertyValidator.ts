@@ -1,4 +1,5 @@
 import { CSSLengthUnit } from '../config';
+import { lowercaseCSSKeywords } from '../helpers';
 import { LongCSSPropertyValidator } from './LongCSSPropertyValidator';
 import { CSSPropertyModel } from './types';
 
@@ -78,5 +79,9 @@ export class LongSizeCSSPropertyValidator<
 
   normalizeNativeValue(value: string | number) {
     return this.normalizeInlineCSSValue(value);
+  }
+
+  lowercaseInlineCSSKeywords(value: string): string {
+    return lowercaseCSSKeywords(value);
   }
 }
