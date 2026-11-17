@@ -45,8 +45,18 @@ export default class RenderRegistry {
   }
 
   getRendererConfigForTNode<T extends TNode>(tnode: T): RendererConfig<T> {
+    let custom = this.getCustomRendererForTNode(tnode);
+    
+    // Allow overriding all text nodes via TText
+    if (!custom && tnode.type === 'text') {
+      const textRenderer = this.customRenderers['TText'];
+      if (textRenderer) {
+        custom = textRenderer as any;
+      }
+    }
+    
     return {
-      Custom: this.getCustomRendererForTNode(tnode),
+      Custom: custom,
       Default: this.getDefaultRendererForTNode(tnode)
     };
   }
