@@ -434,6 +434,11 @@ describe('CSSProcessor', () => {
         processor.compileInlineCSS('padding-horizontal: 10px;')
       ).toStrictEqual(new CSSProcessedProps());
     });
+    it('should ignore shorthand values which cannot be expanded', () => {
+      expect(processor.compileInlineCSS('flex: foo;')).toStrictEqual(
+        new CSSProcessedProps()
+      );
+    });
     describe('regarding the !important flag', () => {
       it('should ignore the flag on longhand properties', () => {
         expect(
@@ -552,9 +557,7 @@ describe('CSSProcessor', () => {
       it('should keep values which are valid as written unchanged', () => {
         expect(
           flatten(
-            processor.compileInlineCSS(
-              'color: #FFF; background-color: #AbCdEf'
-            )
+            processor.compileInlineCSS('color: #FFF; background-color: #AbCdEf')
           )
         ).toStrictEqual({
           color: '#FFF',

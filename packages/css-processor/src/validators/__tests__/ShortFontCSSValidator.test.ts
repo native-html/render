@@ -67,4 +67,17 @@ describe('ShortFontCSSValidator', () => {
       );
     });
   });
+  describe('lowercaseInlineCSSKeywords method', () => {
+    const validator = registryFromConfig({}).validators.font;
+    it('should lowercase keywords up to and including the font size', () => {
+      expect(
+        validator.lowercaseInlineCSSKeywords('ITALIC BOLD 12PX/18PX Georgia')
+      ).toBe('italic bold 12px/18px Georgia');
+    });
+    it('should return the value unchanged when it has no font size', () => {
+      expect(validator.lowercaseInlineCSSKeywords('BOLD Georgia')).toBe(
+        'BOLD Georgia'
+      );
+    });
+  });
 });
