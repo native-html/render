@@ -34,6 +34,7 @@
     "prepack": "yarn run build"
   },
   "dependencies": {
+    "css-color-keywords": "^1.0.0",
     "css-to-react-native": "^3.2.0",
     "csstype": "^3.1.3"
   },
