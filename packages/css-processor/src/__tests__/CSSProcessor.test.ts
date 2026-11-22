@@ -619,6 +619,27 @@ describe('CSSProcessor', () => {
           listStyleType: 'DISC'
         });
       });
+      it('should not retry rejected non-string values expanded from shorthands', () => {
+        // No built-in longhand validator rejects the non-string values
+        // shorthands expand to (`flex: 1` gives `flexGrow: 1`), so the
+        // rejection is stubbed, on a dedicated processor to avoid leaks.
+        const isolatedProcessor = new CSSProcessor(defaultCSSProcessorConfig);
+        const flexGrowValidator = isolatedProcessor.registry.validators.flexGrow;
+        jest
+          .spyOn(flexGrowValidator, 'normalizeInlineCSSValue')
+          .mockReturnValue(null);
+        const lowercaseSpy = jest.spyOn(
+          flexGrowValidator,
+          'lowercaseInlineCSSValue'
+        );
+        expect(isolatedProcessor.compileInlineCSS('flex: 1')).toStrictEqual(
+          new CSSProcessedProps()
+        );
+        expect(flexGrowValidator.normalizeInlineCSSValue).toHaveBeenCalledWith(
+          1
+        );
+        expect(lowercaseSpy).not.toHaveBeenCalled();
+      });
     });
     it('should ignore rules from the inlinePropertiesBlacklist config array', () => {
       const processorWithIgnoreStyles = new CSSProcessor({
