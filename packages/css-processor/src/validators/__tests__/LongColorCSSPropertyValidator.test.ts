@@ -36,7 +36,7 @@ describe('LongColorCSSPropertyValidator', () => {
         'rebeccapurple'
       );
     });
-    it('should support named colors missing from css-color-keywords', () => {
+    it('should support transparent, cyan and magenta', () => {
       for (const name of ['transparent', 'cyan', 'magenta']) {
         expect(validator.normalizeRawInlineCSSValue(name)).toBe(name);
       }
