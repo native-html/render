@@ -5,7 +5,7 @@ const HEX_COLOR_TOKEN_REGEX = /(#[0-9a-f]+)/i;
  *
  * @param value - The CSS value to lowercase.
  */
-export function lowercaseCSSKeywords(value: string): string {
+export function lowercaseCSSValue(value: string): string {
   return (
     value
       .split(HEX_COLOR_TOKEN_REGEX)

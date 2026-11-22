@@ -5,6 +5,7 @@ import { CSSPropertiesValidationRegistry } from './CSSPropertiesValidationRegist
 import { ValidatorsType } from './makepropertiesValidators';
 import { CSSProperties } from './processor-types';
 import { ShortMergeRequest } from './ShortMergeRequest';
+import { GenericCSSPropertyValidator } from './validators/GenericPropertyValidator';
 import { LongCSSPropertyValidator } from './validators/LongCSSPropertyValidator';
 
 type CSSRawPropertiesList = [string, any][];
@@ -69,6 +70,25 @@ export class CSSInlineParseRun extends CSSParseRun {
     return null;
   }
 
+  /**
+   * Normalize the lowercased form of a raw inline CSS value, or return null
+   * when lowercasing leaves it unchanged, since it already failed as written.
+   *
+   * @remarks Values can be non-strings when expanded from a shorthand.
+   */
+  private normalizeLowercasedValue(
+    validator: GenericCSSPropertyValidator,
+    rawValue: unknown
+  ) {
+    if (typeof rawValue !== 'string') {
+      return null;
+    }
+    const lowercasedValue = validator.lowercaseInlineCSSValue(rawValue);
+    return lowercasedValue === rawValue
+      ? null
+      : validator.normalizeInlineCSSValue(lowercasedValue);
+  }
+
   normalizeProp(
     rule: CSSRawPropertiesList[number],
     strict = false
@@ -80,15 +100,11 @@ export class CSSInlineParseRun extends CSSParseRun {
       return null;
     }
     const validator = this.validationMap.getValidatorForProperty(camelCaseName);
-    let normalizedValue = validator.normalizeInlineCSSValue(rawValue);
-    if (normalizedValue === null && typeof rawValue === 'string') {
-      // CSS keywords are case-insensitive. Values valid as written are kept
-      // unchanged, others get a second attempt with lowercased keywords.
-      const lowercasedValue = validator.lowercaseInlineCSSKeywords(rawValue);
-      if (lowercasedValue !== rawValue) {
-        normalizedValue = validator.normalizeInlineCSSValue(lowercasedValue);
-      }
-    }
+    // CSS keywords and units are case-insensitive. Values valid as written
+    // are kept unchanged, others get a second attempt lowercased.
+    const normalizedValue =
+      validator.normalizeInlineCSSValue(rawValue) ??
+      this.normalizeLowercasedValue(validator, rawValue);
     if (normalizedValue === null) {
       if (strict) {
         throw new TypeError();

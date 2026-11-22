@@ -1,4 +1,4 @@
-import { lowercaseCSSKeywords } from '../helpers';
+import { lowercaseCSSValue } from '../helpers';
 import { LongCSSPropertyValidator } from './LongCSSPropertyValidator';
 import { CSSPropertyValidatorParams, CSSPropertyModel } from './types';
 
@@ -22,7 +22,7 @@ export class LongEnumerationCSSPropertyValidator<
     return this.normalizeInlineCSSValue(v);
   }
 
-  lowercaseInlineCSSKeywords(value: string): string {
-    return lowercaseCSSKeywords(value);
+  lowercaseInlineCSSValue(value: string): string {
+    return lowercaseCSSValue(value);
   }
 }

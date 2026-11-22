@@ -393,7 +393,7 @@ describe('CSSProcessor', () => {
         } as any)
       ).toEqual(new CSSProcessedProps());
     });
-    it('should not match keyword values case-insensitively', () => {
+    it('should not match values case-insensitively', () => {
       expect(
         flatten(
           processor.compileStyleDeclaration({
@@ -521,7 +521,7 @@ describe('CSSProcessor', () => {
           processorWithIgnoreStyles.compileInlineCSS('BACKGROUND-COLOR: red;')
         ).toStrictEqual(new CSSProcessedProps());
       });
-      it('should match keyword values case-insensitively', () => {
+      it('should match keywords and units case-insensitively', () => {
         expect(
           flatten(
             processor.compileInlineCSS(
@@ -541,7 +541,7 @@ describe('CSSProcessor', () => {
             propertiesValidators.fontSize.normalizeInlineCSSValue('large')
         });
       });
-      it('should match color keywords case-insensitively', () => {
+      it('should match color names and functions case-insensitively', () => {
         expect(
           flatten(
             processor.compileInlineCSS(

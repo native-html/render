@@ -51,10 +51,11 @@ export abstract class GenericCSSPropertyValidator<
   abstract normalizeNativeValue(value: N): ShortMergeRequest | N | null;
 
   /**
-   * Lowercase the keywords of an inline CSS value which failed normalization
-   * as written, for a second normalization attempt. CSS keywords are ASCII
-   * case-insensitive (e.g. `display: FLEX`), while React Native style values
-   * are not, so this is only used for inline CSS.
+   * Lowercase the case-insensitive parts of an inline CSS value which failed
+   * normalization as written, for a second normalization attempt. CSS
+   * keywords and units are ASCII case-insensitive (e.g. `display: FLEX`,
+   * `width: 10PX`), while React Native style values are not, so this is only
+   * used for inline CSS.
    *
    * @remarks The default implementation returns the value unchanged, which
    * prevents a second attempt. Validators must not override it when
@@ -66,7 +67,7 @@ export abstract class GenericCSSPropertyValidator<
    *
    * @param value - The inline CSS value which failed normalization.
    */
-  lowercaseInlineCSSKeywords(value: string): string {
+  lowercaseInlineCSSValue(value: string): string {
     return value;
   }
 

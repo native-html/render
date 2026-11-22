@@ -2,7 +2,7 @@ import { ShortCSSToReactNativeValidator } from './ShortCSSToReactNativeValidator
 import normalizeFontName from './normalizeFontName';
 import { CSSPropertyModel } from './types';
 import { ShortMergeRequest } from '../ShortMergeRequest';
-import { lowercaseCSSKeywords } from '../helpers';
+import { lowercaseCSSValue } from '../helpers';
 
 const WHITESPACE_REGEX = /\s+/;
 
@@ -18,18 +18,18 @@ export class ShortFontCSSValidator<
   C extends CSSPropertyModel
 > extends ShortCSSToReactNativeValidator<C> {
   /**
-   * Only lowercase the keywords preceding the font family, which is matched
+   * Only lowercase the part preceding the font family, which is matched
    * by exact name against the available fonts. In the font shorthand, the
    * font family always follows the font size.
    */
-  lowercaseInlineCSSKeywords(value: string): string {
+  lowercaseInlineCSSValue(value: string): string {
     const chunks = value.split(WHITESPACE_SEPARATOR_REGEX);
     const sizeIndex = chunks.findIndex((chunk) => FONT_SIZE_REGEX.test(chunk));
     if (sizeIndex === -1) {
       return value;
     }
     return (
-      lowercaseCSSKeywords(chunks.slice(0, sizeIndex + 1).join('')) +
+      lowercaseCSSValue(chunks.slice(0, sizeIndex + 1).join('')) +
       chunks.slice(sizeIndex + 1).join('')
     );
   }
