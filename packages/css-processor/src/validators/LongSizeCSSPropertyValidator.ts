@@ -1,10 +1,25 @@
 import { CSSLengthUnit } from '../config';
+import { lowercaseCSSValue } from '../helpers';
 import { LongCSSPropertyValidator } from './LongCSSPropertyValidator';
 import { CSSPropertyModel } from './types';
+
+const LENGTH_REGEX =
+  /^([+-]?(?:\d+\.?\d*|\.\d+))\s*(cm|mm|in|px|pt|pc|em|ex|ch|rem|vw|vh|vmin|vmax|%)$/;
+
+const UNITLESS_ZERO_REGEX = /^[+-]?0$/;
 
 export class LongSizeCSSPropertyValidator<
   C extends CSSPropertyModel
 > extends LongCSSPropertyValidator<C, number | string> {
+  /**
+   * Whether this property accepts negative lengths. Most size properties
+   * (padding, width, font-size...) don't, see
+   * {@link LongSignedSizeCSSPropertyValidator} for those which do.
+   */
+  protected allowsNegativeValues(): boolean {
+    return false;
+  }
+
   protected computeSize(
     value: number,
     unit: CSSLengthUnit
@@ -36,18 +51,20 @@ export class LongSizeCSSPropertyValidator<
   }
 
   protected splitValueAndUnit(value: string): [number, CSSLengthUnit] | null {
-    const match =
-      /^(\d*\.?\d*)\s*(cm|mm|in|px|pt|pc|em|ex|ch|rem|vw|vh|vmin|vmax|%)$/g.exec(
-        value
-      );
+    const match = LENGTH_REGEX.exec(value);
     if (match === null) {
       return null;
     }
-    return [Number(match[1]), match[2] as CSSLengthUnit];
+    const size = Number(match[1]);
+    if (size < 0 && !this.allowsNegativeValues()) {
+      return null;
+    }
+    // Normalize -0 to 0
+    return [size === 0 ? 0 : size, match[2] as CSSLengthUnit];
   }
 
   normalizeRawInlineCSSValue(value: string) {
-    if (value === '0') {
+    if (UNITLESS_ZERO_REGEX.test(value)) {
       return 0;
     }
     if (value === 'auto') {
@@ -62,5 +79,9 @@ export class LongSizeCSSPropertyValidator<
 
   normalizeNativeValue(value: string | number) {
     return this.normalizeInlineCSSValue(value);
+  }
+
+  lowercaseInlineCSSValue(value: string): string {
+    return lowercaseCSSValue(value);
   }
 }

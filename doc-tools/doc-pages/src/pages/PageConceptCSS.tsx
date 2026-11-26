@@ -170,9 +170,9 @@ export default function PageConceptCSS() {
           precedence over classes styles, ...etc.
         </Paragraph>
         <Admonition type="important">
-          <InlineCode>important!</InlineCode> directives, complex selectors such
-          as <InlineCode>div &gt; *</InlineCode>, pseudo-classes and
-          pseudo-elements are not supported.
+          The <InlineCode>!important</InlineCode> flag will be ignored. Declaration blocks
+          after complex selectors such as <InlineCode>div &gt; *</InlineCode>,
+          pseudo-classes and pseudo-elements will be ignored.
         </Admonition>
       </Chapter>
     </Page>

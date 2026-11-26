@@ -13,6 +13,22 @@ import { ExtraNativeShortViewStyleKeys } from '../native-types';
 const processor = new CSSProcessor(defaultCSSProcessorConfig);
 const propertiesValidators = processor.registry.validators;
 
+/**
+ * Merge all categories of processed props into one record.
+ */
+function flatten(output: CSSProcessedProps) {
+  return {
+    ...output.native.text.flow,
+    ...output.native.text.retain,
+    ...output.native.block.flow,
+    ...output.native.block.retain,
+    ...output.web.text.flow,
+    ...output.web.text.retain,
+    ...output.web.block.flow,
+    ...output.web.block.retain
+  };
+}
+
 type Specs = {
   readonly inlineIncomingValues: ReadonlyArray<string>;
   readonly mixedIncomingValues: ReadonlyArray<any> | null;
@@ -24,6 +40,9 @@ type Specs = {
 };
 
 type SpecsModel = Pick<Specs, 'compat' | 'display' | 'propagation'>;
+
+// Only allowed for signed sizes (margins, offsets, letter-spacing)
+const negativeLengthSamples = ['-5px', '-10%', '-.5em'];
 
 const lengthSamples = [
   '0', // no-unit
@@ -44,7 +63,13 @@ const lengthSamples = [
   'inherit', // should be ignored
   'calc(100% - 80px)', // should be ignored
   'var(--main-bg-color)', // should be ignored
-  'not-a-dimension!' // should be ignored
+  'not-a-dimension!', // should be ignored
+  'px', // no number, should be ignored
+  '.px', // no digit, should be ignored
+  '+5px', // explicit positive sign
+  '-0', // signed unitless zero
+  '-0px', // negative zero
+  ...negativeLengthSamples
 ];
 
 const sizeSpec: Pick<
@@ -72,7 +97,25 @@ const sizeSpec: Pick<
     null, // inherit
     null, // calc(...)
     null, // var(...)
-    null // not-a-dimension!
+    null, // not-a-dimension!
+    null, // px
+    null, // .px
+    5, // +5px
+    0, // -0
+    0, // -0px
+    null, // -5px
+    null, // -10%
+    null // -.5em
+  ]
+};
+
+const signedSizeSpec: typeof sizeSpec = {
+  ...sizeSpec,
+  outValues: [
+    ...sizeSpec.outValues.slice(0, -negativeLengthSamples.length),
+    -5, // -5px
+    '-10%', // -10%
+    -8 // -.5em
   ]
 };
 
@@ -350,6 +393,21 @@ describe('CSSProcessor', () => {
         } as any)
       ).toEqual(new CSSProcessedProps());
     });
+    it('should not match values case-insensitively', () => {
+      expect(
+        flatten(
+          processor.compileStyleDeclaration({
+            display: 'FLEX',
+            marginTop: '5PX'
+          } as any)
+        )
+      ).toStrictEqual({});
+    });
+    it('should not validate the sign of numeric values', () => {
+      expect(
+        flatten(processor.compileStyleDeclaration({ paddingTop: -5 }))
+      ).toStrictEqual({ paddingTop: -5 });
+    });
     it('should ignore unknown properties', () => {
       console.warn = jest.fn();
       expect(
@@ -375,6 +433,213 @@ describe('CSSProcessor', () => {
       expect(
         processor.compileInlineCSS('padding-horizontal: 10px;')
       ).toStrictEqual(new CSSProcessedProps());
+    });
+    it('should ignore shorthand values which cannot be expanded', () => {
+      expect(processor.compileInlineCSS('flex: foo;')).toStrictEqual(
+        new CSSProcessedProps()
+      );
+    });
+    describe('regarding the !important flag', () => {
+      it('should ignore the flag on longhand properties', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'color: red !important; margin-top: 5px !important; display: flex !important; font-size: 20px !important'
+            )
+          )
+        ).toStrictEqual({
+          color: 'red',
+          marginTop: 5,
+          display: 'flex',
+          fontSize: 20
+        });
+      });
+      it('should ignore the flag on shorthand properties', () => {
+        expect(
+          flatten(processor.compileInlineCSS('margin: -10px 0 !important'))
+        ).toStrictEqual({
+          marginTop: -10,
+          marginRight: 0,
+          marginBottom: -10,
+          marginLeft: 0
+        });
+      });
+      it('should ignore the flag regardless of case and whitespace', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'color: rgb(0, 0, 0)!important; background-color: blue ! IMPORTANT ;'
+            )
+          )
+        ).toStrictEqual({
+          color: 'rgb(0, 0, 0)',
+          backgroundColor: 'blue'
+        });
+      });
+      it('should not leak the flag into forgiving properties', () => {
+        expect(
+          processor.compileInlineCSS('font-family: Arial !important').native
+            .text.flow
+        ).toStrictEqual({ fontFamily: 'Arial' });
+      });
+    });
+    describe('regarding case-insensitivity', () => {
+      it('should match property names case-insensitively', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'COLOR: red; Font-Size: 20px; MARGIN: 10px'
+            )
+          )
+        ).toStrictEqual({
+          color: 'red',
+          fontSize: 20,
+          marginTop: 10,
+          marginRight: 10,
+          marginBottom: 10,
+          marginLeft: 10
+        });
+      });
+      it('should keep supporting camelCase property names', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'paddingBottom: 10px; backgroundColor: red'
+            )
+          )
+        ).toStrictEqual({
+          paddingBottom: 10,
+          backgroundColor: 'red'
+        });
+      });
+      it('should apply inlinePropertiesBlacklist regardless of property names case', () => {
+        const processorWithIgnoreStyles = new CSSProcessor({
+          ...defaultCSSProcessorConfig,
+          inlinePropertiesBlacklist: ['backgroundColor']
+        });
+        expect(
+          processorWithIgnoreStyles.compileInlineCSS('BACKGROUND-COLOR: red;')
+        ).toStrictEqual(new CSSProcessedProps());
+      });
+      it('should match keywords and units case-insensitively', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'display: FLEX; font-weight: BOLD; font-variant: small-caps OLDSTYLE-NUMS; border-style: SOLID; margin-top: AUTO; margin-left: -5PX; border-top-width: THIN; font-size: LARGE'
+            )
+          )
+        ).toStrictEqual({
+          display: 'flex',
+          fontWeight: 'bold',
+          fontVariant: ['small-caps', 'oldstyle-nums'],
+          borderStyle: 'solid',
+          marginTop: 'auto',
+          marginLeft: -5,
+          borderTopWidth:
+            propertiesValidators.borderTopWidth.normalizeInlineCSSValue('thin'),
+          fontSize:
+            propertiesValidators.fontSize.normalizeInlineCSSValue('large')
+        });
+      });
+      it('should match color names and functions case-insensitively', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'color: RED; background-color: RGB(0, 0, 0); border-top-color: Transparent'
+            )
+          )
+        ).toStrictEqual({
+          color: 'red',
+          backgroundColor: 'rgb(0, 0, 0)',
+          borderTopColor: 'transparent'
+        });
+      });
+      it('should keep values which are valid as written unchanged', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS('color: #FFF; background-color: #AbCdEf')
+          )
+        ).toStrictEqual({
+          color: '#FFF',
+          backgroundColor: '#AbCdEf'
+        });
+      });
+      it('should match keywords of shorthand properties case-insensitively, preserving hex colors', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'border: 1px SOLID #FFF; flex-flow: ROW WRAP; text-decoration: UNDERLINE RED'
+            )
+          )
+        ).toStrictEqual({
+          borderTopWidth: 1,
+          borderRightWidth: 1,
+          borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderTopColor: '#FFF',
+          borderRightColor: '#FFF',
+          borderBottomColor: '#FFF',
+          borderLeftColor: '#FFF',
+          borderStyle: 'solid',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          textDecorationLine: 'underline',
+          textDecorationColor: 'red',
+          textDecorationStyle: 'solid'
+        });
+        expect(
+          flatten(processor.compileInlineCSS('background: RED'))
+        ).toStrictEqual({ backgroundColor: 'red' });
+      });
+      it('should not lowercase the font family of the font shorthand', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'font: ITALIC BOLD 12PX/18PX Times New Roman'
+            )
+          )
+        ).toStrictEqual({
+          fontStyle: 'italic',
+          fontWeight: 'bold',
+          fontVariant: [],
+          fontSize: 12,
+          lineHeight: 18,
+          fontFamily: 'Times New Roman'
+        });
+      });
+      it('should not lowercase case-sensitive values', () => {
+        expect(
+          flatten(
+            processor.compileInlineCSS(
+              'font-family: HELVETICA; list-style-type: DISC; transform: ROTATE(45DEG)'
+            )
+          )
+        ).toStrictEqual({
+          fontFamily: 'HELVETICA',
+          listStyleType: 'DISC'
+        });
+      });
+      it('should not retry rejected non-string values expanded from shorthands', () => {
+        // No built-in longhand validator rejects the non-string values
+        // shorthands expand to (`flex: 1` gives `flexGrow: 1`), so the
+        // rejection is stubbed, on a dedicated processor to avoid leaks.
+        const isolatedProcessor = new CSSProcessor(defaultCSSProcessorConfig);
+        const flexGrowValidator = isolatedProcessor.registry.validators.flexGrow;
+        jest
+          .spyOn(flexGrowValidator, 'normalizeInlineCSSValue')
+          .mockReturnValue(null);
+        const lowercaseSpy = jest.spyOn(
+          flexGrowValidator,
+          'lowercaseInlineCSSValue'
+        );
+        expect(isolatedProcessor.compileInlineCSS('flex: 1')).toStrictEqual(
+          new CSSProcessedProps()
+        );
+        expect(flexGrowValidator.normalizeInlineCSSValue).toHaveBeenCalledWith(
+          1
+        );
+        expect(lowercaseSpy).not.toHaveBeenCalled();
+      });
     });
     it('should ignore rules from the inlinePropertiesBlacklist config array', () => {
       const processorWithIgnoreStyles = new CSSProcessor({
@@ -432,21 +697,21 @@ describe('CSSProcessor', () => {
       ...sizeSpec,
       ...nativeRetainedBlockSpec
     };
+    const nativeRetainedBlockSignedSizeSpecModel = {
+      ...signedSizeSpec,
+      ...nativeRetainedBlockSpec
+    };
     const nativeRetainedBlockNonPercentSizeSpecModel: Specs = {
       ...sizeSpec,
       ...nativeRetainedBlockSpec,
-      inlineIncomingValues: ['10px', '10%'],
-      mixedIncomingValues: [10, '10%'],
-      outValues: [10, null]
+      inlineIncomingValues: ['10px', '10%', '-10px'],
+      mixedIncomingValues: [10, '10%', '-10px'],
+      outValues: [10, null, null]
     };
     const retainedWebBlockSpec: SpecsModel = {
       compat: 'web',
       display: 'block',
       propagation: 'retain'
-    };
-    const retainedNativeBlockSizeSpec = {
-      ...nativeRetainedBlockSpec,
-      ...sizeSpec
     };
     const borderWidthValues = [
       ...sizeSpec.inlineIncomingValues,
@@ -546,10 +811,10 @@ describe('CSSProcessor', () => {
         inlineIncomingValues: propertiesValidators.position.allowedList,
         mixedIncomingValues: propertiesValidators.position.allowedList
       },
-      left: retainedNativeBlockSizeSpec,
-      right: retainedNativeBlockSizeSpec,
-      top: retainedNativeBlockSizeSpec,
-      bottom: retainedNativeBlockSizeSpec,
+      left: nativeRetainedBlockSignedSizeSpecModel,
+      right: nativeRetainedBlockSignedSizeSpecModel,
+      top: nativeRetainedBlockSignedSizeSpecModel,
+      bottom: nativeRetainedBlockSignedSizeSpecModel,
       direction: {
         compat: 'native',
         display: 'block',
@@ -577,10 +842,10 @@ describe('CSSProcessor', () => {
       borderTopColor: nativeRetainedBlockColorSpecModel,
       borderTopWidth: borderWidthSpec,
       height: nativeRetainedBlockSizeSpecModel,
-      marginBottom: nativeRetainedBlockSizeSpecModel,
-      marginLeft: nativeRetainedBlockSizeSpecModel,
-      marginRight: nativeRetainedBlockSizeSpecModel,
-      marginTop: nativeRetainedBlockSizeSpecModel,
+      marginBottom: nativeRetainedBlockSignedSizeSpecModel,
+      marginLeft: nativeRetainedBlockSignedSizeSpecModel,
+      marginRight: nativeRetainedBlockSignedSizeSpecModel,
+      marginTop: nativeRetainedBlockSignedSizeSpecModel,
       maxHeight: nativeRetainedBlockSizeSpecModel,
       maxWidth: nativeRetainedBlockSizeSpecModel,
       minHeight: nativeRetainedBlockSizeSpecModel,
@@ -715,14 +980,14 @@ describe('CSSProcessor', () => {
         ],
         outValues: [...propertiesValidators.fontWeight.allowedList, null]
       },
-      letterSpacing: { ...flowedNativeTextSpec, ...sizeSpec },
+      letterSpacing: { ...flowedNativeTextSpec, ...signedSizeSpec },
       lineHeight: {
         compat: 'native',
         display: 'text',
         propagation: 'flow',
-        inlineIncomingValues: ['1px', '1em'],
+        inlineIncomingValues: ['1px', '1em', '-1px'],
         mixedIncomingValues: null,
-        outValues: [1, 16]
+        outValues: [1, 16, null]
       },
       textAlign: {
         ...flowedNativeTextSpec,
@@ -1071,7 +1336,9 @@ describe('CSSProcessor', () => {
           'auto',
           '0 auto',
           '2px 3px auto',
-          '1px 2px 3px 4px'
+          '1px 2px 3px 4px',
+          '-10px 0',
+          '0 -5px 0 -5%'
         ],
         mixedIncomingValues: null,
         outProps: [
@@ -1098,6 +1365,18 @@ describe('CSSProcessor', () => {
             marginRight: 2,
             marginBottom: 3,
             marginLeft: 4
+          },
+          {
+            marginTop: -10,
+            marginRight: 0,
+            marginBottom: -10,
+            marginLeft: 0
+          },
+          {
+            marginTop: 0,
+            marginRight: -5,
+            marginBottom: 0,
+            marginLeft: '-5%'
           }
         ]
       },
@@ -1110,7 +1389,8 @@ describe('CSSProcessor', () => {
           '1px 2px 3px',
           '1px 2px',
           '1px',
-          '1px 1px 1px 1px 1px' // illegal
+          '1px 1px 1px 1px 1px', // illegal
+          '-1px 2px' // illegal, padding cannot be negative
         ],
         mixedIncomingValues: null,
         outProps: [
@@ -1138,6 +1418,7 @@ describe('CSSProcessor', () => {
             paddingBottom: 1,
             paddingLeft: 1
           },
+          null,
           null
         ]
       }
